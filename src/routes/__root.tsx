@@ -13,13 +13,28 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SplashLoader } from "@/components/splash-loader";
-import { LOGO_GIF, OG_IMAGE, SITE_NAME, SITE_TAGLINE, SITE_URL, REPO_URL } from "@/lib/site";
+import {
+  LOGO_GIF,
+  OG_IMAGE,
+  OG_IMAGE_ALT,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+  REPO_URL,
+} from "@/lib/site";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <img src={LOGO_GIF} alt="" width={96} height={96} className="mx-auto mb-6 rounded-2xl shadow-[var(--shadow-card)]" />
+        <img
+          src={LOGO_GIF}
+          alt=""
+          width={96}
+          height={96}
+          className="mx-auto mb-6 rounded-2xl shadow-[var(--shadow-card)]"
+        />
         <h1 className="text-7xl font-bold text-foreground">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
@@ -40,7 +55,11 @@ function NotFoundComponent() {
           </Link>
         </div>
         <p className="mt-6 text-sm text-muted-foreground">
-          Think this is a mistake? <Link to="/contact" className="font-bold text-brand">Tell us</Link>.
+          Think this is a mistake?{" "}
+          <Link to="/contact" className="font-bold text-brand">
+            Tell us
+          </Link>
+          .
         </p>
       </div>
     </div>
@@ -97,15 +116,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: `${SITE_NAME} — ${SITE_TAGLINE}` },
+      { name: "description", content: SITE_DESCRIPTION },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { name: "application-name", content: SITE_NAME },
       { name: "apple-mobile-web-app-title", content: SITE_NAME },
       { name: "theme-color", content: "#9a1a3e" },
       { name: "format-detection", content: "telephone=no" },
       { name: "referrer", content: "strict-origin-when-cross-origin" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: `${SITE_NAME} — ${SITE_TAGLINE}` },
+      { property: "og:description", content: SITE_DESCRIPTION },
+      { property: "og:url", content: SITE_URL },
       { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:secure_url", content: OG_IMAGE },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: `${SITE_NAME} — ${SITE_TAGLINE}` },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
       { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
       { property: "og:site_name", content: "PublishRank" },
     ],
     links: [
@@ -114,7 +148,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap",
+      },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
@@ -135,7 +172,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": `${SITE_URL}/#website`,
               url: SITE_URL,
               name: SITE_NAME,
-              description: "Free, open-source WordPress SEO plugin for news publishers.",
+              description: SITE_DESCRIPTION,
               inLanguage: "en",
               publisher: { "@id": `${SITE_URL}/#organization` },
             },
@@ -144,7 +181,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@id": `${SITE_URL}/#organization`,
               name: SITE_NAME,
               url: SITE_URL,
-              logo: { "@type": "ImageObject", url: `${SITE_URL}/android-chrome-512x512.png`, width: 512, height: 512 },
+              logo: {
+                "@type": "ImageObject",
+                url: `${SITE_URL}/android-chrome-512x512.png`,
+                width: 512,
+                height: 512,
+              },
               image: OG_IMAGE,
               sameAs: [REPO_URL],
             },
