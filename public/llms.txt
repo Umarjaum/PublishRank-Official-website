@@ -1,0 +1,16 @@
+# PublishRank
+
+> PublishRank is a free, open-source WordPress SEO plugin for news publishers, online newspapers and bloggers. It covers news and XML sitemaps, connected structured data, breadcrumbs, redirects, crawl optimization, llms.txt discovery, Google Preferred Sources, a newsroom workspace and login protection.
+
+## Key pages
+- [Home](https://publishrankseo.vercel.app/): Overview, screenshots and FAQ
+- [Features](https://publishrankseo.vercel.app/features): The complete list of 222 capabilities
+- [Documentation](https://publishrankseo.vercel.app/documentation): Setup, configuration and error reference
+- [Comparisons](https://publishrankseo.vercel.app/comparisons): PublishRank vs Yoast SEO, Rank Math, SEOPress and All in One SEO
+- [Download](https://publishrankseo.vercel.app/download): Latest release and install guide
+- [Contact](https://publishrankseo.vercel.app/contact): Questions, bug reports and partnerships
+
+## Notes
+- Download: https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip
+- Source and issues: https://github.com/Umarjaum/PublishRank
+- PublishRank does not guarantee rankings, rich results, indexing or AI citations.
