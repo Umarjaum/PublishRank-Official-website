@@ -15,7 +15,7 @@ export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — Built for Newsrooms. Ranked by Google.";
 export const LOGO_GIF = "/brand/publishrank-logo-animated.gif";
 export const LOGO_MARK = "/brand/publishrank-logo-mark.png";
-export const REVIEW_COUNT_LABEL = "10,000+";
+export const REVIEW_COUNT_LABEL = "40,000+";
 
 export function absoluteUrl(path: string): string {
   if (/^https?:\/\//.test(path)) return path;
