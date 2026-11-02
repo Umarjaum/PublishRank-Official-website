@@ -115,14 +115,6 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={() => setSearchOpen(true)}
-            className="nav-icon-button"
-            aria-label="Search PublishRank"
-          >
-            <Search className="h-5 w-5" />
-          </button>
-          <button
-            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             className="nav-menu-button"
             aria-label={menuOpen ? "Close PublishRank navigation" : "Open PublishRank navigation"}
@@ -160,6 +152,20 @@ export function SiteHeader() {
                 <X className="h-5 w-5" />
               </button>
             </div>
+            <button
+              type="button"
+              onClick={() => {
+                setMenuOpen(false);
+                setSearchOpen(true);
+              }}
+              className="mb-7 flex min-h-12 w-full items-center justify-between rounded-xl border bg-card px-4 text-left font-bold shadow-[var(--shadow-card)] hover:border-brand hover:bg-brand-soft"
+            >
+              <span className="flex items-center gap-3">
+                <Search aria-hidden="true" className="h-5 w-5 text-brand" />
+                Search PublishRank
+              </span>
+              <ArrowRight aria-hidden="true" className="h-4 w-4 text-brand" />
+            </button>
             <div className="grid gap-7 md:grid-cols-3">
               {navigationGroups.map((group) => (
                 <section key={group.label}>
