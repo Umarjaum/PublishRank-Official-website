@@ -21,6 +21,7 @@ import { Route as DownloadRouteImport } from './routes/download'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as NewsRouteImport } from './routes/news'
+import { Route as NewsSitemapDotxmlRouteImport } from './routes/news-sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SecurityRouteImport } from './routes/security'
@@ -28,6 +29,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -90,6 +92,11 @@ const NewsRoute = NewsRouteImport.update({
   path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsSitemapDotxmlRoute = NewsSitemapDotxmlRouteImport.update({
+  id: '/news-sitemap.xml',
+  path: '/news-sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -125,6 +132,11 @@ const ApiContactRoute = ApiContactRouteImport.update({
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewsRoute,
+} as any)
 const NewsSlugRoute = NewsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -144,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
   '/news': typeof NewsRouteWithChildren
+  '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
@@ -152,6 +165,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -165,7 +179,7 @@ export interface FileRoutesByTo {
   '/download': typeof DownloadRoute
   '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
-  '/news': typeof NewsRouteWithChildren
+  '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
@@ -174,6 +188,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -189,6 +204,7 @@ export interface FileRoutesById {
   '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
   '/news': typeof NewsRouteWithChildren
+  '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
@@ -197,6 +213,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -213,6 +230,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/features'
     | '/news'
+    | '/news-sitemap.xml'
     | '/privacy'
     | '/resources'
     | '/security'
@@ -221,6 +239,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/api/contact'
     | '/news/$slug'
+    | '/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -234,7 +253,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/enterprise'
     | '/features'
-    | '/news'
+    | '/news-sitemap.xml'
     | '/privacy'
     | '/resources'
     | '/security'
@@ -243,6 +262,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/api/contact'
     | '/news/$slug'
+    | '/news'
   id:
     | '__root__'
     | '/'
@@ -257,6 +277,7 @@ export interface FileRouteTypes {
     | '/enterprise'
     | '/features'
     | '/news'
+    | '/news-sitemap.xml'
     | '/privacy'
     | '/resources'
     | '/security'
@@ -265,6 +286,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/api/contact'
     | '/news/$slug'
+    | '/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -280,6 +302,7 @@ export interface RootRouteChildren {
   EnterpriseRoute: typeof EnterpriseRoute
   FeaturesRoute: typeof FeaturesRoute
   NewsRoute: typeof NewsRouteWithChildren
+  NewsSitemapDotxmlRoute: typeof NewsSitemapDotxmlRoute
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   SecurityRoute: typeof SecurityRoute
@@ -375,6 +398,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news-sitemap.xml': {
+      id: '/news-sitemap.xml'
+      path: '/news-sitemap.xml'
+      fullPath: '/news-sitemap.xml'
+      preLoaderRoute: typeof NewsSitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -424,6 +454,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/': {
+      id: '/news/'
+      path: '/'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof NewsRoute
+    }
     '/news/$slug': {
       id: '/news/$slug'
       path: '/$slug'
@@ -436,10 +473,12 @@ declare module '@tanstack/react-router' {
 
 interface NewsRouteChildren {
   NewsSlugRoute: typeof NewsSlugRoute
+  NewsIndexRoute: typeof NewsIndexRoute
 }
 
 const NewsRouteChildren: NewsRouteChildren = {
   NewsSlugRoute: NewsSlugRoute,
+  NewsIndexRoute: NewsIndexRoute,
 }
 
 const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
@@ -457,6 +496,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnterpriseRoute: EnterpriseRoute,
   FeaturesRoute: FeaturesRoute,
   NewsRoute: NewsRouteWithChildren,
+  NewsSitemapDotxmlRoute: NewsSitemapDotxmlRoute,
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   SecurityRoute: SecurityRoute,

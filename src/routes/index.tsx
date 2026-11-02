@@ -28,6 +28,7 @@ import editorial from "@/assets/publishrank-writing.jpg.asset.json";
 import dev from "@/assets/publishrank-developer.jpg.asset.json";
 
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
+import { MotionEnhancer } from "@/components/motion-enhancer";
 import { pageSeo } from "@/lib/page-seo";
 import { Button } from "@/components/ui/button";
 import { DownloadLink } from "@/components/download-link";
@@ -99,7 +100,7 @@ function Index() {
     [BarChart3, "41+ Built-in SEO Tools"],
     [Newspaper, "News Sitemap & Article SEO"],
     [Share2, "Structured Data & Schema"],
-    [Search, "Google Discover Ready"],
+    [Search, "Discover Best Practices"],
     [ShieldCheck, "Lightweight & Fast"],
     [Puzzle, "Seamless WordPress Integration"],
   ] as const;
@@ -129,9 +130,14 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
+      <MotionEnhancer />
       <SkipLink />
       {/* HERO */}
-      <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <section
+        className="relative overflow-hidden"
+        style={{ background: "var(--gradient-hero)" }}
+        data-gsap-reveal
+      >
         <SiteHeader />
 
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-5 pb-12 pt-6 lg:grid-cols-[1.1fr_1fr]">

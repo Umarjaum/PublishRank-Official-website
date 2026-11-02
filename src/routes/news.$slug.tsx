@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 import { PageFrame } from "@/components/site-shell";
 import { pageSeo } from "@/lib/page-seo";
-import { newsBySlug, newsArticleSchema } from "@/lib/news-content";
+import { editorialArticleSchema, formatEditorialDate, newsBySlug } from "@/lib/news-content";
 import { absoluteUrl, SITE_NAME } from "@/lib/site";
 
 export const Route = createFileRoute("/news/$slug")({
@@ -27,7 +27,16 @@ export const Route = createFileRoute("/news/$slug")({
       );
     return pageSeo(`/news/${article.slug}`, article.title, article.dek, {
       keywords: article.keywords,
-      extraSchema: [newsArticleSchema(article)],
+      ogType: "article",
+      image: article.image,
+      imageAlt: article.imageAlt,
+      imageWidth: article.imageWidth,
+      imageHeight: article.imageHeight,
+      publishedTime: article.published,
+      modifiedTime: article.updated,
+      articleSection: article.category,
+      articleAuthor: article.author,
+      extraSchema: [editorialArticleSchema(article)],
     });
   },
   component: NewsArticlePage,
@@ -107,7 +116,7 @@ function NewsArticlePage() {
   return (
     <PageFrame>
       <article>
-        <header className="border-b bg-brand-soft">
+        <header className="border-b bg-brand-soft" data-gsap-reveal>
           <div className="site-width py-8 md:py-12">
             <Link
               to="/news"
@@ -131,12 +140,7 @@ function NewsArticlePage() {
                   <span className="font-bold text-foreground">By {article.author}</span>
                   <span className="inline-flex items-center gap-2">
                     <CalendarDays className="h-4 w-4" />
-                    Published{" "}
-                    {new Date(article.published).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
+                    Published {formatEditorialDate(article.published, "long")}
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <Clock className="h-4 w-4" />
@@ -147,8 +151,8 @@ function NewsArticlePage() {
               <img
                 src={article.image}
                 alt={article.imageAlt}
-                width={1200}
-                height={700}
+                width={article.imageWidth}
+                height={article.imageHeight}
                 fetchPriority="high"
                 className="aspect-[1.5/1] w-full rounded-2xl object-cover shadow-[var(--shadow-window)]"
               />
@@ -162,7 +166,11 @@ function NewsArticlePage() {
             </div>
             <div className="prose-publishrank">
               {article.sections.map((section) => (
-                <section key={section.heading} className="border-b py-8 first:pt-0 last:border-b-0">
+                <section
+                  key={section.heading}
+                  className="border-b py-8 first:pt-0 last:border-b-0"
+                  data-gsap-reveal
+                >
                   <h2 className="text-2xl font-extrabold md:text-3xl">{section.heading}</h2>
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph} className="mt-4 text-lg leading-8 text-muted-foreground">

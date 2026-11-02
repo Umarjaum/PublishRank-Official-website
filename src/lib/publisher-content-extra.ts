@@ -167,8 +167,8 @@ export const extraResources: ContentSection[] = [
   {
     title: "Prepare for Google News and Top Stories",
     paragraphs: [
-      "Publish a clear About page, named authors with bylines, and a way for readers to contact you. Keep a news sitemap limited to recent articles, and make sure dates and corrections are visible on the page.",
-      "Review Google’s current publisher policies directly. Technical readiness supports eligibility; it does not guarantee inclusion.",
+      "Publish original, timely reporting with clear headlines, visible publication and update dates, named authors, an accurate About page, contact details and transparent corrections. Review Google’s current News content policies and make sure the public article matches its byline, dates and structured data.",
+      "The optional /news-sitemap.xml endpoint lists only genuinely recent articles from the preceding 48 hours and can be empty when none qualify. Sitemaps help discovery; they do not guarantee indexing, Top Stories, Google News or Discover placement. Editorial quality and policy compliance remain essential.",
     ],
   },
   {
@@ -181,8 +181,8 @@ export const extraResources: ContentSection[] = [
   {
     title: "Choose images for search, Discover and social",
     paragraphs: [
-      "Use large, high-quality images you are authorized to use, at least 1200 pixels wide, with accurate alternative text. Set a fallback share image so every story is presentable when shared.",
-      "Keep the original file. Create resized copies for delivery rather than overwriting the source.",
+      "Use relevant, high-quality original images that are at least 1200 pixels wide for important stories. Keep max-image-preview:large enabled and set each story’s representative image in its Open Graph metadata and article structured data. These are recommendations, not a way to force a Discover feature.",
+      "Use accurate alternative text and a mobile-friendly crop. Keep the original file and create delivery-size copies rather than overwriting it. Avoid substituting a generic logo or text-heavy graphic for the article image.",
     ],
     bullets: [
       "Describe the image’s purpose, not just its subject",

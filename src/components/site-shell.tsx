@@ -5,6 +5,7 @@ import { SiteSearch } from "@/components/site-search";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/publishrank-reference-logo.png.asset.json";
 import { DownloadLink } from "@/components/download-link";
+import { MotionEnhancer } from "@/components/motion-enhancer";
 import { LOGO_GIF, REPO_URL } from "@/lib/site";
 
 const navigationGroups = [
@@ -59,6 +60,7 @@ const footerGroups = [
     links: [
       ["/documentation", "Documentation"],
       ["/resources", "Publisher resources"],
+      ["/news", "Newsroom articles"],
       ["/support", "Support"],
     ],
   },
@@ -68,6 +70,14 @@ const footerGroups = [
       ["/about", "About"],
       ["/contact", "Contact"],
       ["/accessibility", "Accessibility"],
+    ],
+  },
+  {
+    title: "Operations",
+    links: [
+      ["/enterprise", "Enterprise publishing"],
+      ["/support", "Troubleshooting"],
+      ["/contact", "Contact the team"],
     ],
   },
 ] as const;
@@ -223,7 +233,36 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-primary-foreground">
-      <div className="site-width grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-5 lg:py-12">
+      <div className="border-b border-primary-foreground/20">
+        <div
+          className="site-width flex flex-col gap-5 py-7 md:flex-row md:items-center md:justify-between"
+          data-gsap-reveal
+        >
+          <div className="max-w-2xl">
+            <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary-foreground/65">
+              Keep improving the publishing workflow
+            </p>
+            <h2 className="mt-2 text-xl font-extrabold md:text-2xl">
+              Clearer foundations for every story.
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-primary-foreground/75">
+              Review the setup handbook, explore newsroom articles, or get the latest release.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/documentation"
+              className="inline-flex min-h-11 items-center rounded-full border border-primary-foreground/35 px-5 text-sm font-bold hover:border-primary-foreground hover:bg-primary-foreground/10"
+            >
+              Read the handbook
+            </Link>
+            <DownloadLink className="inline-flex min-h-11 items-center rounded-full bg-brand px-5 text-sm font-extrabold text-primary-foreground hover:bg-brand-deep">
+              Download PublishRank
+            </DownloadLink>
+          </div>
+        </div>
+      </div>
+      <div className="site-width grid gap-10 py-10 sm:grid-cols-2 lg:grid-cols-6 lg:py-12">
         <div className="sm:col-span-2 lg:col-span-2">
           <Logo />
           <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -266,7 +305,7 @@ export function SiteFooter() {
             </ul>
           </nav>
         ))}
-        <div className="sm:col-span-2 lg:col-span-5">
+        <div className="sm:col-span-2 lg:col-span-6">
           <div className="grid gap-8 border-t border-primary-foreground/20 pt-6 md:grid-cols-[1fr_2fr]">
             <nav aria-label="Legal and policy links">
               <h2 className="mb-3 text-xs font-extrabold uppercase tracking-wide text-primary-foreground/60">
@@ -296,6 +335,14 @@ export function SiteFooter() {
                     className="inline-flex min-h-10 items-center py-2 hover:underline"
                   >
                     XML sitemap
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/news-sitemap.xml"
+                    className="inline-flex min-h-10 items-center py-2 hover:underline"
+                  >
+                    Google News sitemap
                   </a>
                 </li>
                 <li>
@@ -336,6 +383,7 @@ export function SiteFooter() {
 export function PageFrame({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
+      <MotionEnhancer />
       <SkipLink />
       <SiteHeader />
       <main id="main-content">{children}</main>

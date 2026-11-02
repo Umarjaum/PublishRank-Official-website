@@ -92,9 +92,9 @@ export function ScreenshotShowcase() {
                       alt={s.alt}
                       loading="lazy"
                       decoding="async"
-                      width={s.wide ? 1920 : 720}
-                      height={s.wide ? 1088 : 1300}
-                      className={`h-full w-full ${s.wide ? "object-contain" : "object-cover object-top"} transition-transform duration-500 group-hover:scale-[1.02]`}
+                      width={"wide" in s && s.wide ? 1920 : 720}
+                      height={"wide" in s && s.wide ? 1088 : 1300}
+                      className={`h-full w-full ${"wide" in s && s.wide ? "object-contain" : "object-cover object-top"} transition-transform duration-500 group-hover:scale-[1.02]`}
                     />
                     <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-brand text-primary-foreground shadow-md">
                       <Maximize2 className="h-4 w-4" />
@@ -146,7 +146,9 @@ export function BrandCardShowcase() {
                 decoding="async"
                 width={c.width}
                 height={c.height}
-                className={c.imageClassName ?? "aspect-video w-full object-cover"}
+                className={
+                  "imageClassName" in c ? c.imageClassName : "aspect-video w-full object-cover"
+                }
               />
               <figcaption className="px-5 py-3 text-sm font-bold">{c.title}</figcaption>
             </figure>

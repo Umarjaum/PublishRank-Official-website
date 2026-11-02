@@ -1,7 +1,7 @@
 import { extraDocumentation, extraResources, newPages, overrides } from './publisher-content-extra';
 export type ContentSection = { title: string; paragraphs: string[]; bullets?: string[] };
-export type PublisherPage = { title: string; eyebrow: string; intro: string; description: string; image: 'newsroom' | 'writing' | 'developer'; sections: ContentSection[] };
-export type PublisherPageKey = 'features' | 'documentation' | 'comparisons' | 'resources' | 'support' | 'about' | 'privacy' | 'terms';
+export type PublisherPage = { title: string; eyebrow: string; intro: string; description: string; image: 'newsroom' | 'writing' | 'developer'; sections: ContentSection[]; updated?: string };
+export type PublisherPageKey = 'features' | 'documentation' | 'comparisons' | 'resources' | 'support' | 'about' | 'privacy' | 'terms' | 'cookies' | 'disclaimer' | 'security' | 'accessibility';
 const basePages: Record<'features' | 'documentation' | 'comparisons' | 'resources' | 'support' | 'about' | 'privacy' | 'terms', PublisherPage> = {
  features: {
   title: 'SEO built for publishers.', eyebrow: 'The PublishRank toolkit', image: 'developer',

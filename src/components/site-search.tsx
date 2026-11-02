@@ -47,7 +47,7 @@ const pages: SearchItem[] = [
     href: "/support",
     type: "Page",
   },
-].map((item) => item);
+];
 
 export function SiteSearch({ onClose }: { onClose: () => void }) {
   const [query, setQuery] = useState("");

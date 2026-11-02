@@ -27,7 +27,8 @@ describe("App routing", () => {
     "/accessibility",
   ])("matches the public content page %s", (path) => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
-    expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
+    const expectedRouteId = path === "/news" ? "/news/" : path;
+    expect(router.matchRoutes(path).at(-1)?.routeId).toBe(expectedRouteId);
   });
 
   it("matches a page for / instead of falling back to not found", () => {
@@ -49,6 +50,18 @@ describe("App routing", () => {
     const matches = router.matchRoutes("/sitemap.xml");
 
     expect(matches.at(-1)?.routeId).toBe("/sitemap.xml");
+  });
+
+  it("matches the Google News sitemap server route", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/news-sitemap.xml").at(-1)?.routeId).toBe("/news-sitemap.xml");
+  });
+
+  it("matches a newsroom article through the nested slug route", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(
+      router.matchRoutes("/news/enterprise-publisher-seo-operating-model").at(-1)?.routeId,
+    ).toContain("$slug");
   });
 
   it("lists every public page in the sitemap", () => {

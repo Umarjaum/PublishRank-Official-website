@@ -8,6 +8,16 @@ type PageSeoOptions = {
   /** Use the title as-is (no "— PublishRank" suffix). */
   rawTitle?: boolean;
   keywords?: string;
+  /** Use article previews and story-specific imagery on editorial pages. */
+  ogType?: "website" | "article";
+  image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  publishedTime?: string;
+  modifiedTime?: string;
+  articleSection?: string;
+  articleAuthor?: string;
 };
 
 export function pageSeo(
@@ -18,6 +28,10 @@ export function pageSeo(
 ) {
   const fullTitle = options.rawTitle ? title : `${title} — ${SITE_NAME}`;
   const url = absoluteUrl(path);
+  const image = options.image ? absoluteUrl(options.image) : OG_IMAGE;
+  const imageAlt = options.imageAlt ?? OG_IMAGE_ALT;
+  const imageWidth = options.imageWidth ?? 1200;
+  const imageHeight = options.imageHeight ?? 640;
   const robots = options.noindex
     ? "noindex, follow"
     : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
@@ -34,7 +48,12 @@ export function pageSeo(
       url,
       inLanguage: "en",
       isPartOf: { "@id": `${SITE_URL}/#website` },
-      primaryImageOfPage: { "@type": "ImageObject", url: OG_IMAGE, width: 1200, height: 630 },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: image,
+        width: imageWidth,
+        height: imageHeight,
+      },
     },
     {
       "@type": "BreadcrumbList",
@@ -57,21 +76,33 @@ export function pageSeo(
     { name: "author", content: SITE_NAME },
     { property: "og:title", content: fullTitle },
     { property: "og:description", content: description },
-    { property: "og:type", content: "website" },
+    { property: "og:type", content: options.ogType ?? "website" },
     { property: "og:url", content: url },
     { property: "og:site_name", content: SITE_NAME },
     { property: "og:locale", content: "en_US" },
-    { property: "og:image", content: OG_IMAGE },
-    { property: "og:image:secure_url", content: OG_IMAGE },
+    { property: "og:image", content: image },
+    { property: "og:image:secure_url", content: image },
     { property: "og:image:type", content: "image/jpeg" },
-    { property: "og:image:width", content: "1200" },
-    { property: "og:image:height", content: "630" },
-    { property: "og:image:alt", content: OG_IMAGE_ALT },
+    { property: "og:image:width", content: String(imageWidth) },
+    { property: "og:image:height", content: String(imageHeight) },
+    { property: "og:image:alt", content: imageAlt },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: fullTitle },
     { name: "twitter:description", content: description },
-    { name: "twitter:image", content: OG_IMAGE },
-    { name: "twitter:image:alt", content: OG_IMAGE_ALT },
+    { name: "twitter:image", content: image },
+    { name: "twitter:image:alt", content: imageAlt },
+    ...(options.publishedTime
+      ? [{ property: "article:published_time", content: options.publishedTime }]
+      : []),
+    ...(options.modifiedTime
+      ? [{ property: "article:modified_time", content: options.modifiedTime }]
+      : []),
+    ...(options.articleSection
+      ? [{ property: "article:section", content: options.articleSection }]
+      : []),
+    ...(options.articleAuthor
+      ? [{ property: "article:author", content: options.articleAuthor }]
+      : []),
     ...(options.keywords ? [{ name: "keywords", content: options.keywords }] : []),
   ];
 

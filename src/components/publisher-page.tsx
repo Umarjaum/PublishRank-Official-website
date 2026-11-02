@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { PageFrame, PageCta } from "@/components/site-shell";
 import { publisherPages, type PublisherPageKey } from "@/lib/publisher-content";
+import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
 import newsroom from "@/assets/publishrank-newsroom.jpg.asset.json";
 import writing from "@/assets/publishrank-writing.jpg.asset.json";
 import developer from "@/assets/publishrank-developer.jpg.asset.json";
@@ -13,49 +14,6 @@ const alts = {
   writing: "Writer making handwritten editorial notes",
   developer: "Laptop and desktop development workspace",
 };
-const pageProfiles: Record<PublisherPageKey, { audience: string; path: string; outcome: string }> =
-  {
-    features: {
-      audience: "Newsrooms, publishers and WordPress site owners",
-      path: "Start with article review, then connect schema, sitemaps and archive maintenance.",
-      outcome: "A clearer view of the tools available across the publishing lifecycle.",
-    },
-    documentation: {
-      audience: "Editors, administrators and technical implementers",
-      path: "Prepare the site, configure the foundation, validate representative URLs and maintain it.",
-      outcome: "A repeatable setup and release process rather than a collection of settings.",
-    },
-    comparisons: {
-      audience: "Teams evaluating or migrating WordPress SEO plugins",
-      path: "Define requirements, test the same stories, compare output and plan migration conservatively.",
-      outcome: "A fair evaluation based on your real workflow, theme and archive.",
-    },
-    resources: {
-      audience: "Editors, independent publishers and content operations teams",
-      path: "Improve story quality, discovery signals, authorship, images and archive habits together.",
-      outcome: "Practical publishing decisions that compound without inflated promises.",
-    },
-    support: {
-      audience: "Site owners troubleshooting a live or staging WordPress installation",
-      path: "Reproduce one issue, inspect the rendered output, remove conflicts and document the result.",
-      outcome: "A focused diagnostic report and a safer path to resolution.",
-    },
-    about: {
-      audience: "Publishers deciding whether the project fits their values and workflow",
-      path: "Understand the project, its capabilities, its limitations and its open-source context.",
-      outcome: "An informed starting point without invented company or performance claims.",
-    },
-    privacy: {
-      audience: "Visitors and site operators reviewing website data handling",
-      path: "Separate website behavior from plugin behavior, then review contact and hosting details.",
-      outcome: "A clearer baseline for an operator-approved privacy policy.",
-    },
-    terms: {
-      audience: "Visitors reviewing scope, downloads and product limitations",
-      path: "Read the website scope, plugin licensing boundary, acceptable use and disclaimers.",
-      outcome: "Plain-language context while binding operator terms are maintained separately.",
-    },
-  };
 
 export function PublisherPage({
   pageKey,
@@ -68,11 +26,11 @@ export function PublisherPage({
 }) {
   const page = publisherPages[pageKey];
   if (!page) return null;
-  const profile = pageProfiles[pageKey];
+  const profile = publisherPageProfiles[pageKey];
 
   return (
     <PageFrame>
-      <section className="border-b bg-brand-soft" aria-labelledby="page-title">
+      <section className="border-b bg-brand-soft" aria-labelledby="page-title" data-gsap-reveal>
         <div className="site-width py-8 md:py-10">
           <img
             src={images[page.image].url}
@@ -127,7 +85,7 @@ export function PublisherPage({
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{profile.outcome}</p>
             </div>
           </div>
-          {"updated" in page && page.updated && (
+          {page.updated && (
             <p className="mt-4 text-sm text-muted-foreground">Last updated: {page.updated}</p>
           )}
         </div>
@@ -166,6 +124,7 @@ export function PublisherPage({
                 id={`section-${i}`}
                 key={section.title}
                 className="scroll-mt-28 py-7 first:pt-0 md:py-8"
+                data-gsap-reveal
               >
                 <h2 className="text-2xl font-extrabold">{section.title}</h2>
                 {section.paragraphs.map((paragraph) => (

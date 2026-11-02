@@ -9,9 +9,12 @@ export type NewsArticle = {
   updated: string;
   author: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   imageAlt: string;
   readTime: string;
   keywords: string;
+  schemaType?: "NewsArticle" | "Article";
   sections: { heading: string; paragraphs: string[]; bullets?: string[] }[];
 };
 
@@ -25,6 +28,8 @@ export const newsArticles: NewsArticle[] = [
     updated: "2026-10-28",
     author: "PublishRank Editorial Desk",
     image: "/media/publishrank-newsroom.jpg",
+    imageWidth: 1800,
+    imageHeight: 1202,
     imageAlt: "Editorial team working together in a bright newsroom",
     readTime: "8 min read",
     keywords: "enterprise publisher SEO, newsroom SEO workflow, news SEO operating model",
@@ -72,6 +77,8 @@ export const newsArticles: NewsArticle[] = [
     updated: "2026-10-22",
     author: "PublishRank Editorial Desk",
     image: "/media/publishrank-developer.jpg",
+    imageWidth: 1500,
+    imageHeight: 998,
     imageAlt: "Developer reviewing a publishing analytics interface",
     readTime: "6 min read",
     keywords: "news sitemap checklist, NewsArticle schema, publisher structured data",
@@ -114,6 +121,8 @@ export const newsArticles: NewsArticle[] = [
     updated: "2026-09-30",
     author: "PublishRank Editorial Desk",
     image: "/media/publishrank-writing.jpg",
+    imageWidth: 1500,
+    imageHeight: 1126,
     imageAlt: "Writer making notes beside a laptop",
     readTime: "7 min read",
     keywords: "content operations, editorial SEO process, archive maintenance",
@@ -155,6 +164,8 @@ export const newsArticles: NewsArticle[] = [
     updated: "2026-09-12",
     author: "PublishRank Editorial Desk",
     image: "/media/publishrank-newsroom.jpg",
+    imageWidth: 1800,
+    imageHeight: 1202,
     imageAlt: "Editors reviewing a publishing workflow together",
     readTime: "6 min read",
     keywords: "publisher content governance, editorial SEO measurement, archive quality scorecard",
@@ -194,16 +205,160 @@ export const newsArticles: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "publishrank-newsroom-workflow",
+    title: "From draft to desk: inside the PublishRank newsroom workflow",
+    dek: "A closer look at how assigned editorial roles, story ownership and article-level SEO checks fit together inside WordPress.",
+    category: "Product features",
+    published: "2026-11-02",
+    updated: "2026-11-02",
+    author: "PublishRank Editorial Desk",
+    image: "/media/publishrank-newsroom.jpg",
+    imageWidth: 1800,
+    imageHeight: 1202,
+    imageAlt: "Glass-walled office corridors and shared editorial workspaces",
+    readTime: "5 min read",
+    keywords: "PublishRank newsroom, editorial roles, article SEO workflow",
+    schemaType: "Article",
+    sections: [
+      {
+        heading: "Keep story ownership visible",
+        paragraphs: [
+          "PublishRank's dedicated newsroom module is designed to keep editorial responsibility close to the WordPress stories it supports. Editors, reporters and contributors can be assigned roles so teams have a clearer place to manage story ownership and publishing handoffs.",
+          "That structure is useful when several people touch a story, but it does not replace a newsroom's own commissioning, fact-checking or approval standards. Teams should confirm that their configured roles match their actual editorial policy.",
+        ],
+      },
+      {
+        heading: "Bring practical SEO checks into the draft review",
+        paragraphs: [
+          "Article SEO Intelligence reviews elements such as headlines, descriptions, headings, readability, featured images, bylines, dates and links. The checks can help an editor notice missing details before publication; they are not a forecast of search ranking or audience response.",
+        ],
+        bullets: [
+          "Review core story metadata and visible editorial details",
+          "Use desktop and mobile search and social previews as a quick presentation check",
+          "Inspect canonical settings and generated structured data before a page goes live",
+        ],
+      },
+      {
+        heading: "Make the handoff easier to repeat",
+        paragraphs: [
+          "The value of an editorial workflow is consistency. A team can decide who checks the byline, who confirms the featured image and who reviews the final public URL, then apply those responsibilities story after story. PublishRank brings those checks into the same WordPress environment as the newsroom workflow.",
+          "A preview is only a preview. Editors should still verify the published page, check that caches have cleared and confirm that the visible story matches the metadata and schema sent to search and social platforms.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "publishrank-schema-aggregator-explained",
+    title: "One place to inspect the graph: the PublishRank Schema Aggregator",
+    dek: "How a machine-readable schema endpoint can help site owners audit the structured data their WordPress templates produce.",
+    category: "Product features",
+    published: "2026-11-02",
+    updated: "2026-11-02",
+    author: "PublishRank Editorial Desk",
+    image: "/media/publishrank-developer.jpg",
+    imageWidth: 1500,
+    imageHeight: 998,
+    imageAlt: "Open laptop displaying a code editor on a bright desk",
+    readTime: "4 min read",
+    keywords: "PublishRank Schema Aggregator, WordPress structured data endpoint, schema audit",
+    schemaType: "Article",
+    sections: [
+      {
+        heading: "Treat structured data as something to inspect",
+        paragraphs: [
+          "Structured data connects a publication, its authors, articles and other page entities in a machine-readable format. PublishRank's Schema Aggregator endpoint is intended to make the generated graph easier for site owners to review across their WordPress templates.",
+          "The endpoint is an inspection aid, not a shortcut to a rich result. Search platforms decide how to use structured data, and a syntactically valid graph does not establish that its claims are accurate or that a page qualifies for a particular display.",
+        ],
+      },
+      {
+        heading: "Check relationships as well as syntax",
+        paragraphs: [
+          "During a review, confirm that the site and publisher identities point to the intended organization, author information is genuine, and each article uses a type that matches what readers can see. Check images, dates, canonical URLs and breadcrumbs after template or plugin changes.",
+          "The Schema Aggregator can give technical teams one useful place to examine output, while editorial owners remain responsible for the facts and relationships described by the markup.",
+        ],
+      },
+      {
+        heading: "Add it to a safe release check",
+        paragraphs: [
+          "Test the endpoint on staging first, compare it with representative public pages and investigate duplicate output from a theme or another SEO plugin. Record the expected graph before a release so regressions are easier to spot.",
+          "After a change, validate the rendered page as well as the endpoint. The page visitors receive remains the source of truth; an aggregation view cannot correct inaccurate editorial information on its own.",
+        ],
+        bullets: [
+          "Choose representative article and archive templates",
+          "Check entity names, dates, URLs and image references",
+          "Resolve duplicate providers before assigning one source of truth",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "publishrank-sitemaps-and-archive-tools",
+    title: "After publish: sitemap and archive tools for publisher maintenance",
+    dek: "A practical tour of PublishRank's sitemap checks, redirect workflow and archive-maintenance tools for WordPress publishers.",
+    category: "Product features",
+    published: "2026-11-02",
+    updated: "2026-11-02",
+    author: "PublishRank Editorial Desk",
+    image: "/media/publishrank-writing.jpg",
+    imageWidth: 1500,
+    imageHeight: 1126,
+    imageAlt: "A pen poised over a notebook page on a desk",
+    readTime: "5 min read",
+    keywords: "PublishRank sitemaps, redirect maintenance, publisher archive health",
+    schemaType: "Article",
+    sections: [
+      {
+        heading: "Review what a sitemap actually exposes",
+        paragraphs: [
+          "PublishRank provides XML sitemap output, including news, image and video sitemap options where configured. Sitemap Health is intended to help owners review XML structure, duplicate URLs, child references and content eligibility before submitting an address to search platforms.",
+          "A sitemap is a discovery hint, not an indexing command. Decide which content belongs in each output, confirm publication details for recent news and keep private or excluded material out of public sitemaps.",
+        ],
+      },
+      {
+        heading: "Keep useful paths working after publication",
+        paragraphs: [
+          "Redirect management helps site owners send visitors from a changed or retired URL to a genuinely equivalent destination. An optional 404 Monitor can help identify missing-page issues; review each case before adding a redirect instead of forwarding every missing URL to the homepage.",
+          "Internal-link tools and bulk metadata editing support routine archive work. Use them to find opportunities and manage repeatable updates, then review the affected pages to preserve context and accuracy.",
+        ],
+      },
+      {
+        heading: "Preserve originals and verify the final output",
+        paragraphs: [
+          "PublishRank's documented image optimization can create smaller attachment files while retaining originals. Optional social-image watermarking is a separate control and depends on the image-processing support available on the WordPress host.",
+          "After a release, open representative article, category and sitemap URLs in a fresh session. Check the final HTML, redirects and XML output rather than relying only on settings or a dashboard status.",
+        ],
+        bullets: [
+          "Audit sitemap XML, duplicate URLs and child references",
+          "Review missing pages before creating redirects",
+          "Recheck representative pages after template or content changes",
+        ],
+      },
+    ],
+  },
 ];
+
+export const newsroomArticles = [...newsArticles].sort((a, b) =>
+  b.published.localeCompare(a.published),
+);
+
+export function formatEditorialDate(value: string, style: "short" | "long" = "short") {
+  return new Intl.DateTimeFormat("en-US", {
+    month: style === "long" ? "long" : "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${value}T00:00:00Z`));
+}
 
 export const newsBySlug = Object.fromEntries(
   newsArticles.map((article) => [article.slug, article]),
 ) as Record<string, NewsArticle>;
 
-export function newsArticleSchema(article: NewsArticle) {
+export function editorialArticleSchema(article: NewsArticle) {
   const url = absoluteUrl(`/news/${article.slug}`);
   return {
-    "@type": "NewsArticle",
+    "@type": article.schemaType ?? "NewsArticle",
     "@id": `${url}#article`,
     headline: article.title,
     description: article.dek,
@@ -216,7 +371,16 @@ export function newsArticleSchema(article: NewsArticle) {
       url: SITE_URL,
       logo: { "@type": "ImageObject", url: absoluteUrl("/android-chrome-512x512.png") },
     },
-    image: [absoluteUrl(article.image), absoluteUrl(OG_IMAGE_PATH)],
+    image: [
+      {
+        "@type": "ImageObject",
+        url: absoluteUrl(article.image),
+        width: article.imageWidth,
+        height: article.imageHeight,
+        caption: article.imageAlt,
+      },
+      absoluteUrl(OG_IMAGE_PATH),
+    ],
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     articleSection: article.category,
     keywords: article.keywords,
