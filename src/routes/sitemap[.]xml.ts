@@ -1,24 +1,54 @@
-import { createFileRoute } from '@tanstack/react-router';
-import { SITE_URL } from '@/lib/site';
+import { createFileRoute } from "@tanstack/react-router";
+import { SITE_URL } from "@/lib/site";
+import { newsArticles } from "@/lib/news-content";
 
 // Every public page of the site, in editorial priority order.
-const LASTMOD = '2026-11-01';
-export const publicPaths = ['/', '/features', '/download', '/documentation', '/comparisons', '/resources', '/support', '/about', '/contact', '/privacy', '/terms', '/cookies', '/disclaimer', '/security', '/accessibility'];
+const LASTMOD = "2026-11-01";
+export const publicPaths = [
+  "/",
+  "/features",
+  "/download",
+  "/documentation",
+  "/comparisons",
+  "/resources",
+  "/support",
+  "/about",
+  "/enterprise",
+  "/news",
+  "/contact",
+  "/privacy",
+  "/terms",
+  "/cookies",
+  "/disclaimer",
+  "/security",
+  "/accessibility",
+  ...newsArticles.map((article) => `/news/${article.slug}`),
+];
 
-const priority = (p: string) => (p === '/' ? '1.0' : ['/features', '/download', '/documentation'].includes(p) ? '0.9' : ['/privacy', '/terms', '/cookies', '/disclaimer', '/security', '/accessibility'].includes(p) ? '0.3' : '0.7');
+const priority = (p: string) =>
+  p === "/"
+    ? "1.0"
+    : ["/features", "/download", "/documentation", "/enterprise", "/news"].includes(p)
+      ? "0.9"
+      : ["/privacy", "/terms", "/cookies", "/disclaimer", "/security", "/accessibility"].includes(p)
+        ? "0.3"
+        : "0.7";
 
-export const Route = createFileRoute('/sitemap.xml')({
+export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: () => {
         const lastmod = LASTMOD;
         const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${publicPaths
-          .map((p) => `  <url><loc>${SITE_URL}${p === '/' ? '/' : p}</loc><lastmod>${lastmod}</lastmod><priority>${priority(p)}</priority></url>`)
-          .join('\n')}\n</urlset>\n`;
+          .map(
+            (p) =>
+              `  <url><loc>${SITE_URL}${p === "/" ? "/" : p}</loc><lastmod>${lastmod}</lastmod><priority>${priority(p)}</priority></url>`,
+          )
+          .join("\n")}\n</urlset>\n`;
         return new Response(xml, {
           headers: {
-            'Content-Type': 'application/xml; charset=utf-8',
-            'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+            "Content-Type": "application/xml; charset=utf-8",
+            "Cache-Control": "public, max-age=3600, s-maxage=3600",
           },
         });
       },

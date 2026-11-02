@@ -9,7 +9,7 @@ export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
 // The latest alias resolves to the newest published release asset named PublishRank.zip.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/V2.9.104/PublishRank-v2.9.104.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — Built for Newsrooms. Ranked by Google.";

@@ -30,6 +30,14 @@ export function PublisherPage({
     <PageFrame>
       <section className="border-b bg-brand-soft" aria-labelledby="page-title">
         <div className="site-width py-8 md:py-10">
+          <img
+            src={images[page.image].url}
+            alt={alts[page.image]}
+            width={1500}
+            height={700}
+            className="mb-7 aspect-[2.8/1] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]"
+            fetchPriority="high"
+          />
           <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <li>
@@ -88,14 +96,6 @@ export function PublisherPage({
         </aside>
 
         <div className="min-w-0">
-          <img
-            src={images[page.image].url}
-            alt={alts[page.image]}
-            width={1500}
-            height={700}
-            className="mb-8 aspect-[2.2/1] w-full rounded-lg object-cover md:mb-10"
-            fetchPriority="high"
-          />
           <div className="divide-y">
             {page.sections.map((section, i) => (
               <section

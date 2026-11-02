@@ -18,7 +18,9 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
 import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as DownloadRouteImport } from './routes/download'
+import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as NewsRouteImport } from './routes/news'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SecurityRouteImport } from './routes/security'
@@ -26,6 +28,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
+import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -72,9 +75,19 @@ const DownloadRoute = DownloadRouteImport.update({
   path: '/download',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnterpriseRoute = EnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FeaturesRoute = FeaturesRouteImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsRoute = NewsRouteImport.update({
+  id: '/news',
+  path: '/news',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -112,6 +125,11 @@ const ApiContactRoute = ApiContactRouteImport.update({
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => NewsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -123,7 +141,9 @@ export interface FileRoutesByFullPath {
   '/disclaimer': typeof DisclaimerRoute
   '/documentation': typeof DocumentationRoute
   '/download': typeof DownloadRoute
+  '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
+  '/news': typeof NewsRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
@@ -131,6 +151,7 @@ export interface FileRoutesByFullPath {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
+  '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -142,7 +163,9 @@ export interface FileRoutesByTo {
   '/disclaimer': typeof DisclaimerRoute
   '/documentation': typeof DocumentationRoute
   '/download': typeof DownloadRoute
+  '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
+  '/news': typeof NewsRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
@@ -150,6 +173,7 @@ export interface FileRoutesByTo {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
+  '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -162,7 +186,9 @@ export interface FileRoutesById {
   '/disclaimer': typeof DisclaimerRoute
   '/documentation': typeof DocumentationRoute
   '/download': typeof DownloadRoute
+  '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
+  '/news': typeof NewsRouteWithChildren
   '/privacy': typeof PrivacyRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
@@ -170,6 +196,7 @@ export interface FileRoutesById {
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
+  '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -183,7 +210,9 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/documentation'
     | '/download'
+    | '/enterprise'
     | '/features'
+    | '/news'
     | '/privacy'
     | '/resources'
     | '/security'
@@ -191,6 +220,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/api/contact'
+    | '/news/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -202,7 +232,9 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/documentation'
     | '/download'
+    | '/enterprise'
     | '/features'
+    | '/news'
     | '/privacy'
     | '/resources'
     | '/security'
@@ -210,6 +242,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/api/contact'
+    | '/news/$slug'
   id:
     | '__root__'
     | '/'
@@ -221,7 +254,9 @@ export interface FileRouteTypes {
     | '/disclaimer'
     | '/documentation'
     | '/download'
+    | '/enterprise'
     | '/features'
+    | '/news'
     | '/privacy'
     | '/resources'
     | '/security'
@@ -229,6 +264,7 @@ export interface FileRouteTypes {
     | '/support'
     | '/terms'
     | '/api/contact'
+    | '/news/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -241,7 +277,9 @@ export interface RootRouteChildren {
   DisclaimerRoute: typeof DisclaimerRoute
   DocumentationRoute: typeof DocumentationRoute
   DownloadRoute: typeof DownloadRoute
+  EnterpriseRoute: typeof EnterpriseRoute
   FeaturesRoute: typeof FeaturesRoute
+  NewsRoute: typeof NewsRouteWithChildren
   PrivacyRoute: typeof PrivacyRoute
   ResourcesRoute: typeof ResourcesRoute
   SecurityRoute: typeof SecurityRoute
@@ -316,11 +354,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DownloadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/enterprise': {
+      id: '/enterprise'
+      path: '/enterprise'
+      fullPath: '/enterprise'
+      preLoaderRoute: typeof EnterpriseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/features': {
       id: '/features'
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news': {
+      id: '/news'
+      path: '/news'
+      fullPath: '/news'
+      preLoaderRoute: typeof NewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -372,8 +424,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/$slug': {
+      id: '/news/$slug'
+      path: '/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof NewsRoute
+    }
   }
 }
+
+interface NewsRouteChildren {
+  NewsSlugRoute: typeof NewsSlugRoute
+}
+
+const NewsRouteChildren: NewsRouteChildren = {
+  NewsSlugRoute: NewsSlugRoute,
+}
+
+const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -385,7 +454,9 @@ const rootRouteChildren: RootRouteChildren = {
   DisclaimerRoute: DisclaimerRoute,
   DocumentationRoute: DocumentationRoute,
   DownloadRoute: DownloadRoute,
+  EnterpriseRoute: EnterpriseRoute,
   FeaturesRoute: FeaturesRoute,
+  NewsRoute: NewsRouteWithChildren,
   PrivacyRoute: PrivacyRoute,
   ResourcesRoute: ResourcesRoute,
   SecurityRoute: SecurityRoute,

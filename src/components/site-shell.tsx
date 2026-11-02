@@ -1,76 +1,46 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { ArrowRight, Download, Menu, X, Heart, Github, ChevronDown } from "lucide-react";
+import { ArrowRight, Download, Search, X, Heart, Github } from "lucide-react";
+import { SiteSearch } from "@/components/site-search";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/publishrank-reference-logo.png.asset.json";
 import { DownloadLink } from "@/components/download-link";
 import { LOGO_GIF, REPO_URL } from "@/lib/site";
 
-const megaMenus = [
+const navigationGroups = [
   {
-    id: "product",
     label: "Product",
     intro: "Publisher-first SEO tools in one WordPress workflow.",
     links: [
-      {
-        to: "/features",
-        label: "Explore features",
-        description: "News SEO, schema, sitemaps and 40+ built-in tools.",
-      },
-      {
-        to: "/comparisons",
-        label: "Compare plugins",
-        description: "Evaluate the workflow against your publication’s needs.",
-      },
-      {
-        to: "/download",
-        label: "Download PublishRank",
-        description: "Get the latest free, open-source release.",
-      },
+      ["/features", "Explore features", "News SEO, schema, sitemaps and 40+ tools."],
+      [
+        "/comparisons",
+        "Compare plugins",
+        "Evaluate the workflow against your publication’s needs.",
+      ],
+      ["/download", "Download PublishRank", "Get the latest free, open-source release."],
     ],
   },
   {
-    id: "learn",
     label: "Learn",
     intro: "Practical guides for setup, publishing and site maintenance.",
     links: [
-      {
-        to: "/documentation",
-        label: "Documentation",
-        description: "Follow the publisher’s setup and editorial handbook.",
-      },
-      {
-        to: "/resources",
-        label: "Resources",
-        description: "Read guidance on news SEO and archive health.",
-      },
-      {
-        to: "/support",
-        label: "Support & troubleshooting",
-        description: "Find checks for metadata, sitemaps and schema.",
-      },
+      ["/documentation", "Documentation", "Follow the setup and editorial handbook."],
+      ["/resources", "Resources", "Read guidance on news SEO and archive health."],
+      ["/news", "Newsroom", "Product thinking, technical notes and publisher strategy."],
     ],
   },
   {
-    id: "community",
-    label: "Community",
-    intro: "Know the project, find help and keep the important links close.",
+    label: "Enterprise",
+    intro: "A durable operating model for growing publishing teams.",
     links: [
-      {
-        to: "/about",
-        label: "About PublishRank",
-        description: "Learn about the publisher-focused project.",
-      },
-      {
-        to: "/contact",
-        label: "Contact the team",
-        description: "Send a question, issue or feature request.",
-      },
-      {
-        to: "/accessibility",
-        label: "Accessibility",
-        description: "Read the site’s accessibility statement.",
-      },
+      [
+        "/enterprise",
+        "Enterprise publishing",
+        "Governance, scale and SEO operations for larger teams.",
+      ],
+      ["/support", "Support & troubleshooting", "Find checks for metadata, sitemaps and schema."],
+      ["/contact", "Talk to the team", "Send a question, issue or partnership enquiry."],
     ],
   },
 ] as const;
@@ -136,151 +106,110 @@ export function Logo() {
 }
 
 export function SiteHeader() {
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const activeMenu = megaMenus.find((menu) => menu.id === openMenu);
-
-  function closeNavigation() {
-    setOpenMenu(null);
-    setMobileOpen(false);
-  }
-
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   return (
-    <header
-      className="site-header"
-      onKeyDown={(event) => {
-        if (event.key === "Escape") closeNavigation();
-      }}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-          setOpenMenu(null);
-          setMobileOpen(false);
-        }
-      }}
-    >
-      <div className="site-width flex min-h-20 flex-wrap items-center justify-between gap-x-5 gap-y-3 py-3">
+    <header className="site-header">
+      <div className="site-width flex min-h-20 items-center justify-between gap-4 py-3">
         <Logo />
-        <nav aria-label="Primary navigation" className="hidden lg:block">
-          <ul className="flex items-center gap-1 text-sm font-semibold">
-            {megaMenus.map((menu) => (
-              <li key={menu.id}>
-                <button
-                  type="button"
-                  aria-haspopup="true"
-                  aria-expanded={openMenu === menu.id}
-                  aria-controls={`mega-menu-${menu.id}`}
-                  onClick={() => setOpenMenu(openMenu === menu.id ? null : menu.id)}
-                  className="inline-flex min-h-11 items-center gap-1 rounded-md px-3 hover:bg-muted hover:text-brand focus-visible:outline"
-                >
-                  {menu.label}
-                  <ChevronDown
-                    aria-hidden="true"
-                    className={`h-4 w-4 transition-transform ${openMenu === menu.id ? "rotate-180" : ""}`}
-                  />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <Button asChild className="hidden rounded-full lg:inline-flex">
-          <DownloadLink>
-            <Download aria-hidden="true" />
-            Download PublishRank
-          </DownloadLink>
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          className="lg:hidden"
-          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </Button>
-        {mobileOpen && (
-          <nav
-            id="mobile-navigation"
-            aria-label="Mobile navigation"
-            className="mobile-nav grid w-full gap-2 border-t py-4 lg:hidden"
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setSearchOpen(true)}
+            className="nav-icon-button"
+            aria-label="Search PublishRank"
           >
-            {megaMenus.map((menu) => (
-              <details key={menu.id} className="group border-b pb-2">
-                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between py-2 font-bold marker:hidden">
-                  {menu.label}
-                  <ChevronDown
-                    aria-hidden="true"
-                    className="h-4 w-4 transition-transform group-open:rotate-180"
-                  />
-                </summary>
-                <p className="pb-2 text-sm leading-relaxed text-muted-foreground">{menu.intro}</p>
-                <ul className="grid gap-1 pb-2">
-                  {menu.links.map((item) => (
-                    <li key={item.to}>
-                      <Link
-                        to={item.to}
-                        onClick={closeNavigation}
-                        className="block rounded-md px-3 py-2 hover:bg-muted hover:text-brand"
-                      >
-                        <span className="block text-sm font-semibold">{item.label}</span>
-                        <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
-                          {item.description}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            ))}
-            <DownloadLink
-              onClick={closeNavigation}
-              className="inline-flex min-h-11 items-center gap-2 py-2 font-bold text-brand"
-            >
-              <Download aria-hidden="true" className="h-4 w-4" />
+            <Search className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="nav-menu-button"
+            aria-label={menuOpen ? "Close PublishRank navigation" : "Open PublishRank navigation"}
+            aria-expanded={menuOpen}
+            aria-controls="site-navigation-drawer"
+          >
+            <img src="/brand/publishrank-menu-icon.svg" alt="" width="54" height="32" />
+          </button>
+          <Button asChild className="hidden rounded-full sm:inline-flex">
+            <DownloadLink>
+              <Download aria-hidden="true" />
               Download PublishRank
             </DownloadLink>
-          </nav>
-        )}
+          </Button>
+        </div>
       </div>
-      {activeMenu && (
-        <div
-          id={`mega-menu-${activeMenu.id}`}
-          className="absolute inset-x-0 top-full z-40 border-b bg-background shadow-[var(--shadow-card)]"
-        >
-          <div className="site-width grid gap-8 py-7 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="sm:col-span-2 lg:col-span-1">
-              <p className="text-xs font-extrabold uppercase tracking-wide text-brand">
-                {activeMenu.label}
-              </p>
-              <p className="mt-2 max-w-sm text-lg font-bold leading-relaxed">{activeMenu.intro}</p>
-              <Link
-                to="/download"
-                onClick={closeNavigation}
-                className="mt-4 inline-flex min-h-11 items-center gap-2 font-bold text-brand hover:underline"
+      {menuOpen && (
+        <div id="site-navigation-drawer" className="navigation-drawer">
+          <div className="site-width py-7">
+            <div className="mb-6 flex items-center justify-between border-b pb-5">
+              <div>
+                <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand">
+                  Navigation
+                </p>
+                <p className="mt-1 text-lg font-extrabold">
+                  Everything your publishing team needs.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(false)}
+                className="grid h-10 w-10 place-items-center rounded-full border"
+                aria-label="Close navigation"
               >
-                Get PublishRank <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </Link>
+                <X className="h-5 w-5" />
+              </button>
             </div>
-            <ul className="grid gap-2 sm:col-span-2 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">
-              {activeMenu.links.map((item) => (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    onClick={closeNavigation}
-                    className="block h-full rounded-lg border p-4 transition-colors hover:bg-muted focus-visible:outline"
-                  >
-                    <span className="font-bold">{item.label}</span>
-                    <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
-                      {item.description}
-                    </span>
-                  </Link>
-                </li>
+            <div className="grid gap-7 md:grid-cols-3">
+              {navigationGroups.map((group) => (
+                <section key={group.label}>
+                  <h2 className="text-xs font-extrabold uppercase tracking-wide text-brand">
+                    {group.label}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {group.intro}
+                  </p>
+                  <ul className="mt-3 grid gap-2">
+                    {group.links.map(([to, label, description]) => (
+                      <li key={to}>
+                        <Link
+                          to={to}
+                          onClick={() => setMenuOpen(false)}
+                          className="group block rounded-xl border p-4 hover:border-brand hover:bg-brand-soft"
+                        >
+                          <span className="flex items-center justify-between font-bold">
+                            {label}
+                            <ArrowRight className="h-4 w-4 text-brand transition-transform group-hover:translate-x-1" />
+                          </span>
+                          <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
+                            {description}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               ))}
-            </ul>
+            </div>
+            <div className="mt-7 flex flex-wrap gap-4 border-t pt-5 text-sm font-bold">
+              <Link to="/about" onClick={() => setMenuOpen(false)} className="hover:text-brand">
+                About PublishRank
+              </Link>
+              <Link
+                to="/accessibility"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-brand"
+              >
+                Accessibility
+              </Link>
+              <DownloadLink onClick={() => setMenuOpen(false)} className="text-brand">
+                Download the plugin →
+              </DownloadLink>
+            </div>
           </div>
         </div>
       )}
+      {searchOpen && <SiteSearch onClose={() => setSearchOpen(false)} />}
     </header>
   );
 }

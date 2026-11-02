@@ -8,7 +8,24 @@ import { publicPaths } from "@/routes/sitemap[.]xml";
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
 describe("App routing", () => {
-  it.each(["/features", "/documentation", "/comparisons", "/resources", "/support", "/about", "/privacy", "/terms", "/download", "/contact", "/cookies", "/disclaimer", "/security", "/accessibility"])("matches the public content page %s", (path) => {
+  it.each([
+    "/features",
+    "/documentation",
+    "/comparisons",
+    "/resources",
+    "/support",
+    "/about",
+    "/enterprise",
+    "/news",
+    "/privacy",
+    "/terms",
+    "/download",
+    "/contact",
+    "/cookies",
+    "/disclaimer",
+    "/security",
+    "/accessibility",
+  ])("matches the public content page %s", (path) => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
   });
@@ -36,8 +53,28 @@ describe("App routing", () => {
 
   it("lists every public page in the sitemap", () => {
     expect(publicPaths).toEqual(
-      expect.arrayContaining(["/", "/features", "/documentation", "/comparisons", "/resources", "/support", "/about", "/download", "/privacy", "/terms", "/contact", "/cookies", "/disclaimer", "/security", "/accessibility"]),
+      expect.arrayContaining([
+        "/",
+        "/features",
+        "/documentation",
+        "/comparisons",
+        "/resources",
+        "/support",
+        "/about",
+        "/enterprise",
+        "/news",
+        "/download",
+        "/privacy",
+        "/terms",
+        "/contact",
+        "/cookies",
+        "/disclaimer",
+        "/security",
+        "/accessibility",
+      ]),
     );
-    expect(publicPaths).toHaveLength(15);
+    expect(publicPaths).toContain("/enterprise");
+    expect(publicPaths).toContain("/news");
+    expect(publicPaths.some((path) => path.startsWith("/news/"))).toBe(true);
   });
 });
