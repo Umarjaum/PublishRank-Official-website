@@ -146,6 +146,54 @@ export const newsArticles: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "publisher-content-governance-measurement",
+    title: "Publisher content governance: measure what your team can improve",
+    dek: "A practical scorecard for connecting editorial ownership, technical quality and archive maintenance without turning SEO into a vanity metric.",
+    category: "Governance",
+    published: "2026-09-12",
+    updated: "2026-09-12",
+    author: "PublishRank Editorial Desk",
+    image: "/media/publishrank-newsroom.jpg",
+    imageAlt: "Editors reviewing a publishing workflow together",
+    readTime: "6 min read",
+    keywords: "publisher content governance, editorial SEO measurement, archive quality scorecard",
+    sections: [
+      {
+        heading: "Give every quality signal an owner",
+        paragraphs: [
+          "A publishing team can only improve what it can see and assign. Decide who owns article-level review, publisher identity, structured data, sitemap exclusions, redirects, corrections and template changes before a problem arrives.",
+          "Ownership does not mean one person does every task. It means the final decision has a home, the handoff is documented and an exception can be escalated without guesswork.",
+        ],
+      },
+      {
+        heading: "Use a small, durable scorecard",
+        paragraphs: [
+          "Start with signals the team can influence: one canonical URL, accurate authorship, visible dates, a useful image, valid article markup, intended sitemap membership and a working internal-link path. Sample new stories, evergreen stories and recently changed templates.",
+          "Do not confuse completeness with performance. A clean technical output is a foundation for discovery; it is not proof that a story will rank or receive traffic.",
+        ],
+        bullets: [
+          "Foundation: identity, templates, canonicals and sitemap ownership",
+          "Story: headline, summary, author, dates, images and links",
+          "Archive: corrections, redirects, stale facts and broken destinations",
+        ],
+      },
+      {
+        heading: "Turn exceptions into a learning loop",
+        paragraphs: [
+          "When a story misses a check, record the cause rather than only fixing the symptom. A missing byline may point to an editorial handoff; duplicate schema may point to a theme conflict; an excluded URL may reveal an unclear archive rule.",
+          "Review the exception log at the end of a release cycle. Repeated exceptions are candidates for better defaults, clearer training or a small product improvement.",
+        ],
+      },
+      {
+        heading: "Keep the archive useful to people",
+        paragraphs: [
+          "Archive governance is ultimately a reader service. Revisit important pages for stale facts, broken links, missing context and outdated images. Keep URLs stable when the work remains relevant and explain substantive corrections when they affect the reader’s understanding.",
+          "The strongest operating model is one that protects editorial trust while making technical quality easier to repeat.",
+        ],
+      },
+    ],
+  },
 ];
 
 export const newsBySlug = Object.fromEntries(

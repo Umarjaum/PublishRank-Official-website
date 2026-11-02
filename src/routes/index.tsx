@@ -309,6 +309,66 @@ function Index() {
           </ol>
         </section>
 
+        <section aria-labelledby="maturity-title" className="border-y py-12 md:py-16">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wide text-brand">
+                A publishing system that grows with you
+              </p>
+              <h2 id="maturity-title" className="mt-2 text-3xl font-extrabold">
+                Structure the work before you scale the archive.
+              </h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground">
+                SEO becomes easier to maintain when every stage has an owner, an evidence check and
+                a useful next action. PublishRank connects those stages without asking every editor
+                to become a technical specialist.
+              </p>
+              <Link
+                to="/enterprise"
+                className="mt-5 inline-flex min-h-11 items-center gap-2 font-bold text-brand hover:underline"
+              >
+                Read the enterprise operating model
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </Link>
+            </div>
+            <ol className="grid gap-3 sm:grid-cols-2">
+              {[
+                [
+                  "01",
+                  "Foundation",
+                  "Publication identity, canonical rules, defaults and sitemap ownership.",
+                ],
+                [
+                  "02",
+                  "Story review",
+                  "Headline, summary, byline, dates, image, links and article type.",
+                ],
+                [
+                  "03",
+                  "Release proof",
+                  "Rendered HTML, social output, structured data and representative URL checks.",
+                ],
+                [
+                  "04",
+                  "Archive care",
+                  "Corrections, redirects, stale facts, internal links and recurring health reviews.",
+                ],
+              ].map(([number, title, description]) => (
+                <li
+                  key={number}
+                  className="rounded-lg border bg-card p-5 shadow-[var(--shadow-card)]"
+                >
+                  <span className="text-sm font-extrabold text-brand">{number}</span>
+                  <h3 className="mt-3 font-bold">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {description}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         {/* Why */}
         <section
           id="why"

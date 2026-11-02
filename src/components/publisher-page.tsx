@@ -13,6 +13,49 @@ const alts = {
   writing: "Writer making handwritten editorial notes",
   developer: "Laptop and desktop development workspace",
 };
+const pageProfiles: Record<PublisherPageKey, { audience: string; path: string; outcome: string }> =
+  {
+    features: {
+      audience: "Newsrooms, publishers and WordPress site owners",
+      path: "Start with article review, then connect schema, sitemaps and archive maintenance.",
+      outcome: "A clearer view of the tools available across the publishing lifecycle.",
+    },
+    documentation: {
+      audience: "Editors, administrators and technical implementers",
+      path: "Prepare the site, configure the foundation, validate representative URLs and maintain it.",
+      outcome: "A repeatable setup and release process rather than a collection of settings.",
+    },
+    comparisons: {
+      audience: "Teams evaluating or migrating WordPress SEO plugins",
+      path: "Define requirements, test the same stories, compare output and plan migration conservatively.",
+      outcome: "A fair evaluation based on your real workflow, theme and archive.",
+    },
+    resources: {
+      audience: "Editors, independent publishers and content operations teams",
+      path: "Improve story quality, discovery signals, authorship, images and archive habits together.",
+      outcome: "Practical publishing decisions that compound without inflated promises.",
+    },
+    support: {
+      audience: "Site owners troubleshooting a live or staging WordPress installation",
+      path: "Reproduce one issue, inspect the rendered output, remove conflicts and document the result.",
+      outcome: "A focused diagnostic report and a safer path to resolution.",
+    },
+    about: {
+      audience: "Publishers deciding whether the project fits their values and workflow",
+      path: "Understand the project, its capabilities, its limitations and its open-source context.",
+      outcome: "An informed starting point without invented company or performance claims.",
+    },
+    privacy: {
+      audience: "Visitors and site operators reviewing website data handling",
+      path: "Separate website behavior from plugin behavior, then review contact and hosting details.",
+      outcome: "A clearer baseline for an operator-approved privacy policy.",
+    },
+    terms: {
+      audience: "Visitors reviewing scope, downloads and product limitations",
+      path: "Read the website scope, plugin licensing boundary, acceptable use and disclaimers.",
+      outcome: "Plain-language context while binding operator terms are maintained separately.",
+    },
+  };
 
 export function PublisherPage({
   pageKey,
@@ -25,6 +68,7 @@ export function PublisherPage({
 }) {
   const page = publisherPages[pageKey];
   if (!page) return null;
+  const profile = pageProfiles[pageKey];
 
   return (
     <PageFrame>
@@ -63,6 +107,26 @@ export function PublisherPage({
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             {page.intro}
           </p>
+          <div className="mt-8 grid max-w-5xl gap-3 border-t pt-5 sm:grid-cols-3">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-brand">
+                Best for
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{profile.audience}</p>
+            </div>
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-brand">
+                Suggested path
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{profile.path}</p>
+            </div>
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.14em] text-brand">
+                You will leave with
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{profile.outcome}</p>
+            </div>
+          </div>
           {"updated" in page && page.updated && (
             <p className="mt-4 text-sm text-muted-foreground">Last updated: {page.updated}</p>
           )}
