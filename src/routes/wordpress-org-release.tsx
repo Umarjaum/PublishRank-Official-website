@@ -4,7 +4,9 @@ import { PageFrame } from "@/components/site-shell";
 import { Button } from "@/components/ui/button";
 import { pageSeo } from "@/lib/page-seo";
 import {
+  SITE_URL,
   PUBLISHRANK_WORDPRESS_PLUGIN_URL,
+  PUBLISHRANK_WORDPRESS_SUPPORT_URL,
   REPO_URL,
   RELEASES_URL,
   WORDPRESS_RELEASE_TAGS,
@@ -32,6 +34,16 @@ const launchFeatures = [
       "Review editorial SEO, internal links, sitemap diagnostics and publisher workflows designed for newsroom teams.",
   },
   {
+    title: "Publisher Toolkit",
+    description:
+      "Use a read-only pre-publication checklist, permission-aware bulk metadata editing, role-based access and optional image alt-text assistance.",
+  },
+  {
+    title: "PublishRank Newsroom",
+    description:
+      "Coordinate story pitches, assignments, workflow stages, calendars, private notes and handoff to WordPress drafts in one editorial workspace.",
+  },
+  {
     title: "Redirects and archive maintenance",
     description:
       "Use redirect management and a local 404 monitor to review broken paths and maintain site navigation.",
@@ -47,12 +59,36 @@ export const Route = createFileRoute("/wordpress-org-release")({
   head: () =>
     pageSeo(
       "/wordpress-org-release",
-      "PublishRank Is Officially on WordPress.org",
-      "PublishRank is a free, open-source WordPress SEO plugin listed in the official WordPress.org directory. Explore its publisher-focused features, installation options and official release links.",
+      "PublishRank WordPress SEO Plugin on WordPress.org",
+      "PublishRank is officially listed on WordPress.org. Explore the free SEO plugin for publishers, with News sitemaps, schema and direct dashboard installation.",
       {
+        rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
         ogType: "article",
         articleSection: "PublishRank release",
+        imageAlt:
+          "PublishRank, the free WordPress SEO plugin listed in the WordPress.org directory",
+        extraSchema: [
+          {
+            "@type": "SoftwareApplication",
+            "@id": `${SITE_URL}/wordpress-org-release#software`,
+            name: "PublishRank",
+            url: `${SITE_URL}/wordpress-org-release`,
+            description:
+              "A free, open-source WordPress SEO plugin with publisher-focused metadata, schema, sitemap and editorial tools.",
+            applicationCategory: "SEO",
+            operatingSystem: "WordPress",
+            isAccessibleForFree: true,
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              url: PUBLISHRANK_WORDPRESS_PLUGIN_URL,
+            },
+            featureList: launchFeatures.map((feature) => feature.title),
+            sameAs: [PUBLISHRANK_WORDPRESS_PLUGIN_URL, REPO_URL],
+          },
+        ],
       },
     ),
   component: WordPressOrgRelease,
@@ -68,13 +104,12 @@ function WordPressOrgRelease() {
               Official WordPress.org release
             </p>
             <h1 className="mt-3 max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl">
-              PublishRank is now listed in the WordPress.org plugin directory
+              PublishRank is officially listed on WordPress.org
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              PublishRank is a free, open-source WordPress SEO plugin built for publishers,
-              newsrooms, bloggers and editorial teams. The official directory listing gives
-              WordPress site owners a direct place to review the plugin and install it from their
-              dashboard.
+              PublishRank is a free, open-source WordPress SEO plugin for publishers, newsrooms,
+              bloggers and editorial teams. Find the official listing, review the current plugin
+              details, and install it directly from your WordPress dashboard.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">
@@ -134,6 +169,70 @@ function WordPressOrgRelease() {
                     </div>
                   </article>
                 ))}
+              </div>
+            </section>
+
+            <section aria-labelledby="directory-listing-title" className="mt-12">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-brand">
+                The official directory page
+              </p>
+              <h2 id="directory-listing-title" className="mt-2 text-2xl font-extrabold">
+                A direct place to review and install PublishRank
+              </h2>
+              <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">
+                The WordPress.org listing brings the plugin description, installation instructions,
+                support links and development information together. Use that live page to confirm
+                the latest release and compatibility details before installing, because plugin
+                requirements can change over time.
+              </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <article className="rounded-lg border bg-card p-5">
+                  <h3 className="font-bold">Free and open source</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    PublishRank is released under the GPLv2-or-later license. Review the listing and
+                    source repository to understand the project before adding it to a site.
+                  </p>
+                </article>
+                <article className="rounded-lg border bg-card p-5">
+                  <h3 className="font-bold">Current details stay on WordPress.org</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Version, WordPress and PHP compatibility, release notes, reviews and support
+                    information can change. Check the official plugin page for the latest details.
+                  </p>
+                </article>
+                <article className="rounded-lg border bg-card p-5">
+                  <h3 className="font-bold">Built for editorial operations</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Alongside metadata, schema and XML sitemaps, the listing describes tools for
+                    editorial checks, newsroom coordination, redirects and site maintenance.
+                  </p>
+                </article>
+                <article className="rounded-lg border bg-card p-5">
+                  <h3 className="font-bold">A listing is not a ranking promise</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Directory availability makes the plugin discoverable and installable through
+                    WordPress. It does not guarantee rankings, crawling, indexing, traffic or search
+                    feature inclusion.
+                  </p>
+                </article>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold">
+                <a
+                  href={PUBLISHRANK_WORDPRESS_SUPPORT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand hover:underline"
+                >
+                  WordPress.org support forum
+                </a>
+                <a
+                  href={REPO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand hover:underline"
+                >
+                  Browse the open-source project
+                </a>
               </div>
             </section>
 

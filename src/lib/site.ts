@@ -8,6 +8,8 @@ export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
 export const PUBLISHRANK_WORDPRESS_PLUGIN_URL = "https://wordpress.org/plugins/publishrank/";
+export const PUBLISHRANK_WORDPRESS_SUPPORT_URL =
+  "https://wordpress.org/support/plugin/publishrank/";
 export const WORDPRESS_RELEASE_TAGS = [
   "WordPress.org plugin",
   "WordPress SEO",
