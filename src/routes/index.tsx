@@ -8,6 +8,7 @@ import {
   Code2,
   Download,
   Feather,
+  ExternalLink,
   Github,
   Globe,
   Heart,
@@ -30,6 +31,7 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
 import { pageSeo } from "@/lib/page-seo";
+import { PUBLISHRANK_WORDPRESS_PLUGIN_URL, WORDPRESS_RELEASE_TAGS } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { DownloadLink } from "@/components/download-link";
 import {
@@ -47,11 +49,11 @@ export const Route = createFileRoute("/")({
     pageSeo(
       "/",
       "WordPress SEO Plugin for News Publishers",
-      "PublishRank is the free, open-source WordPress SEO plugin for newsrooms and publishers: news sitemaps, connected schema, newsroom workflow, redirects and 41+ built-in tools. Rated four to five stars by 10,000+ reviewers.",
+      "PublishRank is a free, open-source WordPress SEO plugin for publishers. Explore the official WordPress.org listing, news sitemaps, connected schema, newsroom workflows, redirects and 41+ built-in tools.",
       {
         extraSchema: [softwareSchema, faqSchema],
         keywords:
-          "WordPress SEO plugin, news SEO, news sitemap, schema markup, Google Discover, newsroom plugin, llms.txt",
+          "WordPress.org plugin, WordPress SEO plugin, publisher SEO, news SEO, news sitemap, schema markup, newsroom plugin, llms.txt",
       },
     ),
   component: Index,
@@ -272,6 +274,52 @@ function Index() {
               {t}
             </div>
           ))}
+        </section>
+
+        <section
+          aria-labelledby="official-release-title"
+          className="my-12 rounded-lg border border-brand/20 bg-brand-soft p-6 md:p-8"
+        >
+          <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand">
+                Official WordPress.org release
+              </p>
+              <h2 id="official-release-title" className="mt-2 text-2xl font-extrabold md:text-3xl">
+                PublishRank is now listed in the WordPress.org plugin directory
+              </h2>
+              <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
+                Review the official plugin listing, explore publisher-focused SEO and editorial
+                tools, or install PublishRank directly from your WordPress dashboard.
+              </p>
+              <ul aria-label="PublishRank topics" className="mt-5 flex flex-wrap gap-2">
+                {WORDPRESS_RELEASE_TAGS.map((tag) => (
+                  <li
+                    key={tag}
+                    className="rounded-full border border-brand/20 bg-background px-3 py-1 text-xs font-semibold text-brand"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:max-w-64 lg:flex-col">
+              <Button asChild className="rounded-full">
+                <a
+                  href={PUBLISHRANK_WORDPRESS_PLUGIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WordPress.org listing <ExternalLink aria-hidden="true" />
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="rounded-full">
+                <Link to="/wordpress-org-release">
+                  Read the launch announcement <ArrowRight aria-hidden="true" />
+                </Link>
+              </Button>
+            </div>
+          </div>
         </section>
 
         {/* Editorial workflow */}

@@ -1,10 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { AlertTriangle, ArrowRight, BookOpen, Check, Download, Github } from "lucide-react";
+import {
+  AlertTriangle,
+  ArrowRight,
+  BookOpen,
+  Check,
+  Download,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import { PageFrame } from "@/components/site-shell";
 import { DownloadLink } from "@/components/download-link";
 import { pageSeo } from "@/lib/page-seo";
-import { DOWNLOAD_URL, LOGO_GIF, RELEASES_URL } from "@/lib/site";
+import { DOWNLOAD_URL, LOGO_GIF, PUBLISHRANK_WORDPRESS_PLUGIN_URL, RELEASES_URL } from "@/lib/site";
 import { softwareSchema } from "@/lib/showcase-content";
 
 export const Route = createFileRoute("/download")({
@@ -12,11 +20,11 @@ export const Route = createFileRoute("/download")({
     pageSeo(
       "/download",
       "Download the Free WordPress SEO Plugin",
-      "Download PublishRank, the free and open-source WordPress SEO plugin for news publishers. Get the latest release ZIP from GitHub and follow the step-by-step install guide.",
+      "Install PublishRank, the free and open-source WordPress SEO plugin for publishers, from the official WordPress.org directory or download the latest GitHub release ZIP.",
       {
         extraSchema: [softwareSchema],
         keywords:
-          "download PublishRank, WordPress SEO plugin download, news SEO plugin, PublishRank.zip",
+          "download PublishRank, WordPress.org plugin, WordPress SEO plugin download, news SEO plugin, PublishRank.zip",
       },
     ),
   component: DownloadPage,
@@ -86,6 +94,14 @@ function DownloadPage() {
                 className="inline-flex min-h-11 items-center gap-2 font-semibold text-brand underline-offset-4 hover:underline"
               >
                 Direct ZIP download
+              </a>
+              <a
+                href={PUBLISHRANK_WORDPRESS_PLUGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 font-semibold text-brand underline-offset-4 hover:underline"
+              >
+                Install from WordPress.org <ExternalLink aria-hidden="true" className="h-4 w-4" />
               </a>
               <a
                 href={RELEASES_URL}
@@ -163,6 +179,21 @@ function DownloadPage() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="rounded-lg border border-brand/20 bg-brand-soft p-6">
+            <h2 className="text-xl font-extrabold">Install from your WordPress dashboard</h2>
+            <p className="mt-3 text-sm leading-7 text-muted-foreground">
+              You can find the official listing in WordPress under Plugins → Add New. Search for
+              PublishRank, open its WordPress.org page, then install and activate it.
+            </p>
+            <a
+              href={PUBLISHRANK_WORDPRESS_PLUGIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 font-bold text-brand hover:underline"
+            >
+              Open the official plugin page <ExternalLink aria-hidden="true" className="h-4 w-4" />
+            </a>
           </div>
           <div className="rounded-lg border p-6">
             <h2 className="text-xl font-extrabold">Before you install</h2>

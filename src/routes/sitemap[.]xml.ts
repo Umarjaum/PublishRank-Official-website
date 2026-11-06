@@ -3,11 +3,12 @@ import { SITE_URL } from "@/lib/site";
 import { newsArticles, newsBySlug } from "@/lib/news-content";
 
 // Every public page of the site, in editorial priority order.
-const LASTMOD = "2026-11-02";
+const LASTMOD = "2026-11-06";
 export const publicPaths = [
   "/",
   "/features",
   "/download",
+  "/wordpress-org-release",
   "/documentation",
   "/comparisons",
   "/resources",
@@ -28,7 +29,14 @@ export const publicPaths = [
 const priority = (p: string) =>
   p === "/"
     ? "1.0"
-    : ["/features", "/download", "/documentation", "/enterprise", "/news"].includes(p)
+    : [
+          "/features",
+          "/download",
+          "/wordpress-org-release",
+          "/documentation",
+          "/enterprise",
+          "/news",
+        ].includes(p)
       ? "0.9"
       : ["/privacy", "/terms", "/cookies", "/disclaimer", "/security", "/accessibility"].includes(p)
         ? "0.3"

@@ -7,6 +7,15 @@ export const SITE_DESCRIPTION =
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
+export const PUBLISHRANK_WORDPRESS_PLUGIN_URL = "https://wordpress.org/plugins/publishrank/";
+export const WORDPRESS_RELEASE_TAGS = [
+  "WordPress.org plugin",
+  "WordPress SEO",
+  "Publisher SEO",
+  "News SEO",
+  "Open-source WordPress plugin",
+  "Editorial workflow",
+] as const;
 // The latest alias resolves to the newest published release asset named PublishRank.zip.
 export const DOWNLOAD_URL =
   "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip";

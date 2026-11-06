@@ -28,6 +28,7 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WordpressOrgReleaseRouteImport } from './routes/wordpress-org-release'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
@@ -127,6 +128,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WordpressOrgReleaseRoute = WordpressOrgReleaseRouteImport.update({
+  id: '/wordpress-org-release',
+  path: '/wordpress-org-release',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
@@ -163,6 +169,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -186,6 +193,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
@@ -211,6 +219,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -237,6 +246,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/wordpress-org-release'
     | '/api/contact'
     | '/news/$slug'
     | '/news/'
@@ -260,6 +270,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/wordpress-org-release'
     | '/api/contact'
     | '/news/$slug'
     | '/news'
@@ -284,6 +295,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/wordpress-org-release'
     | '/api/contact'
     | '/news/$slug'
     | '/news/'
@@ -309,6 +321,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
+  WordpressOrgReleaseRoute: typeof WordpressOrgReleaseRoute
   ApiContactRoute: typeof ApiContactRoute
 }
 
@@ -447,6 +460,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/wordpress-org-release': {
+      id: '/wordpress-org-release'
+      path: '/wordpress-org-release'
+      fullPath: '/wordpress-org-release'
+      preLoaderRoute: typeof WordpressOrgReleaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/contact': {
       id: '/api/contact'
       path: '/api/contact'
@@ -503,6 +523,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
+  WordpressOrgReleaseRoute: WordpressOrgReleaseRoute,
   ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport

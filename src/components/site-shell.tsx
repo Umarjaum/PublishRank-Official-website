@@ -1,12 +1,27 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
-import { ArrowRight, Download, Search, X, Heart, Github } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import { ArrowRight, Download, ExternalLink, Search, X, Heart, Github } from "lucide-react";
 import { SiteSearch } from "@/components/site-search";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import logo from "@/assets/publishrank-reference-logo.png.asset.json";
 import { DownloadLink } from "@/components/download-link";
 import { MotionEnhancer } from "@/components/motion-enhancer";
-import { LOGO_GIF, REPO_URL } from "@/lib/site";
+import {
+  LOGO_GIF,
+  PUBLISHRANK_WORDPRESS_PLUGIN_URL,
+  REPO_URL,
+  WORDPRESS_RELEASE_TAGS,
+} from "@/lib/site";
+
+const WORDPRESS_LAUNCH_DISMISS_KEY = "publishrank-wordpress-org-launch-dismissed-v1";
 
 const navigationGroups = [
   {
@@ -18,6 +33,11 @@ const navigationGroups = [
         "/comparisons",
         "Compare plugins",
         "Evaluate the workflow against your publication’s needs.",
+      ],
+      [
+        "/wordpress-org-release",
+        "Official WordPress.org release",
+        "See the official listing, features and installation options.",
       ],
       ["/download", "Download PublishRank", "Get the latest free, open-source release."],
     ],
@@ -52,6 +72,7 @@ const footerGroups = [
     links: [
       ["/features", "Features"],
       ["/comparisons", "Compare plugins"],
+      ["/wordpress-org-release", "WordPress.org release"],
       ["/download", "Download"],
     ],
   },
@@ -89,6 +110,78 @@ const legalLinks = [
   ["/disclaimer", "Disclaimer"],
   ["/security", "Security"],
 ] as const;
+
+function WordPressLaunchAnnouncement() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(WORDPRESS_LAUNCH_DISMISS_KEY) !== "dismissed") {
+        setOpen(true);
+      }
+    } catch {
+      setOpen(true);
+    }
+  }, []);
+
+  const dismiss = () => {
+    try {
+      window.localStorage.setItem(WORDPRESS_LAUNCH_DISMISS_KEY, "dismissed");
+    } catch {
+      // Keep the dialog dismissible for this visit even if browser storage is unavailable.
+    }
+    setOpen(false);
+  };
+
+  return (
+    <Dialog
+      open={open}
+      onOpenChange={(nextOpen) => {
+        if (!nextOpen) dismiss();
+      }}
+    >
+      <DialogContent>
+        <DialogHeader className="pr-7 text-left">
+          <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand">
+            Official WordPress.org launch
+          </p>
+          <DialogTitle className="mt-2 text-2xl font-extrabold">
+            PublishRank is now on WordPress.org
+          </DialogTitle>
+          <DialogDescription className="mt-2 text-base leading-relaxed">
+            The free, open-source plugin is listed in the official WordPress directory. Review its
+            features, then install it from your WordPress dashboard or download the release.
+          </DialogDescription>
+        </DialogHeader>
+        <ul aria-label="PublishRank launch topics" className="flex flex-wrap gap-2">
+          {WORDPRESS_RELEASE_TAGS.slice(0, 3).map((tag) => (
+            <li
+              key={tag}
+              className="rounded-full border bg-brand-soft px-3 py-1 text-xs font-semibold"
+            >
+              {tag}
+            </li>
+          ))}
+        </ul>
+        <DialogFooter className="mt-2 flex-col-reverse gap-2 sm:flex-row sm:justify-start">
+          <Button asChild onClick={dismiss}>
+            <a href={PUBLISHRANK_WORDPRESS_PLUGIN_URL} target="_blank" rel="noopener noreferrer">
+              View official listing <ExternalLink aria-hidden="true" />
+            </a>
+          </Button>
+          <Button asChild variant="outline" onClick={dismiss}>
+            <Link to="/wordpress-org-release">
+              Read launch details <ArrowRight aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button variant="ghost" onClick={dismiss}>
+            Dismiss
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 export function SkipLink() {
   return (
@@ -226,6 +319,7 @@ export function SiteHeader() {
         </div>
       )}
       {searchOpen && <SiteSearch onClose={() => setSearchOpen(false)} />}
+      <WordPressLaunchAnnouncement />
     </header>
   );
 }

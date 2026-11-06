@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
 import { publicPaths } from "@/routes/sitemap[.]xml";
+import { PUBLISHRANK_WORDPRESS_PLUGIN_URL } from "@/lib/site";
 
 // Match routes without running loaders or rendering: loaders may need a server or
 // network the test run lacks, and jsdom never loads the stylesheets React waits on.
@@ -20,6 +21,7 @@ describe("App routing", () => {
     "/privacy",
     "/terms",
     "/download",
+    "/wordpress-org-release",
     "/contact",
     "/cookies",
     "/disclaimer",
@@ -77,6 +79,7 @@ describe("App routing", () => {
         "/enterprise",
         "/news",
         "/download",
+        "/wordpress-org-release",
         "/privacy",
         "/terms",
         "/contact",
@@ -87,7 +90,12 @@ describe("App routing", () => {
       ]),
     );
     expect(publicPaths).toContain("/enterprise");
+    expect(publicPaths).toContain("/wordpress-org-release");
     expect(publicPaths).toContain("/news");
     expect(publicPaths.some((path) => path.startsWith("/news/"))).toBe(true);
+  });
+
+  it("links to the official PublishRank WordPress.org plugin listing", () => {
+    expect(PUBLISHRANK_WORDPRESS_PLUGIN_URL).toBe("https://wordpress.org/plugins/publishrank/");
   });
 });
