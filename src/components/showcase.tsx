@@ -72,7 +72,7 @@ export function ScreenshotShowcase() {
       </h2>
       <SectionTitle
         title="See PublishRank Inside WordPress"
-        intro="Real screens from the plugin dashboard. Select a card to view the full screen."
+        intro="Unedited screens from the plugin dashboard, captured on a local WordPress test site with demo content. Select a card to view the full screen."
       />
       <div className="mt-8">
         <AutoCarousel
@@ -92,9 +92,9 @@ export function ScreenshotShowcase() {
                       alt={s.alt}
                       loading="lazy"
                       decoding="async"
-                      width={"wide" in s && s.wide ? 1920 : 720}
-                      height={"wide" in s && s.wide ? 1088 : 1300}
-                      className={`h-full w-full ${"wide" in s && s.wide ? "object-contain" : "object-cover object-top"} transition-transform duration-500 group-hover:scale-[1.02]`}
+                      width={s.width}
+                      height={s.height}
+                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                     />
                     <span className="absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-brand text-primary-foreground shadow-md">
                       <Maximize2 className="h-4 w-4" />
@@ -109,7 +109,7 @@ export function ScreenshotShowcase() {
               <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto p-0">
                 <DialogTitle className="sr-only">{s.title}</DialogTitle>
                 <DialogDescription className="sr-only">{s.text}</DialogDescription>
-                <img src={s.src} alt={s.alt} className="w-full" />
+                <img src={s.src} alt={s.alt} width={s.width} height={s.height} className="w-full" />
               </DialogContent>
             </Dialog>
           ))}

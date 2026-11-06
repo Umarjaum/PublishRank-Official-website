@@ -5,6 +5,7 @@ import { editorialArticleSchema, newsArticles } from "@/lib/news-content";
 import { pageSeo } from "@/lib/page-seo";
 import { publisherPages } from "@/lib/publisher-content";
 import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
+import { allProductScreenshots, productScreenshotGroups } from "@/lib/product-screenshots";
 import { DOWNLOAD_URL } from "@/lib/site";
 import { brandCards, screenshots } from "@/lib/showcase-content";
 import { createNewsSitemapXml } from "@/routes/news-sitemap[.]xml";
@@ -138,9 +139,18 @@ describe("content", () => {
     expect([...screenshots, ...brandCards].every((image) => image.alt.trim().length > 0)).toBe(
       true,
     );
+    expect(screenshots.some((image) => image.src.endsWith("/01-publishrank-dashboard.png"))).toBe(
+      true,
+    );
+    expect(productScreenshotGroups).toHaveLength(7);
+    expect(allProductScreenshots).toHaveLength(49);
+    expect(new Set(allProductScreenshots.map((image) => image.src)).size).toBe(49);
     expect(
-      screenshots.some(
-        (image) => image.src === "/media/screens/publishrank-seo-statistics-dashboard.png",
+      allProductScreenshots.every(
+        (image) =>
+          image.src.startsWith("/media/screens/publishrank-2.12.1/") &&
+          image.width === 1440 &&
+          image.height === 1000,
       ),
     ).toBe(true);
     expect(brandCards.some((image) => image.src === "/brand/publishrank_logo_landscape.jpg")).toBe(

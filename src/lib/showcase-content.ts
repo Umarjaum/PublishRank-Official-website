@@ -1,4 +1,5 @@
 import { DOWNLOAD_URL, REVIEW_COUNT_LABEL } from "@/lib/site";
+import { featuredProductScreenshots } from "@/lib/product-screenshots";
 
 /**
  * DRAFT TESTIMONIALS — replace with real, verified reader reviews before launch.
@@ -63,39 +64,7 @@ export const testimonials = [
   },
 ] as const;
 
-export const screenshots = [
-  {
-    src: "/media/screens/publishrank-dashboard-overview.webp",
-    title: "Publisher dashboard",
-    text: "Checklist score, news sitemap status, sitemap URLs and a searchable showcase of every tool.",
-    alt: "PublishRank dashboard with configuration checklist, sitemap URLs and tool showcase",
-  },
-  {
-    src: "/media/screens/publishrank-seo-statistics-dashboard.png",
-    title: "SEO statistics dashboard",
-    text: "Track clicks, impressions, click-through rate and average position across a six-month search-performance chart.",
-    alt: "PublishRank SEO statistics dashboard showing 128.4K clicks, 2.1M impressions, a 6.1% average click-through rate, an average position of 8.4, and rising clicks and impressions from January through June",
-    wide: true,
-  },
-  {
-    src: "/media/screens/publishrank-technical-health.webp",
-    title: "Technical health",
-    text: "Pass, warning and recommendation labels for conflicts, HTTPS, sitemaps, schema and robots.txt.",
-    alt: "PublishRank technical health table listing pass and warning checks",
-  },
-  {
-    src: "/media/screens/publishrank-google-preferred-sources.webp",
-    title: "Google Preferred Sources",
-    text: "Generate your link, choose Google’s button or a custom one, and pick exactly where it appears.",
-    alt: "PublishRank Google Preferred Sources settings screen",
-  },
-  {
-    src: "/media/screens/publishrank-crawl-optimization.webp",
-    title: "Crawl optimization",
-    text: "Opt-in switches to clean discovery markup, feeds, internal search and URL parameters.",
-    alt: "PublishRank crawl optimization settings with unchecked options",
-  },
-] as const;
+export const screenshots = featuredProductScreenshots;
 
 export const brandCards = [
   {
