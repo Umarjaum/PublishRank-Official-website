@@ -12,7 +12,13 @@ import {
 import { PageFrame } from "@/components/site-shell";
 import { DownloadLink } from "@/components/download-link";
 import { pageSeo } from "@/lib/page-seo";
-import { DOWNLOAD_URL, LOGO_GIF, PUBLISHRANK_WORDPRESS_PLUGIN_URL, RELEASES_URL } from "@/lib/site";
+import {
+  CURRENT_RELEASE,
+  DOWNLOAD_URL,
+  LOGO_GIF,
+  PUBLISHRANK_WORDPRESS_PLUGIN_URL,
+  RELEASES_URL,
+} from "@/lib/site";
 import { softwareSchema } from "@/lib/showcase-content";
 
 export const Route = createFileRoute("/download")({
@@ -72,7 +78,9 @@ function DownloadPage() {
             style={{ width: 140, height: 140 }}
           />
           <div>
-            <p className="text-xs font-extrabold uppercase text-brand">Latest release</p>
+            <p className="text-xs font-extrabold uppercase text-brand">
+              Latest release · v{CURRENT_RELEASE}
+            </p>
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Free, open-source WordPress SEO for publishers. One ZIP, installed from your WordPress
@@ -171,6 +179,7 @@ function DownloadPage() {
                 "News and XML sitemaps, schema and breadcrumbs",
                 "Redirects, crawl optimization and llms.txt",
                 "Google Preferred Sources and WP Hide Login",
+                "Yoast SEO and Rank Math migration with multilingual SEO",
                 "Free core edition, open source",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">

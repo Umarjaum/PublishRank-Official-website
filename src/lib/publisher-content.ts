@@ -1,106 +1,459 @@
-import { extraDocumentation, extraResources, newPages, overrides } from './publisher-content-extra';
+import { extraDocumentation, extraResources, newPages, overrides } from "./publisher-content-extra";
 export type ContentSection = { title: string; paragraphs: string[]; bullets?: string[] };
-export type PublisherPage = { title: string; eyebrow: string; intro: string; description: string; image: 'newsroom' | 'writing' | 'developer'; sections: ContentSection[]; updated?: string };
-export type PublisherPageKey = 'features' | 'documentation' | 'comparisons' | 'resources' | 'support' | 'about' | 'privacy' | 'terms' | 'cookies' | 'disclaimer' | 'security' | 'accessibility';
-const basePages: Record<'features' | 'documentation' | 'comparisons' | 'resources' | 'support' | 'about' | 'privacy' | 'terms', PublisherPage> = {
- features: {
-  title: 'SEO built for publishers.', eyebrow: 'The PublishRank toolkit', image: 'developer',
-  intro: 'From the first headline to the long-term health of your archive, keep editorial and technical SEO in one WordPress workflow — with a dedicated newsroom, a Schema Aggregator endpoint and built-in login protection.',
-  description: 'Explore PublishRank newsroom roles, Schema Aggregator endpoint, news sitemaps, schema, redirects, WP Hide Login security and technical SEO tools for WordPress publishers.',
-  sections: [
-   { title: 'Write, review and publish', paragraphs: ['Article SEO Intelligence reviews headlines, descriptions, headings, readability, featured images, bylines, dates and links. Use the results as a practical editorial checklist, not a prediction of where an article will rank.', 'Live previews let writers inspect desktop and mobile search snippets, social cards, canonical settings and JSON-LD while reviewing a draft. Search engines and social networks still decide how a page is displayed.'], bullets: ['Story-level SEO checks', 'Search and social previews', 'Author expertise and editorial identity'] },
-   { title: 'Connect stories with structured data', paragraphs: ['The Schema Suite connects your publication, website, authors, articles, images and breadcrumbs in a JSON-LD graph. Match the type to the content: a news report and an opinion blog are not interchangeable.', 'Article, NewsArticle, ReportageNewsArticle, BlogPosting and LiveBlogPosting are among the supported types described in the supplied product documentation. Required fields and editorial accuracy matter; markup is not a guarantee of a rich result.'] },
-   { title: 'A dedicated newsroom with assigned roles', paragraphs: ['PublishRank ships with a dedicated newsroom module. Editors, reporters and contributors are assigned roles for the stories they own, so reviews, bylines and publication handoffs stay clear — the workflow newsrooms usually need a separate tool for lives inside WordPress.', 'Combined with story-level SEO checks, the newsroom keeps editorial accountability and technical optimization in the same place.'], bullets: ['Assigned editorial roles for editors, reporters and contributors', 'Story ownership, review and publication handoff', 'Newsroom workflows built for news publishers'] },
-   { title: 'The Schema Aggregator endpoint', paragraphs: ['The Schema Aggregator endpoint collects the structured data PublishRank generates across templates into one machine-readable feed, making it easy to audit the graph your pages emit as themes, blocks and settings change.', 'Point validation tools at the endpoint to confirm your publication, author and article markup stays accurate over time.'] },
-   { title: 'Maintain news and XML sitemaps', paragraphs: ['Sitemap providers cover public content and editorial archives, with news, image and video output where configured. Sitemap Health helps review XML, duplicate URLs, child references and eligibility.', 'Set your publication identity, eligible content types and exclusions before submitting a sitemap. A sitemap helps discovery but cannot guarantee indexing or Google News inclusion.'] },
-   { title: 'Look after the archive', paragraphs: ['Redirects, an optional 404 Monitor, internal-link tools and bulk metadata editing support content maintenance after publication. Review missing destinations and preserve useful paths when a story moves.', 'Image optimization creates smaller attachment files while retaining originals. Optional social-image watermarking is a separate control and depends on image processing support on the WordPress host.'], bullets: ['Redirect and missing-page review', 'Internal linking and bulk editorial maintenance', 'Image optimization and optional social watermarking'] },
-   { title: 'Technical controls, with clear limits', paragraphs: ['Robots.txt previews, URL testing, diagnostics and llms.txt controls help owners inspect their output. Robots.txt is guidance for crawlers, not protection for confidential content; llms.txt does not guarantee AI citations.', 'IndexNow and read-only search reports require configuration. Traffic Guard is optional request control, not a replacement for a firewall, strong account security or a managed DDoS service. Automatic migration from other SEO plugins is planned, not currently promised.'] },
-   { title: 'Security: WP Hide Login built in', paragraphs: ['PublishRank includes WP Hide Login built in, so site owners can move the WordPress login URL away from the default /wp-login.php path and cut the constant automated sign-in traffic most sites receive.', 'Login-URL protection is a hardening measure, not a replacement for strong passwords, two-factor authentication or a firewall.'], bullets: ['Moveable WordPress login URL', 'Reduces automated sign-in attempts', 'Included in the core edition — no separate plugin'] },
-   { title: 'Everything the major plugins cover — and more', paragraphs: ['The toolkit covers the ground publishers expect from Yoast SEO and Rank Math: titles and meta, XML and News sitemaps, structured data, redirects, content analysis and search previews.', 'On top of that come the dedicated newsroom with assigned roles, the Schema Aggregator endpoint and built-in WP Hide Login — included in the free core edition.'] },
-  ],
- },
- documentation: {
-  title: 'The publisher’s handbook.', eyebrow: 'Documentation', image: 'writing',
-  intro: 'A careful setup, a repeatable editorial review and a healthy archive. Start here and keep the essentials close.',
-  description: 'Follow practical PublishRank setup, article SEO, schema, sitemap and technical validation documentation for WordPress publishers.',
-  sections: [
-   { title: '01 / Prepare your WordPress site', paragraphs: ['Create a current backup and use a staging copy before changing SEO ownership. Record the current titles, descriptions, canonical URLs, robots directives and sitemap addresses so you can compare output after setup.', 'Review active SEO plugins. Multiple plugins generating the same titles, schema or sitemaps can conflict. Choose one owner for each output and validate the rendered page before enabling overlapping controls.'], bullets: ['Back up site files and content', 'Record existing search metadata', 'Test on staging before changing a live publication'] },
-   { title: '02 / Establish publisher identity', paragraphs: ['Review the setup wizard, publisher details and default settings. Use the publication name readers recognize, a genuine logo and accurate author information. Do not invent credentials or descriptions for author profiles.', 'Set default metadata as a fallback, then use story-specific titles and descriptions when an article needs a more precise summary. Keep the canonical URL aligned with the page readers should visit.'] },
-   { title: '03 / Review each article', paragraphs: ['Check that the headline describes the reporting and that the first paragraphs answer the reader’s main question. Review the featured image, accessible alternative text, byline, publication date and useful internal links.', 'Use the score as a checklist rather than chasing a number. Preview search and social presentation, inspect robots directives and confirm the selected schema reflects the actual article.'], bullets: ['Clear headline and useful summary', 'Accurate author and date information', 'Relevant links and correctly described images'] },
-   { title: '04 / Validate discovery', paragraphs: ['Open the sitemap index and relevant child sitemaps. Confirm that intended public pages appear and excluded content stays out. Review News sitemap publication details and article eligibility in Sitemap Health.', 'Inspect a representative published page in your browser and use Google’s Rich Results Test for supported markup. Submit the correct sitemap to your own Search Console account and review coverage there; sitemap submission alone is not evidence of indexing.'] },
-   { title: '05 / Maintain and troubleshoot', paragraphs: ['After major theme, caching or plugin changes, recheck rendered metadata and XML output. Use Diagnostics to inspect conflicts, canonicals, structured data and cache behavior.', 'When a page disappears, investigate the requested path before redirecting it. Send readers to a genuinely equivalent destination; do not redirect every missing story to the homepage. Review a sample of archive content regularly for outdated information and broken editorial context.'] },
-  ],
- },
- comparisons: {
-  title: 'Choose the right editorial fit.', eyebrow: 'Plugin comparisons', image: 'developer',
-  intro: 'Compare PublishRank with the major WordPress SEO plugins — Yoast SEO, Rank Math, SEOPress and All in One SEO — feature by feature, then judge on your own staging site.',
-  description: 'Compare PublishRank with Yoast SEO, Rank Math, SEOPress and All in One SEO: newsroom roles, Schema Aggregator endpoint, WP Hide Login, news sitemaps, redirects and bulk editing.',
-  sections: [
-   { title: 'Start with your newsroom’s requirements', paragraphs: ['List the jobs your editors and site owners actually perform: draft review, author information, news sitemaps, social previews, redirects and archive maintenance. Compare these workflows on a staging site with representative articles.', 'PublishRank’s supplied documentation emphasizes publisher identity, story-level review and technical maintenance. Use the Features page to understand these areas and the limitations of optional integrations.'] },
-   { title: 'Evaluating Yoast SEO or Rank Math', paragraphs: ['If your team already uses Yoast SEO or Rank Math, record which functions you depend on and consult the current official documentation for your installed edition. Product features and paid-plan boundaries change; this site does not claim that a competitor lacks a capability.', 'Compare how each tool handles your real content, your theme and your editor. Check final HTML and sitemap output rather than relying only on a settings screen.'] },
-   { title: 'An evaluation checklist', paragraphs: ['Use the same articles and configuration for each evaluation. Record results and any manual work required so the comparison is fair.'], bullets: ['Editorial review: are suggestions useful to your writers?', 'Identity: are authors and the publication represented accurately?', 'Discovery: are intended URLs in the right sitemaps?', 'Compatibility: is duplicate metadata avoided?', 'Operations: can your team maintain redirects and archives?', 'Integrations: are requirements and data handling clear?'] },
-   { title: 'Where PublishRank goes further', paragraphs: ['PublishRank ships a dedicated newsroom with assigned editorial roles, a Schema Aggregator endpoint for auditing structured data, and built-in WP Hide Login protection for the WordPress login URL — all in the free core edition rather than as paid add-ons.', 'That is on top of the standard toolkit: titles and meta, XML and News sitemaps, article and news structured data, redirects, 404 monitoring, internal-link suggestions, bulk metadata editing and content analysis.'], bullets: ['Dedicated newsroom with assigned roles', 'Schema Aggregator endpoint', 'Built-in WP Hide Login'] },
-   { title: 'Plan migration conservatively', paragraphs: ['Automatic migration from other SEO plugins is described as planned in the supplied PublishRank material. Do not assume existing settings, per-post metadata or redirects will transfer automatically.', 'Back up the site, export supported settings from the current tool and build a staging checklist. Compare canonical URLs, titles, schema and sitemap coverage before switching output ownership on the live publication.'] },
-  ],
- },
- resources: {
-  title: 'Better foundations. Better stories.', eyebrow: 'Publisher resources', image: 'newsroom',
-  intro: 'Practical reference notes for editors and site owners who care about discoverability without compromising the reporting.',
-  description: 'Read practical guidance on news SEO, Google Discover readiness, structured data and responsible archive maintenance.',
-  sections: [
-   { title: 'News SEO: serve the reader first', paragraphs: ['A useful article makes its subject, evidence and context easy to understand. Name the author, show relevant dates and distinguish reporting from opinion. Update stories when the underlying facts change, not merely to make a timestamp look recent.', 'Technical SEO supports that work by making the intended URL, metadata and content relationships clear. It cannot substitute for original reporting or editorial trust.'] },
-   { title: 'Google Discover: readiness, not a promise', paragraphs: ['Use descriptive headlines that reflect the article rather than withholding essential context. Choose relevant, high-quality images you are authorized to use and make sure the page is readable and reliable on a phone.', 'Review Google’s current Discover policies and image guidance directly. No plugin, schema type or sitemap can guarantee that a story appears in Discover.'] },
-   { title: 'Structured data is a description', paragraphs: ['Markup should describe what visitors can see. Choose the article type that fits the story and connect accurate author and publisher details. Validate output after changes to templates or SEO settings.', 'Do not add invented reviews, credentials, dates or entities for search visibility. Eligibility for a supported rich result is not a promise that it will be shown.'] },
-   { title: 'Build an archive maintenance rhythm', paragraphs: ['Review high-value evergreen stories for stale facts, missing context and relevant internal links. Keep a moved article’s URL working with an appropriate redirect, and explain substantive corrections to readers.', 'Inspect broken destinations before choosing a replacement. A genuinely removed story may need a Gone response instead of an unrelated redirect. Keep excluded or private material out of public discovery outputs.'] },
-  ],
- },
- support: {
-  title: 'Get clarity. Keep publishing.', eyebrow: 'Help & support', image: 'developer',
-  intro: 'Start with a focused check of the affected page, then gather the details needed to understand the problem.',
-  description: 'Troubleshoot PublishRank metadata, sitemaps, schema and WordPress conflicts with practical diagnostic steps.',
-  sections: [
-   { title: 'Metadata is missing or duplicated', paragraphs: ['Inspect the rendered HTML of one affected public page. Check for multiple titles, canonical links, robots tags or competing JSON-LD output. Review theme settings and other SEO plugins that may generate the same information.', 'Clear relevant caches after a confirmed settings change and check again in a fresh browser session. A settings preview and the final published HTML can differ when caching or other extensions are involved.'] },
-   { title: 'A sitemap is not behaving as expected', paragraphs: ['Open the sitemap address directly and check the response and XML. Review eligibility, exclusions and publication identity in Sitemap Health. Check child references and whether a cache is serving old output.', 'Distinguish a valid sitemap from confirmed indexing. Search Console reports provide evidence about Google’s processing; a plugin’s local check does not establish search engine inclusion.'] },
-   { title: 'Gather a useful diagnostic report', paragraphs: ['Record the affected URL, expected behavior, actual behavior and the steps that reproduce the problem. Include relevant WordPress, PHP, theme and plugin environment information in your private troubleshooting notes.', 'Remove credentials, tokens and personal data from any report you share. A narrowly scoped example from staging is safer and more useful than a full site export.'], bullets: ['One affected page or sitemap', 'Steps to reproduce and recent changes', 'Relevant errors with secrets removed', 'What you have already checked'] },
-   { title: 'Documentation and release availability', paragraphs: ['The handbook covers setup and ongoing validation. The download page explains current package availability. This website does not provide a plugin ZIP or an active support submission form.', 'A verified support contact has not been supplied for this redesign, so no email address or response-time promise is invented here.'] },
-  ],
- },
- about: {
-  title: 'For the people who publish.', eyebrow: 'About PublishRank', image: 'newsroom',
-  intro: 'PublishRank is a WordPress SEO project centered on the practical needs of bloggers, independent publications and newsrooms.',
-  description: 'Learn about PublishRank’s publisher-focused WordPress SEO approach, editorial principles and transparent product limitations.',
-  sections: [
-   { title: 'The publishing workflow comes first', paragraphs: ['The project brings story review, search presentation, publication identity and archive maintenance into a connected WordPress workflow. Editors need useful checks before publication; site owners need visibility into what their pages actually output.', 'The source material describes PublishRank as free and open source. This website introduces that project and its documented tools; the plugin archive is intentionally not included.'] },
-   { title: 'Honest expectations', paragraphs: ['SEO scores are checklists, not forecasts. Structured data describes your content, not a shortcut to guaranteed rich results. Sitemaps support discovery, not automatic indexing.', 'Optional integrations require configuration and operational testing. The project should be evaluated on your own staging site, with your theme, content and editorial requirements.'] },
-   { title: 'Respect for readers and reporting', paragraphs: ['Clear authorship, accurate summaries and thoughtful corrections are part of useful publishing. Optimization should make original work easier to find and understand, not replace it with exaggerated promises.', 'The supplied materials do not establish a company address, founding date or named team. This page avoids inventing those details.'] },
-  ],
- },
- privacy: {
-  title: 'Privacy information.', eyebrow: 'Website information', image: 'writing',
-  intro: 'A straightforward description of this website’s implementation. This is not a substitute for an approved operator privacy policy.',
-  description: 'Understand the PublishRank website’s forms, hosting, external resources and privacy policy limitations.',
-  sections: [
-   { title: 'What this website includes', paragraphs: ['This website does not implement an account system, newsletter signup, payment flow or contact submission form. No visitor analytics or advertising tracker has been added in the website source.', 'Images and font resources may be served by hosting and third-party infrastructure. Those services can receive ordinary request information such as an IP address and browser headers. Their own terms and policies apply.'] },
-   { title: 'Website and plugin are different', paragraphs: ['This page describes the website, not every possible WordPress deployment of the PublishRank plugin. Plugin data handling depends on enabled features, integrations and the site operator’s configuration.', 'Review the product documentation and your own site’s privacy obligations before enabling integrations or monitoring features. Do not publish diagnostic reports containing credentials or personal information.'] },
-   { title: 'Policy details still required', paragraphs: ['A verified operator identity, privacy contact, retention policy and jurisdiction have not been supplied. The operator should approve a complete policy reflecting actual hosting and service choices before collecting personal data.', 'No legal compliance guarantee is made by this information page.'] },
-  ],
- },
- terms: {
-  title: 'Terms & important limitations.', eyebrow: 'Website information', image: 'writing',
-  intro: 'Read the scope of this website’s content and product information. Operator-approved legal terms still need to be supplied.',
-  description: 'Read PublishRank website scope, product availability, SEO limitations and licensing information for the source delivery.',
-  sections: [
-   { title: 'Information, not a performance guarantee', paragraphs: ['The pages explain capabilities described in the supplied PublishRank material and general editorial practices. They are not a guarantee of rankings, traffic, search inclusion, rich results or AI citations.', 'Third-party platform behavior and requirements can change. Validate current requirements with the relevant service and test configuration on your own WordPress site.'] },
-   { title: 'Product and source availability', paragraphs: ['The website source delivery is separate from the WordPress plugin. No plugin installation ZIP is distributed by this website, and no download button should be interpreted as delivery of that package.', 'The project is described in the source material as open source. Consult the actual plugin license when obtaining a release; this website page does not replace that license or establish new licensing terms.'] },
-   { title: 'Legal details still required', paragraphs: ['The operator has not supplied binding service terms, a governing jurisdiction or a legal contact. These notes identify implementation limitations rather than inventing those details.', 'Before introducing accounts, purchases or submissions, replace these notes with terms reviewed for the actual service and its operator.'] },
-  ],
- },
+export type PublisherPage = {
+  title: string;
+  eyebrow: string;
+  intro: string;
+  description: string;
+  image: "newsroom" | "writing" | "developer";
+  sections: ContentSection[];
+  updated?: string;
+};
+export type PublisherPageKey =
+  | "features"
+  | "documentation"
+  | "comparisons"
+  | "resources"
+  | "support"
+  | "about"
+  | "privacy"
+  | "terms"
+  | "cookies"
+  | "disclaimer"
+  | "security"
+  | "accessibility";
+const basePages: Record<
+  | "features"
+  | "documentation"
+  | "comparisons"
+  | "resources"
+  | "support"
+  | "about"
+  | "privacy"
+  | "terms",
+  PublisherPage
+> = {
+  features: {
+    title: "SEO built for publishers.",
+    eyebrow: "The PublishRank toolkit",
+    image: "developer",
+    intro:
+      "From the first headline to the long-term health of your archive, keep editorial and technical SEO in one WordPress workflow — with a dedicated newsroom, a Schema Aggregator endpoint and built-in login protection.",
+    description:
+      "Explore PublishRank newsroom roles, Schema Aggregator endpoint, news sitemaps, schema, redirects, WP Hide Login security and technical SEO tools for WordPress publishers.",
+    sections: [
+      {
+        title: "Write, review and publish",
+        paragraphs: [
+          "Article SEO Intelligence reviews headlines, descriptions, headings, readability, featured images, bylines, dates and links. Use the results as a practical editorial checklist, not a prediction of where an article will rank.",
+          "Live previews let writers inspect desktop and mobile search snippets, social cards, canonical settings and JSON-LD while reviewing a draft. Search engines and social networks still decide how a page is displayed.",
+        ],
+        bullets: [
+          "Story-level SEO checks",
+          "Search and social previews",
+          "Author expertise and editorial identity",
+        ],
+      },
+      {
+        title: "Connect stories with structured data",
+        paragraphs: [
+          "The Schema Suite connects your publication, website, authors, articles, images and breadcrumbs in a JSON-LD graph. Match the type to the content: a news report and an opinion blog are not interchangeable.",
+          "Article, NewsArticle, ReportageNewsArticle, BlogPosting and LiveBlogPosting are among the supported types described in the supplied product documentation. Required fields and editorial accuracy matter; markup is not a guarantee of a rich result.",
+        ],
+      },
+      {
+        title: "A dedicated newsroom with assigned roles",
+        paragraphs: [
+          "PublishRank ships with a dedicated newsroom module. Editors, reporters and contributors are assigned roles for the stories they own, so reviews, bylines and publication handoffs stay clear — the workflow newsrooms usually need a separate tool for lives inside WordPress.",
+          "Combined with story-level SEO checks, the newsroom keeps editorial accountability and technical optimization in the same place.",
+        ],
+        bullets: [
+          "Assigned editorial roles for editors, reporters and contributors",
+          "Story ownership, review and publication handoff",
+          "Newsroom workflows built for news publishers",
+        ],
+      },
+      {
+        title: "The Schema Aggregator endpoint",
+        paragraphs: [
+          "The Schema Aggregator endpoint collects the structured data PublishRank generates across templates into one machine-readable feed, making it easy to audit the graph your pages emit as themes, blocks and settings change.",
+          "Point validation tools at the endpoint to confirm your publication, author and article markup stays accurate over time.",
+        ],
+      },
+      {
+        title: "Maintain news and XML sitemaps",
+        paragraphs: [
+          "Sitemap providers cover public content and editorial archives, with news, image and video output where configured. Sitemap Health helps review XML, duplicate URLs, child references and eligibility.",
+          "Set your publication identity, eligible content types and exclusions before submitting a sitemap. A sitemap helps discovery but cannot guarantee indexing or Google News inclusion.",
+        ],
+      },
+      {
+        title: "Look after the archive",
+        paragraphs: [
+          "Redirects, an optional 404 Monitor, internal-link tools and bulk metadata editing support content maintenance after publication. Review missing destinations and preserve useful paths when a story moves.",
+          "Image optimization creates smaller attachment files while retaining originals. Optional social-image watermarking is a separate control and depends on image processing support on the WordPress host.",
+        ],
+        bullets: [
+          "Redirect and missing-page review",
+          "Internal linking and bulk editorial maintenance",
+          "Image optimization and optional social watermarking",
+        ],
+      },
+      {
+        title: "Migrate safely from Yoast SEO or Rank Math",
+        paragraphs: [
+          "PublishRank includes a field-aware migration workspace for Yoast SEO and Rank Math. Run a dry-run preview, select fields, choose merge or overwrite behavior, protect existing source metadata and create a rollback snapshot before writing.",
+          "Large archives can be processed in bounded batches, while normalized JSON exports support cross-site migration and URL-slug matching. Validate titles, descriptions, canonicals, robots, social metadata and focus keywords on staging before changing production output.",
+        ],
+        bullets: [
+          "Dry-run and field-level controls",
+          "Rollback snapshots and cross-site JSON portability",
+          "Compatible Yoast SEO and Rank Math import/export",
+        ],
+      },
+      {
+        title: "Multilingual SEO for every publication",
+        paragraphs: [
+          "Locale-aware SEO fields support language-specific titles, descriptions, focus keywords, Open Graph values and robots directives. The built-in catalog covers major LTR and RTL locales, including Urdu, Arabic, Persian, Hebrew, Hindi, Bengali, Chinese, Japanese, Korean and European languages.",
+          "WPML, Polylang and custom hreflang locales can be preserved during migration. Translation support is not limited to the admin interface; each locale can carry its own search and social metadata.",
+        ],
+      },
+      {
+        title: "Technical controls, with clear limits",
+        paragraphs: [
+          "Robots.txt previews, URL testing, diagnostics and llms.txt controls help owners inspect their output. Robots.txt is guidance for crawlers, not protection for confidential content; llms.txt does not guarantee AI citations.",
+          "IndexNow and read-only search reports require configuration. Traffic Guard is optional request control, not a replacement for a firewall, strong account security or a managed DDoS service.",
+        ],
+      },
+      {
+        title: "Security: WP Hide Login built in",
+        paragraphs: [
+          "PublishRank includes WP Hide Login built in, so site owners can move the WordPress login URL away from the default /wp-login.php path and cut the constant automated sign-in traffic most sites receive.",
+          "Login-URL protection is a hardening measure, not a replacement for strong passwords, two-factor authentication or a firewall.",
+        ],
+        bullets: [
+          "Moveable WordPress login URL",
+          "Reduces automated sign-in attempts",
+          "Included in the core edition — no separate plugin",
+        ],
+      },
+      {
+        title: "Everything the major plugins cover — and more",
+        paragraphs: [
+          "The toolkit covers the ground publishers expect from Yoast SEO and Rank Math: titles and meta, XML and News sitemaps, structured data, redirects, content analysis and search previews.",
+          "On top of that come the dedicated newsroom with assigned roles, the Schema Aggregator endpoint and built-in WP Hide Login — included in the free core edition.",
+        ],
+      },
+    ],
+  },
+  documentation: {
+    title: "The publisher’s handbook.",
+    eyebrow: "Documentation",
+    image: "writing",
+    intro:
+      "A careful setup, a repeatable editorial review and a healthy archive. Start here and keep the essentials close.",
+    description:
+      "Follow practical PublishRank setup, article SEO, schema, sitemap and technical validation documentation for WordPress publishers.",
+    sections: [
+      {
+        title: "01 / Prepare your WordPress site",
+        paragraphs: [
+          "Create a current backup and use a staging copy before changing SEO ownership. Record the current titles, descriptions, canonical URLs, robots directives and sitemap addresses so you can compare output after setup.",
+          "Review active SEO plugins. Multiple plugins generating the same titles, schema or sitemaps can conflict. Choose one owner for each output and validate the rendered page before enabling overlapping controls.",
+        ],
+        bullets: [
+          "Back up site files and content",
+          "Record existing search metadata",
+          "Test on staging before changing a live publication",
+        ],
+      },
+      {
+        title: "02 / Establish publisher identity",
+        paragraphs: [
+          "Review the setup wizard, publisher details and default settings. Use the publication name readers recognize, a genuine logo and accurate author information. Do not invent credentials or descriptions for author profiles.",
+          "Set default metadata as a fallback, then use story-specific titles and descriptions when an article needs a more precise summary. Keep the canonical URL aligned with the page readers should visit.",
+        ],
+      },
+      {
+        title: "03 / Review each article",
+        paragraphs: [
+          "Check that the headline describes the reporting and that the first paragraphs answer the reader’s main question. Review the featured image, accessible alternative text, byline, publication date and useful internal links.",
+          "Use the score as a checklist rather than chasing a number. Preview search and social presentation, inspect robots directives and confirm the selected schema reflects the actual article.",
+        ],
+        bullets: [
+          "Clear headline and useful summary",
+          "Accurate author and date information",
+          "Relevant links and correctly described images",
+        ],
+      },
+      {
+        title: "04 / Validate discovery",
+        paragraphs: [
+          "Open the sitemap index and relevant child sitemaps. Confirm that intended public pages appear and excluded content stays out. Review News sitemap publication details and article eligibility in Sitemap Health.",
+          "Inspect a representative published page in your browser and use Google’s Rich Results Test for supported markup. Submit the correct sitemap to your own Search Console account and review coverage there; sitemap submission alone is not evidence of indexing.",
+        ],
+      },
+      {
+        title: "05 / Maintain and troubleshoot",
+        paragraphs: [
+          "After major theme, caching or plugin changes, recheck rendered metadata and XML output. Use Diagnostics to inspect conflicts, canonicals, structured data and cache behavior.",
+          "When a page disappears, investigate the requested path before redirecting it. Send readers to a genuinely equivalent destination; do not redirect every missing story to the homepage. Review a sample of archive content regularly for outdated information and broken editorial context.",
+        ],
+      },
+    ],
+  },
+  comparisons: {
+    title: "Choose the right editorial fit.",
+    eyebrow: "Plugin comparisons",
+    image: "developer",
+    intro:
+      "Compare PublishRank with the major WordPress SEO plugins — Yoast SEO, Rank Math, SEOPress and All in One SEO — feature by feature, then judge on your own staging site.",
+    description:
+      "Compare PublishRank with Yoast SEO, Rank Math, SEOPress and All in One SEO: newsroom roles, Schema Aggregator endpoint, WP Hide Login, news sitemaps, redirects and bulk editing.",
+    sections: [
+      {
+        title: "Start with your newsroom’s requirements",
+        paragraphs: [
+          "List the jobs your editors and site owners actually perform: draft review, author information, news sitemaps, social previews, redirects and archive maintenance. Compare these workflows on a staging site with representative articles.",
+          "PublishRank’s supplied documentation emphasizes publisher identity, story-level review and technical maintenance. Use the Features page to understand these areas and the limitations of optional integrations.",
+        ],
+      },
+      {
+        title: "Evaluating Yoast SEO or Rank Math",
+        paragraphs: [
+          "If your team already uses Yoast SEO or Rank Math, record which functions you depend on and consult the current official documentation for your installed edition. Product features and paid-plan boundaries change; this site does not claim that a competitor lacks a capability.",
+          "Compare how each tool handles your real content, your theme and your editor. Check final HTML and sitemap output rather than relying only on a settings screen.",
+        ],
+      },
+      {
+        title: "An evaluation checklist",
+        paragraphs: [
+          "Use the same articles and configuration for each evaluation. Record results and any manual work required so the comparison is fair.",
+        ],
+        bullets: [
+          "Editorial review: are suggestions useful to your writers?",
+          "Identity: are authors and the publication represented accurately?",
+          "Discovery: are intended URLs in the right sitemaps?",
+          "Compatibility: is duplicate metadata avoided?",
+          "Operations: can your team maintain redirects and archives?",
+          "Integrations: are requirements and data handling clear?",
+        ],
+      },
+      {
+        title: "Where PublishRank goes further",
+        paragraphs: [
+          "PublishRank ships a dedicated newsroom with assigned editorial roles, a Schema Aggregator endpoint for auditing structured data, and built-in WP Hide Login protection for the WordPress login URL — all in the free core edition rather than as paid add-ons.",
+          "That is on top of the standard toolkit: titles and meta, XML and News sitemaps, article and news structured data, redirects, 404 monitoring, internal-link suggestions, bulk metadata editing and content analysis.",
+        ],
+        bullets: [
+          "Dedicated newsroom with assigned roles",
+          "Schema Aggregator endpoint",
+          "Built-in WP Hide Login",
+        ],
+      },
+      {
+        title: "Plan migration conservatively",
+        paragraphs: [
+          "Use the shipped migration workspace for Yoast SEO and Rank Math. Start with a dry run, select only the fields you need, choose merge or overwrite deliberately and keep a rollback snapshot before switching output ownership.",
+          "Back up the site and validate canonical URLs, titles, descriptions, robots, social metadata, schema and sitemap coverage on staging before applying the migration to a live publication.",
+        ],
+      },
+    ],
+  },
+  resources: {
+    title: "Better foundations. Better stories.",
+    eyebrow: "Publisher resources",
+    image: "newsroom",
+    intro:
+      "Practical reference notes for editors and site owners who care about discoverability without compromising the reporting.",
+    description:
+      "Read practical guidance on news SEO, Google Discover readiness, structured data and responsible archive maintenance.",
+    sections: [
+      {
+        title: "News SEO: serve the reader first",
+        paragraphs: [
+          "A useful article makes its subject, evidence and context easy to understand. Name the author, show relevant dates and distinguish reporting from opinion. Update stories when the underlying facts change, not merely to make a timestamp look recent.",
+          "Technical SEO supports that work by making the intended URL, metadata and content relationships clear. It cannot substitute for original reporting or editorial trust.",
+        ],
+      },
+      {
+        title: "Google Discover: readiness, not a promise",
+        paragraphs: [
+          "Use descriptive headlines that reflect the article rather than withholding essential context. Choose relevant, high-quality images you are authorized to use and make sure the page is readable and reliable on a phone.",
+          "Review Google’s current Discover policies and image guidance directly. No plugin, schema type or sitemap can guarantee that a story appears in Discover.",
+        ],
+      },
+      {
+        title: "Structured data is a description",
+        paragraphs: [
+          "Markup should describe what visitors can see. Choose the article type that fits the story and connect accurate author and publisher details. Validate output after changes to templates or SEO settings.",
+          "Do not add invented reviews, credentials, dates or entities for search visibility. Eligibility for a supported rich result is not a promise that it will be shown.",
+        ],
+      },
+      {
+        title: "Build an archive maintenance rhythm",
+        paragraphs: [
+          "Review high-value evergreen stories for stale facts, missing context and relevant internal links. Keep a moved article’s URL working with an appropriate redirect, and explain substantive corrections to readers.",
+          "Inspect broken destinations before choosing a replacement. A genuinely removed story may need a Gone response instead of an unrelated redirect. Keep excluded or private material out of public discovery outputs.",
+        ],
+      },
+    ],
+  },
+  support: {
+    title: "Get clarity. Keep publishing.",
+    eyebrow: "Help & support",
+    image: "developer",
+    intro:
+      "Start with a focused check of the affected page, then gather the details needed to understand the problem.",
+    description:
+      "Troubleshoot PublishRank metadata, sitemaps, schema and WordPress conflicts with practical diagnostic steps.",
+    sections: [
+      {
+        title: "Metadata is missing or duplicated",
+        paragraphs: [
+          "Inspect the rendered HTML of one affected public page. Check for multiple titles, canonical links, robots tags or competing JSON-LD output. Review theme settings and other SEO plugins that may generate the same information.",
+          "Clear relevant caches after a confirmed settings change and check again in a fresh browser session. A settings preview and the final published HTML can differ when caching or other extensions are involved.",
+        ],
+      },
+      {
+        title: "A sitemap is not behaving as expected",
+        paragraphs: [
+          "Open the sitemap address directly and check the response and XML. Review eligibility, exclusions and publication identity in Sitemap Health. Check child references and whether a cache is serving old output.",
+          "Distinguish a valid sitemap from confirmed indexing. Search Console reports provide evidence about Google’s processing; a plugin’s local check does not establish search engine inclusion.",
+        ],
+      },
+      {
+        title: "Gather a useful diagnostic report",
+        paragraphs: [
+          "Record the affected URL, expected behavior, actual behavior and the steps that reproduce the problem. Include relevant WordPress, PHP, theme and plugin environment information in your private troubleshooting notes.",
+          "Remove credentials, tokens and personal data from any report you share. A narrowly scoped example from staging is safer and more useful than a full site export.",
+        ],
+        bullets: [
+          "One affected page or sitemap",
+          "Steps to reproduce and recent changes",
+          "Relevant errors with secrets removed",
+          "What you have already checked",
+        ],
+      },
+      {
+        title: "Documentation and release availability",
+        paragraphs: [
+          "The handbook covers setup and ongoing validation. The download page explains current package availability. This website does not provide a plugin ZIP or an active support submission form.",
+          "A verified support contact has not been supplied for this redesign, so no email address or response-time promise is invented here.",
+        ],
+      },
+    ],
+  },
+  about: {
+    title: "For the people who publish.",
+    eyebrow: "About PublishRank",
+    image: "newsroom",
+    intro:
+      "PublishRank is a WordPress SEO project centered on the practical needs of bloggers, independent publications and newsrooms.",
+    description:
+      "Learn about PublishRank’s publisher-focused WordPress SEO approach, editorial principles and transparent product limitations.",
+    sections: [
+      {
+        title: "The publishing workflow comes first",
+        paragraphs: [
+          "The project brings story review, search presentation, publication identity and archive maintenance into a connected WordPress workflow. Editors need useful checks before publication; site owners need visibility into what their pages actually output.",
+          "The source material describes PublishRank as free and open source. This website introduces that project and its documented tools; the plugin archive is intentionally not included.",
+        ],
+      },
+      {
+        title: "Honest expectations",
+        paragraphs: [
+          "SEO scores are checklists, not forecasts. Structured data describes your content, not a shortcut to guaranteed rich results. Sitemaps support discovery, not automatic indexing.",
+          "Optional integrations require configuration and operational testing. The project should be evaluated on your own staging site, with your theme, content and editorial requirements.",
+        ],
+      },
+      {
+        title: "Respect for readers and reporting",
+        paragraphs: [
+          "Clear authorship, accurate summaries and thoughtful corrections are part of useful publishing. Optimization should make original work easier to find and understand, not replace it with exaggerated promises.",
+          "The supplied materials do not establish a company address, founding date or named team. This page avoids inventing those details.",
+        ],
+      },
+    ],
+  },
+  privacy: {
+    title: "Privacy information.",
+    eyebrow: "Website information",
+    image: "writing",
+    intro:
+      "A straightforward description of this website’s implementation. This is not a substitute for an approved operator privacy policy.",
+    description:
+      "Understand the PublishRank website’s forms, hosting, external resources and privacy policy limitations.",
+    sections: [
+      {
+        title: "What this website includes",
+        paragraphs: [
+          "This website does not implement an account system, newsletter signup, payment flow or contact submission form. No visitor analytics or advertising tracker has been added in the website source.",
+          "Images and font resources may be served by hosting and third-party infrastructure. Those services can receive ordinary request information such as an IP address and browser headers. Their own terms and policies apply.",
+        ],
+      },
+      {
+        title: "Website and plugin are different",
+        paragraphs: [
+          "This page describes the website, not every possible WordPress deployment of the PublishRank plugin. Plugin data handling depends on enabled features, integrations and the site operator’s configuration.",
+          "Review the product documentation and your own site’s privacy obligations before enabling integrations or monitoring features. Do not publish diagnostic reports containing credentials or personal information.",
+        ],
+      },
+      {
+        title: "Policy details still required",
+        paragraphs: [
+          "A verified operator identity, privacy contact, retention policy and jurisdiction have not been supplied. The operator should approve a complete policy reflecting actual hosting and service choices before collecting personal data.",
+          "No legal compliance guarantee is made by this information page.",
+        ],
+      },
+    ],
+  },
+  terms: {
+    title: "Terms & important limitations.",
+    eyebrow: "Website information",
+    image: "writing",
+    intro:
+      "Read the scope of this website’s content and product information. Operator-approved legal terms still need to be supplied.",
+    description:
+      "Read PublishRank website scope, product availability, SEO limitations and licensing information for the source delivery.",
+    sections: [
+      {
+        title: "Information, not a performance guarantee",
+        paragraphs: [
+          "The pages explain capabilities described in the supplied PublishRank material and general editorial practices. They are not a guarantee of rankings, traffic, search inclusion, rich results or AI citations.",
+          "Third-party platform behavior and requirements can change. Validate current requirements with the relevant service and test configuration on your own WordPress site.",
+        ],
+      },
+      {
+        title: "Product and source availability",
+        paragraphs: [
+          "The website source delivery is separate from the WordPress plugin. No plugin installation ZIP is distributed by this website, and no download button should be interpreted as delivery of that package.",
+          "The project is described in the source material as open source. Consult the actual plugin license when obtaining a release; this website page does not replace that license or establish new licensing terms.",
+        ],
+      },
+      {
+        title: "Legal details still required",
+        paragraphs: [
+          "The operator has not supplied binding service terms, a governing jurisdiction or a legal contact. These notes identify implementation limitations rather than inventing those details.",
+          "Before introducing accounts, purchases or submissions, replace these notes with terms reviewed for the actual service and its operator.",
+        ],
+      },
+    ],
+  },
 };
 
 export const publisherPages: Record<PublisherPageKey, PublisherPage> = {
- ...basePages,
- documentation: { ...basePages.documentation, intro: 'A careful setup, a repeatable editorial review and a healthy archive — from download to troubleshooting. Start here and keep the essentials close.', sections: [...basePages.documentation.sections, ...extraDocumentation] },
- resources: { ...basePages.resources, sections: [...basePages.resources.sections, ...extraResources] },
- ...overrides,
- ...newPages,
+  ...basePages,
+  documentation: {
+    ...basePages.documentation,
+    intro:
+      "A careful setup, a repeatable editorial review and a healthy archive — from download to troubleshooting. Start here and keep the essentials close.",
+    sections: [...basePages.documentation.sections, ...extraDocumentation],
+  },
+  resources: {
+    ...basePages.resources,
+    sections: [...basePages.resources.sections, ...extraResources],
+  },
+  ...overrides,
+  ...newPages,
 };

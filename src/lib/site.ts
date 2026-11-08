@@ -4,6 +4,7 @@ export const SITE_NAME = "PublishRank";
 export const SITE_TAGLINE = "Enterprise SEO for Publishers";
 export const SITE_DESCRIPTION =
   "Free, open-source WordPress SEO for news publishers, editorial teams and independent creators: sitemaps, schema, article workflows and technical controls.";
+export const CURRENT_RELEASE = "2.18.1";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;

@@ -159,7 +159,7 @@ export const faqs = [
   },
   {
     q: "Will it migrate my existing SEO settings?",
-    a: "Automatic migration from other SEO plugins is planned, not promised. Export your current settings, record titles and redirects, and compare output on staging before switching.",
+    a: "Yes. PublishRank includes field-aware import and export for Yoast SEO and Rank Math, with dry-run previews, selected-field controls, merge or overwrite policies, rollback snapshots and normalized JSON portability between sites. Test on staging first and validate titles, descriptions, canonicals, robots, social metadata and focus keywords before switching production output.",
   },
   {
     q: "What does the download contain?",
