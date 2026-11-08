@@ -4,7 +4,7 @@ export const SITE_NAME = "PublishRank";
 export const SITE_TAGLINE = "Enterprise SEO for Publishers";
 export const SITE_DESCRIPTION =
   "Free, open-source WordPress SEO for news publishers, editorial teams and independent creators: sitemaps, schema, article workflows and technical controls.";
-export const CURRENT_RELEASE = "2.18.3";
+export const CURRENT_RELEASE = "2.18.4";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -19,9 +19,9 @@ export const WORDPRESS_RELEASE_TAGS = [
   "Open-source WordPress plugin",
   "Editorial workflow",
 ] as const;
-// The latest alias resolves to the newest published release asset named PublishRank.zip.
+// Pin the official download to the verified v2.18.4 GitHub release asset.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/download/v2.18.4/PublishRank-v2.18.4.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — Built for Newsrooms. Ranked by Google.";
