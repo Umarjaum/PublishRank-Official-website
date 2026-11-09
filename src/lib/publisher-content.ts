@@ -38,9 +38,9 @@ const basePages: Record<
     eyebrow: "The PublishRank toolkit",
     image: "developer",
     intro:
-      "From the first headline to the long-term health of your archive, keep editorial and technical SEO in one WordPress workflow — with a dedicated newsroom, a Schema Aggregator endpoint and built-in login protection.",
+      "Go beyond basic SEO: keep editorial and technical publishing in one WordPress workflow, with Mastodon sharing, a Schema Aggregator endpoint, optional llms.txt discovery and a dedicated newsroom.",
     description:
-      "Explore PublishRank newsroom roles, Schema Aggregator endpoint, news sitemaps, schema, redirects, WP Hide Login security and technical SEO tools for WordPress publishers.",
+      "Explore PublishRank Mastodon publishing, the Schema Aggregator endpoint, llms.txt discovery, news sitemaps, newsroom workflows and broader AI features rolling out soon.",
     sections: [
       {
         title: "Write, review and publish",
@@ -78,6 +78,26 @@ const basePages: Record<
         paragraphs: [
           "The Schema Aggregator endpoint collects the structured data PublishRank generates across templates into one machine-readable feed, making it easy to audit the graph your pages emit as themes, blocks and settings change.",
           "Point validation tools at the endpoint to confirm your publication, author and article markup stays accurate over time.",
+        ],
+      },
+      {
+        title: "Publish to Mastodon from WordPress",
+        paragraphs: [
+          "PublishRank can share a post automatically when it is published, or let an editor send it manually from WordPress. Configure a status template, include hashtags from post tags and choose public, unlisted or private visibility.",
+          "Editors can add a per-post content warning and optionally attach the featured image. Media descriptions use the image's WordPress alt text, and message length adapts to the connected Mastodon server. Instance capabilities and moderation policies can vary.",
+          "Mastodon profile links can be verified with rel=me, and fediverse:creator metadata can credit the author on link previews. Image sharing requires the Mastodon application's write:media permission.",
+        ],
+        bullets: [
+          "Automatic or editor-triggered sharing",
+          "Per-post message, visibility and content-warning controls",
+          "Accessible featured media and server-aware message lengths",
+        ],
+      },
+      {
+        title: "llms.txt today; broader AI features rolling out soon",
+        paragraphs: [
+          "The optional llms.txt tool and Schema Aggregator endpoint provide machine-readable discovery and structured-data review surfaces for site owners and compatible crawlers.",
+          "Additional AI capabilities are rolling out soon. llms.txt and structured data do not guarantee indexing, AI citations or inclusion in generated answers.",
         ],
       },
       {
@@ -121,7 +141,7 @@ const basePages: Record<
       {
         title: "Technical controls, with clear limits",
         paragraphs: [
-          "Robots.txt previews, URL testing, diagnostics and llms.txt controls help owners inspect their output. Robots.txt is guidance for crawlers, not protection for confidential content; llms.txt does not guarantee AI citations.",
+          "Robots.txt previews, URL testing, diagnostics and llms.txt controls help owners inspect their output. Robots.txt is guidance for crawlers, not protection for confidential content; llms.txt does not guarantee AI citations. Broader AI capabilities are rolling out soon.",
           "IndexNow and read-only search reports require configuration. Traffic Guard is optional request control, not a replacement for a firewall, strong account security or a managed DDoS service.",
         ],
       },
@@ -141,7 +161,7 @@ const basePages: Record<
         title: "Everything the major plugins cover — and more",
         paragraphs: [
           "The toolkit covers the ground publishers expect from Yoast SEO and Rank Math: titles and meta, XML and News sitemaps, structured data, redirects, content analysis and search previews.",
-          "On top of that come the dedicated newsroom with assigned roles, the Schema Aggregator endpoint and built-in WP Hide Login — included in the free core edition.",
+          "On top of that come Mastodon publishing, the dedicated newsroom with assigned roles, the Schema Aggregator endpoint, optional llms.txt discovery and built-in WP Hide Login — included in the free core edition. Broader AI features are rolling out soon.",
         ],
       },
     ],

@@ -48,12 +48,12 @@ export const Route = createFileRoute("/")({
   head: () =>
     pageSeo(
       "/",
-      "WordPress SEO Plugin for News Publishers",
-      "PublishRank is a free, open-source WordPress SEO plugin for publishers. Explore the official WordPress.org listing, news sitemaps, connected schema, newsroom workflows, redirects and 41+ built-in tools.",
+      "Beyond Basic SEO for WordPress Publishers",
+      "More than basic SEO: PublishRank adds Mastodon publishing, a Schema Aggregator endpoint, optional llms.txt discovery, newsroom workflows and news sitemaps. Broader AI features are rolling out soon.",
       {
         extraSchema: [softwareSchema, faqSchema],
         keywords:
-          "WordPress.org plugin, WordPress SEO plugin, publisher SEO, news SEO, news sitemap, schema markup, newsroom plugin, llms.txt",
+          "WordPress.org plugin, publisher SEO, Mastodon publishing, Schema Aggregator endpoint, llms.txt, AI discovery, news sitemap, newsroom plugin",
       },
     ),
   component: Index,
@@ -99,12 +99,12 @@ const workflowSteps = [
 
 function Index() {
   const strip = [
-    [BarChart3, "41+ Built-in SEO Tools"],
+    [BarChart3, "41+ Publisher Tools"],
     [Newspaper, "News Sitemap & Article SEO"],
-    [Share2, "Structured Data & Schema"],
-    [Search, "Discover Best Practices"],
-    [ShieldCheck, "Lightweight & Fast"],
-    [Puzzle, "Seamless WordPress Integration"],
+    [Share2, "Mastodon Publishing"],
+    [Code2, "Schema Aggregator Endpoint"],
+    [Globe, "llms.txt AI Discovery"],
+    [Zap, "More AI Features Soon"],
   ] as const;
   const audiences = [
     [
@@ -429,11 +429,11 @@ function Index() {
           className="grid gap-10 py-10 lg:grid-cols-[1.2fr_1fr_1fr] lg:items-center"
         >
           <div>
-            <h2 className="text-3xl font-extrabold">Why Choose PublishRank?</h2>
+            <h2 className="text-3xl font-extrabold">More Than Basic SEO for Publishers</h2>
             <p className="mt-4 leading-relaxed">
-              Unlike generic SEO plugins, PublishRank focuses on the unique needs of publishers. Get
-              advanced SEO tools, editorial workflows and technical features in one lightweight
-              plugin — without the bloat.
+              PublishRank brings editorial and technical publishing tools into WordPress: story SEO,
+              Mastodon sharing, a machine-readable Schema Aggregator endpoint and optional llms.txt
+              discovery. It is built for publishing workflows—not just metadata fields.
             </p>
             <Button asChild className="mt-6 rounded-full">
               <Link to="/about">
@@ -443,11 +443,12 @@ function Index() {
           </div>
           <ul className="space-y-4 lg:border-l-2 lg:border-brand/40 lg:pl-8">
             {[
-              "Publisher-Focused SEO",
-              "News & Article Optimization",
+              "Publisher-focused SEO and newsroom workflows",
+              "Mastodon social publishing",
               "XML & News Sitemaps",
-              "AI-Crawler Discovery (llms.txt)",
-              "Newsroom Roles & Schema Aggregator",
+              "Schema Aggregator endpoint",
+              "AI-crawler discovery with llms.txt",
+              "Broader AI features rolling out soon",
               "Built-in WP Hide Login",
             ].map((t) => (
               <li key={t} className="flex items-center gap-3">
@@ -459,8 +460,9 @@ function Index() {
           <aside className="relative rounded-lg bg-brand-soft p-6">
             <Feather className="mb-3 h-7 w-7 text-brand" />
             <p className="text-lg">
-              <b className="text-brand">Built around your publication.</b> Review every story,
-              connect author and publisher information, and keep your archive healthy.
+              <b className="text-brand">AI discovery today; more to come.</b> Use optional llms.txt
+              and the Schema Aggregator endpoint now; broader AI capabilities are rolling out soon.
+              These tools do not promise rankings or AI citations.
             </p>
             <Link to="/documentation" className="mt-4 inline-block text-sm font-bold text-brand">
               Read the publisher’s handbook →

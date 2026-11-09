@@ -1,4 +1,4 @@
-// The complete PublishRank feature list (222 capabilities) grouped by area.
+// The complete PublishRank feature list (237 capabilities) grouped by area.
 // Each category's items are stored one per line to keep the source easy to edit.
 export type FeatureCategory = { id: string; title: string; summary: string; items: string[] };
 
@@ -53,6 +53,27 @@ Twitter/X descriptions
 Social metadata configuration
 Social metadata integration with SEO titles
 Social metadata integration with publication identity`) },
+  {
+    id: "mastodon-publishing",
+    title: "Mastodon Publishing",
+    summary: "Share WordPress stories to Mastodon with controls for visibility, media and accessibility.",
+    items: lines(`
+Mastodon server connection
+Encrypted access-token storage
+Profile verification with rel=me
+fediverse:creator author attribution
+Automatic post sharing on publish
+Manual sharing from the editor
+Per-post sharing controls
+Custom status templates
+Hashtags from WordPress post tags
+Public, unlisted or private visibility
+Per-post content warnings
+Optional featured-image attachments
+Media descriptions from image alt text
+Instance-aware character limits
+Share history with status links`),
+  },
   { id: "structured-data", title: "Structured Data and Schema", summary: "Connected JSON-LD for your publication, site and stories.", items: lines(`
 Structured data generation
 Article schema functionality
@@ -164,14 +185,19 @@ Responsive presentation
 Frontend diagnostics
 Default settings management
 Shortcode usage guidance`) },
-  { id: "ai-discovery", title: "AI Crawler Discovery", summary: "llms.txt and discovery links for AI crawlers.", items: lines(`
+  {
+    id: "ai-discovery",
+    title: "AI Crawler Discovery",
+    summary: "Optional llms.txt and Schema Aggregator discovery, with broader AI features rolling out soon.",
+    items: lines(`
 llms.txt support
 llms.txt discovery links
 llms.txt HTML head references
 llms.txt identification metadata
 describedby resource relationship
 AI-crawler discovery infrastructure
-Schema endpoint discovery`) },
+Schema endpoint discovery`),
+  },
   { id: "search-engine-tools", title: "Search Engine Tools", summary: "Verification, indexing and sitemap discovery support.", items: lines(`
 Search Console-related functionality
 Indexing-related tools
@@ -268,6 +294,11 @@ export const toolHighlights: Array<{ group: string; title: string; text: string 
   { group: "Content & publishing", title: "SEO score", text: "Review practical content and technical checks across the site." },
   { group: "Content & publishing", title: "Google Discover image", text: "Inspect image dimensions and create a resized copy without replacing the original." },
   { group: "Content & publishing", title: "Newsroom", text: "Planning board, calendar, activity history, notifications and roles in one editorial workspace." },
+  {
+    group: "Content & publishing",
+    title: "Mastodon publishing",
+    text: "Share posts with custom templates, server-aware character limits, content warnings and accessible featured media.",
+  },
   { group: "Content & publishing", title: "Internal links & link intelligence", text: "Find internal-link opportunities and strengthen related content paths." },
   { group: "Content & publishing", title: "Local SEO & author expertise", text: "Configure local business identity and publication expertise information." },
 ];

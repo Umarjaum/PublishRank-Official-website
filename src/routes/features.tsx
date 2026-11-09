@@ -8,11 +8,11 @@ export const Route = createFileRoute("/features")({
   head: () =>
     pageSeo(
       "/features",
-      "WordPress SEO Features for News Publishers",
+      "Beyond Basic SEO: Mastodon, Schema & llms.txt",
       publisherPages.features.description,
       {
         keywords:
-          "news sitemap, schema markup, WordPress SEO plugin, newsroom workflow, breadcrumbs, llms.txt, redirects",
+          "Mastodon publishing, Schema Aggregator endpoint, llms.txt, AI discovery, WordPress SEO, news sitemap, newsroom workflow",
       },
     ),
   component: () => (

@@ -11,15 +11,26 @@ import { brandCards, screenshots } from "@/lib/showcase-content";
 import { createNewsSitemapXml } from "@/routes/news-sitemap[.]xml";
 
 describe("content", () => {
-  it("documents all 222 features", () => {
-    expect(featureCount).toBe(222);
+  it("documents all 237 features", () => {
+    expect(featureCount).toBe(237);
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
   });
 
   it("points downloads at the latest GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.18.4/PublishRank-v2.18.4.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.19.1/PublishRank-v2.19.1.zip",
     );
+  });
+
+  it("publicly highlights Mastodon, Schema Aggregator, llms.txt and the AI rollout", () => {
+    const featureText = publisherPages.features.sections
+      .flatMap((section) => [section.title, ...section.paragraphs, ...(section.bullets ?? [])])
+      .join(" ")
+      .toLowerCase();
+    expect(featureText).toContain("mastodon");
+    expect(featureText).toContain("schema aggregator endpoint");
+    expect(featureText).toContain("llms.txt");
+    expect(featureText).toContain("rolling out soon");
   });
 
   it("has complete content and render profiles for every legal page", () => {

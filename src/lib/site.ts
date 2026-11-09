@@ -1,10 +1,10 @@
 // Single source of truth for site-wide constants.
 export const SITE_URL = "https://publishrankseo.vercel.app";
 export const SITE_NAME = "PublishRank";
-export const SITE_TAGLINE = "Enterprise SEO for Publishers";
+export const SITE_TAGLINE = "Beyond Basic SEO for Publishers";
 export const SITE_DESCRIPTION =
-  "Free, open-source WordPress SEO for news publishers, editorial teams and independent creators: sitemaps, schema, article workflows and technical controls.";
-export const CURRENT_RELEASE = "2.18.4";
+  "Free, open-source WordPress publishing tools beyond basic SEO: Mastodon publishing, a Schema Aggregator endpoint, news sitemaps and optional llms.txt discovery. Broader AI features are rolling out soon.";
+export const CURRENT_RELEASE = "2.19.1";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -19,9 +19,9 @@ export const WORDPRESS_RELEASE_TAGS = [
   "Open-source WordPress plugin",
   "Editorial workflow",
 ] as const;
-// Pin the official download to the verified v2.18.4 GitHub release asset.
+// Pin the official download to the verified v2.19.1 GitHub release asset.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/v2.18.4/PublishRank-v2.18.4.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/download/v2.19.1/PublishRank-v2.19.1.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — Built for Newsrooms. Ranked by Google.";
