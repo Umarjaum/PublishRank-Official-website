@@ -56,6 +56,18 @@ GitHub’s working direct asset route uses `/releases/download/<tag>/<asset>` an
 
 Photos in the "Made for the Way Newsrooms Work" gallery are hotlinked from Unsplash (`src/lib/showcase-content.ts`) with a local fallback image if one fails to load.
 
+## Actual interface screenshots
+
+The `public/media/screens/` gallery contains real PublishRank WordPress-admin captures from a local test site with demo content. The same captures are used in the GitHub plugin README and WordPress.org screenshots:
+
+- [Dashboard](public/media/screens/publishrank-2.12.1/desktop-1440/01-publishrank-dashboard.png)
+- [Features](public/media/screens/publishrank-2.12.1/desktop-1440/03-publishrank-features.png)
+- [Schema settings](public/media/screens/publishrank-2.12.1/desktop-1440/08-publishrank-schema-markup.png)
+- [SEO Score](public/media/screens/publishrank-2.12.1/desktop-1440/28-publishrank-seo-score.png)
+- [Newsroom](public/media/screens/publishrank-2.12.1/desktop-1440/34-publishrank-newsroom.png)
+
+The captures are presented as interface evidence and are not generated product mockups.
+
 ## Content to review before launch
 
 - `src/lib/showcase-content.ts` — the testimonials are drafts with role-based attributions. Replace them with real, verified reviews, and only add the review count and rating to structured data once you can back them with exact figures.
