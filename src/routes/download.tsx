@@ -26,7 +26,7 @@ export const Route = createFileRoute("/download")({
     pageSeo(
       "/download",
       "Download the Free WordPress SEO Plugin",
-      "Download PublishRank 2.19.1: more than basic SEO, with Mastodon publishing, the Schema Aggregator endpoint, optional llms.txt discovery and broader AI features rolling out soon.",
+      "Download PublishRank 2.19.2: more than basic SEO, with Mastodon publishing, the Schema Aggregator endpoint, optional llms.txt discovery and broader AI features rolling out soon.",
       {
         extraSchema: [softwareSchema],
         keywords:

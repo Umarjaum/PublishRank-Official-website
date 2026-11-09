@@ -18,7 +18,7 @@ describe("content", () => {
 
   it("points downloads at the latest GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.19.1/PublishRank-v2.19.1.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.19.2/PublishRank-v2.19.2.zip",
     );
   });
 
