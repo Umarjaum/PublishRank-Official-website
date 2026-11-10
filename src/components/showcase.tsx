@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Maximize2, MessageSquareQuote, Star } from "lucide-react";
+import { ArrowRight, Maximize2 } from "lucide-react";
 import { AutoCarousel } from "@/components/auto-carousel";
 import {
   Dialog,
@@ -18,25 +18,9 @@ import {
   brandCards,
   faqs,
   photoFallback,
-  reviewSummary,
   screenshots,
   showcasePhotos,
-  testimonials,
 } from "@/lib/showcase-content";
-
-export function Stars({ count, className = "h-4 w-4" }: { count: number; className?: string }) {
-  return (
-    <span className="inline-flex" role="img" aria-label={`${count} out of 5 stars`}>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          className={`${className} ${i < count ? "fill-brand text-brand" : "text-border"}`}
-          aria-hidden="true"
-        />
-      ))}
-    </span>
-  );
-}
 
 export function SectionTitle({ title, intro }: { title: string; intro?: string }) {
   return (
@@ -49,17 +33,6 @@ export function SectionTitle({ title, intro }: { title: string; intro?: string }
       {intro && (
         <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-muted-foreground">{intro}</p>
       )}
-    </div>
-  );
-}
-
-export function RatingBadge() {
-  return (
-    <div className="flex flex-wrap items-center gap-3 text-sm">
-      <Stars count={5} className="h-5 w-5" />
-      <span>
-        <b>{reviewSummary.count}</b> {reviewSummary.label}
-      </span>
     </div>
   );
 }
@@ -151,48 +124,6 @@ export function BrandCardShowcase() {
                 }
               />
               <figcaption className="px-5 py-3 text-sm font-bold">{c.title}</figcaption>
-            </figure>
-          ))}
-        />
-      </div>
-    </section>
-  );
-}
-
-export function TestimonialShowcase() {
-  return (
-    <section
-      id="reviews"
-      className="my-10 rounded-lg bg-brand-soft p-6 md:p-10"
-      aria-labelledby="reviews-title"
-    >
-      <div className="text-center">
-        <h2 id="reviews-title" className="text-2xl font-extrabold md:text-3xl">
-          Loved by Publishers
-        </h2>
-        <div className="mt-4 flex justify-center">
-          <RatingBadge />
-        </div>
-      </div>
-      <div className="mt-8">
-        <AutoCarousel
-          label="publisher reviews"
-          itemClassName="basis-full md:basis-1/2 lg:basis-1/3"
-          intervalMs={5500}
-          items={testimonials.map((t) => (
-            <figure
-              key={t.quote}
-              className="flex h-full flex-col rounded-lg border bg-card p-6 shadow-[var(--shadow-card)]"
-            >
-              <div className="flex items-center justify-between">
-                <Stars count={t.rating} />
-                <MessageSquareQuote className="h-6 w-6 text-brand/30" aria-hidden="true" />
-              </div>
-              <blockquote className="mt-4 flex-1 leading-relaxed">“{t.quote}”</blockquote>
-              <figcaption className="mt-5 border-t pt-4 text-sm">
-                <b>{t.author}</b>
-                <span className="block text-muted-foreground">{t.org}</span>
-              </figcaption>
             </figure>
           ))}
         />

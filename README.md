@@ -70,7 +70,7 @@ The captures are presented as interface evidence and are not generated product m
 
 ## Content to review before launch
 
-- `src/lib/showcase-content.ts` — the testimonials are drafts with role-based attributions. Replace them with real, verified reviews, and only add the review count and rating to structured data once you can back them with exact figures.
+- Publish no testimonial, star rating, or review count unless the review is real, permissioned, and the displayed total can be independently verified.
 - Legal pages (`privacy`, `terms`, `cookies`, `disclaimer`, `security`, `accessibility`) are general-purpose and are not legal advice. Have them reviewed for your jurisdiction and add an operator name and address if required.
 - Unsplash photo IDs should be confirmed once in a browser.
 

@@ -26,10 +26,9 @@ export const DOWNLOAD_URL =
   "https://github.com/Umarjaum/PublishRank/releases/download/v2.19.2/PublishRank-v2.19.2.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
-export const OG_IMAGE_ALT = "PublishRank — Built for Newsrooms. Ranked by Google.";
+export const OG_IMAGE_ALT = "PublishRank — SEO tools for publishers and newsrooms.";
 export const LOGO_GIF = "/brand/publishrank-logo-animated.gif";
 export const LOGO_MARK = "/brand/publishrank-logo-mark.png";
-export const REVIEW_COUNT_LABEL = "40,000+";
 
 export function absoluteUrl(path: string): string {
   if (/^https?:\/\//.test(path)) return path;

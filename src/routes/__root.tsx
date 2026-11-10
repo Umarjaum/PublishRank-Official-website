@@ -112,33 +112,38 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
+  head: ({ matches }) => {
+    const isNotFound = matches.some((match) => match.status === "notFound");
+    const pageTitle = isNotFound ? `Page not found — ${SITE_NAME}` : `${SITE_NAME} — ${SITE_TAGLINE}`;
+    const pageDescription = isNotFound
+      ? `The requested page could not be found. Return to ${SITE_NAME} to continue.`
+      : SITE_DESCRIPTION;
+
+    return {
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${SITE_NAME} — ${SITE_TAGLINE}` },
-      { name: "description", content: SITE_DESCRIPTION },
-      {
-        name: "robots",
-        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      },
+      { title: pageTitle },
+      { name: "description", content: pageDescription },
+      ...(isNotFound
+        ? [{ name: "robots", content: "noindex, nofollow" }]
+        : [{ name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" }]),
       { name: "application-name", content: SITE_NAME },
       { name: "apple-mobile-web-app-title", content: SITE_NAME },
       { name: "theme-color", content: "#9a1a3e" },
       { name: "format-detection", content: "telephone=no" },
       { name: "referrer", content: "strict-origin-when-cross-origin" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: `${SITE_NAME} — ${SITE_TAGLINE}` },
-      { property: "og:description", content: SITE_DESCRIPTION },
-      { property: "og:url", content: SITE_URL },
+      { property: "og:title", content: pageTitle },
+      { property: "og:description", content: pageDescription },
       { property: "og:image", content: OG_IMAGE },
       { property: "og:image:secure_url", content: OG_IMAGE },
       { property: "og:image:alt", content: OG_IMAGE_ALT },
       { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
+      { property: "og:image:height", content: "640" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: `${SITE_NAME} — ${SITE_TAGLINE}` },
-      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { name: "twitter:title", content: pageTitle },
+      { name: "twitter:description", content: pageDescription },
       { name: "twitter:image", content: OG_IMAGE },
       { name: "twitter:image:alt", content: OG_IMAGE_ALT },
       { property: "og:site_name", content: "PublishRank" },
@@ -183,7 +188,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         }),
       },
     ],
-  }),
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

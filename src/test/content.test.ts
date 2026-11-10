@@ -9,6 +9,7 @@ import { allProductScreenshots, productScreenshotGroups } from "@/lib/product-sc
 import { DOWNLOAD_URL } from "@/lib/site";
 import { brandCards, screenshots } from "@/lib/showcase-content";
 import { createNewsSitemapXml } from "@/routes/news-sitemap[.]xml";
+import { createSitemapXml } from "@/routes/sitemap[.]xml";
 
 describe("content", () => {
   it("documents all 237 features", () => {
@@ -77,6 +78,7 @@ describe("content", () => {
     expect(meta.find((item) => item["property"] === "og:image")?.["content"]).toMatch(
       /^https:\/\/publishrankseo\.vercel\.app\//,
     );
+    expect(meta.find((item) => item["property"] === "og:image:height")?.["content"]).toBe("640");
     const schema = JSON.parse(seo.scripts[0]?.children as string) as {
       "@graph": Array<{ "@type": string }>;
     };
@@ -143,6 +145,20 @@ describe("content", () => {
     const currentNewsSitemap = createNewsSitemapXml(Date.parse("2026-11-02T12:00:00Z"));
     for (const article of featureArticles) {
       expect(currentNewsSitemap).not.toContain(article.slug);
+    }
+  });
+
+  it("emits sitemap lastmod only when an editorial article provides an update date", () => {
+    const xml = createSitemapXml();
+    const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]!);
+    const home = entries.find((entry) => entry.includes("<loc>https://publishrankseo.vercel.app/</loc>"));
+    expect(home).toBeDefined();
+    expect(home).not.toContain("<lastmod>");
+    expect(xml).not.toContain("2026-11-06");
+
+    const datedArticle = newsArticles.find((article) => article.updated);
+    if (datedArticle) {
+      expect(xml).toContain(`<lastmod>${datedArticle.updated}</lastmod>`);
     }
   });
 

@@ -38,9 +38,7 @@ import {
   BrandCardShowcase,
   FaqSection,
   PhotoShowcase,
-  RatingBadge,
   ScreenshotShowcase,
-  TestimonialShowcase,
 } from "@/components/showcase";
 import { faqSchema, softwareSchema } from "@/lib/showcase-content";
 
@@ -180,9 +178,6 @@ function Index() {
                   {t}
                 </span>
               ))}
-            </div>
-            <div className="mt-5">
-              <RatingBadge />
             </div>
           </div>
 
@@ -531,7 +526,6 @@ function Index() {
             ))}
           </div>
         </section>
-        <TestimonialShowcase />
         <FaqSection />
       </main>
 

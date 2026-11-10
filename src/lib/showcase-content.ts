@@ -1,68 +1,5 @@
-import { CURRENT_RELEASE, DOWNLOAD_URL, REPO_URL, REVIEW_COUNT_LABEL, SITE_URL, UMARJAUM_URL } from "@/lib/site";
+import { CURRENT_RELEASE, DOWNLOAD_URL, REPO_URL, SITE_URL, UMARJAUM_URL } from "@/lib/site";
 import { featuredProductScreenshots } from "@/lib/product-screenshots";
-
-/**
- * DRAFT TESTIMONIALS — replace with real, verified reader reviews before launch.
- * Attributions are role-based on purpose; add real names/publications only with permission.
- */
-export const testimonials = [
-  {
-    rating: 5,
-    quote:
-      "The news sitemap and article checks replaced three separate tools for our desk. Editors finally see what is missing before they hit publish.",
-    author: "Managing editor",
-    org: "Regional news site",
-  },
-  {
-    rating: 5,
-    quote:
-      "Schema Aggregator made it easy to audit what our templates actually output. We caught a duplicate Organization block in minutes.",
-    author: "Technical SEO lead",
-    org: "Digital publisher",
-  },
-  {
-    rating: 5,
-    quote:
-      "Setup took an afternoon. The wizard asked for our publication identity once and it carried through titles, social cards and schema.",
-    author: "Founder",
-    org: "Independent online newspaper",
-  },
-  {
-    rating: 4,
-    quote:
-      "Newsroom roles and the planning board keep reporters and editors on the same page without leaving WordPress.",
-    author: "Digital editor",
-    org: "Local news organization",
-  },
-  {
-    rating: 5,
-    quote:
-      "Built-in WP Hide Login cut the junk sign-in attempts we used to see every day. One less plugin to maintain.",
-    author: "Site administrator",
-    org: "Magazine publisher",
-  },
-  {
-    rating: 4,
-    quote:
-      "Crawl Optimization gave us clear, reversible switches instead of a pile of code snippets. Everything is off until you choose it.",
-    author: "Developer",
-    org: "Publishing agency",
-  },
-  {
-    rating: 5,
-    quote:
-      "Google Preferred Sources was a two-minute job: pick the button, choose placements, save. It just worked on our theme.",
-    author: "Blogger",
-    org: "Niche news blog",
-  },
-  {
-    rating: 5,
-    quote:
-      "Free, open source and clearly documented. We tested on staging first, exactly as the handbook suggests, and went live a week later.",
-    author: "Operations manager",
-    org: "Community newspaper",
-  },
-] as const;
 
 export const screenshots = featuredProductScreenshots;
 
@@ -84,7 +21,7 @@ export const brandCards = [
   {
     src: "/brand/publishrank-og-share-card.jpg",
     title: "Built for newsrooms",
-    alt: "PublishRank share card: Built for Newsrooms. Ranked by Google.",
+    alt: "PublishRank share card for publishers and newsrooms.",
     width: 1200,
     height: 640,
   },
@@ -211,9 +148,4 @@ export const softwareSchema = {
   sameAs: [REPO_URL, UMARJAUM_URL, "https://wordpress.org/plugins/publishrank/"],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   image: `${SITE_URL}/brand/publishrank-og-share-card.jpg`,
-};
-
-export const reviewSummary = {
-  count: REVIEW_COUNT_LABEL,
-  label: "reader reviews rated four to five stars",
 };
