@@ -29,7 +29,7 @@ export function PublisherPage({
   const profile = publisherPageProfiles[pageKey];
 
   return (
-    <PageFrame>
+    <PageFrame showBreadcrumbs={false}>
       <section className="border-b bg-brand-soft" aria-labelledby="page-title" data-gsap-reveal>
         <div className="site-width py-8 md:py-10">
           <img

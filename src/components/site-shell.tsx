@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { ArrowRight, Download, ExternalLink, Search, X, Heart, Github } from "lucide-react";
 import { SiteSearch } from "@/components/site-search";
@@ -14,6 +14,7 @@ import {
 import logo from "@/assets/publishrank-reference-logo.png.asset.json";
 import { DownloadLink } from "@/components/download-link";
 import { MotionEnhancer } from "@/components/motion-enhancer";
+import { buildBreadcrumbs } from "@/lib/breadcrumbs";
 import {
   LOGO_GIF,
   PUBLISHRANK_WORDPRESS_PLUGIN_URL,
@@ -439,12 +440,51 @@ export function SiteFooter() {
   );
 }
 
-export function PageFrame({ children }: { children: ReactNode }) {
+function SiteBreadcrumbs() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const items = buildBreadcrumbs(pathname);
+
+  if (items.length === 0) return null;
+
+  return (
+    <nav aria-label="Breadcrumb" className="border-b bg-background">
+      <ol className="site-width flex flex-wrap items-center gap-2 px-5 py-3 text-sm text-muted-foreground">
+        {items.map((item, index) => (
+          <li key={item.href} className="inline-flex items-center gap-2">
+            {index > 0 && (
+              <span aria-hidden="true" className="text-muted-foreground/70">
+                /
+              </span>
+            )}
+            {item.current ? (
+              <span aria-current="page" className="font-semibold text-foreground">
+                {item.label}
+              </span>
+            ) : (
+              <a href={item.href} className="hover:text-brand hover:underline">
+                {item.label}
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+export function PageFrame({
+  children,
+  showBreadcrumbs = true,
+}: {
+  children: ReactNode;
+  showBreadcrumbs?: boolean;
+}) {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <MotionEnhancer />
       <SkipLink />
       <SiteHeader />
+      {showBreadcrumbs && <SiteBreadcrumbs />}
       <main id="main-content">{children}</main>
       <SiteFooter />
     </div>
