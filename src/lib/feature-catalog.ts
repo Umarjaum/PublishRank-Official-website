@@ -1,6 +1,12 @@
 // The complete PublishRank feature list (237 capabilities) grouped by area.
 // Each category's items are stored one per line to keep the source easy to edit.
-export type FeatureCategory = { id: string; title: string; summary: string; items: string[] };
+export type FeatureCategory = {
+  id: string;
+  title: string;
+  summary: string;
+  items: string[];
+  badge?: string;
+};
 
 const lines = (s: string) =>
   s
@@ -60,7 +66,7 @@ Social metadata integration with publication identity`) },
     items: lines(`
 Mastodon server connection
 Encrypted access-token storage
-Profile verification with rel=me
+Profile verification with rel=me and a copyable HTML-head snippet
 fediverse:creator author attribution
 Automatic post sharing on publish
 Manual sharing from the editor
@@ -225,11 +231,18 @@ Author-related SEO output
 Taxonomy-related SEO output
 Author URL handling
 WordPress taxonomy integration`) },
-  { id: "login", title: "Login Customization", summary: "Built-in WP Hide Login functionality.", items: lines(`
-WordPress login customization
-WP Hide Login-related functionality
-Login URL customization
-Login-related configuration`) },
+  {
+    id: "login",
+    title: "WP Hide Login",
+    summary:
+      "New in 2.20.3: a dedicated PublishRank settings page for custom login URLs and blocked-visitor handling.",
+    badge: "NEW · 2.20.3",
+    items: lines(`
+Dedicated PublishRank settings page, separate from WordPress Settings
+Custom WordPress login URL
+Blocked-visitor redirect setting
+New module badge in the PublishRank menu and dashboard`),
+  },
   { id: "wordpress", title: "WordPress Integration", summary: "Native plugin architecture with theme-safe output.", items: lines(`
 WordPress plugin architecture
 WordPress dashboard integration

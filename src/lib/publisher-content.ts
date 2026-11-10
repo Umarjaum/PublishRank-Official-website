@@ -38,9 +38,9 @@ const basePages: Record<
     eyebrow: "The PublishRank toolkit",
     image: "developer",
     intro:
-      "Go beyond basic SEO: keep editorial and technical publishing in one WordPress workflow, with Mastodon sharing, a Schema Aggregator endpoint, optional llms.txt discovery and a dedicated newsroom.",
+      "Go beyond basic SEO: keep editorial and technical publishing in one WordPress workflow, with Mastodon sharing and profile verification, a Schema Aggregator endpoint, optional llms.txt discovery, a dedicated newsroom and built-in WP Hide Login.",
     description:
-      "Explore PublishRank Mastodon publishing, the Schema Aggregator endpoint, llms.txt discovery, news sitemaps, newsroom workflows and broader AI features rolling out soon.",
+      "Explore PublishRank Mastodon publishing with a copyable rel=me head snippet, the Schema Aggregator endpoint, llms.txt discovery, news sitemaps, newsroom workflows and the new dedicated WP Hide Login settings page.",
     sections: [
       {
         title: "Write, review and publish",
@@ -85,7 +85,7 @@ const basePages: Record<
         paragraphs: [
           "PublishRank can share a post automatically when it is published, or let an editor send it manually from WordPress. Configure a status template, include hashtags from post tags and choose public, unlisted or private visibility.",
           "Editors can add a per-post content warning and optionally attach the featured image. Media descriptions use the image's WordPress alt text, and message length adapts to the connected Mastodon server. Instance capabilities and moderation policies can vary.",
-          "Mastodon profile links can be verified with rel=me, and fediverse:creator metadata can credit the author on link previews. Image sharing requires the Mastodon application's write:media permission.",
+          'Mastodon profile links can be verified with rel=me, and fediverse:creator metadata can credit the author on link previews. PublishRank provides a generated, copyable <link rel="me"> HTML-head snippet; it also outputs the reciprocal link when the profile URL is configured. Image sharing requires the Mastodon app to grant write:media permission.',
         ],
         bullets: [
           "Automatic or editor-triggered sharing",
@@ -148,7 +148,7 @@ const basePages: Record<
       {
         title: "Security: WP Hide Login built in",
         paragraphs: [
-          "PublishRank includes WP Hide Login built in, so site owners can move the WordPress login URL away from the default /wp-login.php path and cut the constant automated sign-in traffic most sites receive.",
+          "PublishRank includes WP Hide Login built in. In 2.20.3, the module has its own PublishRank → Hide Login settings page—separate from the shared WordPress Settings screen—where administrators can choose a custom login URL and blocked-visitor redirect.",
           "Login-URL protection is a hardening measure, not a replacement for strong passwords, two-factor authentication or a firewall.",
         ],
         bullets: [

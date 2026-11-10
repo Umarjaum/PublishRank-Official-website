@@ -31,7 +31,11 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
 import { pageSeo } from "@/lib/page-seo";
-import { PUBLISHRANK_WORDPRESS_PLUGIN_URL, WORDPRESS_RELEASE_TAGS } from "@/lib/site";
+import {
+  CURRENT_RELEASE,
+  PUBLISHRANK_WORDPRESS_PLUGIN_URL,
+  WORDPRESS_RELEASE_TAGS,
+} from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { DownloadLink } from "@/components/download-link";
 import {
@@ -47,7 +51,7 @@ export const Route = createFileRoute("/")({
     pageSeo(
       "/",
       "Beyond Basic SEO for WordPress Publishers",
-      "More than basic SEO: PublishRank adds Mastodon publishing, a Schema Aggregator endpoint, optional llms.txt discovery, newsroom workflows and news sitemaps. Broader AI features are rolling out soon.",
+      `PublishRank ${CURRENT_RELEASE} adds a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page, alongside publisher SEO, a Schema Aggregator endpoint, news sitemaps and newsroom workflows.`,
       {
         extraSchema: [softwareSchema, faqSchema],
         keywords:
@@ -444,7 +448,7 @@ function Index() {
               "Schema Aggregator endpoint",
               "AI-crawler discovery with llms.txt",
               "Broader AI features rolling out soon",
-              "Built-in WP Hide Login",
+              `WP Hide Login · new dedicated settings page in ${CURRENT_RELEASE}`,
             ].map((t) => (
               <li key={t} className="flex items-center gap-3">
                 <Tick brand />

@@ -64,10 +64,23 @@ export function FeatureCatalogView() {
         ) : (
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {filtered.map((c) => (
-              <article key={c.id} id={c.id} className="rounded-lg border bg-card p-5 shadow-[var(--shadow-card)]">
+              <article
+                key={c.id}
+                id={c.id}
+                className="rounded-lg border bg-card p-5 shadow-[var(--shadow-card)]"
+              >
                 <h3 className="flex items-start justify-between gap-3 font-extrabold">
                   <span>{c.title}</span>
-                  <span className="shrink-0 rounded-full bg-brand-soft px-2 py-0.5 text-xs font-bold text-brand">{c.items.length}</span>
+                  <span className="flex shrink-0 items-center gap-2">
+                    {c.badge && (
+                      <span className="rounded-full bg-brand px-2 py-0.5 text-[10px] font-extrabold uppercase text-primary-foreground">
+                        {c.badge}
+                      </span>
+                    )}
+                    <span className="shrink-0 rounded-full bg-brand-soft px-2 py-0.5 text-xs font-bold text-brand">
+                      {c.items.length}
+                    </span>
+                  </span>
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
                 <ul className="mt-4 grid gap-2">

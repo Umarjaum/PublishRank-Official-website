@@ -6,7 +6,7 @@ import { pageSeo } from "@/lib/page-seo";
 import { publisherPages } from "@/lib/publisher-content";
 import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
 import { allProductScreenshots, productScreenshotGroups } from "@/lib/product-screenshots";
-import { DOWNLOAD_URL } from "@/lib/site";
+import { CURRENT_RELEASE, DOWNLOAD_URL } from "@/lib/site";
 import { brandCards, screenshots } from "@/lib/showcase-content";
 import { createNewsSitemapXml } from "@/routes/news-sitemap[.]xml";
 import { createSitemapXml } from "@/routes/sitemap[.]xml";
@@ -19,8 +19,20 @@ describe("content", () => {
 
   it("points downloads at the latest GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.19.2/PublishRank-v2.19.2.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.3/publishrank-2.20.3.zip",
     );
+    expect(CURRENT_RELEASE).toBe("2.20.3");
+  });
+
+  it("marks WP Hide Login new and documents the Mastodon verification snippet", () => {
+    const login = featureCatalog.find((category) => category.id === "login");
+    expect(login?.badge).toBe("NEW · 2.20.3");
+    const featureText = publisherPages.features.sections
+      .flatMap((section) => [section.title, ...section.paragraphs, ...(section.bullets ?? [])])
+      .join(" ")
+      .toLowerCase();
+    expect(featureText).toContain('copyable <link rel="me">');
+    expect(featureText).toContain("separate from the shared wordpress settings screen");
   });
 
   it("publicly highlights Mastodon, Schema Aggregator, llms.txt and the AI rollout", () => {

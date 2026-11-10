@@ -26,7 +26,7 @@ export const Route = createFileRoute("/download")({
     pageSeo(
       "/download",
       "Download the Free WordPress SEO Plugin",
-      "Download PublishRank 2.19.2: more than basic SEO, with Mastodon publishing, the Schema Aggregator endpoint, optional llms.txt discovery and broader AI features rolling out soon.",
+      `Download PublishRank ${CURRENT_RELEASE}: Mastodon publishing and profile verification, a copyable rel=me head snippet, WP Hide Login and publisher-focused SEO tools.`,
       {
         extraSchema: [softwareSchema],
         keywords:
@@ -83,9 +83,10 @@ function DownloadPage() {
             </p>
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Beyond basic SEO for publishers: Mastodon sharing, a Schema Aggregator endpoint and
-              optional llms.txt discovery. Broader AI features are rolling out soon. One free,
-              open-source ZIP, installed from your WordPress dashboard.
+              Beyond basic SEO for publishers: Mastodon sharing with a copyable profile-verification
+              head tag, the Schema Aggregator endpoint, optional llms.txt discovery and a dedicated
+              WP Hide Login settings page. One free, open-source ZIP, installed from your WordPress
+              dashboard.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink
@@ -177,10 +178,10 @@ function DownloadPage() {
             <ul className="mt-4 grid gap-3 text-sm font-semibold">
               {[
                 "More than 40 publisher tools—not just metadata fields",
-                "Mastodon sharing with content warnings and accessible featured media",
+                "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
                 "News and XML sitemaps, structured data and the Schema Aggregator endpoint",
                 "Optional llms.txt discovery; broader AI features rolling out soon",
-                "Redirects, Google Preferred Sources, WP Hide Login and migration from Yoast SEO or Rank Math",
+                "New in 2.20.3: WP Hide Login has its own PublishRank settings page, separate from WordPress Settings",
                 "Free core edition, open source",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">

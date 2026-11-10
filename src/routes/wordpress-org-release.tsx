@@ -9,10 +9,11 @@ import {
   PUBLISHRANK_WORDPRESS_SUPPORT_URL,
   REPO_URL,
   RELEASES_URL,
+  CURRENT_RELEASE,
   WORDPRESS_RELEASE_TAGS,
 } from "@/lib/site";
 
-const launchFeatures = [
+const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
     title: "SEO metadata and social previews",
     description:
@@ -53,14 +54,25 @@ const launchFeatures = [
     description:
       "Enable optional IndexNow submissions and configure llms.txt resources when they fit your site's needs.",
   },
-] as const;
+  {
+    title: "Mastodon profile verification",
+    description:
+      'Copy a generated <link rel="me"> HTML-head snippet, then add the website URL to your Mastodon profile field for reciprocal verification.',
+  },
+  {
+    title: "WP Hide Login",
+    badge: `NEW · ${CURRENT_RELEASE}`,
+    description:
+      "Choose a custom login URL and blocked-visitor redirect from a dedicated PublishRank → Hide Login page, separate from WordPress Settings.",
+  },
+];
 
 export const Route = createFileRoute("/wordpress-org-release")({
   head: () =>
     pageSeo(
       "/wordpress-org-release",
-      "PublishRank WordPress SEO Plugin on WordPress.org",
-      "PublishRank is officially listed on WordPress.org. Explore the free SEO plugin for publishers, with News sitemaps, schema and direct dashboard installation.",
+      `PublishRank ${CURRENT_RELEASE} WordPress SEO Plugin on WordPress.org`,
+      `Explore PublishRank ${CURRENT_RELEASE}: a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page, alongside publisher-focused SEO tools.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -101,7 +113,7 @@ function WordPressOrgRelease() {
         <header className="border-b bg-brand-soft">
           <div className="site-width py-12 md:py-16">
             <p className="text-xs font-extrabold uppercase tracking-wider text-brand">
-              Official WordPress.org release
+              Official WordPress.org release · v{CURRENT_RELEASE}
             </p>
             <h1 className="mt-3 max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl">
               PublishRank is officially listed on WordPress.org
@@ -110,6 +122,10 @@ function WordPressOrgRelease() {
               PublishRank is a free, open-source WordPress SEO plugin for publishers, newsrooms,
               bloggers and editorial teams. Find the official listing, review the current plugin
               details, and install it directly from your WordPress dashboard.
+            </p>
+            <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
+              New in {CURRENT_RELEASE}: a dedicated WP Hide Login settings page and a generated,
+              copyable Mastodon <code>rel="me"</code> HTML-head snippet.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">
@@ -162,6 +178,11 @@ function WordPressOrgRelease() {
                       <Check aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-brand" />
                       <div>
                         <h3 className="font-bold">{feature.title}</h3>
+                        {feature.badge && (
+                          <span className="mt-2 inline-flex rounded-full bg-brand px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-primary-foreground">
+                            {feature.badge}
+                          </span>
+                        )}
                         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                           {feature.description}
                         </p>

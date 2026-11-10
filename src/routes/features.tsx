@@ -12,7 +12,7 @@ export const Route = createFileRoute("/features")({
       publisherPages.features.description,
       {
         keywords:
-          "Mastodon publishing, Schema Aggregator endpoint, llms.txt, AI discovery, WordPress SEO, news sitemap, newsroom workflow",
+          "Mastodon publishing, Mastodon rel=me verification, WP Hide Login, Schema Aggregator endpoint, llms.txt, AI discovery, WordPress SEO, news sitemap, newsroom workflow",
       },
     ),
   component: () => (
