@@ -387,6 +387,14 @@ export function SiteFooter() {
             >
               UmarJaum official website ↗
             </a>
+            <a
+              href={PUBLISHRANK_WORDPRESS_PLUGIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center text-sm font-semibold hover:underline"
+            >
+              WordPress.org listing ↗
+            </a>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/75">
             WordPress SEO for the people who publish. Built around stories, authors and the life of

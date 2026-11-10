@@ -16,4 +16,5 @@
 - Download: https://github.com/Umarjaum/PublishRank/releases/download/v2.19.2/PublishRank-v2.19.2.zip
 - Official WordPress.org listing: https://wordpress.org/plugins/publishrank/
 - Source and issues: https://github.com/Umarjaum/PublishRank
+- Founder and developer: https://umarjaum.vercel.app
 - PublishRank does not guarantee rankings, rich results, indexing, Google News inclusion, Discover placement or AI citations.
