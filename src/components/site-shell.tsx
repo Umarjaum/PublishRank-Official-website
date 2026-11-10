@@ -408,65 +408,21 @@ export function SiteFooter() {
             </ul>
           </nav>
         ))}
-        <div className="sm:col-span-2 lg:col-span-6">
-          <div className="grid gap-8 border-t border-primary-foreground/20 pt-6 md:grid-cols-[1fr_2fr]">
-            <nav aria-label="Legal and policy links">
-              <h2 className="mb-3 text-xs font-extrabold uppercase tracking-wide text-primary-foreground/60">
-                Policies
-              </h2>
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-1 text-sm sm:grid-cols-3">
-                {legalLinks.map(([to, label]) => (
-                  <li key={to}>
-                    <Link
-                      to={to}
-                      className="inline-flex min-h-10 items-center py-2 hover:underline"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <nav aria-label="Discovery files">
-              <h2 className="mb-3 text-xs font-extrabold uppercase tracking-wide text-primary-foreground/60">
-                Site discovery
-              </h2>
-              <ul className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
-                <li>
-                  <a
-                    href="/sitemap.xml"
-                    className="inline-flex min-h-10 items-center py-2 hover:underline"
-                  >
-                    XML sitemap
-                  </a>
+        <div className="sm:col-span-2 lg:col-span-6 border-t border-primary-foreground/20 pt-6">
+          <nav aria-label="Legal and policy links">
+            <h2 className="mb-3 text-xs font-extrabold uppercase tracking-wide text-primary-foreground/60">
+              Policies
+            </h2>
+            <ul className="grid grid-cols-2 gap-x-5 gap-y-1 text-sm sm:grid-cols-3 lg:grid-cols-6">
+              {legalLinks.map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="inline-flex min-h-10 items-center py-2 hover:underline">
+                    {label}
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href="/news-sitemap.xml"
-                    className="inline-flex min-h-10 items-center py-2 hover:underline"
-                  >
-                    Google News sitemap
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/robots.txt"
-                    className="inline-flex min-h-10 items-center py-2 hover:underline"
-                  >
-                    robots.txt
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/llms.txt"
-                    className="inline-flex min-h-10 items-center py-2 hover:underline"
-                  >
-                    llms.txt
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+              ))}
+            </ul>
+          </nav>
         </div>
       </div>
       <div className="border-t border-primary-foreground/20">

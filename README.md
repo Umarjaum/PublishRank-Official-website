@@ -76,12 +76,14 @@ The captures are presented as interface evidence and are not generated product m
 
 ## SEO
 
-Every page has a distinct title and description, absolute canonical URL, Open Graph and Twitter tags with the 1200×640 share card, and JSON-LD (WebSite, Organization, WebPage, BreadcrumbList; SoftwareApplication and FAQPage on the relevant pages). `/sitemap.xml`, `/news-sitemap.xml`, `/robots.txt` and `/llms.txt` are included and linked from the responsive footer. The shared header includes keyboard-operable desktop mega menus and mobile disclosure menus; content pages use breadcrumb navigation, section headings and a responsive on-page contents index.
+Every page has a distinct title and description, absolute canonical URL, Open Graph and Twitter tags with the 1200×640 share card, and JSON-LD (WebSite, Organization, WebPage, BreadcrumbList; SoftwareApplication and FAQPage on the relevant pages). `/sitemap.xml`, `/news-sitemap.xml`, `/robots.txt` and `/llms.txt` remain available to crawlers and direct requests, but are intentionally not visible in the site footer or page navigation. The shared header includes keyboard-operable desktop mega menus and mobile disclosure menus; content pages use breadcrumb navigation, section headings and a responsive on-page contents index.
 
 ## Legal routes, News SEO and motion
 
 The Cookies, Disclaimer, Security and Accessibility pages use the shared `PublisherPage` renderer. Add every new `PublisherPageKey` to both the content catalog and `publisherPageProfiles`; the typed profile record prevents missing renderer data from causing route crashes.
 
 The Newsroom uses a newspaper-style masthead, lead story, latest-stories column and desk sections. News articles emit article-specific Open Graph/X metadata, a large representative hero image, publication and modification dates, byline and `NewsArticle` JSON-LD. Evergreen PublishRank feature explainers use generic `Article` JSON-LD and are deliberately excluded from the Google News sitemap. `/news-sitemap.xml` includes only eligible NewsArticle entries published within the previous 48 hours; an empty valid sitemap is expected when no article is recent. `robots.txt` advertises both sitemap endpoints. These technical signals support crawl discovery and eligibility but cannot guarantee indexing, Google News inclusion or Discover placement.
+
+The website currently displays no Google AdSense or other advertising network. Privacy, cookies, terms and disclaimer pages state the current no-ads status and require the site operator to update disclosures, consent controls and opt-out choices before introducing personalized advertising. Do not add `ads.txt` until a real Google publisher ID is available; never ship a placeholder publisher ID.
 
 The shared footer exposes a setup/download call to action, newsroom and support destinations, legal pages and both sitemap links. `MotionEnhancer` uses GSAP and ScrollTrigger for small, once-only reveals on marked elements. Content remains visible in initial HTML, and the effect is disabled when the visitor requests reduced motion.

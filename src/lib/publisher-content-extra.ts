@@ -359,6 +359,12 @@ export const overrides: Pick<
         ],
       },
       {
+        title: "Advertising status",
+        paragraphs: [
+          "This website currently does not display Google AdSense, personalized advertising, analytics advertising cookies or remarketing tags. If advertising is introduced, this policy, the Cookie Policy and consent controls will be updated before ads are served, including the relevant Google disclosures and opt-out choices.",
+        ],
+      },
+      {
         title: "Your choices and rights",
         paragraphs: [
           "You can ask what information we hold from your contact messages, and ask us to correct or delete it, by using the contact form. Depending on where you live, you may have additional rights under laws such as the GDPR or CCPA, including the right to complain to your local data protection authority.",
@@ -455,6 +461,12 @@ export const newPages: Record<
         title: "Cookies",
         paragraphs: [
           "The PublishRank website does not set advertising, analytics or tracking cookies of its own, so no cookie banner is required for the site itself.",
+        ],
+      },
+      {
+        title: "Advertising and consent",
+        paragraphs: [
+          "No Google AdSense or other advertising network is active on this website at this time. If ads or personalized advertising are enabled later, the site operator will disclose the vendors, update this policy and implement the consent and opt-out controls required for the visitor’s region before loading non-essential advertising technology.",
         ],
       },
       {
