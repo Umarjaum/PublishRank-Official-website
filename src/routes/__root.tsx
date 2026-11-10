@@ -21,7 +21,8 @@ import {
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
-  REPO_URL,
+  publishRankOrganizationSchema,
+  umarjaumPersonSchema,
 } from "@/lib/site";
 
 function NotFoundComponent() {
@@ -167,6 +168,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
+            umarjaumPersonSchema(),
+            publishRankOrganizationSchema(),
             {
               "@type": "WebSite",
               "@id": `${SITE_URL}/#website`,
@@ -175,20 +178,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               description: SITE_DESCRIPTION,
               inLanguage: "en",
               publisher: { "@id": `${SITE_URL}/#organization` },
-            },
-            {
-              "@type": "Organization",
-              "@id": `${SITE_URL}/#organization`,
-              name: SITE_NAME,
-              url: SITE_URL,
-              logo: {
-                "@type": "ImageObject",
-                url: `${SITE_URL}/android-chrome-512x512.png`,
-                width: 512,
-                height: 512,
-              },
-              image: OG_IMAGE,
-              sameAs: [REPO_URL],
             },
           ],
         }),

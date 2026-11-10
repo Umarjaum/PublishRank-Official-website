@@ -18,6 +18,7 @@ import {
   LOGO_GIF,
   PUBLISHRANK_WORDPRESS_PLUGIN_URL,
   REPO_URL,
+  UMARJAUM_URL,
   WORDPRESS_RELEASE_TAGS,
 } from "@/lib/site";
 
@@ -376,6 +377,14 @@ export function SiteFooter() {
             >
               <Github aria-hidden="true" className="h-4 w-4" />
               PublishRank on GitHub
+            </a>
+            <a
+              href={UMARJAUM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center text-sm font-semibold hover:underline"
+            >
+              UmarJaum official website ↗
             </a>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/75">

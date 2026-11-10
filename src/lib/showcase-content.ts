@@ -1,4 +1,4 @@
-import { DOWNLOAD_URL, REVIEW_COUNT_LABEL } from "@/lib/site";
+import { CURRENT_RELEASE, DOWNLOAD_URL, REPO_URL, REVIEW_COUNT_LABEL, SITE_URL, UMARJAUM_URL } from "@/lib/site";
 import { featuredProductScreenshots } from "@/lib/product-screenshots";
 
 /**
@@ -186,16 +186,31 @@ export const faqSchema = {
 
 export const softwareSchema = {
   "@type": "SoftwareApplication",
-  "@id": "https://publishrankseo.vercel.app/#software",
+  "@id": `${SITE_URL}/#software`,
   name: "PublishRank",
+  url: SITE_URL,
   applicationCategory: "BusinessApplication",
   applicationSubCategory: "WordPress SEO plugin",
   operatingSystem: "WordPress",
+  softwareVersion: CURRENT_RELEASE,
+  isAccessibleForFree: true,
   description:
     "Free, open-source WordPress SEO plugin for news publishers: news sitemaps, structured data, newsroom workflow, redirects, crawl optimization and technical SEO.",
   downloadUrl: DOWNLOAD_URL,
+  releaseNotes: `${REPO_URL}/releases/tag/v${CURRENT_RELEASE}`,
+  creator: { "@id": `${UMARJAUM_URL}/#person`, name: "Muhammad Umar Jabbar", url: UMARJAUM_URL },
+  publisher: { "@id": `${SITE_URL}/#organization`, name: "PublishRank", url: SITE_URL },
+  featureList: [
+    "News and XML sitemaps",
+    "Connected JSON-LD schema",
+    "SEO metadata and social previews",
+    "Redirects and 404 monitoring",
+    "Newsroom editorial workflows",
+    "Crawl optimization and robots controls",
+  ],
+  sameAs: [REPO_URL, UMARJAUM_URL, "https://wordpress.org/plugins/publishrank/"],
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  image: "https://publishrankseo.vercel.app/brand/publishrank-og-share-card.jpg",
+  image: `${SITE_URL}/brand/publishrank-og-share-card.jpg`,
 };
 
 export const reviewSummary = {
