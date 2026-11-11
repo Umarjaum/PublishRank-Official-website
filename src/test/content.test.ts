@@ -21,7 +21,7 @@ describe("content", () => {
     expect(DOWNLOAD_URL).toBe(
       "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip",
     );
-    expect(CURRENT_RELEASE).toBe("2.20.4");
+    expect(CURRENT_RELEASE).toBe("2.20.13");
   });
 
   it("marks WP Hide Login new and documents the Mastodon verification snippet", () => {

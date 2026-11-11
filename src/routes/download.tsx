@@ -179,7 +179,8 @@ function DownloadPage() {
               {[
                 "More than 40 publisher tools—not just metadata fields",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
-                "New in 2.20.4: clearer Mastodon settings, safer posting and an administrator-only token reveal control",
+                "Administrator-only Mastodon token reveal and resilient post confirmation",
+                "New in 2.20.13: working FAQ editor Add/Remove controls for up to 20 entries, with synchronized runtime assets and breadcrumb spacing",
                 "News and XML sitemaps, structured data and the Schema Aggregator endpoint",
                 "Optional llms.txt discovery; broader AI features rolling out soon",
                 "New in 2.20.3: WP Hide Login has its own PublishRank settings page, separate from WordPress Settings",

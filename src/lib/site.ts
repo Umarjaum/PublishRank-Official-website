@@ -6,7 +6,7 @@ export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
 export const SITE_TAGLINE = "Beyond Basic SEO for Publishers";
 export const SITE_DESCRIPTION =
   "Free, open-source WordPress publishing tools beyond basic SEO: Mastodon publishing and profile verification, a Schema Aggregator endpoint, news sitemaps, optional llms.txt discovery and built-in WP Hide Login. Broader AI features are rolling out soon.";
-export const CURRENT_RELEASE = "2.20.4";
+export const CURRENT_RELEASE = "2.20.13";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;

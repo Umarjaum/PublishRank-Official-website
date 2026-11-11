@@ -1,5 +1,5 @@
 # PublishRank
-> PublishRank 2.20.4 is more than basic SEO for WordPress publishers: it includes robust Mastodon publishing with administrator-controlled access-token reveal, profile verification, a Schema Aggregator endpoint, news and XML sitemaps, newsroom workflows, redirects, optional llms.txt discovery, and a dedicated WP Hide Login settings page. Broader AI features are rolling out soon. llms.txt and structured data do not guarantee AI citations or inclusion in generated answers.
+> PublishRank 2.20.13 is more than basic SEO for WordPress publishers: it includes FAQ editor controls for up to 20 entries, synchronized runtime FAQ assets, robust Mastodon publishing with administrator-controlled access-token reveal, profile verification, a Schema Aggregator endpoint, news and XML sitemaps, newsroom workflows, redirects, optional llms.txt discovery, and a dedicated WP Hide Login settings page. Broader AI features are rolling out soon. llms.txt and structured data do not guarantee AI citations or inclusion in generated answers.
 
 ## Key pages
 - [Home](https://publishrankseo.vercel.app/): Product overview, publisher workflow and FAQ
