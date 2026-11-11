@@ -30,6 +30,7 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
+import { DailyNewsroomBrief } from "@/components/daily-newsroom-brief";
 import { PublisherSignalReactor } from "@/components/publisher-signal-reactor";
 import { pageSeo } from "@/lib/page-seo";
 import {
@@ -52,7 +53,7 @@ export const Route = createFileRoute("/")({
     pageSeo(
       "/",
       "Beyond Basic SEO for WordPress Publishers",
-      `Explore publisher SEO, news sitemaps, Mastodon publishing and an interactive, browser-only signal demo. PublishRank ${CURRENT_RELEASE} also adds a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page.`,
+      `Explore publisher SEO, news sitemaps, Mastodon publishing, a daily newsroom case challenge and an interactive browser-only signal demo. PublishRank ${CURRENT_RELEASE} also adds a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page.`,
       {
         extraSchema: [softwareSchema, faqSchema],
         keywords:
@@ -176,6 +177,16 @@ function Index() {
                 </Link>
               </Button>
             </div>
+            <a
+              href="#daily-deadline"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
+            >
+              <span className="rounded-full bg-[#ff6172]/10 px-2 py-1 text-[9px] font-black uppercase tracking-[0.13em] text-[#d93d59]">
+                Daily drop
+              </span>
+              Play today’s newsroom emergency
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
             <div className="mt-6 flex flex-wrap gap-5 text-sm">
               {["News SEO", "Structured Data", "Advanced SEO Tools"].map((t) => (
                 <span key={t} className="flex items-center gap-2">
@@ -323,6 +334,7 @@ function Index() {
         </section>
 
         <PublisherSignalReactor />
+        <DailyNewsroomBrief />
 
         {/* Editorial workflow */}
         <section aria-labelledby="workflow-title" className="py-12 md:py-16">

@@ -41,7 +41,7 @@ function readableSegment(segment: string) {
 }
 
 export function buildBreadcrumbs(pathname: string): BreadcrumbItem[] {
-  const routePath = pathname.split(/[?#]/, 1)[0].replace(/\/+$/, "") || "/";
+  const routePath = (pathname.split(/[?#]/, 1)[0] ?? "").replace(/\/+$/, "") || "/";
   const segments = routePath.split("/").filter(Boolean);
 
   if (segments.length === 0) return [];

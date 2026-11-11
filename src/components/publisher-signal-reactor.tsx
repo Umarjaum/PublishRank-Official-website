@@ -157,20 +157,24 @@ export function PublisherSignalReactor() {
                 </radialGradient>
               </defs>
               <circle cx="160" cy="160" r="100" fill="url(#signal-reactor-core)" />
-              {NODES.map((node, index) => (
-                <line
-                  key={CHANNELS[index].key}
-                  x1="160"
-                  y1="160"
-                  x2={node.x}
-                  y2={node.y}
-                  stroke={active[index] ? "#e7ff85" : "#aaa6ba"}
-                  strokeOpacity={active[index] ? ".72" : ".18"}
-                  strokeWidth={active[index] ? "1.5" : "1"}
-                  strokeDasharray={active[index] ? "0" : "4 6"}
-                  className="transition-all duration-500"
-                />
-              ))}
+              {CHANNELS.map((channel, index) => {
+                const node = NODES[index];
+                if (!node) return null;
+                return (
+                  <line
+                    key={channel.key}
+                    x1="160"
+                    y1="160"
+                    x2={node.x}
+                    y2={node.y}
+                    stroke={active[index] ? "#e7ff85" : "#aaa6ba"}
+                    strokeOpacity={active[index] ? ".72" : ".18"}
+                    strokeWidth={active[index] ? "1.5" : "1"}
+                    strokeDasharray={active[index] ? "0" : "4 6"}
+                    className="transition-all duration-500"
+                  />
+                );
+              })}
               <circle
                 cx="160"
                 cy="160"
@@ -194,20 +198,24 @@ export function PublisherSignalReactor() {
               />
             </svg>
 
-            {NODES.map((node, index) => (
-              <span
-                key={CHANNELS[index].key}
-                className={`absolute grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border text-[10px] font-black tracking-tight transition-all duration-500 ${
-                  active[index]
-                    ? "scale-110 border-[#e7ff85] bg-[#e7ff85] text-[#17151d] shadow-[0_0_24px_rgba(231,255,133,.4)]"
-                    : "border-white/20 bg-[#26232f] text-white/55"
-                }`}
-                style={{ left: `${(node.x / 320) * 100}%`, top: `${(node.y / 320) * 100}%` }}
-                aria-hidden="true"
-              >
-                {CHANNELS[index].short}
-              </span>
-            ))}
+            {CHANNELS.map((channel, index) => {
+              const node = NODES[index];
+              if (!node) return null;
+              return (
+                <span
+                  key={channel.key}
+                  className={`absolute grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border text-[10px] font-black tracking-tight transition-all duration-500 ${
+                    active[index]
+                      ? "scale-110 border-[#e7ff85] bg-[#e7ff85] text-[#17151d] shadow-[0_0_24px_rgba(231,255,133,.4)]"
+                      : "border-white/20 bg-[#26232f] text-white/55"
+                  }`}
+                  style={{ left: `${(node.x / 320) * 100}%`, top: `${(node.y / 320) * 100}%` }}
+                  aria-hidden="true"
+                >
+                  {channel.short}
+                </span>
+              );
+            })}
 
             <div
               className="absolute inset-0 grid place-items-center text-center"
