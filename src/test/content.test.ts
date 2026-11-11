@@ -19,9 +19,9 @@ describe("content", () => {
 
   it("points downloads at the latest GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.3/publishrank-2.20.3.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip",
     );
-    expect(CURRENT_RELEASE).toBe("2.20.3");
+    expect(CURRENT_RELEASE).toBe("2.20.4");
   });
 
   it("marks WP Hide Login new and documents the Mastodon verification snippet", () => {
@@ -163,7 +163,9 @@ describe("content", () => {
   it("emits sitemap lastmod only when an editorial article provides an update date", () => {
     const xml = createSitemapXml();
     const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]!);
-    const home = entries.find((entry) => entry.includes("<loc>https://publishrankseo.vercel.app/</loc>"));
+    const home = entries.find((entry) =>
+      entry.includes("<loc>https://publishrankseo.vercel.app/</loc>"),
+    );
     expect(home).toBeDefined();
     expect(home).not.toContain("<lastmod>");
     expect(xml).not.toContain("2026-11-06");

@@ -179,6 +179,7 @@ function DownloadPage() {
               {[
                 "More than 40 publisher tools—not just metadata fields",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
+                "New in 2.20.4: clearer Mastodon settings, safer posting and an administrator-only token reveal control",
                 "News and XML sitemaps, structured data and the Schema Aggregator endpoint",
                 "Optional llms.txt discovery; broader AI features rolling out soon",
                 "New in 2.20.3: WP Hide Login has its own PublishRank settings page, separate from WordPress Settings",

@@ -6,7 +6,7 @@ export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
 export const SITE_TAGLINE = "Beyond Basic SEO for Publishers";
 export const SITE_DESCRIPTION =
   "Free, open-source WordPress publishing tools beyond basic SEO: Mastodon publishing and profile verification, a Schema Aggregator endpoint, news sitemaps, optional llms.txt discovery and built-in WP Hide Login. Broader AI features are rolling out soon.";
-export const CURRENT_RELEASE = "2.20.3";
+export const CURRENT_RELEASE = "2.20.4";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -23,9 +23,9 @@ export const WORDPRESS_RELEASE_TAGS = [
   "Mastodon verification",
   "WP Hide Login",
 ] as const;
-// Pin the official download to the verified v2.20.3 GitHub release asset.
+// Use GitHub's latest-release route and stable asset name to avoid pinning the site to an old tag.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.3/publishrank-2.20.3.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — SEO tools for publishers and newsrooms.";
@@ -67,9 +67,21 @@ export function publishRankOrganizationSchema() {
     description: SITE_DESCRIPTION,
     founder: { "@id": `${UMARJAUM_URL}/#person` },
     email: UMARJAUM_EMAIL,
-    logo: { "@type": "ImageObject", url: `${SITE_URL}/android-chrome-512x512.png`, width: 512, height: 512 },
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/android-chrome-512x512.png`,
+      width: 512,
+      height: 512,
+    },
     image: OG_IMAGE,
-    contactPoint: [{ "@type": "ContactPoint", contactType: "technical support", email: UMARJAUM_EMAIL, availableLanguage: ["English"] }],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "technical support",
+        email: UMARJAUM_EMAIL,
+        availableLanguage: ["English"],
+      },
+    ],
     sameAs: [REPO_URL, PUBLISHRANK_WORDPRESS_PLUGIN_URL, UMARJAUM_URL],
   };
 }
