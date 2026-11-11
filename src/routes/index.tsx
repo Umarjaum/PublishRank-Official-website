@@ -30,6 +30,7 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
+import { PublisherSignalReactor } from "@/components/publisher-signal-reactor";
 import { pageSeo } from "@/lib/page-seo";
 import {
   CURRENT_RELEASE,
@@ -51,7 +52,7 @@ export const Route = createFileRoute("/")({
     pageSeo(
       "/",
       "Beyond Basic SEO for WordPress Publishers",
-      `PublishRank ${CURRENT_RELEASE} adds a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page, alongside publisher SEO, a Schema Aggregator endpoint, news sitemaps and newsroom workflows.`,
+      `Explore publisher SEO, news sitemaps, Mastodon publishing and an interactive, browser-only signal demo. PublishRank ${CURRENT_RELEASE} also adds a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page.`,
       {
         extraSchema: [softwareSchema, faqSchema],
         keywords:
@@ -320,6 +321,8 @@ function Index() {
             </div>
           </div>
         </section>
+
+        <PublisherSignalReactor />
 
         {/* Editorial workflow */}
         <section aria-labelledby="workflow-title" className="py-12 md:py-16">
