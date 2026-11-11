@@ -17,9 +17,9 @@ describe("content", () => {
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
   });
 
-  it("points downloads at the latest GitHub release asset", () => {
+  it("points downloads at the versioned v2.20.13 GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip",
     );
     expect(CURRENT_RELEASE).toBe("2.20.13");
   });

@@ -13,7 +13,7 @@
 - [Contact](https://publishrankseo.vercel.app/contact): Questions, bug reports and partnerships
 
 ## Notes
-- Download: https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip
+- Download: https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip
 - Official WordPress.org listing: https://wordpress.org/plugins/publishrank/
 - Source and issues: https://github.com/Umarjaum/PublishRank
 - Founder and developer: https://umarjaum.vercel.app

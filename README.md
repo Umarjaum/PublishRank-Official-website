@@ -34,11 +34,10 @@ Until both required variables are set, `/api/contact` answers 503 and the form s
 
 ## Download button
 
-All download buttons link directly to
-`https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip`.
-Publish each release with an asset named exactly `PublishRank.zip` so the link keeps working.
-The requested `releases/PublishRank_latest/PublishRank_latest.zip` URL currently returns 404;
-GitHub’s working direct asset route uses `/releases/download/<tag>/<asset>` and the `latest` alias.
+The website’s current versioned download target is
+`https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip`.
+When publishing a new version, update `DOWNLOAD_URL`, `CURRENT_RELEASE`, and the matching test and
+`public/llms.txt` entry together so the visible version label and downloaded package stay aligned.
 
 ## Branding assets (`public/`)
 

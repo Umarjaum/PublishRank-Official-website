@@ -23,9 +23,9 @@ export const WORDPRESS_RELEASE_TAGS = [
   "Mastodon verification",
   "WP Hide Login",
 ] as const;
-// Use GitHub's latest-release route and stable asset name to avoid pinning the site to an old tag.
+// Pin the public site to the exact versioned release package requested by the owner.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/latest/download/PublishRank.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — SEO tools for publishers and newsrooms.";
