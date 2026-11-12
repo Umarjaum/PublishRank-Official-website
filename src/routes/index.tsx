@@ -31,6 +31,7 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
 import { DailyNewsroomBrief } from "@/components/daily-newsroom-brief";
+import { PublisherIntroVideo } from "@/components/publisher-intro-video";
 import { PublisherSignalReactor } from "@/components/publisher-signal-reactor";
 import { pageSeo } from "@/lib/page-seo";
 import {
@@ -178,6 +179,13 @@ function Index() {
               </Button>
             </div>
             <a
+              href="#publishrank-introduction-v2"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
+            >
+              Watch the 15-second introduction
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+            <a
               href="#daily-deadline"
               className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
             >
@@ -286,6 +294,8 @@ function Index() {
             </div>
           ))}
         </section>
+
+        <PublisherIntroVideo />
 
         <section
           aria-labelledby="official-release-title"
