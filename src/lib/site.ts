@@ -3,9 +3,18 @@ export const SITE_URL = "https://publishrankseo.vercel.app";
 export const SITE_NAME = "PublishRank";
 export const UMARJAUM_URL = "https://umarjaum.vercel.app";
 export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
-export const SITE_TAGLINE = "Beyond Basic SEO for Publishers";
+export const PRODUCT_DIRECTION = {
+  eyebrow: "Product roadmap · in development",
+  headline: "Publisher roots. A wider future for WordPress.",
+  summary:
+    "PublishRank is expanding beyond newsroom and blog workflows to support businesses across industries. Security enhancements and broader business-focused features are in development.",
+  statusNote: "Roadmap direction only — these additions are not part of the current release.",
+} as const;
+export const SITE_TAGLINE = "WordPress SEO for Publishers and Businesses";
 export const SITE_DESCRIPTION =
-  "Free, open-source WordPress publishing tools beyond basic SEO: Mastodon publishing and profile verification, a Schema Aggregator endpoint, news sitemaps, optional llms.txt discovery and built-in WP Hide Login. Broader AI features are rolling out soon.";
+  "Free, open-source WordPress SEO for publishers, bloggers and businesses. Security improvements and broader business features are in development.";
+export const HOME_SEO_DESCRIPTION =
+  "PublishRank brings WordPress SEO tools to publishers, bloggers and businesses. Security enhancements and broader business features are in development.";
 export const CURRENT_RELEASE = "2.20.13";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
@@ -28,7 +37,7 @@ export const DOWNLOAD_URL =
   "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
-export const OG_IMAGE_ALT = "PublishRank — SEO tools for publishers and newsrooms.";
+export const OG_IMAGE_ALT = "PublishRank — WordPress SEO for publishers, bloggers and businesses.";
 export const LOGO_GIF = "/brand/publishrank-logo-animated.gif";
 export const LOGO_MARK = "/brand/publishrank-logo-mark.png";
 

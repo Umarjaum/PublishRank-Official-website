@@ -3,6 +3,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ArrowRight, Download, ExternalLink, Search, X, Heart, Github } from "lucide-react";
 import { SiteSearch } from "@/components/site-search";
 import { Button } from "@/components/ui/button";
+import { ProductDirectionNotice } from "@/components/product-direction-notice";
 import {
   Dialog,
   DialogContent,
@@ -28,7 +29,7 @@ const WORDPRESS_LAUNCH_DISMISS_KEY = "publishrank-wordpress-org-launch-dismissed
 const navigationGroups = [
   {
     label: "Product",
-    intro: "Publisher-first SEO tools in one WordPress workflow.",
+    intro: "Publisher-tested SEO tools for WordPress sites across industries.",
     links: [
       ["/features", "Explore features", "News SEO, schema, sitemaps and 40+ tools."],
       [
@@ -55,7 +56,7 @@ const navigationGroups = [
   },
   {
     label: "Enterprise",
-    intro: "A durable operating model for growing publishing teams.",
+    intro: "A durable operating model for growing WordPress teams.",
     links: [
       [
         "/enterprise",
@@ -201,7 +202,7 @@ export function Logo() {
     <Link to="/" aria-label="PublishRank home" className="shrink-0">
       <img
         src={logo.url}
-        alt="PublishRank — SEO for Publishers"
+        alt="PublishRank — WordPress SEO for publishers, bloggers and businesses"
         width={220}
         height={54}
         className="brand-logo"
@@ -215,6 +216,7 @@ export function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   return (
     <header className="site-header">
+      <ProductDirectionNotice />
       <div className="site-width flex min-h-20 items-center justify-between gap-4 py-3">
         <Logo />
         <div className="flex items-center gap-2">
@@ -244,9 +246,7 @@ export function SiteHeader() {
                 <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand">
                   Navigation
                 </p>
-                <p className="mt-1 text-lg font-extrabold">
-                  Everything your publishing team needs.
-                </p>
+                <p className="mt-1 text-lg font-extrabold">Everything your WordPress team needs.</p>
               </div>
               <button
                 type="button"

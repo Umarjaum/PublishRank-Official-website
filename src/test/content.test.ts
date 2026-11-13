@@ -6,8 +6,15 @@ import { pageSeo } from "@/lib/page-seo";
 import { publisherPages } from "@/lib/publisher-content";
 import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
 import { allProductScreenshots, productScreenshotGroups } from "@/lib/product-screenshots";
-import { CURRENT_RELEASE, DOWNLOAD_URL } from "@/lib/site";
-import { brandCards, screenshots } from "@/lib/showcase-content";
+import {
+  CURRENT_RELEASE,
+  DOWNLOAD_URL,
+  HOME_SEO_DESCRIPTION,
+  PRODUCT_DIRECTION,
+  SITE_DESCRIPTION,
+  SITE_TAGLINE,
+} from "@/lib/site";
+import { brandCards, screenshots, softwareSchema } from "@/lib/showcase-content";
 import { createNewsSitemapXml } from "@/routes/news-sitemap[.]xml";
 import { createSitemapXml } from "@/routes/sitemap[.]xml";
 
@@ -22,6 +29,17 @@ describe("content", () => {
       "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip",
     );
     expect(CURRENT_RELEASE).toBe("2.20.13");
+  });
+
+  it("states the broader business direction and marks upcoming work as a roadmap", () => {
+    expect(PRODUCT_DIRECTION.headline.toLowerCase()).toContain("wordpress");
+    expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("businesses across industries");
+    expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("in development");
+    expect(PRODUCT_DIRECTION.statusNote.toLowerCase()).toContain("not part of the current release");
+    expect(SITE_TAGLINE.toLowerCase()).toContain("businesses");
+    expect(SITE_DESCRIPTION.toLowerCase()).toContain("security improvements");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("business features are in development");
+    expect(String(softwareSchema.description).toLowerCase()).toContain("in development");
   });
 
   it("marks WP Hide Login new and documents the Mastodon verification snippet", () => {

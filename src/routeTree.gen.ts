@@ -30,6 +30,7 @@ import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WordpressOrgReleaseRouteImport } from './routes/wordpress-org-release'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
+import { Route as ApiResearchPulseRouteImport } from './routes/api.research-pulse'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
@@ -138,6 +139,11 @@ const ApiContactRoute = ApiContactRouteImport.update({
   path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiResearchPulseRoute = ApiResearchPulseRouteImport.update({
+  id: '/api/research-pulse',
+  path: '/api/research-pulse',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -171,6 +177,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/research-pulse': typeof ApiResearchPulseRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
 }
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/research-pulse': typeof ApiResearchPulseRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
 }
@@ -221,6 +229,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/research-pulse': typeof ApiResearchPulseRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
 }
@@ -248,6 +257,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/wordpress-org-release'
     | '/api/contact'
+    | '/api/research-pulse'
     | '/news/$slug'
     | '/news/'
   fileRoutesByTo: FileRoutesByTo
@@ -272,6 +282,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/wordpress-org-release'
     | '/api/contact'
+    | '/api/research-pulse'
     | '/news/$slug'
     | '/news'
   id:
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/wordpress-org-release'
     | '/api/contact'
+    | '/api/research-pulse'
     | '/news/$slug'
     | '/news/'
   fileRoutesById: FileRoutesById
@@ -323,6 +335,7 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   WordpressOrgReleaseRoute: typeof WordpressOrgReleaseRoute
   ApiContactRoute: typeof ApiContactRoute
+  ApiResearchPulseRoute: typeof ApiResearchPulseRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -474,6 +487,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/research-pulse': {
+      id: '/api/research-pulse'
+      path: '/api/research-pulse'
+      fullPath: '/api/research-pulse'
+      preLoaderRoute: typeof ApiResearchPulseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/': {
       id: '/news/'
       path: '/'
@@ -525,6 +545,7 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   WordpressOrgReleaseRoute: WordpressOrgReleaseRoute,
   ApiContactRoute: ApiContactRoute,
+  ApiResearchPulseRoute: ApiResearchPulseRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

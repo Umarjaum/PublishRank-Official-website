@@ -30,12 +30,13 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
-import { DailyNewsroomBrief } from "@/components/daily-newsroom-brief";
+import { ResearchPulse } from "@/components/publisher-research-pulse";
 import { PublisherIntroVideo } from "@/components/publisher-intro-video";
 import { PublisherSignalReactor } from "@/components/publisher-signal-reactor";
 import { pageSeo } from "@/lib/page-seo";
 import {
   CURRENT_RELEASE,
+  HOME_SEO_DESCRIPTION,
   PUBLISHRANK_WORDPRESS_PLUGIN_URL,
   WORDPRESS_RELEASE_TAGS,
 } from "@/lib/site";
@@ -51,16 +52,11 @@ import { faqSchema, softwareSchema } from "@/lib/showcase-content";
 
 export const Route = createFileRoute("/")({
   head: () =>
-    pageSeo(
-      "/",
-      "Beyond Basic SEO for WordPress Publishers",
-      `Explore publisher SEO, news sitemaps, Mastodon publishing, a daily newsroom case challenge and an interactive browser-only signal demo. PublishRank ${CURRENT_RELEASE} also adds a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page.`,
-      {
-        extraSchema: [softwareSchema, faqSchema],
-        keywords:
-          "WordPress.org plugin, publisher SEO, Mastodon publishing, Schema Aggregator endpoint, llms.txt, AI discovery, news sitemap, newsroom plugin",
-      },
-    ),
+    pageSeo("/", "WordPress SEO for Publishers and Businesses", HOME_SEO_DESCRIPTION, {
+      extraSchema: [softwareSchema, faqSchema],
+      keywords:
+        "WordPress SEO, publisher SEO, business SEO, security improvements, Mastodon publishing, Schema Aggregator endpoint, llms.txt discovery, news sitemap",
+    }),
   component: Index,
 });
 
@@ -150,14 +146,14 @@ function Index() {
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-5 pb-12 pt-6 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <h1 className="text-4xl font-extrabold leading-[1.1] md:text-5xl">
-              Every Story.
+              WordPress SEO.
               <br />
-              <span className="text-brand">A Stronger Publishing Workflow.</span>
+              <span className="text-brand">Beyond the newsroom.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed md:text-lg">
-              PublishRank is a powerful WordPress SEO plugin built for news publishers, online
-              newspapers and bloggers — to help you rank higher, reach more readers and grow your
-              audience.
+              PublishRank grew from the needs of publishers and bloggers; its WordPress SEO
+              foundations can serve sites across industries. Security enhancements and broader
+              business-focused features are in development, not part of the current release.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <DownloadLink className="flex items-center gap-3 rounded-full bg-brand px-7 py-3 text-primary-foreground shadow-[var(--shadow-card)] hover:bg-brand-deep">
@@ -186,13 +182,13 @@ function Index() {
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <a
-              href="#daily-deadline"
+              href="#research-pulse"
               className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
             >
-              <span className="rounded-full bg-[#ff6172]/10 px-2 py-1 text-[9px] font-black uppercase tracking-[0.13em] text-[#d93d59]">
-                Daily drop
+              <span className="rounded-full bg-[#83e4bd]/20 px-2 py-1 text-[9px] font-black uppercase tracking-[0.13em] text-[#075c43]">
+                Research pulse
               </span>
-              Play today’s newsroom emergency
+              Explore a fresh Google + WordPress signal
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <div className="mt-6 flex flex-wrap gap-5 text-sm">
@@ -211,7 +207,7 @@ function Index() {
               <Feather className="mx-auto mb-1 h-7 w-7" />
               Built for
               <br />
-              Publishers
+              WordPress teams
             </div>
             <div
               className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-window)]"
@@ -344,7 +340,7 @@ function Index() {
         </section>
 
         <PublisherSignalReactor />
-        <DailyNewsroomBrief />
+        <ResearchPulse />
 
         {/* Editorial workflow */}
         <section aria-labelledby="workflow-title" className="py-12 md:py-16">
@@ -453,11 +449,12 @@ function Index() {
           className="grid gap-10 py-10 lg:grid-cols-[1.2fr_1fr_1fr] lg:items-center"
         >
           <div>
-            <h2 className="text-3xl font-extrabold">More Than Basic SEO for Publishers</h2>
+            <h2 className="text-3xl font-extrabold">Publisher roots. A wider WordPress future.</h2>
             <p className="mt-4 leading-relaxed">
-              PublishRank brings editorial and technical publishing tools into WordPress: story SEO,
-              Mastodon sharing, a machine-readable Schema Aggregator endpoint and optional llms.txt
-              discovery. It is built for publishing workflows—not just metadata fields.
+              PublishRank combines editorial and technical SEO for WordPress today, while expanding
+              its direction toward organizations across industries. Additional security work and
+              business-focused capabilities are planned; they are not features of the current
+              release.
             </p>
             <Button asChild className="mt-6 rounded-full">
               <Link to="/about">
@@ -489,7 +486,7 @@ function Index() {
               These tools do not promise rankings or AI citations.
             </p>
             <Link to="/documentation" className="mt-4 inline-block text-sm font-bold text-brand">
-              Read the publisher’s handbook →
+              Read the setup handbook →
             </Link>
             <Feather className="absolute bottom-4 right-4 h-12 w-12 text-brand/20" />
           </aside>
@@ -501,7 +498,9 @@ function Index() {
         <section id="audiences">
           <div className="flex items-center gap-6">
             <span className="h-px flex-1 bg-brand/50" />
-            <h2 className="text-center text-2xl font-extrabold">Perfect for Every Publisher</h2>
+            <h2 className="text-center text-2xl font-extrabold">
+              Publisher expertise, for more WordPress teams.
+            </h2>
             <span className="h-px flex-1 bg-brand/50" />
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
@@ -535,13 +534,13 @@ function Index() {
 
         {/* Trust */}
         <section className="my-10 rounded-lg bg-brand-soft p-6">
-          <h2 className="text-center text-xl font-extrabold">Made for the Publishing Community</h2>
+          <h2 className="text-center text-xl font-extrabold">Made for the WordPress Community</h2>
           <div className="mt-5 grid gap-6 text-sm sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-border">
             {(
               [
                 [Globe, "100%", "Open Source", "text-ink"],
                 [Zap, "Blazing Fast", "Performance", "text-brand"],
-                [Heart, "Built with Care", "for the Publishing Community", "text-brand"],
+                [Heart, "Built with Care", "for WordPress teams", "text-brand"],
                 [Code2, "WordPress", "Compatible with", "text-chart-3"],
               ] as const
             ).map(([Icon, a, b, c]) => (

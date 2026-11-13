@@ -1,4 +1,11 @@
-import { CURRENT_RELEASE, DOWNLOAD_URL, REPO_URL, SITE_URL, UMARJAUM_URL } from "@/lib/site";
+import {
+  CURRENT_RELEASE,
+  DOWNLOAD_URL,
+  REPO_URL,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  UMARJAUM_URL,
+} from "@/lib/site";
 import { featuredProductScreenshots } from "@/lib/product-screenshots";
 
 export const screenshots = featuredProductScreenshots;
@@ -131,8 +138,7 @@ export const softwareSchema = {
   operatingSystem: "WordPress",
   softwareVersion: CURRENT_RELEASE,
   isAccessibleForFree: true,
-  description:
-    "Free, open-source WordPress SEO plugin for news publishers: news sitemaps, structured data, newsroom workflow, redirects, crawl optimization and technical SEO.",
+  description: SITE_DESCRIPTION,
   downloadUrl: DOWNLOAD_URL,
   releaseNotes: `${REPO_URL}/releases/tag/v${CURRENT_RELEASE}`,
   creator: { "@id": `${UMARJAUM_URL}/#person`, name: "Muhammad Umar Jabbar", url: UMARJAUM_URL },
