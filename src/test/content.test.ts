@@ -24,11 +24,11 @@ describe("content", () => {
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
   });
 
-  it("points downloads at the versioned v2.20.13 GitHub release asset", () => {
+  it("points downloads at the versioned v2.20.19 GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.19/publishrank-2.20.19.zip",
     );
-    expect(CURRENT_RELEASE).toBe("2.20.13");
+    expect(CURRENT_RELEASE).toBe("2.20.19");
   });
 
   it("states the broader business direction and marks upcoming work as a roadmap", () => {

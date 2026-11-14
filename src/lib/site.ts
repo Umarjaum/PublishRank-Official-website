@@ -15,7 +15,7 @@ export const SITE_DESCRIPTION =
   "Free, open-source WordPress SEO for publishers, bloggers and businesses. Security improvements and broader business features are in development.";
 export const HOME_SEO_DESCRIPTION =
   "PublishRank brings WordPress SEO tools to publishers, bloggers and businesses. Security enhancements and broader business features are in development.";
-export const CURRENT_RELEASE = "2.20.13";
+export const CURRENT_RELEASE = "2.20.19";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -34,7 +34,7 @@ export const WORDPRESS_RELEASE_TAGS = [
 ] as const;
 // Pin the public site to the exact versioned release package requested by the owner.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.19/publishrank-2.20.19.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — WordPress SEO for publishers, bloggers and businesses.";

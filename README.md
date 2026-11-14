@@ -35,7 +35,7 @@ Until both required variables are set, `/api/contact` answers 503 and the form s
 ## Download button
 
 The website’s current versioned download target is
-`https://github.com/Umarjaum/PublishRank/releases/download/v2.20.13/publishrank-2.20.13.zip`.
+`https://github.com/Umarjaum/PublishRank/releases/download/v2.20.19/publishrank-2.20.19.zip`.
 When publishing a new version, update `DOWNLOAD_URL`, `CURRENT_RELEASE`, and the matching test and
 `public/llms.txt` entry together so the visible version label and downloaded package stay aligned.
 
