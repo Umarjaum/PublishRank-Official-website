@@ -28,8 +28,10 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as WebsiteCreationRouteImport } from './routes/website-creation'
 import { Route as WordpressOrgReleaseRouteImport } from './routes/wordpress-org-release'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
+import { Route as ApiCurrencyRatesRouteImport } from './routes/api.currency-rates'
 import { Route as ApiResearchPulseRouteImport } from './routes/api.research-pulse'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
@@ -129,6 +131,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WebsiteCreationRoute = WebsiteCreationRouteImport.update({
+  id: '/website-creation',
+  path: '/website-creation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WordpressOrgReleaseRoute = WordpressOrgReleaseRouteImport.update({
   id: '/wordpress-org-release',
   path: '/wordpress-org-release',
@@ -137,6 +144,11 @@ const WordpressOrgReleaseRoute = WordpressOrgReleaseRouteImport.update({
 const ApiContactRoute = ApiContactRouteImport.update({
   id: '/api/contact',
   path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiCurrencyRatesRoute = ApiCurrencyRatesRouteImport.update({
+  id: '/api/currency-rates',
+  path: '/api/currency-rates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiResearchPulseRoute = ApiResearchPulseRouteImport.update({
@@ -175,8 +187,10 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/website-creation': typeof WebsiteCreationRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/currency-rates': typeof ApiCurrencyRatesRoute
   '/api/research-pulse': typeof ApiResearchPulseRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -200,8 +214,10 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/website-creation': typeof WebsiteCreationRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/currency-rates': typeof ApiCurrencyRatesRoute
   '/api/research-pulse': typeof ApiResearchPulseRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news': typeof NewsIndexRoute
@@ -227,8 +243,10 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/website-creation': typeof WebsiteCreationRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
+  '/api/currency-rates': typeof ApiCurrencyRatesRoute
   '/api/research-pulse': typeof ApiResearchPulseRoute
   '/news/$slug': typeof NewsSlugRoute
   '/news/': typeof NewsIndexRoute
@@ -255,8 +273,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/website-creation'
     | '/wordpress-org-release'
     | '/api/contact'
+    | '/api/currency-rates'
     | '/api/research-pulse'
     | '/news/$slug'
     | '/news/'
@@ -280,8 +300,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/website-creation'
     | '/wordpress-org-release'
     | '/api/contact'
+    | '/api/currency-rates'
     | '/api/research-pulse'
     | '/news/$slug'
     | '/news'
@@ -306,8 +328,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/website-creation'
     | '/wordpress-org-release'
     | '/api/contact'
+    | '/api/currency-rates'
     | '/api/research-pulse'
     | '/news/$slug'
     | '/news/'
@@ -333,8 +357,10 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
+  WebsiteCreationRoute: typeof WebsiteCreationRoute
   WordpressOrgReleaseRoute: typeof WordpressOrgReleaseRoute
   ApiContactRoute: typeof ApiContactRoute
+  ApiCurrencyRatesRoute: typeof ApiCurrencyRatesRoute
   ApiResearchPulseRoute: typeof ApiResearchPulseRoute
 }
 
@@ -473,6 +499,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/website-creation': {
+      id: '/website-creation'
+      path: '/website-creation'
+      fullPath: '/website-creation'
+      preLoaderRoute: typeof WebsiteCreationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/wordpress-org-release': {
       id: '/wordpress-org-release'
       path: '/wordpress-org-release'
@@ -485,6 +518,13 @@ declare module '@tanstack/react-router' {
       path: '/api/contact'
       fullPath: '/api/contact'
       preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/currency-rates': {
+      id: '/api/currency-rates'
+      path: '/api/currency-rates'
+      fullPath: '/api/currency-rates'
+      preLoaderRoute: typeof ApiCurrencyRatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/research-pulse': {
@@ -543,8 +583,10 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
+  WebsiteCreationRoute: WebsiteCreationRoute,
   WordpressOrgReleaseRoute: WordpressOrgReleaseRoute,
   ApiContactRoute: ApiContactRoute,
+  ApiCurrencyRatesRoute: ApiCurrencyRatesRoute,
   ApiResearchPulseRoute: ApiResearchPulseRoute,
 }
 export const routeTree = rootRouteImport

@@ -17,6 +17,7 @@ describe("App routing", () => {
     "/support",
     "/about",
     "/enterprise",
+    "/website-creation",
     "/news",
     "/privacy",
     "/terms",
@@ -41,9 +42,10 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
-  it("matches the contact API route", () => {
+  it("matches the contact and currency-rate API routes", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
     expect(router.matchRoutes("/api/contact").at(-1)?.routeId).toBe("/api/contact");
+    expect(router.matchRoutes("/api/currency-rates").at(-1)?.routeId).toBe("/api/currency-rates");
   });
 
   it("matches the sitemap server route at /sitemap.xml", () => {
@@ -77,6 +79,7 @@ describe("App routing", () => {
         "/support",
         "/about",
         "/enterprise",
+        "/website-creation",
         "/news",
         "/download",
         "/wordpress-org-release",

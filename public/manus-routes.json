@@ -9,6 +9,7 @@
     { "path": "/support", "title": "Support" },
     { "path": "/about", "title": "About" },
     { "path": "/enterprise", "title": "Enterprise" },
+    { "path": "/website-creation", "title": "Website creation" },
     { "path": "/news", "title": "Newsroom" },
     { "path": "/news/$slug", "title": "News article" },
     { "path": "/contact", "title": "Contact" },

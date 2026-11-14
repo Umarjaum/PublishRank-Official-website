@@ -325,23 +325,23 @@ export const overrides: Pick<
     title: "Privacy policy.",
     eyebrow: "Legal",
     image: "writing",
-    updated: UPDATED,
+    updated: "14 November 2026",
     intro:
       "How the PublishRank website handles information. This page covers the website at publishrankseo.vercel.app, not every WordPress site that runs the plugin.",
     description:
-      "Read how the PublishRank website handles contact form messages, hosting logs, cookies and third-party resources such as Google Fonts, Unsplash and GitHub.",
+      "Read how the PublishRank website handles contact form messages, project briefs, hosting logs, cookies and third-party resources such as Google Fonts, Unsplash, GitHub and currency-rate data.",
     sections: [
       {
         title: "What we collect",
         paragraphs: [
-          "If you use the contact form, we receive the name, email address, topic and message you submit. We use them only to read and answer your message.",
+          "If you use the contact form, we receive the name, email address, topic and message you submit. The website-creation form also asks for project details such as your business name, current website, goals, audience, design preferences, desired sections and features, content readiness, domain or hosting status, timing and reference links. We use the details you choose to submit only to review and answer your request.",
           "Like any website, our hosting provider processes ordinary request data such as IP address, browser type, requested page and timestamp to deliver the site and protect it from abuse. This website does not use advertising trackers or account systems.",
         ],
       },
       {
         title: "How we use contact messages",
         paragraphs: [
-          "Messages are delivered to the project’s inbox through an email delivery provider. We do not sell your information or use it for marketing. We keep messages only as long as needed to respond and for reasonable record-keeping, then delete them.",
+          "Messages and website-project briefs are delivered to the project’s inbox through an email delivery provider so we can review and respond. We do not sell your information or use it for marketing. We keep messages only as long as needed to respond and for reasonable record-keeping, then delete them. The website-creation form does not collect payment information.",
           "Do not include passwords, API keys or confidential site data in a message.",
         ],
       },
@@ -349,6 +349,7 @@ export const overrides: Pick<
         title: "Third-party services",
         paragraphs: [
           "The site is hosted on Vercel. Fonts load from Google Fonts, some photographs load from Unsplash, and the plugin download is served by GitHub. These services receive ordinary request information such as your IP address and browser headers, and their own policies apply.",
+          "The pricing display retrieves reference exchange rates from Frankfurter through a server-side endpoint. Your selected country is used in your browser to format prices and is not sent to Frankfurter.",
           "Clicking a link to GitHub or another external site leaves this website.",
         ],
       },

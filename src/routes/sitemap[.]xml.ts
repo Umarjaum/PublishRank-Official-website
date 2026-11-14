@@ -14,6 +14,7 @@ export const publicPaths = [
   "/support",
   "/about",
   "/enterprise",
+  "/website-creation",
   "/news",
   "/contact",
   "/privacy",

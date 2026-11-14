@@ -31,6 +31,7 @@ const navigationGroups = [
     label: "Product",
     intro: "Publisher-tested SEO tools for WordPress sites across industries.",
     links: [
+      ["/website-creation", "Website creation", "Next.js websites with SEO setup, from $2 once."],
       ["/features", "Explore features", "News SEO, schema, sitemaps and 40+ tools."],
       [
         "/comparisons",
@@ -73,6 +74,7 @@ const footerGroups = [
   {
     title: "Product",
     links: [
+      ["/website-creation", "Website creation"],
       ["/features", "Features"],
       ["/comparisons", "Compare plugins"],
       ["/wordpress-org-release", "WordPress.org release"],

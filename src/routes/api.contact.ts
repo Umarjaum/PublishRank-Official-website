@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { contactSchema } from "@/lib/contact-schema";
+import { contactRecipientForTopic } from "@/lib/contact-recipient";
 
 // Best-effort, per-instance rate limit. Serverless instances do not share memory, so this
 // only blunts bursts; the honeypot, validation and the provider's own limits do the rest.
@@ -36,13 +37,15 @@ export const Route = createFileRoute("/api/contact")({
         const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
         if (origin && host) {
           try {
-            if (new URL(origin).host !== host) return json({ error: "Cross-origin requests are not allowed." }, 403);
+            if (new URL(origin).host !== host)
+              return json({ error: "Cross-origin requests are not allowed." }, 403);
           } catch {
             return json({ error: "Invalid origin." }, 400);
           }
         }
 
-        const ip = (request.headers.get("x-forwarded-for") ?? "unknown").split(",")[0]?.trim() ?? "unknown";
+        const ip =
+          (request.headers.get("x-forwarded-for") ?? "unknown").split(",")[0]?.trim() ?? "unknown";
         if (limited(ip)) return json({ error: "Too many messages. Please try again later." }, 429);
 
         let payload: unknown;
@@ -65,10 +68,13 @@ export const Route = createFileRoute("/api/contact")({
         }
 
         const apiKey = process.env["RESEND_API_KEY"];
-        const to = process.env["CONTACT_TO_EMAIL"];
-        const from = process.env["CONTACT_FROM_EMAIL"] ?? "PublishRank Website <onboarding@resend.dev>";
+        const to = contactRecipientForTopic(parsed.data.topic, process.env["CONTACT_TO_EMAIL"]);
+        const from =
+          process.env["CONTACT_FROM_EMAIL"] ?? "PublishRank Website <onboarding@resend.dev>";
         if (!apiKey || !to) {
-          console.error("Contact form is not configured: set RESEND_API_KEY and CONTACT_TO_EMAIL.");
+          console.error(
+            "Contact form is not configured: set RESEND_API_KEY and an appropriate recipient.",
+          );
           return json({ error: "The contact form is not configured yet." }, 503);
         }
 
@@ -89,8 +95,15 @@ export const Route = createFileRoute("/api/contact")({
             signal: controller.signal,
           }).finally(() => clearTimeout(timer));
           if (!res.ok) {
-            console.error("Email provider rejected the contact message", res.status, await res.text().catch(() => ""));
-            return json({ error: "We couldn’t deliver your message. Please try again later." }, 502);
+            console.error(
+              "Email provider rejected the contact message",
+              res.status,
+              await res.text().catch(() => ""),
+            );
+            return json(
+              { error: "We couldn’t deliver your message. Please try again later." },
+              502,
+            );
           }
           return json({ ok: true });
         } catch (error) {

@@ -174,6 +174,13 @@ function Index() {
                 </Link>
               </Button>
             </div>
+            <Link
+              to="/website-creation"
+              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
+            >
+              Need a business website? Basic websites start at $2
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
             <a
               href="#publishrank-introduction-v2"
               className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
@@ -191,6 +198,20 @@ function Index() {
               Explore a fresh Google + WordPress signal
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
+            <div className="mt-5 flex items-center">
+              <a
+                href="https://ailaun.ch/projects/publishrank?utm_source=badge"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PublishRank featured on AI Launch, opens in a new tab"
+              >
+                <img
+                  src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg"
+                  alt="Featured on AI Launch"
+                  style={{ height: 44, width: "auto" }}
+                />
+              </a>
+            </div>
             <div className="mt-6 flex flex-wrap gap-5 text-sm">
               {["News SEO", "Structured Data", "Advanced SEO Tools"].map((t) => (
                 <span key={t} className="flex items-center gap-2">
