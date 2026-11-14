@@ -48,14 +48,15 @@ export function FeatureCatalogView() {
       <div className="site-width py-12">
         <h2 id="catalog-title" className="text-3xl font-extrabold">The complete feature list</h2>
         <p className="mt-3 max-w-2xl leading-8 text-muted-foreground">
-          {featureCount} documented capabilities across {featureCatalog.length} areas. Search to filter.
+          {featureCount} catalog entries across {featureCatalog.length} feature areas, including the
+          complete Local SEO business-type directory. Search to filter.
         </p>
         <div className="relative mt-6 max-w-md">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
           <Input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search features, e.g. sitemap" aria-label="Search features" className="bg-background pl-9" />
         </div>
         <p className="mt-3 text-sm text-muted-foreground" role="status" aria-live="polite">
-          Showing {shown} of {featureCount} features
+          Showing {shown} of {featureCount} catalog entries
         </p>
         {filtered.length === 0 ? (
           <p className="mt-8 rounded-lg border bg-card p-6 text-center">

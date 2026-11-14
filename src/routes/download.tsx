@@ -26,7 +26,7 @@ export const Route = createFileRoute("/download")({
     pageSeo(
       "/download",
       "Download the Free WordPress SEO Plugin",
-      `Download PublishRank ${CURRENT_RELEASE}: Mastodon publishing and profile verification, a copyable rel=me head snippet, WP Hide Login and publisher-focused SEO tools.`,
+      `Download PublishRank ${CURRENT_RELEASE}: Local SEO for 134 selectable business options across 14 niches, plus publisher-focused SEO tools.`,
       {
         extraSchema: [softwareSchema],
         keywords:
@@ -83,9 +83,10 @@ function DownloadPage() {
             </p>
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Beyond basic SEO for publishers: Mastodon sharing with a copyable profile-verification
-              head tag, the Schema Aggregator endpoint, optional llms.txt discovery and a dedicated
-              WP Hide Login settings page. One free, open-source ZIP, installed from your WordPress
+              Beyond basic SEO for publishers: the current release adds Local SEO for 134
+              selectable business options across 14 niches, with type-specific fields and schema
+              mappings. Also includes newsroom tools, sitemaps, the Schema Aggregator, optional
+              llms.txt discovery and Private Login. One free, open-source ZIP for your WordPress
               dashboard.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
@@ -180,7 +181,7 @@ function DownloadPage() {
                 "More than 40 publisher tools—not just metadata fields",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
                 "Administrator-only Mastodon token reveal and resilient post confirmation",
-                "New in 2.20.19: more reliable Mastodon sharing, safer token handling and status checks, plus a five-step mobile-friendly Mastodon screen",
+                `New in ${CURRENT_RELEASE}: Local SEO for 134 business options across 14 niches, with type-specific fields and schema mappings`,
                 "Editor controls styled in PublishRank colors; a clearer Sitemap Hub with copy/open sitemap address and sitemap file list",
                 "Private Login moved to its own screen with settings migrated, the old link forwarded, and an emergency disable constant",
                 "News and XML sitemaps, structured data and the Schema Aggregator endpoint",

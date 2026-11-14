@@ -19,26 +19,30 @@ import { createNewsSitemapXml } from "@/routes/news-sitemap[.]xml";
 import { createSitemapXml } from "@/routes/sitemap[.]xml";
 
 describe("content", () => {
-  it("documents all 237 features", () => {
-    expect(featureCount).toBe(237);
+  it("documents the expanded feature catalog and complete Local SEO registry", () => {
+    expect(featureCount).toBe(516);
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
+    expect(featureCatalog.some((category) => category.id === "verified-l")).toBe(true);
+    const localSeo = featureCatalog.find((category) => category.id === "verified-c");
+    expect(localSeo?.items.some((item) => item.includes("134 registry options"))).toBe(true);
+    expect(localSeo?.items.some((item) => item.includes("Retail & shopping (30)"))).toBe(true);
   });
 
-  it("points downloads at the versioned v2.20.19 GitHub release asset", () => {
+  it("points downloads at the versioned v2.20.20 GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.19/publishrank-2.20.19.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.20/PublishRank-2.20.20.zip",
     );
-    expect(CURRENT_RELEASE).toBe("2.20.19");
+    expect(CURRENT_RELEASE).toBe("2.20.20");
   });
 
   it("states the broader business direction and marks upcoming work as a roadmap", () => {
     expect(PRODUCT_DIRECTION.headline.toLowerCase()).toContain("wordpress");
-    expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("businesses across industries");
+    expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("134 selectable business options");
     expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("in development");
     expect(PRODUCT_DIRECTION.statusNote.toLowerCase()).toContain("not part of the current release");
     expect(SITE_TAGLINE.toLowerCase()).toContain("businesses");
     expect(SITE_DESCRIPTION.toLowerCase()).toContain("security improvements");
-    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("business features are in development");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("additional business capabilities");
     expect(String(softwareSchema.description).toLowerCase()).toContain("in development");
   });
 

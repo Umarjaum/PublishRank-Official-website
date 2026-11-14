@@ -7,15 +7,15 @@ export const PRODUCT_DIRECTION = {
   eyebrow: "Product roadmap · in development",
   headline: "Publisher roots. A wider future for WordPress.",
   summary:
-    "PublishRank is expanding beyond newsroom and blog workflows to support businesses across industries. Security enhancements and broader business-focused features are in development.",
-  statusNote: "Roadmap direction only — these additions are not part of the current release.",
+    "PublishRank already includes Local SEO for 134 selectable business options across 14 niches. Additional business-focused capabilities and security enhancements are in development.",
+  statusNote: "The 134-option Local SEO registry is available in 2.20.20; other roadmap additions are not part of the current release.",
 } as const;
 export const SITE_TAGLINE = "WordPress SEO for Publishers and Businesses";
 export const SITE_DESCRIPTION =
-  "Free, open-source WordPress SEO for publishers, bloggers and businesses. Security improvements and broader business features are in development.";
+  "Free, open-source WordPress SEO for publishers, bloggers and businesses, including Local SEO for 134 business options across 14 niches. Additional capabilities and security improvements are in development.";
 export const HOME_SEO_DESCRIPTION =
-  "PublishRank brings WordPress SEO tools to publishers, bloggers and businesses. Security enhancements and broader business features are in development.";
-export const CURRENT_RELEASE = "2.20.19";
+  "PublishRank brings WordPress SEO tools to publishers and businesses, including 134 Local SEO options across 14 niches. Additional business capabilities and security enhancements are in development.";
+export const CURRENT_RELEASE = "2.20.20";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -34,7 +34,7 @@ export const WORDPRESS_RELEASE_TAGS = [
 ] as const;
 // Pin the public site to the exact versioned release package requested by the owner.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.19/publishrank-2.20.19.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.20/PublishRank-2.20.20.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT = "PublishRank — WordPress SEO for publishers, bloggers and businesses.";

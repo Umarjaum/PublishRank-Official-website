@@ -15,6 +15,11 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
+    title: "Local SEO — 134 selectable business options",
+    description:
+      "Choose from 134 business options across 14 niches, with type-specific fields and LocalBusiness schema mappings. The options are not 134 independent Schema.org classes.",
+  },
+  {
     title: "SEO metadata and social previews",
     description:
       "Manage SEO titles, descriptions, canonical URLs, robots directives, Open Graph and X/Twitter metadata.",
@@ -60,10 +65,9 @@ const launchFeatures: Array<{ title: string; description: string; badge?: string
       'Copy a generated <link rel="me"> HTML-head snippet, then add the website URL to your Mastodon profile field for reciprocal verification.',
   },
   {
-    title: "WP Hide Login",
-    badge: `NEW · ${CURRENT_RELEASE}`,
+    title: "Private Login",
     description:
-      "Choose a custom login URL and blocked-visitor redirect from a dedicated PublishRank → Hide Login page, separate from WordPress Settings.",
+      "Choose a custom login URL and blocked-visitor redirect from a dedicated PublishRank settings page, separate from WordPress Settings.",
   },
 ];
 
@@ -72,7 +76,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
     pageSeo(
       "/wordpress-org-release",
       `PublishRank ${CURRENT_RELEASE} WordPress SEO Plugin on WordPress.org`,
-      `Explore PublishRank ${CURRENT_RELEASE}: a copyable Mastodon rel=me verification snippet and a dedicated WP Hide Login settings page, alongside publisher-focused SEO tools.`,
+      `Explore PublishRank ${CURRENT_RELEASE}: Local SEO for 134 selectable business options across 14 niches, alongside publisher-focused SEO tools.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -124,8 +128,8 @@ function WordPressOrgRelease() {
               details, and install it directly from your WordPress dashboard.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
-              New in {CURRENT_RELEASE}: a dedicated WP Hide Login settings page and a generated,
-              copyable Mastodon <code>rel="me"</code> HTML-head snippet.
+              New in {CURRENT_RELEASE}: Local SEO adds 134 selectable business options across 14
+              niches, with fields and schema mappings tailored to each type.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">
