@@ -76,7 +76,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
     pageSeo(
       "/wordpress-org-release",
       `PublishRank ${CURRENT_RELEASE} WordPress SEO Plugin on WordPress.org`,
-      `Explore PublishRank ${CURRENT_RELEASE}: Local SEO for 134 selectable business options across 14 niches, alongside publisher-focused SEO tools.`,
+      `Explore PublishRank ${CURRENT_RELEASE}: WordPress SEO for businesses and every website, including Local SEO for 134 selectable business options across 14 niches.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -91,7 +91,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
             name: "PublishRank",
             url: `${SITE_URL}/wordpress-org-release`,
             description:
-              "A free, open-source WordPress SEO plugin with publisher-focused metadata, schema, sitemap and editorial tools.",
+              "A free, open-source WordPress SEO plugin for every website, with sitewide metadata, schema, sitemaps, Local SEO for 134 business options and specialist editorial tools.",
             applicationCategory: "SEO",
             operatingSystem: "WordPress",
             isAccessibleForFree: true,
@@ -123,9 +123,10 @@ function WordPressOrgRelease() {
               PublishRank is officially listed on WordPress.org
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              PublishRank is a free, open-source WordPress SEO plugin for publishers, newsrooms,
-              bloggers and editorial teams. Find the official listing, review the current plugin
-              details, and install it directly from your WordPress dashboard.
+              PublishRank is a free, open-source SEO toolkit for businesses and WordPress websites
+              of every kind—not just bloggers and news publishers. It combines sitewide SEO tools
+              and Local SEO for local businesses with specialist newsroom and editorial workflows.
+              Find the official listing and install it directly from your WordPress dashboard.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
               New in {CURRENT_RELEASE}: Local SEO adds 134 selectable business options across 14
@@ -165,7 +166,7 @@ function WordPressOrgRelease() {
           <div>
             <section aria-labelledby="release-features-title">
               <p className="text-xs font-extrabold uppercase tracking-wider text-brand">
-                Built for publishing workflows
+                Built for business, website and publishing workflows
               </p>
               <h2 id="release-features-title" className="mt-2 text-3xl font-extrabold">
                 What you can explore in PublishRank

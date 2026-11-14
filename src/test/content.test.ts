@@ -10,7 +10,6 @@ import {
   CURRENT_RELEASE,
   DOWNLOAD_URL,
   HOME_SEO_DESCRIPTION,
-  PRODUCT_DIRECTION,
   SITE_DESCRIPTION,
   SITE_TAGLINE,
 } from "@/lib/site";
@@ -35,15 +34,17 @@ describe("content", () => {
     expect(CURRENT_RELEASE).toBe("2.20.20");
   });
 
-  it("states the broader business direction and marks upcoming work as a roadmap", () => {
-    expect(PRODUCT_DIRECTION.headline.toLowerCase()).toContain("wordpress");
-    expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("134 selectable business options");
-    expect(PRODUCT_DIRECTION.summary.toLowerCase()).toContain("in development");
-    expect(PRODUCT_DIRECTION.statusNote.toLowerCase()).toContain("not part of the current release");
-    expect(SITE_TAGLINE.toLowerCase()).toContain("businesses");
-    expect(SITE_DESCRIPTION.toLowerCase()).toContain("security improvements");
-    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("additional business capabilities");
-    expect(String(softwareSchema.description).toLowerCase()).toContain("in development");
+  it("positions the current product for every WordPress site and business", () => {
+    expect(SITE_TAGLINE.toLowerCase()).toContain("every website");
+    expect(SITE_DESCRIPTION.toLowerCase()).toContain("134 selectable business options");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("not only for bloggers");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("websites of every kind");
+    expect(publisherPages.features.title.toLowerCase()).toContain("every website");
+    expect(publisherPages.features.intro.toLowerCase()).toContain("not just for bloggers");
+    expect(publisherPages.features.sections[0]?.title.toLowerCase()).toContain(
+      "134 business types",
+    );
+    expect(String(softwareSchema.description).toLowerCase()).not.toContain("in development");
   });
 
   it("marks WP Hide Login new and documents the Mastodon verification snippet", () => {

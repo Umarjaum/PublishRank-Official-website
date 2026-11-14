@@ -283,26 +283,26 @@ export const overrides: Pick<
     ],
   },
   about: {
-    title: "For the people who publish.",
+    title: "For every kind of WordPress site.",
     eyebrow: "About PublishRank",
     image: "newsroom",
     intro:
-      "PublishRank is a free, open-source WordPress SEO project centered on the practical needs of bloggers, independent publications and newsrooms.",
+      "PublishRank is a free, open-source WordPress SEO toolkit for businesses, publishers, bloggers and site owners. Local SEO already covers 134 selectable business options across 14 niches; newsroom and editorial tools are a specialty, not the only use case.",
     description:
-      "Learn about PublishRank’s publisher-focused WordPress SEO approach, free and open-source release, editorial principles and transparent product limitations.",
+      "Learn about PublishRank’s cross-industry WordPress SEO, Local SEO for 134 business options, editorial tools, open-source release and product limitations.",
     sections: [
       {
-        title: "The publishing workflow comes first",
+        title: "A universal SEO foundation, with publishing tools when you need them",
         paragraphs: [
-          "The project brings story review, search presentation, publication identity, a dedicated newsroom and archive maintenance into one connected WordPress workflow. Editors need useful checks before publication; site owners need visibility into what their pages actually output.",
+          "The core handles search metadata, structured data, sitemaps, technical controls and Local SEO profiles for businesses across 14 niches. Specialized features add story review, publication identity, newsroom roles and editorial archive maintenance for teams that publish regularly.",
           "PublishRank is free and open source. Download the latest release directly from GitHub, test it on staging and join the project if you want to help.",
         ],
       },
       {
         title: "What is inside",
         paragraphs: [
-          "More than 40 built-in tools and over 220 documented capabilities span titles and metadata, social sharing, structured data, XML and news sitemaps, breadcrumbs, redirects, crawl optimization, llms.txt discovery, Google Preferred Sources and login protection.",
-          "Browse the full list on the Features page.",
+          "The current release provides 134 selectable Local SEO business options across 14 niches, plus more than 40 built-in tools for titles and metadata, social sharing, structured data, XML and News Sitemaps, breadcrumbs, redirects, crawl optimization, llms.txt discovery, Google Preferred Sources and login protection.",
+          "The complete feature directory includes all business options, profile fields and implementation details on the Features page.",
         ],
       },
       {
@@ -315,7 +315,7 @@ export const overrides: Pick<
       {
         title: "Respect for readers and reporting",
         paragraphs: [
-          "Clear authorship, accurate summaries and thoughtful corrections are part of useful publishing. Optimization should make original work easier to find and understand, not replace it with exaggerated promises.",
+          "Clear business information, accurate product details, responsible authorship and thoughtful corrections all help users find and trust a site. Optimization should make useful websites easier to discover, not replace them with exaggerated promises.",
           "This site does not publish a company address, founding date or named team, and does not invent them.",
         ],
       },

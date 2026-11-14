@@ -3,18 +3,11 @@ export const SITE_URL = "https://publishrankseo.vercel.app";
 export const SITE_NAME = "PublishRank";
 export const UMARJAUM_URL = "https://umarjaum.vercel.app";
 export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
-export const PRODUCT_DIRECTION = {
-  eyebrow: "Product roadmap · in development",
-  headline: "Publisher roots. A wider future for WordPress.",
-  summary:
-    "PublishRank already includes Local SEO for 134 selectable business options across 14 niches. Additional business-focused capabilities and security enhancements are in development.",
-  statusNote: "The 134-option Local SEO registry is available in 2.20.20; other roadmap additions are not part of the current release.",
-} as const;
-export const SITE_TAGLINE = "WordPress SEO for Publishers and Businesses";
+export const SITE_TAGLINE = "WordPress SEO for Businesses, Publishers, and Every Website";
 export const SITE_DESCRIPTION =
-  "Free, open-source WordPress SEO for publishers, bloggers and businesses, including Local SEO for 134 business options across 14 niches. Additional capabilities and security improvements are in development.";
+  "Free, open-source WordPress SEO for businesses, publishers, bloggers and site owners. Local SEO includes 134 selectable business options across 14 niches, alongside metadata, schema, sitemaps, technical SEO and editorial tools.";
 export const HOME_SEO_DESCRIPTION =
-  "PublishRank brings WordPress SEO tools to publishers and businesses, including 134 Local SEO options across 14 niches. Additional business capabilities and security enhancements are in development.";
+  "Not only for bloggers and news publishers: PublishRank provides WordPress SEO for businesses and websites of every kind, including 134 selectable Local SEO options across 14 niches.";
 export const CURRENT_RELEASE = "2.20.20";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
@@ -25,7 +18,8 @@ export const PUBLISHRANK_WORDPRESS_SUPPORT_URL =
 export const WORDPRESS_RELEASE_TAGS = [
   "WordPress.org plugin",
   "WordPress SEO",
-  "Publisher SEO",
+  "Business SEO",
+  "Local SEO",
   "News SEO",
   "Open-source WordPress plugin",
   "Editorial workflow",
@@ -37,7 +31,8 @@ export const DOWNLOAD_URL =
   "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.20/PublishRank-2.20.20.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
-export const OG_IMAGE_ALT = "PublishRank — WordPress SEO for publishers, bloggers and businesses.";
+export const OG_IMAGE_ALT =
+  "PublishRank — WordPress SEO for businesses, publishers and every website.";
 export const LOGO_GIF = "/brand/publishrank-logo-animated.gif";
 export const LOGO_MARK = "/brand/publishrank-logo-mark.png";
 

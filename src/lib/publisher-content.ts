@@ -34,24 +34,38 @@ const basePages: Record<
   PublisherPage
 > = {
   features: {
-    title: "SEO built for publishers.",
-    eyebrow: "The PublishRank toolkit",
+    title: "WordPress SEO for every website.",
+    eyebrow: "Business SEO, Local SEO & publisher tools",
     image: "developer",
     intro:
-      "Go beyond basic SEO: keep editorial and technical publishing in one WordPress workflow, with Mastodon sharing and profile verification, a Schema Aggregator endpoint, optional llms.txt discovery, a dedicated newsroom and built-in WP Hide Login.",
+      "Not just for bloggers or news publishers: PublishRank gives businesses and websites of every kind a full WordPress SEO foundation. The current release includes Local SEO for 134 selectable business options across 14 niches, alongside specialist newsroom and editorial workflows.",
     description:
-      "Explore PublishRank Mastodon publishing with a copyable rel=me head snippet, the Schema Aggregator endpoint, llms.txt discovery, news sitemaps, newsroom workflows and the new dedicated WP Hide Login settings page.",
+      "Explore WordPress SEO for businesses, websites and publishers: Local SEO for 134 business options across 14 niches, business profiles, type-specific LocalBusiness fields and schema, sitewide metadata, sitemaps and newsroom tools.",
     sections: [
       {
-        title: "Write, review and publish",
+        title: "Local SEO for 134 business types",
         paragraphs: [
-          "Article SEO Intelligence reviews headlines, descriptions, headings, readability, featured images, bylines, dates and links. Use the results as a practical editorial checklist, not a prediction of where an article will rank.",
-          "Live previews let writers inspect desktop and mobile search snippets, social cards, canonical settings and JSON-LD while reviewing a draft. Search engines and social networks still decide how a page is displayed.",
+          "Create a business profile with its business and legal name, description, address and coordinates—or configure a service-area business and hide the street address. Add phone, email, website, logo, photos, opening and holiday hours, price range, payment methods, accepted currencies, languages and areas served.",
+          "Describe services with OfferCatalog details, add booking links and ReserveAction, and record founding date, tax ID and parent organization. Type-specific fields include restaurant cuisine, menus and reservations; hotel check-in, check-out, rooms, official star rating and pets; medical specialties and new-patient status; bank fee pages; shop and dealership brands; and venue capacity or free-entry information.",
+          "The registry spans 14 niches, including education and child care, sports and recreation, retail, home services, health, hospitality, automotive, professional services, public services and media. The 134 choices are selectable business profiles mapped to schema types—not 134 independent Schema.org classes. Structured data does not guarantee rankings or rich results.",
         ],
         bullets: [
-          "Story-level SEO checks",
+          "Service-area settings and hidden street addresses",
+          "Type-specific profile fields, opening hours and holiday hours",
+          "Services, areas served, offers and booking links",
+          "Business-appropriate LocalBusiness schema mappings",
+        ],
+      },
+      {
+        title: "Optimize pages, products, services and stories",
+        paragraphs: [
+          "The SEO editor supports business pages, service pages, products, posts and articles. It reviews titles, descriptions, focus phrases, headings, readability, images, bylines and links. Treat the score as a practical checklist, not a prediction of search position.",
+          "Live previews let site owners inspect desktop and mobile search snippets, social cards, canonical settings and JSON-LD while editing. Search engines and social networks still decide how a page is displayed.",
+        ],
+        bullets: [
+          "Page- and story-level SEO checks",
           "Search and social previews",
-          "Author expertise and editorial identity",
+          "Per-page metadata and editorial identity",
         ],
       },
       {
@@ -132,7 +146,7 @@ const basePages: Record<
         ],
       },
       {
-        title: "Multilingual SEO for every publication",
+        title: "Multilingual SEO for every website",
         paragraphs: [
           "Locale-aware SEO fields support language-specific titles, descriptions, focus keywords, Open Graph values and robots directives. The built-in catalog covers major LTR and RTL locales, including Urdu, Arabic, Persian, Hebrew, Hindi, Bengali, Chinese, Japanese, Korean and European languages.",
           "WPML, Polylang and custom hreflang locales can be preserved during migration. Translation support is not limited to the admin interface; each locale can carry its own search and social metadata.",
@@ -160,8 +174,8 @@ const basePages: Record<
       {
         title: "Everything the major plugins cover — and more",
         paragraphs: [
-          "The toolkit covers the ground publishers expect from Yoast SEO and Rank Math: titles and meta, XML and News sitemaps, structured data, redirects, content analysis and search previews.",
-          "On top of that come Mastodon publishing, the dedicated newsroom with assigned roles, the Schema Aggregator endpoint, optional llms.txt discovery and built-in WP Hide Login — included in the free core edition. Broader AI features are rolling out soon.",
+          "The toolkit covers the SEO foundations WordPress site owners need: titles and metadata, XML sitemaps, structured data, redirects, content analysis and search previews.",
+          "Specialist capabilities include Local SEO for 134 business options, Mastodon publishing, the assigned-role newsroom, News Sitemaps, the Schema Aggregator endpoint, optional llms.txt discovery and built-in WP Hide Login—all within the free core edition.",
         ],
       },
     ],
@@ -365,19 +379,19 @@ const basePages: Record<
     ],
   },
   about: {
-    title: "For the people who publish.",
+    title: "For every kind of WordPress site.",
     eyebrow: "About PublishRank",
     image: "newsroom",
     intro:
-      "PublishRank is a WordPress SEO project centered on the practical needs of bloggers, independent publications and newsrooms.",
+      "PublishRank is a free, open-source WordPress SEO toolkit for businesses, publishers, bloggers and site owners. Local SEO covers 134 selectable business profiles across 14 niches; newsroom and editorial tools are a specialty, not the only use case.",
     description:
-      "Learn about PublishRank’s publisher-focused WordPress SEO approach, editorial principles and transparent product limitations.",
+      "Learn about PublishRank’s cross-industry WordPress SEO, Local SEO for 134 business options, editorial tools, open-source release and product limitations.",
     sections: [
       {
-        title: "The publishing workflow comes first",
+        title: "A versatile SEO foundation, with publishing tools when you need them",
         paragraphs: [
-          "The project brings story review, search presentation, publication identity and archive maintenance into a connected WordPress workflow. Editors need useful checks before publication; site owners need visibility into what their pages actually output.",
-          "The source material describes PublishRank as free and open source. This website introduces that project and its documented tools; the plugin archive is intentionally not included.",
+          "The core handles search metadata, structured data, sitemaps, technical controls and Local SEO profiles for businesses across 14 niches. Specialized features add story review, publication identity, newsroom roles and editorial archive maintenance for teams that publish regularly.",
+          "PublishRank is free and open source. This website introduces the plugin and its documented tools; the release package is provided through the official download links.",
         ],
       },
       {
@@ -390,7 +404,7 @@ const basePages: Record<
       {
         title: "Respect for readers and reporting",
         paragraphs: [
-          "Clear authorship, accurate summaries and thoughtful corrections are part of useful publishing. Optimization should make original work easier to find and understand, not replace it with exaggerated promises.",
+          "Clear business information, accurate product details, responsible authorship and thoughtful corrections all help users find and trust a site. Optimization should make useful websites easier to discover, not replace them with exaggerated promises.",
           "The supplied materials do not establish a company address, founding date or named team. This page avoids inventing those details.",
         ],
       },

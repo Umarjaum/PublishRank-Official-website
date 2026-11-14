@@ -3,7 +3,6 @@ import { useEffect, useState, type ReactNode } from "react";
 import { ArrowRight, Download, ExternalLink, Search, X, Heart, Github } from "lucide-react";
 import { SiteSearch } from "@/components/site-search";
 import { Button } from "@/components/ui/button";
-import { ProductDirectionNotice } from "@/components/product-direction-notice";
 import {
   Dialog,
   DialogContent,
@@ -29,14 +28,19 @@ const WORDPRESS_LAUNCH_DISMISS_KEY = "publishrank-wordpress-org-launch-dismissed
 const navigationGroups = [
   {
     label: "Product",
-    intro: "Publisher-tested SEO tools for WordPress sites across industries.",
+    intro:
+      "A complete SEO foundation for businesses, publishers and WordPress websites of every kind.",
     links: [
       ["/website-creation", "Website creation", "Next.js websites with SEO setup, from $2 once."],
-      ["/features", "Explore features", "News SEO, schema, sitemaps and 40+ tools."],
+      [
+        "/features",
+        "Explore features",
+        "Local SEO for 134 business options, plus sitewide SEO and newsroom tools.",
+      ],
       [
         "/comparisons",
         "Compare plugins",
-        "Evaluate the workflow against your publication’s needs.",
+        "Evaluate the workflow against your website, business and editorial needs.",
       ],
       [
         "/wordpress-org-release",
@@ -204,7 +208,7 @@ export function Logo() {
     <Link to="/" aria-label="PublishRank home" className="shrink-0">
       <img
         src={logo.url}
-        alt="PublishRank — WordPress SEO for publishers, bloggers and businesses"
+        alt="PublishRank — WordPress SEO for businesses, publishers and websites of every kind"
         width={220}
         height={54}
         className="brand-logo"
@@ -218,7 +222,6 @@ export function SiteHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   return (
     <header className="site-header">
-      <ProductDirectionNotice />
       <div className="site-width flex min-h-20 items-center justify-between gap-4 py-3">
         <Logo />
         <div className="flex items-center gap-2">
@@ -399,8 +402,8 @@ export function SiteFooter() {
             </a>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/75">
-            WordPress SEO for the people who publish. Built around stories, authors and the life of
-            an editorial archive.
+            WordPress SEO for businesses, publishers and every kind of website, with Local SEO for
+            134 selectable business options across 14 niches.
           </p>
         </div>
         {footerGroups.map((group) => (

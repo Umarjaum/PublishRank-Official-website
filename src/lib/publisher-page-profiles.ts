@@ -5,9 +5,10 @@ export const publisherPageProfiles: Record<
   { audience: string; path: string; outcome: string }
 > = {
   features: {
-    audience: "Newsrooms, publishers and WordPress site owners",
-    path: "Start with article review, then connect schema, sitemaps and archive maintenance.",
-    outcome: "A clearer view of the tools available across the publishing lifecycle.",
+    audience:
+      "Businesses, local service providers, online shops, publishers and every WordPress site owner",
+    path: "Start with your business profile or site SEO foundation, then explore schemas, sitemaps and specialist workflows.",
+    outcome: "A detailed map of sitewide SEO, 134 Local SEO business options and publisher tools.",
   },
   documentation: {
     audience: "Editors, administrators and technical implementers",
@@ -30,7 +31,8 @@ export const publisherPageProfiles: Record<
     outcome: "A focused diagnostic report and a safer path to resolution.",
   },
   about: {
-    audience: "Publishers deciding whether the project fits their values and workflow",
+    audience:
+      "Businesses, publishers and site owners deciding whether the project fits their needs",
     path: "Understand the project, its capabilities, its limitations and its open-source context.",
     outcome: "An informed starting point without invented company or performance claims.",
   },

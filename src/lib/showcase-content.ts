@@ -91,7 +91,7 @@ export const faqs = [
   },
   {
     q: "How do I install it?",
-    a: "Download PublishRank.zip, then in WordPress go to Plugins → Add New → Upload Plugin, choose the ZIP, install and activate. Run the Setup Wizard to confirm your publication identity. Test on a staging copy first.",
+    a: "Download PublishRank.zip, then in WordPress go to Plugins → Add New → Upload Plugin, choose the ZIP, install and activate. Run the Setup Wizard to confirm your site identity and business profile where relevant. Test on a staging copy first.",
   },
   {
     q: "Can I use it alongside Yoast SEO or Rank Math?",

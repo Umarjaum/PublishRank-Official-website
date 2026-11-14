@@ -26,7 +26,7 @@ export const Route = createFileRoute("/download")({
     pageSeo(
       "/download",
       "Download the Free WordPress SEO Plugin",
-      `Download PublishRank ${CURRENT_RELEASE}: Local SEO for 134 selectable business options across 14 niches, plus publisher-focused SEO tools.`,
+      `Download PublishRank ${CURRENT_RELEASE}: WordPress SEO for every site, with Local SEO for 134 selectable business options across 14 niches.`,
       {
         extraSchema: [softwareSchema],
         keywords:
@@ -51,7 +51,7 @@ const steps = [
   ],
   [
     "Activate and run the Setup Wizard",
-    "Activate the plugin, open PublishRank → Dashboard and confirm your publication identity and title separator.",
+    "Activate the plugin, open PublishRank → Dashboard and confirm your site identity, business details where relevant, and title separator.",
   ],
   [
     "Check Technical health",
@@ -83,11 +83,11 @@ function DownloadPage() {
             </p>
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Beyond basic SEO for publishers: the current release adds Local SEO for 134
-              selectable business options across 14 niches, with type-specific fields and schema
-              mappings. Also includes newsroom tools, sitemaps, the Schema Aggregator, optional
-              llms.txt discovery and Private Login. One free, open-source ZIP for your WordPress
-              dashboard.
+              WordPress SEO for every website—not just bloggers and news publishers. The current
+              release adds Local SEO for 134 selectable business options across 14 niches, with
+              type-specific fields and schema mappings. It also includes sitewide SEO tools,
+              sitemaps, newsroom workflows, the Schema Aggregator, optional llms.txt discovery and
+              Private Login. One free, open-source ZIP for your WordPress dashboard.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink

@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BarChart3,
+  Building2,
   BookOpen,
   Check,
   ChevronDown,
@@ -33,6 +34,7 @@ import { MotionEnhancer } from "@/components/motion-enhancer";
 import { ResearchPulse } from "@/components/publisher-research-pulse";
 import { PublisherIntroVideo } from "@/components/publisher-intro-video";
 import { PublisherSignalReactor } from "@/components/publisher-signal-reactor";
+import { LocalBusinessOverview } from "@/components/feature-catalog-view";
 import { pageSeo } from "@/lib/page-seo";
 import {
   CURRENT_RELEASE,
@@ -42,20 +44,15 @@ import {
 } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { DownloadLink } from "@/components/download-link";
-import {
-  BrandCardShowcase,
-  FaqSection,
-  PhotoShowcase,
-  ScreenshotShowcase,
-} from "@/components/showcase";
+import { FaqSection, PhotoShowcase, ScreenshotShowcase } from "@/components/showcase";
 import { faqSchema, softwareSchema } from "@/lib/showcase-content";
 
 export const Route = createFileRoute("/")({
   head: () =>
-    pageSeo("/", "WordPress SEO for Publishers and Businesses", HOME_SEO_DESCRIPTION, {
+    pageSeo("/", "WordPress SEO for Every Website and Business", HOME_SEO_DESCRIPTION, {
       extraSchema: [softwareSchema, faqSchema],
       keywords:
-        "WordPress SEO, publisher SEO, business SEO, security improvements, Mastodon publishing, Schema Aggregator endpoint, llms.txt discovery, news sitemap",
+        "WordPress SEO for businesses, local SEO, 134 business types, LocalBusiness schema, publisher SEO, site metadata, sitemaps, Mastodon publishing",
     }),
   component: Index,
 });
@@ -71,43 +68,50 @@ const Tick = ({ brand }: { brand?: boolean }) => (
 const workflowSteps = [
   {
     number: "01",
-    Icon: Newspaper,
-    title: "Set your publication foundation",
+    Icon: Building2,
+    title: "Set up your website and business profile",
     description:
-      "Confirm the publication identity, author details, defaults and sitemap coverage before assigning SEO output to one plugin.",
-    href: "/documentation",
-    cta: "Read the setup handbook",
+      "Configure site identity, SEO defaults, sitemap coverage, and—in the case of a local business—your profile, locations or service area.",
+    href: "/features",
+    cta: "Explore Local SEO and setup",
   },
   {
     number: "02",
     Icon: PenTool,
-    title: "Review stories with context",
+    title: "Optimize every kind of page",
     description:
-      "Check the headline, summary, byline, dates, images, internal links and article schema against the story readers will see.",
+      "Edit search metadata and structured data for service pages, products, business pages and articles; review previews before publishing.",
     href: "/features",
-    cta: "Explore publishing features",
+    cta: "Explore the SEO editor",
   },
   {
     number: "03",
-    Icon: Settings,
-    title: "Maintain discovery over time",
+    Icon: Globe,
+    title: "Grow local and organic discovery",
     description:
-      "Review redirects, crawl controls, sitemap health and older content after editorial or technical changes.",
-    href: "/support",
-    cta: "Open troubleshooting guides",
+      "Choose from 134 business options across 14 niches, then maintain hours, services, schema, redirects and sitemap health.",
+    href: "/features",
+    cta: "See all supported business types",
   },
 ] as const;
 
 function Index() {
   const strip = [
-    [BarChart3, "41+ Publisher Tools"],
-    [Newspaper, "News Sitemap & Article SEO"],
+    [BarChart3, "41+ WordPress SEO Tools"],
+    [Building2, "134 Local SEO Business Types"],
+    [Newspaper, "Newsroom & Editorial Tools"],
     [Share2, "Mastodon Publishing"],
-    [Code2, "Schema Aggregator Endpoint"],
-    [Globe, "llms.txt AI Discovery"],
-    [Zap, "More AI Features Soon"],
+    [Code2, "Business & Article Schema"],
+    [Globe, "XML, News & Image Sitemaps"],
   ] as const;
   const audiences = [
+    [
+      "/media/screens/publishrank-2.12.1/desktop-1440/18-publishrank-local-seo.png",
+      Building2,
+      "Businesses & Local Organizations",
+      "Build a detailed local business profile with service areas, hours, industry-specific fields and schema options across 14 niches.",
+      "Businesses",
+    ],
     [
       newsroom.url,
       Newspaper,
@@ -146,14 +150,15 @@ function Index() {
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-5 pb-12 pt-6 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <h1 className="text-4xl font-extrabold leading-[1.1] md:text-5xl">
-              WordPress SEO.
+              WordPress SEO for every website.
               <br />
-              <span className="text-brand">Beyond the newsroom.</span>
+              <span className="text-brand">Built for businesses, publishers and more.</span>
             </h1>
             <p className="mt-6 max-w-lg text-base leading-relaxed md:text-lg">
-              PublishRank grew from the needs of publishers and bloggers; its WordPress SEO
-              foundations can serve sites across industries. Security enhancements and broader
-              business-focused features are in development, not part of the current release.
+              Not just for bloggers and news publishers: the current release brings businesses and
+              website owners a complete WordPress SEO toolkit, including Local SEO for 134
+              selectable business options across 14 niches. Publisher and newsroom tools are here
+              too—they are a specialty, not the limit of PublishRank.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <DownloadLink className="flex items-center gap-3 rounded-full bg-brand px-7 py-3 text-primary-foreground shadow-[var(--shadow-card)] hover:bg-brand-deep">
@@ -213,12 +218,14 @@ function Index() {
               </a>
             </div>
             <div className="mt-6 flex flex-wrap gap-5 text-sm">
-              {["News SEO", "Structured Data", "Advanced SEO Tools"].map((t) => (
-                <span key={t} className="flex items-center gap-2">
-                  <Tick />
-                  {t}
-                </span>
-              ))}
+              {["Local SEO · 134 Business Types", "Structured Data", "Sitewide SEO Tools"].map(
+                (t) => (
+                  <span key={t} className="flex items-center gap-2">
+                    <Tick />
+                    {t}
+                  </span>
+                ),
+              )}
             </div>
           </div>
 
@@ -228,7 +235,7 @@ function Index() {
               <Feather className="mx-auto mb-1 h-7 w-7" />
               Built for
               <br />
-              WordPress teams
+              every WordPress site
             </div>
             <div
               className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-window)]"
@@ -312,6 +319,8 @@ function Index() {
           ))}
         </section>
 
+        <LocalBusinessOverview />
+
         <PublisherIntroVideo />
 
         <section
@@ -327,8 +336,8 @@ function Index() {
                 PublishRank is now listed in the WordPress.org plugin directory
               </h2>
               <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-                Review the official plugin listing, explore publisher-focused SEO and editorial
-                tools, or install PublishRank directly from your WordPress dashboard.
+                Review the official plugin listing, explore Local SEO for businesses alongside
+                sitewide SEO and editorial tools, or install PublishRank from your dashboard.
               </p>
               <ul aria-label="PublishRank topics" className="mt-5 flex flex-wrap gap-2">
                 {WORDPRESS_RELEASE_TAGS.map((tag) => (
@@ -367,15 +376,14 @@ function Index() {
         <section aria-labelledby="workflow-title" className="py-12 md:py-16">
           <div className="max-w-3xl">
             <p className="text-xs font-extrabold uppercase tracking-wide text-brand">
-              A practical workflow
+              A practical workflow for any WordPress site
             </p>
             <h2 id="workflow-title" className="mt-2 text-3xl font-extrabold">
-              From publication setup to a healthier archive
+              From business profile to healthier site
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Put the essentials in a repeatable order: define your publication, review each story
-              before it goes live, then maintain the technical paths readers and search engines rely
-              on.
+              Set your site and business identity, optimize the pages that matter to your audience,
+              then maintain the technical paths customers, readers and search engines rely on.
             </p>
           </div>
           <ol className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -408,15 +416,15 @@ function Index() {
           <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-wide text-brand">
-                A publishing system that grows with you
+                A site system that grows with your business
               </p>
               <h2 id="maturity-title" className="mt-2 text-3xl font-extrabold">
-                Structure the work before you scale the archive.
+                Keep every important page discoverable and accurate.
               </h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                SEO becomes easier to maintain when every stage has an owner, an evidence check and
-                a useful next action. PublishRank connects those stages without asking every editor
-                to become a technical specialist.
+                Organize the work around your website: verify business details, optimize key pages,
+                check what WordPress outputs, and keep locations, services and the rest of the site
+                up to date.
               </p>
               <Link
                 to="/enterprise"
@@ -431,12 +439,12 @@ function Index() {
                 [
                   "01",
                   "Foundation",
-                  "Publication identity, canonical rules, defaults and sitemap ownership.",
+                  "Business and site identity, local profile, SEO defaults, canonicals and sitemaps.",
                 ],
                 [
                   "02",
-                  "Story review",
-                  "Headline, summary, byline, dates, image, links and article type.",
+                  "Page optimization",
+                  "Business, service, product and article titles, descriptions, images and schema.",
                 ],
                 [
                   "03",
@@ -445,8 +453,8 @@ function Index() {
                 ],
                 [
                   "04",
-                  "Archive care",
-                  "Corrections, redirects, stale facts, internal links and recurring health reviews.",
+                  "Ongoing updates",
+                  "Business hours, services, seasonal details, redirects, links and site health.",
                 ],
               ].map(([number, title, description]) => (
                 <li
@@ -470,12 +478,13 @@ function Index() {
           className="grid gap-10 py-10 lg:grid-cols-[1.2fr_1fr_1fr] lg:items-center"
         >
           <div>
-            <h2 className="text-3xl font-extrabold">Publisher roots. A wider WordPress future.</h2>
+            <h2 className="text-3xl font-extrabold">
+              Business SEO is here now—not just on the roadmap.
+            </h2>
             <p className="mt-4 leading-relaxed">
-              PublishRank combines editorial and technical SEO for WordPress today, while expanding
-              its direction toward organizations across industries. Additional security work and
-              business-focused capabilities are planned; they are not features of the current
-              release.
+              PublishRank works across WordPress websites, with a universal SEO toolkit and Local
+              SEO profiles for real businesses. Publishers and newsrooms also get dedicated
+              workflows, but they are one audience among many—not the whole product.
             </p>
             <Button asChild className="mt-6 rounded-full">
               <Link to="/about">
@@ -485,13 +494,15 @@ function Index() {
           </div>
           <ul className="space-y-4 lg:border-l-2 lg:border-brand/40 lg:pl-8">
             {[
-              "Publisher-focused SEO and newsroom workflows",
+              `Local SEO for 134 business options in ${CURRENT_RELEASE}`,
+              "14 niches: retail, health, hospitality, services, education and more",
+              "Service areas, hidden addresses, hours and holiday schedules",
+              "Type-specific fields for restaurants, hotels, clinics, shops and venues",
+              "Sitewide metadata, schema, sitemaps, redirects and technical SEO",
+              "Publisher, newsroom and editorial workflows when you need them",
               "Mastodon social publishing",
-              "XML & News Sitemaps",
-              "Schema Aggregator endpoint",
-              "AI-crawler discovery with llms.txt",
-              "Broader AI features rolling out soon",
-              `WP Hide Login · new dedicated settings page in ${CURRENT_RELEASE}`,
+              "Schema Aggregator endpoint and optional llms.txt",
+              "Private Login with its own PublishRank settings screen",
             ].map((t) => (
               <li key={t} className="flex items-center gap-3">
                 <Tick brand />
@@ -500,31 +511,33 @@ function Index() {
             ))}
           </ul>
           <aside className="relative rounded-lg bg-brand-soft p-6">
-            <Feather className="mb-3 h-7 w-7 text-brand" />
+            <Building2 className="mb-3 h-7 w-7 text-brand" />
             <p className="text-lg">
-              <b className="text-brand">AI discovery today; more to come.</b> Use optional llms.txt
-              and the Schema Aggregator endpoint now; broader AI capabilities are rolling out soon.
-              These tools do not promise rankings or AI citations.
+              <b className="text-brand">Local business profiles, ready today.</b> Configure service
+              areas or hidden addresses, opening and holiday hours, services, payment details and
+              fields tailored to your business type. Schema describes your business; it does not
+              promise rankings or rich results.
             </p>
-            <Link to="/documentation" className="mt-4 inline-block text-sm font-bold text-brand">
-              Read the setup handbook →
+            <Link
+              to="/features#local-business-seo"
+              className="mt-4 inline-block text-sm font-bold text-brand"
+            >
+              Explore Local SEO details →
             </Link>
             <Feather className="absolute bottom-4 right-4 h-12 w-12 text-brand/20" />
           </aside>
         </section>
-
-        <BrandCardShowcase />
 
         {/* Audiences */}
         <section id="audiences">
           <div className="flex items-center gap-6">
             <span className="h-px flex-1 bg-brand/50" />
             <h2 className="text-center text-2xl font-extrabold">
-              Publisher expertise, for more WordPress teams.
+              One SEO foundation for businesses, publishers and every WordPress site.
             </h2>
             <span className="h-px flex-1 bg-brand/50" />
           </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {audiences.map(([img, Icon, title, text, cta]) => (
               <article
                 key={title}
@@ -594,14 +607,16 @@ function Index() {
             </div>
           </div>
           <ul className="space-y-3">
-            {["Publisher-Focused Tools", "Open-Source Project", "Practical Documentation"].map(
-              (t) => (
-                <li key={t} className="flex items-center gap-3 font-semibold">
-                  <Tick />
-                  {t}
-                </li>
-              ),
-            )}
+            {[
+              "134 Local SEO Business Types",
+              "Open-Source WordPress SEO",
+              "Tools for Every Website",
+            ].map((t) => (
+              <li key={t} className="flex items-center gap-3 font-semibold">
+                <Tick />
+                {t}
+              </li>
+            ))}
           </ul>
           <BarChart3 className="hidden h-28 w-28 opacity-60 md:block" />
         </div>

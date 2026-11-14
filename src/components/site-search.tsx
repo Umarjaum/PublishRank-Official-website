@@ -7,7 +7,8 @@ type SearchItem = { title: string; description: string; href: string; type: "Pag
 const pages: SearchItem[] = [
   {
     title: "Features",
-    description: "Publisher-first SEO tools, news sitemaps, schema and workflows.",
+    description:
+      "WordPress SEO for businesses and every website, Local SEO for 134 business options, plus publisher tools.",
     href: "/features",
     type: "Page",
   },
