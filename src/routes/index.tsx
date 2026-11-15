@@ -31,9 +31,6 @@ import dev from "@/assets/publishrank-developer.jpg.asset.json";
 
 import { SiteHeader, SiteFooter, SkipLink } from "@/components/site-shell";
 import { MotionEnhancer } from "@/components/motion-enhancer";
-import { ResearchPulse } from "@/components/publisher-research-pulse";
-import { PublisherIntroVideo } from "@/components/publisher-intro-video";
-import { PublisherSignalReactor } from "@/components/publisher-signal-reactor";
 import { LocalBusinessOverview } from "@/components/feature-catalog-view";
 import { pageSeo } from "@/lib/page-seo";
 import {
@@ -44,7 +41,7 @@ import {
 } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { DownloadLink } from "@/components/download-link";
-import { FaqSection, PhotoShowcase, ScreenshotShowcase } from "@/components/showcase";
+import { FaqSection, ScreenshotShowcase } from "@/components/showcase";
 import { faqSchema, softwareSchema } from "@/lib/showcase-content";
 
 export const Route = createFileRoute("/")({
@@ -92,6 +89,39 @@ const workflowSteps = [
       "Choose from 134 business options across 14 niches, then maintain hours, services, schema, redirects and sitemap health.",
     href: "/features",
     cta: "See all supported business types",
+  },
+] as const;
+
+const releaseHighlights = [
+  {
+    Icon: PenTool,
+    title: "A movable SEO workspace",
+    text: "Metadata, previews and analysis in one floating editor for Gutenberg and Classic Editor, with touch-friendly mobile behavior.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Clearer site operations",
+    text: "Refined 404 logging plus redirects you can import, export, bulk manage and trace through chains or loops.",
+  },
+  {
+    Icon: BarChart3,
+    title: "One consistent SEO score",
+    text: "The editor, toolbar, post list, score screen, Insights and scheduled audits share the same score.",
+  },
+  {
+    Icon: Rss,
+    title: "Feeds and site navigation",
+    text: "Configure RSS attribution and previews, and inspect important pages for indexability and navigation signals.",
+  },
+  {
+    Icon: Puzzle,
+    title: "WooCommerce SEO",
+    text: "When WooCommerce is active, product data joins the schema graph instead of being treated as news content.",
+  },
+  {
+    Icon: Globe,
+    title: "Language-aware analysis",
+    text: "Analyze English, Arabic and Urdu content, with optional dismissible inclusive-language suggestions.",
   },
 ] as const;
 
@@ -147,161 +177,136 @@ function Index() {
       >
         <SiteHeader />
 
-        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-5 pb-12 pt-6 lg:grid-cols-[1.1fr_1fr]">
+        <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-5 pb-14 pt-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)]">
           <div>
-            <h1 className="text-4xl font-extrabold leading-[1.1] md:text-5xl">
-              WordPress SEO for every website.
-              <br />
-              <span className="text-brand">Built for businesses, publishers and more.</span>
+            <Link
+              to="/wordpress-org-release"
+              className="mb-5 inline-flex min-h-10 items-center gap-2 rounded-full border border-brand/20 bg-background/70 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-brand transition hover:bg-background"
+            >
+              <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" />
+              Current release · v{CURRENT_RELEASE}
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </Link>
+            <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl">
+              One SEO operating layer for every WordPress website.
+              <span className="mt-2 block text-brand">
+                Built for business and publishing teams.
+              </span>
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed md:text-lg">
-              Not just for bloggers and news publishers: the current release brings businesses and
-              website owners a complete WordPress SEO toolkit, including Local SEO for 134
-              selectable business options across 14 niches. Publisher and newsroom tools are here
-              too—they are a specialty, not the limit of PublishRank.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Manage sitewide metadata, structured data, sitemaps, redirects and diagnostics in one
+              workspace. Add Local SEO for 134 selectable business options across 14 niches; use
+              newsroom workflows when your team needs them.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <DownloadLink className="flex items-center gap-3 rounded-full bg-brand px-7 py-3 text-primary-foreground shadow-[var(--shadow-card)] hover:bg-brand-deep">
+            <div className="mt-8 flex flex-wrap gap-3">
+              <DownloadLink className="flex min-h-12 items-center gap-3 rounded-full bg-brand px-6 py-3 text-primary-foreground shadow-[var(--shadow-card)] transition hover:bg-brand-deep">
                 <Download className="h-5 w-5" />
                 <span className="leading-tight">
                   <span className="block font-bold">Download PublishRank</span>
-                  <span className="text-xs opacity-80">Free & Open Source</span>
+                  <span className="text-xs opacity-85">
+                    Free & open source · v{CURRENT_RELEASE}
+                  </span>
                 </span>
               </DownloadLink>
-              <Button
-                variant="outline"
-                asChild
-                className="h-auto rounded-full border-brand px-7 py-3"
-              >
+              <Button variant="outline" asChild className="min-h-12 rounded-full border-brand px-6">
                 <Link to="/features">
                   <BookOpen className="text-brand" />
-                  Explore Features
+                  Explore every feature
                 </Link>
               </Button>
             </div>
-            <Link
-              to="/website-creation"
-              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
-            >
-              Need a business website? Basic websites start at $2
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-            <a
-              href="#publishrank-introduction-v2"
-              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
-            >
-              Watch the 15-second introduction
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a
-              href="#research-pulse"
-              className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-extrabold text-brand underline decoration-brand/40 underline-offset-4 transition hover:decoration-brand"
-            >
-              <span className="rounded-full bg-[#83e4bd]/20 px-2 py-1 text-[9px] font-black uppercase tracking-[0.13em] text-[#075c43]">
-                Research pulse
-              </span>
-              Explore a fresh Google + WordPress signal
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <div className="mt-5 flex items-center">
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-muted-foreground">
               <a
-                href="https://ailaun.ch/projects/publishrank?utm_source=badge"
+                href={PUBLISHRANK_WORDPRESS_PLUGIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="PublishRank featured on AI Launch, opens in a new tab"
+                className="inline-flex min-h-10 items-center gap-2 text-brand underline underline-offset-4"
               >
-                <img
-                  src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg"
-                  alt="Featured on AI Launch"
-                  style={{ height: 44, width: "auto" }}
-                />
+                Install through WordPress.org{" "}
+                <ExternalLink aria-hidden="true" className="h-4 w-4" />
               </a>
+              <Link
+                to="/wordpress-org-release"
+                className="inline-flex min-h-10 items-center gap-2 hover:text-brand"
+              >
+                Read the v{CURRENT_RELEASE} release notes{" "}
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </Link>
             </div>
-            <div className="mt-6 flex flex-wrap gap-5 text-sm">
-              {["Local SEO · 134 Business Types", "Structured Data", "Sitewide SEO Tools"].map(
-                (t) => (
-                  <span key={t} className="flex items-center gap-2">
-                    <Tick />
-                    {t}
-                  </span>
-                ),
-              )}
-            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
+              Requires WordPress 6.3+ and PHP 7.4+. SEO checks are guidance—not a promise of
+              rankings or rich results.
+            </p>
           </div>
 
-          {/* Dashboard mock */}
-          <div className="relative">
-            <div className="absolute -right-2 -top-6 z-10 rounded-b-lg bg-brand-deep px-4 py-4 text-center text-sm font-bold text-primary-foreground shadow-xl">
-              <Feather className="mx-auto mb-1 h-7 w-7" />
-              Built for
-              <br />
-              every WordPress site
-            </div>
-            <div
-              className="overflow-hidden rounded-lg border bg-card shadow-[var(--shadow-window)]"
-              style={{ transform: "perspective(1400px) rotateY(-8deg)" }}
-            >
-              <div className="flex gap-1.5 border-b bg-muted px-3 py-2">
-                {[0, 1, 2].map((i) => (
-                  <span key={i} className="h-2.5 w-2.5 rounded-full bg-border" />
-                ))}
+          <aside
+            className="relative overflow-hidden rounded-[1.75rem] border border-brand/20 bg-card p-6 shadow-[var(--shadow-window)] md:p-8"
+            aria-label={`PublishRank ${CURRENT_RELEASE} release overview`}
+          >
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-brand" aria-hidden="true" />
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-soft text-brand">
+                  <Zap className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <span>
+                  <span className="block text-[10px] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
+                    Current release
+                  </span>
+                  <span className="mt-0.5 block text-xl font-extrabold">
+                    PublishRank {CURRENT_RELEASE}
+                  </span>
+                </span>
               </div>
-              <div className="flex">
-                <aside className="hidden w-24 space-y-2 bg-ink p-3 sm:block">
-                  {Array.from({ length: 7 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className={`h-2 rounded ${i === 1 ? "bg-brand" : "bg-muted-foreground/40"}`}
-                    />
-                  ))}
-                </aside>
-                <div className="flex-1 p-5">
-                  <p className="font-bold">PublishRank Dashboard</p>
-                  <div className="mt-4 flex items-center gap-6">
-                    <div
-                      className="relative grid h-28 w-28 place-items-center rounded-full"
-                      style={{ background: "conic-gradient(var(--success) 0 92%, var(--muted) 0)" }}
-                    >
-                      <div
-                        className="grid h-22 w-22 place-items-center rounded-full bg-card text-center"
-                        style={{ width: 88, height: 88 }}
-                      >
-                        <span>
-                          <span className="text-3xl font-extrabold">92</span>
-                          <span className="text-xs">/100</span>
-                          <br />
-                          <span className="text-[10px] font-semibold">SEO Excellent</span>
-                        </span>
-                      </div>
-                    </div>
-                    <ul className="space-y-2 text-xs">
-                      {[
-                        "Meta Tags",
-                        "Structured Data",
-                        "Sitemap",
-                        "Readability",
-                        "Performance",
-                      ].map((t) => (
-                        <li key={t} className="flex items-center gap-2">
-                          <Tick />
-                          {t}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <p className="mt-5 border-t pt-3 text-xs font-bold">SEO Performance</p>
-                  <svg viewBox="0 0 300 70" className="mt-2 w-full">
-                    <polyline
-                      fill="none"
-                      stroke="var(--chart-3)"
-                      strokeWidth="2.5"
-                      points="0,62 30,55 60,50 90,47 120,44 150,42 180,38 210,33 240,26 270,16 300,6"
-                    />
-                  </svg>
+              <span className="rounded-full border border-success/30 bg-success/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-success">
+                Available now
+              </span>
+            </div>
+            <h2 className="mt-7 text-2xl font-extrabold leading-tight md:text-3xl">
+              Operational SEO, without splitting your workflow.
+            </h2>
+            <p className="mt-3 leading-relaxed text-muted-foreground">
+              The latest release connects editor work, site health, feeds and commerce inside
+              WordPress.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {[
+                {
+                  Icon: ShieldCheck,
+                  title: "404 monitoring",
+                  text: "Review logged paths and create redirects.",
+                },
+                {
+                  Icon: PenTool,
+                  title: "Movable SEO editor",
+                  text: "Keep fields, previews and analysis together.",
+                },
+                {
+                  Icon: BarChart3,
+                  title: "Consistent scoring",
+                  text: "Use one score across editing and reporting.",
+                },
+                {
+                  Icon: Puzzle,
+                  title: "Commerce & feeds",
+                  text: "Add WooCommerce SEO and configurable RSS feeds.",
+                },
+              ].map(({ Icon, title, text }) => (
+                <div key={title} className="rounded-xl border bg-background p-4">
+                  <Icon className="h-5 w-5 text-brand" aria-hidden="true" />
+                  <p className="mt-3 text-sm font-bold">{title}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{text}</p>
                 </div>
-              </div>
+              ))}
             </div>
-          </div>
+            <div className="mt-5 flex items-center justify-between gap-4 rounded-xl bg-brand-soft p-4">
+              <span className="text-sm font-semibold">Local SEO business profiles</span>
+              <span className="shrink-0 text-right">
+                <strong className="text-xl text-brand">134</strong>
+                <span className="ml-1 text-xs text-muted-foreground">options · 14 niches</span>
+              </span>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -319,27 +324,65 @@ function Index() {
           ))}
         </section>
 
-        <LocalBusinessOverview />
+        <section className="py-12 md:py-16" aria-labelledby="release-highlights-title">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand">
+                Release {CURRENT_RELEASE} · Verified package changes
+              </p>
+              <h2
+                id="release-highlights-title"
+                className="mt-2 text-3xl font-extrabold md:text-4xl"
+              >
+                Better control across editing, commerce and site operations.
+              </h2>
+              <p className="mt-3 leading-relaxed text-muted-foreground">
+                A focused release update for the work teams do inside WordPress—from editing and
+                monitoring to feeds, navigation and product data.
+              </p>
+            </div>
+            <Link
+              to="/wordpress-org-release"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 font-bold text-brand underline underline-offset-4"
+            >
+              Read all release notes <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </Link>
+          </div>
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {releaseHighlights.map(({ Icon, title, text }) => (
+              <article
+                key={title}
+                className="rounded-2xl border bg-card p-5 shadow-[var(--shadow-card)]"
+              >
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-soft text-brand">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-bold">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-        <PublisherIntroVideo />
+        <LocalBusinessOverview />
 
         <section
           aria-labelledby="official-release-title"
-          className="my-12 rounded-lg border border-brand/20 bg-brand-soft p-6 md:p-8"
+          className="my-10 rounded-2xl border border-brand/20 bg-brand-soft p-6 md:p-8"
         >
-          <div className="grid gap-7 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand">
-                Official WordPress.org release
+                Current release · v{CURRENT_RELEASE}
               </p>
               <h2 id="official-release-title" className="mt-2 text-2xl font-extrabold md:text-3xl">
-                PublishRank is now listed in the WordPress.org plugin directory
+                Start with one SEO foundation across your site.
               </h2>
               <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground">
-                Review the official plugin listing, explore Local SEO for businesses alongside
-                sitewide SEO and editorial tools, or install PublishRank from your dashboard.
+                Install free from the WordPress.org directory or download the exact release package.
+                Review the compatibility notes and full changelog before updating a production site.
               </p>
-              <ul aria-label="PublishRank topics" className="mt-5 flex flex-wrap gap-2">
+              <ul aria-label="PublishRank capabilities" className="mt-5 flex flex-wrap gap-2">
                 {WORDPRESS_RELEASE_TAGS.map((tag) => (
                   <li
                     key={tag}
@@ -357,20 +400,17 @@ function Index() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  WordPress.org listing <ExternalLink aria-hidden="true" />
+                  Install from WordPress.org <ExternalLink aria-hidden="true" />
                 </a>
               </Button>
               <Button asChild variant="outline" className="rounded-full">
                 <Link to="/wordpress-org-release">
-                  Read the launch announcement <ArrowRight aria-hidden="true" />
+                  v{CURRENT_RELEASE} release details <ArrowRight aria-hidden="true" />
                 </Link>
               </Button>
             </div>
           </div>
         </section>
-
-        <PublisherSignalReactor />
-        <ResearchPulse />
 
         {/* Editorial workflow */}
         <section aria-labelledby="workflow-title" className="py-12 md:py-16">
@@ -479,12 +519,12 @@ function Index() {
         >
           <div>
             <h2 className="text-3xl font-extrabold">
-              Business SEO is here now—not just on the roadmap.
+              One SEO foundation for every site, with business and editorial depth.
             </h2>
             <p className="mt-4 leading-relaxed">
-              PublishRank works across WordPress websites, with a universal SEO toolkit and Local
-              SEO profiles for real businesses. Publishers and newsrooms also get dedicated
-              workflows, but they are one audience among many—not the whole product.
+              Manage business identity, page-level metadata, schema, sitemaps, redirects and
+              diagnostics in one plugin. Add business Local SEO or newsroom workflows to match the
+              site and team you operate.
             </p>
             <Button asChild className="mt-6 rounded-full">
               <Link to="/about">
@@ -494,7 +534,7 @@ function Index() {
           </div>
           <ul className="space-y-4 lg:border-l-2 lg:border-brand/40 lg:pl-8">
             {[
-              `Local SEO for 134 business options in ${CURRENT_RELEASE}`,
+              "Local SEO for 134 business options across 14 niches",
               "14 niches: retail, health, hospitality, services, education and more",
               "Service areas, hidden addresses, hours and holiday schedules",
               "Type-specific fields for restaurants, hotels, clinics, shops and venues",
@@ -564,7 +604,6 @@ function Index() {
         </section>
 
         <ScreenshotShowcase />
-        <PhotoShowcase />
 
         {/* Trust */}
         <section className="my-10 rounded-lg bg-brand-soft p-6">
@@ -572,10 +611,10 @@ function Index() {
           <div className="mt-5 grid gap-6 text-sm sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-border">
             {(
               [
-                [Globe, "100%", "Open Source", "text-ink"],
-                [Zap, "Blazing Fast", "Performance", "text-brand"],
-                [Heart, "Built with Care", "for WordPress teams", "text-brand"],
-                [Code2, "WordPress", "Compatible with", "text-chart-3"],
+                [Globe, "GPLv2+", "Open source", "text-ink"],
+                [Building2, "134 options", "Local SEO profiles", "text-brand"],
+                [Zap, CURRENT_RELEASE, "Current release", "text-brand"],
+                [Code2, "WordPress", "Native plugin", "text-chart-3"],
               ] as const
             ).map(([Icon, a, b, c]) => (
               <div key={a} className="flex items-center justify-center gap-3">
@@ -595,9 +634,12 @@ function Index() {
       <section className="text-primary-foreground" style={{ background: "var(--gradient-cta)" }}>
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-12 md:grid-cols-[1.6fr_1fr_auto]">
           <div>
-            <h2 className="text-3xl font-extrabold">Ready to Boost Your Site's Visibility?</h2>
+            <h2 className="text-3xl font-extrabold">
+              Build a stronger, more manageable SEO foundation.
+            </h2>
             <p className="mt-2 text-lg">
-              <b>Download PublishRank</b> today and take your SEO to the next level.
+              <b>Install PublishRank {CURRENT_RELEASE}</b> and review your business, site and
+              publishing workflows in one place.
             </p>
             <div className="mt-6">
               <DownloadLink className="inline-flex items-center gap-3 rounded-full bg-background px-8 py-3 text-lg font-bold text-ink shadow-[var(--shadow-card)] transition hover:-translate-y-0.5">
@@ -608,9 +650,9 @@ function Index() {
           </div>
           <ul className="space-y-3">
             {[
-              "134 Local SEO Business Types",
-              "Open-Source WordPress SEO",
-              "Tools for Every Website",
+              "Local SEO for 134 business options",
+              "One consistent SEO score",
+              "Open-source WordPress tools",
             ].map((t) => (
               <li key={t} className="flex items-center gap-3 font-semibold">
                 <Tick />

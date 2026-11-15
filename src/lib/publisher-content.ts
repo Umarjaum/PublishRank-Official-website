@@ -38,7 +38,7 @@ const basePages: Record<
     eyebrow: "Business SEO, Local SEO & publisher tools",
     image: "developer",
     intro:
-      "Not just for bloggers or news publishers: PublishRank gives businesses and websites of every kind a full WordPress SEO foundation. The current release includes Local SEO for 134 selectable business options across 14 niches, alongside specialist newsroom and editorial workflows.",
+      "PublishRank provides a full WordPress SEO foundation for local businesses, service companies, online stores and organizations, as well as publisher sites. Configure Local SEO for 134 selectable business options across 14 niches; newsroom and editorial workflows are specialist capabilities for the teams that need them.",
     description:
       "Explore WordPress SEO for businesses, websites and publishers: Local SEO for 134 business options across 14 niches, business profiles, type-specific LocalBusiness fields and schema, sitewide metadata, sitemaps and newsroom tools.",
     sections: [
@@ -162,7 +162,7 @@ const basePages: Record<
       {
         title: "Security: WP Hide Login built in",
         paragraphs: [
-          "PublishRank includes WP Hide Login built in. In 2.20.3, the module has its own PublishRank → Hide Login settings page—separate from the shared WordPress Settings screen—where administrators can choose a custom login URL and blocked-visitor redirect.",
+          "PublishRank includes WP Hide Login built in. Since v2.20.3, the module has its own PublishRank → Hide Login settings page—separate from the shared WordPress Settings screen—where administrators can choose a custom login URL and blocked-visitor redirect.",
           "Login-URL protection is a hardening measure, not a replacement for strong passwords, two-factor authentication or a firewall.",
         ],
         bullets: [

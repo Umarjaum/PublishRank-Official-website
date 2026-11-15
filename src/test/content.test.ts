@@ -19,7 +19,7 @@ import { createSitemapXml } from "@/routes/sitemap[.]xml";
 
 describe("content", () => {
   it("documents the expanded feature catalog and complete Local SEO registry", () => {
-    expect(featureCount).toBe(516);
+    expect(featureCount).toBe(530);
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
     expect(featureCatalog.some((category) => category.id === "verified-l")).toBe(true);
     const localSeo = featureCatalog.find((category) => category.id === "verified-c");
@@ -27,29 +27,34 @@ describe("content", () => {
     expect(localSeo?.items.some((item) => item.includes("Retail & shopping (30)"))).toBe(true);
   });
 
-  it("points downloads at the versioned v2.20.20 GitHub release asset", () => {
+  it("points downloads at the versioned v2.21.0 GitHub release asset", () => {
     expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.20/PublishRank-2.20.20.zip",
+      "https://github.com/Umarjaum/PublishRank/releases/download/v2.21.0/PublishRank-2.21.0-404-fix.zip",
     );
-    expect(CURRENT_RELEASE).toBe("2.20.20");
+    expect(CURRENT_RELEASE).toBe("2.21.0");
   });
 
   it("positions the current product for every WordPress site and business", () => {
     expect(SITE_TAGLINE.toLowerCase()).toContain("every website");
     expect(SITE_DESCRIPTION.toLowerCase()).toContain("134 selectable business options");
-    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("not only for bloggers");
-    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("websites of every kind");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("free wordpress seo for every website");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("wordpress seo for every website");
     expect(publisherPages.features.title.toLowerCase()).toContain("every website");
-    expect(publisherPages.features.intro.toLowerCase()).toContain("not just for bloggers");
+    expect(publisherPages.features.intro.toLowerCase()).toContain("businesses");
     expect(publisherPages.features.sections[0]?.title.toLowerCase()).toContain(
       "134 business types",
     );
     expect(String(softwareSchema.description).toLowerCase()).not.toContain("in development");
   });
 
-  it("marks WP Hide Login new and documents the Mastodon verification snippet", () => {
+  it("documents WP Hide Login and the Mastodon verification snippet", () => {
     const login = featureCatalog.find((category) => category.id === "login");
-    expect(login?.badge).toBe("NEW · 2.20.3");
+    expect(login?.badge).toBeUndefined();
+    expect(login?.summary.toLowerCase()).not.toContain("new in");
+    const release = featureCatalog.find((category) => category.id === "release-2.21.0");
+    expect(release?.badge).toBe("CURRENT · 2.21.0");
+    expect(release?.items).toHaveLength(14);
+    expect(release?.items.join(" ")).toContain("Site Navigation SEO");
     const featureText = publisherPages.features.sections
       .flatMap((section) => [section.title, ...section.paragraphs, ...(section.bullets ?? [])])
       .join(" ")

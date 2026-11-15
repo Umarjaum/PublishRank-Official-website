@@ -83,11 +83,11 @@ function DownloadPage() {
             </p>
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              WordPress SEO for every website—not just bloggers and news publishers. The current
-              release adds Local SEO for 134 selectable business options across 14 niches, with
-              type-specific fields and schema mappings. It also includes sitewide SEO tools,
-              sitemaps, newsroom workflows, the Schema Aggregator, optional llms.txt discovery and
-              Private Login. One free, open-source ZIP for your WordPress dashboard.
+              Free, open-source WordPress SEO for businesses and websites of every kind. Version{" "}
+              {CURRENT_RELEASE} adds a movable SEO editor, consistent scoring, refined 404
+              monitoring, RSS and Site Navigation SEO, WooCommerce controls, redirect improvements,
+              and English, Arabic and Urdu analysis. Local SEO includes 134 business options across
+              14 niches.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink
@@ -97,7 +97,9 @@ function DownloadPage() {
                 <Download className="h-5 w-5" />
                 <span className="leading-tight">
                   <span className="block font-bold">Download PublishRank</span>
-                  <span className="text-xs opacity-80">PublishRank.zip · Free & Open Source</span>
+                  <span className="text-xs opacity-80">
+                    PublishRank {CURRENT_RELEASE} · Free & Open Source
+                  </span>
                 </span>
               </DownloadLink>
               <a
@@ -137,7 +139,7 @@ function DownloadPage() {
                   >
                     open the releases page
                   </a>{" "}
-                  and choose PublishRank.zip.
+                  and choose PublishRank-2.21.0-404-fix.zip.
                 </p>
               )}
             </div>
@@ -178,15 +180,15 @@ function DownloadPage() {
             <h2 className="text-xl font-extrabold">What you get</h2>
             <ul className="mt-4 grid gap-3 text-sm font-semibold">
               {[
-                "More than 40 publisher tools—not just metadata fields",
+                "More than 40 WordPress SEO tools for business, site and publishing workflows",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
                 "Administrator-only Mastodon token reveal and resilient post confirmation",
-                `New in ${CURRENT_RELEASE}: Local SEO for 134 business options across 14 niches, with type-specific fields and schema mappings`,
+                `New in ${CURRENT_RELEASE}: movable SEO editor, consistent scoring, 404 monitoring refinements, RSS and Site Navigation SEO, WooCommerce controls, redirect updates, and English, Arabic and Urdu analysis`,
                 "Editor controls styled in PublishRank colors; a clearer Sitemap Hub with copy/open sitemap address and sitemap file list",
                 "Private Login moved to its own screen with settings migrated, the old link forwarded, and an emergency disable constant",
                 "News and XML sitemaps, structured data and the Schema Aggregator endpoint",
                 "Optional llms.txt discovery; broader AI features rolling out soon",
-                "New in 2.20.3: WP Hide Login has its own PublishRank settings page, separate from WordPress Settings",
+                "Private Login custom sign-in URL and blocked-visitor handling on its own PublishRank settings page",
                 "Free core edition, open source",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">

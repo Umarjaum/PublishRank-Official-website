@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Building2, Check, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { featureCatalog, featureCount, toolHighlights } from "@/lib/feature-catalog";
+import { CURRENT_RELEASE } from "@/lib/site";
 const featuresImg = "/brand/publishrank-features-showcase.jpg";
 
 const localBusinessNiches = [
@@ -58,14 +59,14 @@ export function LocalBusinessOverview() {
     >
       <div className="max-w-4xl">
         <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand">
-          Not just for bloggers and news publishers
+          Local SEO · 134 selectable options · 14 niches
         </p>
         <h2 id="local-business-title" className="mt-2 text-3xl font-extrabold md:text-4xl">
           WordPress SEO for every website—with Local SEO for 134 business types.
         </h2>
         <p className="mt-4 leading-relaxed text-muted-foreground">
           Use PublishRank's SEO editor, structured data, sitemaps, redirects and technical controls
-          on any WordPress site. For local companies and organizations, the current release adds 134
+          on any WordPress site. For local companies and organizations, PublishRank supports 134
           selectable business profiles across 14 niches. Newsroom and editorial tools are included
           for publishers too—they are a specialty, not the limit of the product.
         </p>
@@ -197,9 +198,10 @@ export function FeatureCatalogView() {
           Every feature, organized and searchable
         </h2>
         <p className="mt-3 max-w-2xl leading-8 text-muted-foreground">
-          Not only for bloggers and news publishers: browse {featureCount} catalog entries across{" "}
-          {featureCatalog.length} feature areas, including sitewide SEO, Local SEO for all 134
-          business options, and publisher tools. Search for any feature or business type.
+          Browse {featureCount} catalog entries across {featureCatalog.length} feature areas,
+          including sitewide SEO, all 134 selectable Local SEO business options, and the new editor,
+          commerce, feed and site-operation changes in v{CURRENT_RELEASE}. Search for any feature or
+          business type.
         </p>
         <div className="relative mt-6 max-w-md">
           <Search

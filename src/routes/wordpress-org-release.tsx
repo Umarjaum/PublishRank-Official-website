@@ -15,6 +15,30 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
+    title: "Movable SEO editor and consistent score",
+    description:
+      "Version 2.21.0 adds one draggable editor workspace for metadata, previews and analysis in the block and Classic Editors, with the same SEO score across editing, lists, Insights and audits.",
+    badge: "2.21.0",
+  },
+  {
+    title: "RSS feeds and Site Navigation SEO",
+    description:
+      "Configure feed attribution, previews and the recent-news feed; inspect important pages for publication, indexability, sitemap inclusion, links, canonicals and descriptions.",
+    badge: "2.21.0",
+  },
+  {
+    title: "WooCommerce product SEO",
+    description:
+      "When WooCommerce is active, connect Product schema to the PublishRank graph and avoid marking product pages as news articles.",
+    badge: "2.21.0",
+  },
+  {
+    title: "Redirect and language improvements",
+    description:
+      "Import/export supported CSV rules, bulk manage redirects, trace chains and loops, use regex captures, and analyze English, Arabic and Urdu content.",
+    badge: "2.21.0",
+  },
+  {
     title: "Local SEO — 134 selectable business options",
     description:
       "Choose from 134 business options across 14 niches, with type-specific fields and LocalBusiness schema mappings. The options are not 134 independent Schema.org classes.",
@@ -120,7 +144,7 @@ function WordPressOrgRelease() {
               Official WordPress.org release · v{CURRENT_RELEASE}
             </p>
             <h1 className="mt-3 max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl">
-              PublishRank is officially listed on WordPress.org
+              Install PublishRank from WordPress.org
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
               PublishRank is a free, open-source SEO toolkit for businesses and WordPress websites
@@ -129,8 +153,10 @@ function WordPressOrgRelease() {
               Find the official listing and install it directly from your WordPress dashboard.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
-              New in {CURRENT_RELEASE}: Local SEO adds 134 selectable business options across 14
-              niches, with fields and schema mappings tailored to each type.
+              New in {CURRENT_RELEASE}: movable editor workspace, consistent SEO scoring, 404
+              monitoring refinements, RSS and Site Navigation SEO, WooCommerce integration, redirect
+              upgrades, and language-aware analysis. Local SEO's 134 business options across 14
+              niches remain available in this release.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">

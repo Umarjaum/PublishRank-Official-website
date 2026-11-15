@@ -5,10 +5,10 @@ export const UMARJAUM_URL = "https://umarjaum.vercel.app";
 export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
 export const SITE_TAGLINE = "WordPress SEO for Businesses, Publishers, and Every Website";
 export const SITE_DESCRIPTION =
-  "Free, open-source WordPress SEO for businesses, publishers, bloggers and site owners. Local SEO includes 134 selectable business options across 14 niches, alongside metadata, schema, sitemaps, technical SEO and editorial tools.";
+  "Free, open-source WordPress SEO for every website, including local businesses and online stores. Version 2.21.0 adds a movable SEO editor, unified scoring, RSS feeds, Site Navigation SEO, WooCommerce controls and redirect improvements; Local SEO includes 134 selectable business options across 14 niches.";
 export const HOME_SEO_DESCRIPTION =
-  "Not only for bloggers and news publishers: PublishRank provides WordPress SEO for businesses and websites of every kind, including 134 selectable Local SEO options across 14 niches.";
-export const CURRENT_RELEASE = "2.20.20";
+  "Free WordPress SEO for every website, with Local SEO for 134 business options, WooCommerce controls, metadata, schema, sitemaps and redirects.";
+export const CURRENT_RELEASE = "2.21.0";
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -20,6 +20,10 @@ export const WORDPRESS_RELEASE_TAGS = [
   "WordPress SEO",
   "Business SEO",
   "Local SEO",
+  "WooCommerce SEO",
+  "Site Navigation SEO",
+  "404 Monitoring",
+  "RSS Feed controls",
   "News SEO",
   "Open-source WordPress plugin",
   "Editorial workflow",
@@ -28,11 +32,11 @@ export const WORDPRESS_RELEASE_TAGS = [
 ] as const;
 // Pin the public site to the exact versioned release package requested by the owner.
 export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/v2.20.20/PublishRank-2.20.20.zip";
+  "https://github.com/Umarjaum/PublishRank/releases/download/v2.21.0/PublishRank-2.21.0-404-fix.zip";
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT =
-  "PublishRank — WordPress SEO for businesses, publishers and every website.";
+  "PublishRank — WordPress SEO for businesses, publishers and every website, with Local SEO and WooCommerce support.";
 export const LOGO_GIF = "/brand/publishrank-logo-animated.gif";
 export const LOGO_MARK = "/brand/publishrank-logo-mark.png";
 
