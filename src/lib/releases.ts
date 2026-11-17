@@ -187,7 +187,10 @@ export const releases: Release[] = [
         kind: "improvement",
         text: "One SEO score shared by the editor, toolbar, post list, score page, Insights and audits.",
       },
-      { kind: "feature", text: "RSS Feeds screen with attribution lines, a news feed and validation." },
+      {
+        kind: "feature",
+        text: "RSS Feeds screen with attribution lines, a news feed and validation.",
+      },
       { kind: "feature", text: "Site Navigation SEO for your important pages." },
       { kind: "improvement", text: "404 Monitor screen and redirect import, export and tracing." },
     ],

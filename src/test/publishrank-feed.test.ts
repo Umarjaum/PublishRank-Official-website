@@ -22,7 +22,9 @@ describe("PublishRank JSON feed", () => {
 
   it("lists releases newest first", () => {
     for (let i = 1; i < releases.length; i++) {
-      expect(compare(releases[i - 1]?.version ?? "", releases[i]?.version ?? "")).toBeGreaterThan(0);
+      expect(compare(releases[i - 1]?.version ?? "", releases[i]?.version ?? "")).toBeGreaterThan(
+        0,
+      );
     }
   });
 
@@ -51,13 +53,19 @@ describe("PublishRank JSON feed", () => {
 
   it("rejects a plain http link on the official host", () => {
     const feed = buildFeed();
-    const bad = { ...feed, links: [{ id: "x", title: "X", url: "http://publishrankseo.vercel.app/" }] };
+    const bad = {
+      ...feed,
+      links: [{ id: "x", title: "X", url: "http://publishrankseo.vercel.app/" }],
+    };
     expect(feedSchema.safeParse(bad).success).toBe(false);
   });
 
   it("rejects HTML in text fields", () => {
     const feed = buildFeed();
-    const bad = { ...feed, releases: feed.releases.map((r) => ({ ...r, title: "<script>x</script>" })) };
+    const bad = {
+      ...feed,
+      releases: feed.releases.map((r) => ({ ...r, title: "<script>x</script>" })),
+    };
     expect(feedSchema.safeParse(bad).success).toBe(false);
   });
 

@@ -79,7 +79,9 @@ function ChangelogPage() {
             <p className="mt-2 text-5xl font-extrabold tracking-tight">{latestRelease.version}</p>
             <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
               <CalendarDays className="h-4 w-4" aria-hidden="true" />
-              {latestRelease.date ? formatEditorialDate(latestRelease.date, "long") : "Date not recorded"}
+              {latestRelease.date
+                ? formatEditorialDate(latestRelease.date, "long")
+                : "Date not recorded"}
             </p>
             <dl className="mt-5 grid grid-cols-3 gap-3 border-t pt-4 text-sm">
               <div>
@@ -156,7 +158,9 @@ function ChangelogPage() {
                       <h3 className="mt-1 text-xl font-extrabold md:text-2xl">{release.title}</h3>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {release.date ? formatEditorialDate(release.date, "long") : "Date not recorded"}
+                      {release.date
+                        ? formatEditorialDate(release.date, "long")
+                        : "Date not recorded"}
                       {" · "}WP {release.minimumWp}+ · PHP {release.minimumPhp}+
                     </p>
                   </header>
@@ -194,7 +198,10 @@ function ChangelogPage() {
             </h2>
             <p className="mt-1 text-sm leading-6 text-muted-foreground">
               Releases, news and notices are published once and served as validated JSON at{" "}
-              <a href={FEED_PATH} className="font-semibold text-brand underline-offset-4 hover:underline">
+              <a
+                href={FEED_PATH}
+                className="font-semibold text-brand underline-offset-4 hover:underline"
+              >
                 {FEED_PATH}
               </a>
               . The plugin reads it over verified HTTPS, sends nothing about your site, and the feed

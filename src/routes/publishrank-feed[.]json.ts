@@ -3,7 +3,9 @@ import { buildFeed } from "@/lib/publishrank-feed";
 
 async function etagFor(body: string): Promise<string> {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(body));
-  const hex = Array.from(new Uint8Array(digest).slice(0, 16), (b) => b.toString(16).padStart(2, "0")).join("");
+  const hex = Array.from(new Uint8Array(digest).slice(0, 16), (b) =>
+    b.toString(16).padStart(2, "0"),
+  ).join("");
   return `"${hex}"`;
 }
 
@@ -24,7 +26,13 @@ export const Route = createFileRoute("/publishrank-feed.json")({
           "X-Content-Type-Options": "nosniff",
         };
         const match = request.headers.get("if-none-match");
-        if (match && match.split(",").map((v) => v.trim()).includes(etag)) {
+        if (
+          match &&
+          match
+            .split(",")
+            .map((v) => v.trim())
+            .includes(etag)
+        ) {
           return new Response(null, { status: 304, headers });
         }
         return new Response(body, { status: 200, headers });

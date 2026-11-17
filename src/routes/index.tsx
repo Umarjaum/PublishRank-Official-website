@@ -296,11 +296,7 @@ function Index() {
               </div>
               <ul className="mt-5 grid gap-2">
                 {verificationRows.map((row, index) => (
-                  <li
-                    key={row}
-                    className="console-row"
-                    style={{ "--i": index } as CSSProperties}
-                  >
+                  <li key={row} className="console-row" style={{ "--i": index } as CSSProperties}>
                     <span className="console-pass" aria-hidden="true">
                       <Check className="h-3.5 w-3.5" strokeWidth={3} />
                     </span>
@@ -326,8 +322,8 @@ function Index() {
                 </div>
               </div>
               <p className="console-muted mt-4 text-[11px]">
-                Illustrative example. Run it on your own site from Access Shield → Live
-                verification or with <code>wp publishrank shield verify</code>.
+                Illustrative example. Run it on your own site from Access Shield → Live verification
+                or with <code>wp publishrank shield verify</code>.
               </p>
             </div>
           </aside>
@@ -360,7 +356,10 @@ function Index() {
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:items-center">
             <div>
               <p className="eyebrow eyebrow--night">Measured, not promised</p>
-              <h2 id="proof-title" className="mt-3 text-3xl font-extrabold leading-tight md:text-4xl">
+              <h2
+                id="proof-title"
+                className="mt-3 text-3xl font-extrabold leading-tight md:text-4xl"
+              >
                 Tested on a 200,000-post WordPress site.
               </h2>
               <p className="mt-3 text-sm leading-6 opacity-80">

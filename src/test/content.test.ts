@@ -224,12 +224,13 @@ describe("content", () => {
       allProductScreenshots.every((image) =>
         image.src.includes("/setup-wizard-desktop/")
           ? image.version === "2.12.1"
-          : image.src.startsWith("/media/screens/publishrank-2.25.0/") && image.version === "2.25.0",
+          : image.src.startsWith("/media/screens/publishrank-2.25.0/") &&
+            image.version === "2.25.0",
       ),
     ).toBe(true);
-    expect(allProductScreenshots.every((image) => image.width === 1440 && image.height === 1000)).toBe(
-      true,
-    );
+    expect(
+      allProductScreenshots.every((image) => image.width === 1440 && image.height === 1000),
+    ).toBe(true);
     expect(brandCards.some((image) => image.src === "/brand/publishrank_logo_landscape.jpg")).toBe(
       true,
     );

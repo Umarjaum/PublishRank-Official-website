@@ -349,7 +349,8 @@ export const newsArticles: NewsArticle[] = [
     imageHeight: 998,
     imageAlt: "Developer reviewing code and diagnostics on a laptop",
     readTime: "4 min read",
-    keywords: "PublishRank 2.25, WordPress security verification, theme masking, newsroom publishing desk",
+    keywords:
+      "PublishRank 2.25, WordPress security verification, theme masking, newsroom publishing desk",
     sections: [
       {
         heading: "Security you can verify",

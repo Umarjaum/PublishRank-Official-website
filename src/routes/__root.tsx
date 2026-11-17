@@ -114,80 +114,88 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: ({ matches }) => {
     const isNotFound = matches.some((match) => match.status === "notFound");
-    const pageTitle = isNotFound ? `Page not found — ${SITE_NAME}` : `${SITE_NAME} — ${SITE_TAGLINE}`;
+    const pageTitle = isNotFound
+      ? `Page not found — ${SITE_NAME}`
+      : `${SITE_NAME} — ${SITE_TAGLINE}`;
     const pageDescription = isNotFound
       ? `The requested page could not be found. Return to ${SITE_NAME} to continue.`
       : SITE_DESCRIPTION;
 
     return {
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: pageTitle },
-      { name: "description", content: pageDescription },
-      ...(isNotFound
-        ? [{ name: "robots", content: "noindex, nofollow" }]
-        : [{ name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" }]),
-      { name: "application-name", content: SITE_NAME },
-      { name: "apple-mobile-web-app-title", content: SITE_NAME },
-      { name: "theme-color", content: "#9a1a3e" },
-      { name: "format-detection", content: "telephone=no" },
-      { name: "referrer", content: "strict-origin-when-cross-origin" },
-      { property: "og:type", content: "website" },
-      { property: "og:title", content: pageTitle },
-      { property: "og:description", content: pageDescription },
-      { property: "og:image", content: OG_IMAGE },
-      { property: "og:image:secure_url", content: OG_IMAGE },
-      { property: "og:image:alt", content: OG_IMAGE_ALT },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "640" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: pageTitle },
-      { name: "twitter:description", content: pageDescription },
-      { name: "twitter:image", content: OG_IMAGE },
-      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
-      { property: "og:site_name", content: "PublishRank" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap",
-      },
-      { rel: "icon", href: "/favicon.ico", sizes: "any" },
-      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
-      { rel: "manifest", href: "/site.webmanifest" },
-      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
-      { rel: "alternate", type: "text/plain", href: "/llms.txt", title: "llms.txt" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            umarjaumPersonSchema(),
-            publishRankOrganizationSchema(),
-            {
-              "@type": "WebSite",
-              "@id": `${SITE_URL}/#website`,
-              url: SITE_URL,
-              name: SITE_NAME,
-              description: SITE_DESCRIPTION,
-              inLanguage: "en",
-              publisher: { "@id": `${SITE_URL}/#organization` },
-            },
-          ],
-        }),
-      },
-    ],
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: pageTitle },
+        { name: "description", content: pageDescription },
+        ...(isNotFound
+          ? [{ name: "robots", content: "noindex, nofollow" }]
+          : [
+              {
+                name: "robots",
+                content:
+                  "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+              },
+            ]),
+        { name: "application-name", content: SITE_NAME },
+        { name: "apple-mobile-web-app-title", content: SITE_NAME },
+        { name: "theme-color", content: "#9a1a3e" },
+        { name: "format-detection", content: "telephone=no" },
+        { name: "referrer", content: "strict-origin-when-cross-origin" },
+        { property: "og:type", content: "website" },
+        { property: "og:title", content: pageTitle },
+        { property: "og:description", content: pageDescription },
+        { property: "og:image", content: OG_IMAGE },
+        { property: "og:image:secure_url", content: OG_IMAGE },
+        { property: "og:image:alt", content: OG_IMAGE_ALT },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "640" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: pageTitle },
+        { name: "twitter:description", content: pageDescription },
+        { name: "twitter:image", content: OG_IMAGE },
+        { name: "twitter:image:alt", content: OG_IMAGE_ALT },
+        { property: "og:site_name", content: "PublishRank" },
+      ],
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap",
+        },
+        { rel: "icon", href: "/favicon.ico", sizes: "any" },
+        { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+        { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+        { rel: "manifest", href: "/site.webmanifest" },
+        { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
+        { rel: "alternate", type: "text/plain", href: "/llms.txt", title: "llms.txt" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              umarjaumPersonSchema(),
+              publishRankOrganizationSchema(),
+              {
+                "@type": "WebSite",
+                "@id": `${SITE_URL}/#website`,
+                url: SITE_URL,
+                name: SITE_NAME,
+                description: SITE_DESCRIPTION,
+                inLanguage: "en",
+                publisher: { "@id": `${SITE_URL}/#organization` },
+              },
+            ],
+          }),
+        },
+      ],
     };
   },
   shellComponent: RootShell,

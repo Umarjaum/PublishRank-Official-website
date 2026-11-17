@@ -115,9 +115,7 @@ export const feedSchema = z
           .strict(),
       )
       .max(10),
-    links: z
-      .array(z.object({ id, title: text(60), url: officialUrl }).strict())
-      .max(12),
+    links: z.array(z.object({ id, title: text(60), url: officialUrl }).strict()).max(12),
   })
   .strict();
 
@@ -159,7 +157,10 @@ export function buildFeed(): PublishRankFeed {
       changes: release.changes.map((change) => ({ type: change.kind, text: change.text })),
     })),
     news,
-    announcements: announcements.map(({ path, ...rest }) => ({ ...rest, url: `${SITE_URL}${path}` })),
+    announcements: announcements.map(({ path, ...rest }) => ({
+      ...rest,
+      url: `${SITE_URL}${path}`,
+    })),
     links: [
       { id: "documentation", title: "Documentation", url: `${SITE_URL}/documentation` },
       { id: "changelog", title: "Full release history", url: `${SITE_URL}/changelog` },

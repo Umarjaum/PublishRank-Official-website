@@ -22,7 +22,8 @@ export const SCREENSHOT_VERSION = "2.25.0";
 const current = (filename: string, title: string, text?: string): ProductScreenshot => ({
   src: `/media/screens/publishrank-${SCREENSHOT_VERSION}/${filename}.webp`,
   title,
-  text: text ?? `Actual ${title} screen from the PublishRank ${SCREENSHOT_VERSION} WordPress admin.`,
+  text:
+    text ?? `Actual ${title} screen from the PublishRank ${SCREENSHOT_VERSION} WordPress admin.`,
   alt: `PublishRank ${title} screen in the WordPress admin, captured on a local test site with demo content.`,
   width: 1440,
   height: 1000,
@@ -47,11 +48,31 @@ export const productScreenshotGroups: ProductScreenshotGroup[] = [
     description:
       "Theme masking, Access Shield verification, the Publishing Desk, feature access rules and the in-plugin News screen.",
     screenshots: [
-      current("03-publishrank-theme-masking", "Theme masking", "Fingerprint scan, masking status and the server rule for direct folder probes."),
-      current("04-publishrank-access-shield", "Access Shield", "Private login address, 2FA, CAPTCHA, breach-checked passwords and signed live verification."),
-      current("05-publishrank-publishing-desk", "Publishing Desk", "News diagnostics, duplicate-headline checks, missed-schedule fixing and publishing velocity."),
-      current("06-publishrank-roles", "Roles & permissions", "Choose which roles and individual users can use each PublishRank feature."),
-      current("02-publishrank-whats-new", "News & What's New", "Release notes and announcements from the official site, cached with an offline fallback."),
+      current(
+        "03-publishrank-theme-masking",
+        "Theme masking",
+        "Fingerprint scan, masking status and the server rule for direct folder probes.",
+      ),
+      current(
+        "04-publishrank-access-shield",
+        "Access Shield",
+        "Private login address, 2FA, CAPTCHA, breach-checked passwords and signed live verification.",
+      ),
+      current(
+        "05-publishrank-publishing-desk",
+        "Publishing Desk",
+        "News diagnostics, duplicate-headline checks, missed-schedule fixing and publishing velocity.",
+      ),
+      current(
+        "06-publishrank-roles",
+        "Roles & permissions",
+        "Choose which roles and individual users can use each PublishRank feature.",
+      ),
+      current(
+        "02-publishrank-whats-new",
+        "News & What's New",
+        "Release notes and announcements from the official site, cached with an offline fallback.",
+      ),
     ],
   },
   {
@@ -63,18 +84,32 @@ export const productScreenshotGroups: ProductScreenshotGroup[] = [
       current("07-publishrank-features", "Features"),
       current("22-publishrank-settings", "General settings"),
       wizard("01-publishrank-setup-wizard-step-1-welcome.png", "Setup wizard: welcome"),
-      wizard("02-publishrank-setup-wizard-step-2-publisher-identity.png", "Setup wizard: publisher identity"),
-      wizard("04-publishrank-setup-wizard-step-5-search-appearance.png", "Setup wizard: search appearance"),
+      wizard(
+        "02-publishrank-setup-wizard-step-2-publisher-identity.png",
+        "Setup wizard: publisher identity",
+      ),
+      wizard(
+        "04-publishrank-setup-wizard-step-5-search-appearance.png",
+        "Setup wizard: search appearance",
+      ),
       wizard("06-publishrank-setup-wizard-step-8-review.png", "Setup wizard: review"),
-      wizard("08-publishrank-setup-wizard-setup-complete-celebration.png", "Setup wizard: setup complete"),
+      wizard(
+        "08-publishrank-setup-wizard-setup-complete-celebration.png",
+        "Setup wizard: setup complete",
+      ),
     ],
   },
   {
     id: "search-discovery",
     title: "Search & discovery",
-    description: "Sitemaps, structured data, search integrations, crawler controls and AI discovery.",
+    description:
+      "Sitemaps, structured data, search integrations, crawler controls and AI discovery.",
     screenshots: [
-      current("11-publishrank-sitemap-health", "Sitemap hub", "Sharded sitemaps — this test site serves 200,030 URLs in 50,000-URL files."),
+      current(
+        "11-publishrank-sitemap-health",
+        "Sitemap hub",
+        "Sharded sitemaps — this test site serves 200,030 URLs in 50,000-URL files.",
+      ),
       current("12-publishrank-schema", "Schema markup"),
       current("25-publishrank-search-console", "Google Search Console"),
       current("26-publishrank-indexnow", "IndexNow"),
@@ -100,7 +135,8 @@ export const productScreenshotGroups: ProductScreenshotGroup[] = [
   {
     id: "measure-maintain",
     title: "Measure & maintain",
-    description: "Analytics, insights, redirects, 404s, traffic protection, diagnostics and change history.",
+    description:
+      "Analytics, insights, redirects, 404s, traffic protection, diagnostics and change history.",
     screenshots: [
       current("08-publishrank-analytics", "Analytics"),
       current("23-publishrank-insights", "Insights"),

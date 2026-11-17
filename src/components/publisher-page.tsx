@@ -138,7 +138,9 @@ export function PublisherPage({
                   <Icon aria-hidden="true" className="h-4 w-4" />
                   {label}
                 </div>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{profileValues[index]}</p>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                  {profileValues[index]}
+                </p>
               </article>
             ))}
           </div>

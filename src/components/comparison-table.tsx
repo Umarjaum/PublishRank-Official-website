@@ -1,39 +1,45 @@
-import { Check, Minus, Info } from 'lucide-react';
+import { Check, Minus, Info } from "lucide-react";
 
-type Cell = 'yes' | 'no' | string;
+type Cell = "yes" | "no" | string;
 type Row = { feature: string; note?: string; values: [Cell, Cell, Cell, Cell, Cell] };
 
 // Competitor values summarize each vendor's publicly documented feature
 // availability for their free core edition at the time of writing; plan
 // boundaries change, so the table tells readers to verify with vendor docs.
 const rows: Row[] = [
-  { feature: 'XML sitemaps', values: ['yes', 'yes', 'yes', 'yes', 'yes'] },
-  { feature: 'Google News sitemap', values: ['yes', 'Add-on', 'yes', 'yes', 'Pro plan'] },
-  { feature: 'Article & news structured data', values: ['yes', 'yes', 'yes', 'yes', 'yes'] },
-  { feature: 'Story-level SEO & readability analysis', values: ['yes', 'yes', 'yes', 'yes', 'yes'] },
-  { feature: 'Search & social snippet previews', values: ['yes', 'yes', 'yes', 'yes', 'yes'] },
-  { feature: 'Redirect manager', values: ['yes', 'Add-on', 'yes', 'yes', 'Pro plan'] },
-  { feature: '404 monitor', values: ['yes', 'Add-on', 'yes', 'Pro plan', 'Pro plan'] },
-  { feature: 'Internal link suggestions', values: ['yes', 'Add-on', 'yes', 'Pro plan', 'Pro plan'] },
-  { feature: 'Bulk metadata editing', values: ['yes', 'Add-on', 'yes', 'yes', 'Pro plan'] },
-  { feature: 'AI-crawler controls (llms.txt)', values: ['yes', 'yes', 'yes', 'yes', 'varies'] },
-  { feature: 'Dedicated newsroom with assigned roles', values: ['yes', 'no', 'no', 'no', 'no'] },
-  { feature: 'Schema Aggregator endpoint', values: ['yes', 'no', 'no', 'no', 'no'] },
-  { feature: 'Built-in WP Hide Login', values: ['yes', 'no', 'no', 'no', 'no'] },
-  { feature: 'Free core edition', values: ['yes', 'yes', 'yes', 'yes', 'yes'] },
+  { feature: "XML sitemaps", values: ["yes", "yes", "yes", "yes", "yes"] },
+  { feature: "Google News sitemap", values: ["yes", "Add-on", "yes", "yes", "Pro plan"] },
+  { feature: "Article & news structured data", values: ["yes", "yes", "yes", "yes", "yes"] },
+  {
+    feature: "Story-level SEO & readability analysis",
+    values: ["yes", "yes", "yes", "yes", "yes"],
+  },
+  { feature: "Search & social snippet previews", values: ["yes", "yes", "yes", "yes", "yes"] },
+  { feature: "Redirect manager", values: ["yes", "Add-on", "yes", "yes", "Pro plan"] },
+  { feature: "404 monitor", values: ["yes", "Add-on", "yes", "Pro plan", "Pro plan"] },
+  {
+    feature: "Internal link suggestions",
+    values: ["yes", "Add-on", "yes", "Pro plan", "Pro plan"],
+  },
+  { feature: "Bulk metadata editing", values: ["yes", "Add-on", "yes", "yes", "Pro plan"] },
+  { feature: "AI-crawler controls (llms.txt)", values: ["yes", "yes", "yes", "yes", "varies"] },
+  { feature: "Dedicated newsroom with assigned roles", values: ["yes", "no", "no", "no", "no"] },
+  { feature: "Schema Aggregator endpoint", values: ["yes", "no", "no", "no", "no"] },
+  { feature: "Built-in WP Hide Login", values: ["yes", "no", "no", "no", "no"] },
+  { feature: "Free core edition", values: ["yes", "yes", "yes", "yes", "yes"] },
 ];
 
-const competitors = ['Yoast SEO', 'Rank Math', 'SEOPress', 'All in One SEO'];
+const competitors = ["Yoast SEO", "Rank Math", "SEOPress", "All in One SEO"];
 
 function CellValue({ value, brand }: { value: Cell; brand?: boolean }) {
-  if (value === 'yes') {
+  if (value === "yes") {
     return (
-      <span className={brand ? 'text-brand' : 'text-success'} aria-label="Included">
+      <span className={brand ? "text-brand" : "text-success"} aria-label="Included">
         <Check className="mx-auto h-5 w-5" strokeWidth={2.5} />
       </span>
     );
   }
-  if (value === 'no') {
+  if (value === "no") {
     return (
       <span className="text-muted-foreground" aria-label="Not included">
         <Minus className="mx-auto h-5 w-5" />
@@ -64,7 +70,10 @@ export function ComparisonTable() {
               <th scope="col" className="px-4 py-3 font-extrabold">
                 Feature
               </th>
-              <th scope="col" className="border-x-2 border-brand bg-brand-soft px-4 py-3 text-center font-extrabold text-brand">
+              <th
+                scope="col"
+                className="border-x-2 border-brand bg-brand-soft px-4 py-3 text-center font-extrabold text-brand"
+              >
                 PublishRank
               </th>
               {competitors.map((name) => (
@@ -97,9 +106,9 @@ export function ComparisonTable() {
         <Info className="mt-0.5 h-4 w-4 shrink-0 text-brand" aria-hidden />
         Competitor columns summarize publicly documented free-edition features at the time of
         writing; a dash means the capability is not part of the vendor’s documented free edition —
-        verify current details with each vendor’s documentation before deciding. Automatic
-        migration from other SEO plugins is planned for PublishRank, not currently available —
-        always evaluate on your own staging site.
+        verify current details with each vendor’s documentation before deciding. Automatic migration
+        from other SEO plugins is planned for PublishRank, not currently available — always evaluate
+        on your own staging site.
       </p>
     </section>
   );
