@@ -1,14 +1,17 @@
 // Single source of truth for site-wide constants.
+import { latestRelease } from "@/lib/releases";
+
 export const SITE_URL = "https://publishrankseo.vercel.app";
 export const SITE_NAME = "PublishRank";
 export const UMARJAUM_URL = "https://umarjaum.vercel.app";
 export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
 export const SITE_TAGLINE = "WordPress SEO for Businesses, Publishers, and Every Website";
 export const SITE_DESCRIPTION =
-  "Free, open-source WordPress SEO for every website, including local businesses and online stores. Version 2.21.0 adds a movable SEO editor, unified scoring, RSS feeds, Site Navigation SEO, WooCommerce controls and redirect improvements; Local SEO includes 134 selectable business options across 14 niches.";
+  "Free, open-source WordPress SEO for every website, including local businesses, online stores and newsrooms. Version 2.25.0 adds signed Access Shield verification, Maximum theme masking with a fingerprint scanner, a Publishing Desk and 15 advanced SEO checks; Local SEO includes 134 selectable business options across 14 niches.";
 export const HOME_SEO_DESCRIPTION =
   "Free WordPress SEO for every website, with Local SEO for 134 business options, WooCommerce controls, metadata, schema, sitemaps and redirects.";
-export const CURRENT_RELEASE = "2.21.0";
+/** Latest plugin version, read from the release list (src/lib/releases.ts). */
+export const CURRENT_RELEASE = latestRelease.version;
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
 export const RELEASES_URL = `${REPO_URL}/releases`;
 export const ISSUES_URL = `${REPO_URL}/issues`;
@@ -30,9 +33,9 @@ export const WORDPRESS_RELEASE_TAGS = [
   "Mastodon verification",
   "WP Hide Login",
 ] as const;
-// Pin the public site to the exact versioned release package requested by the owner.
-export const DOWNLOAD_URL =
-  "https://github.com/Umarjaum/PublishRank/releases/download/v2.21.0/PublishRank-2.21.0-404-fix.zip";
+// The exact versioned release package, served by this website (public/downloads).
+export const DOWNLOAD_FILE = `PublishRank-${CURRENT_RELEASE}.zip`;
+export const DOWNLOAD_URL = `/downloads/${DOWNLOAD_FILE}`;
 export const OG_IMAGE_PATH = "/brand/publishrank-og-share-card.jpg";
 export const OG_IMAGE = `${SITE_URL}${OG_IMAGE_PATH}`;
 export const OG_IMAGE_ALT =

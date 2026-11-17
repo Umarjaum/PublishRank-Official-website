@@ -18,6 +18,7 @@ import {
   LOGO_GIF,
   PUBLISHRANK_WORDPRESS_PLUGIN_URL,
   RELEASES_URL,
+  DOWNLOAD_FILE,
 } from "@/lib/site";
 import { softwareSchema } from "@/lib/showcase-content";
 
@@ -139,7 +140,7 @@ function DownloadPage() {
                   >
                     open the releases page
                   </a>{" "}
-                  and choose PublishRank-2.21.0-404-fix.zip.
+                  and choose {DOWNLOAD_FILE}.
                 </p>
               )}
             </div>

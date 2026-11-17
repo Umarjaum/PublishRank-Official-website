@@ -336,6 +336,53 @@ export const newsArticles: NewsArticle[] = [
       },
     ],
   },
+  {
+    slug: "publishrank-2-25-enterprise-hardening",
+    title: "PublishRank 2.25: verifiable security, deeper theme masking and a Publishing Desk",
+    dek: "The 2.25 release focuses on things a site owner can check: signed Access Shield reports, a fingerprint scanner for theme masking, faster large-site sitemaps and newsroom tools that catch problems before readers do.",
+    category: "Product updates",
+    published: "2026-11-16",
+    updated: "2026-11-16",
+    author: "PublishRank Editorial Desk",
+    image: "/media/publishrank-developer.jpg",
+    imageWidth: 1500,
+    imageHeight: 998,
+    imageAlt: "Developer reviewing code and diagnostics on a laptop",
+    readTime: "4 min read",
+    keywords: "PublishRank 2.25, WordPress security verification, theme masking, newsroom publishing desk",
+    sections: [
+      {
+        heading: "Security you can verify",
+        paragraphs: [
+          "Access Shield now includes live verification. It requests your site the way an anonymous visitor would, checks the private login address, user enumeration, XML-RPC, security headers, exposed files and brute-force protection, and saves the result as a signed report. Changing any value in an exported report makes its signature fail, so the evidence can be shared with a client or auditor.",
+          "Privileged accounts also gain a password policy with an optional breached-password check, a limit on simultaneous sign-ins and automatic sign-out after inactivity.",
+        ],
+      },
+      {
+        heading: "Theme masking at the Maximum level",
+        paragraphs: [
+          "Masking now rewrites theme identifiers in the page HTML and in the CSS and JavaScript files the theme serves, removes credits and source-map references, and replaces version strings with content hashes. A built-in fingerprint scanner rates each page Protected, Partial or Review and lists anything that still points to the theme.",
+        ],
+        bullets: [
+          "Tested on Astra, GeneratePress, Kadence, Blocksy, Neve, OceanWP, Hello Elementor and Twenty Twenty-Five",
+          "Premium themes and page builders can add their own markers; run the scanner after changing themes",
+        ],
+      },
+      {
+        heading: "Built for very large archives",
+        paragraphs: [
+          "Sitemap files now rebuild one at a time: publishing or editing a story rebuilds only the 50,000-URL file that contains it. On a 200,000-post test site every URL appeared exactly once. On sites without a persistent object cache, PublishRank also loads its small settings in a single query, cutting its own database queries on a test page from about 96 to between 2 and 6.",
+        ],
+      },
+      {
+        heading: "A Publishing Desk for newsrooms",
+        paragraphs: [
+          "Writers see a warning while typing a headline that closely matches a recent story. Scheduled posts that WordPress missed are detected and published automatically, the posts list shows how fresh each article is, and a diagnostics screen checks Google News readiness, publisher logo, images, headline length and scheduler health.",
+          "Release notes and announcements like this one now appear inside the plugin on the new News & What's New screen, read from the same source as this website.",
+        ],
+      },
+    ],
+  },
 ];
 
 export const newsroomArticles = [...newsArticles].sort((a, b) =>

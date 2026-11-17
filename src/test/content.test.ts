@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { contactSchema } from "@/lib/contact-schema";
 import { featureCatalog, featureCount } from "@/lib/feature-catalog";
@@ -19,7 +21,7 @@ import { createSitemapXml } from "@/routes/sitemap[.]xml";
 
 describe("content", () => {
   it("documents the expanded feature catalog and complete Local SEO registry", () => {
-    expect(featureCount).toBe(530);
+    expect(featureCount).toBe(558);
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
     expect(featureCatalog.some((category) => category.id === "verified-l")).toBe(true);
     const localSeo = featureCatalog.find((category) => category.id === "verified-c");
@@ -27,11 +29,9 @@ describe("content", () => {
     expect(localSeo?.items.some((item) => item.includes("Retail & shopping (30)"))).toBe(true);
   });
 
-  it("points downloads at the versioned v2.21.0 GitHub release asset", () => {
-    expect(DOWNLOAD_URL).toBe(
-      "https://github.com/Umarjaum/PublishRank/releases/download/v2.21.0/PublishRank-2.21.0-404-fix.zip",
-    );
-    expect(CURRENT_RELEASE).toBe("2.21.0");
+  it("points downloads at the versioned 2.25.0 release package", () => {
+    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.25.0.zip");
+    expect(CURRENT_RELEASE).toBe("2.25.0");
   });
 
   it("positions the current product for every WordPress site and business", () => {
@@ -51,8 +51,10 @@ describe("content", () => {
     const login = featureCatalog.find((category) => category.id === "login");
     expect(login?.badge).toBeUndefined();
     expect(login?.summary.toLowerCase()).not.toContain("new in");
+    const current = featureCatalog.find((category) => category.id === "release-2.25.0");
+    expect(current?.badge).toBe("CURRENT · 2.25.0");
     const release = featureCatalog.find((category) => category.id === "release-2.21.0");
-    expect(release?.badge).toBe("CURRENT · 2.21.0");
+    expect(release?.badge).toBe("2.21.0");
     expect(release?.items).toHaveLength(14);
     expect(release?.items.join(" ")).toContain("Site Navigation SEO");
     const featureText = publisherPages.features.sections
@@ -208,20 +210,26 @@ describe("content", () => {
     expect([...screenshots, ...brandCards].every((image) => image.alt.trim().length > 0)).toBe(
       true,
     );
-    expect(screenshots.some((image) => image.src.endsWith("/01-publishrank-dashboard.png"))).toBe(
+    expect(screenshots.some((image) => image.src.endsWith("/01-publishrank-dashboard.webp"))).toBe(
       true,
     );
     expect(productScreenshotGroups).toHaveLength(7);
-    expect(allProductScreenshots).toHaveLength(49);
-    expect(new Set(allProductScreenshots.map((image) => image.src)).size).toBe(49);
+    expect(allProductScreenshots).toHaveLength(37);
+    expect(new Set(allProductScreenshots.map((image) => image.src)).size).toBe(37);
+    // Every screenshot file exists, and only the setup wizard still uses the older capture set.
     expect(
-      allProductScreenshots.every(
-        (image) =>
-          image.src.startsWith("/media/screens/publishrank-2.12.1/") &&
-          image.width === 1440 &&
-          image.height === 1000,
+      allProductScreenshots.every((image) => existsSync(join(process.cwd(), "public", image.src))),
+    ).toBe(true);
+    expect(
+      allProductScreenshots.every((image) =>
+        image.src.includes("/setup-wizard-desktop/")
+          ? image.version === "2.12.1"
+          : image.src.startsWith("/media/screens/publishrank-2.25.0/") && image.version === "2.25.0",
       ),
     ).toBe(true);
+    expect(allProductScreenshots.every((image) => image.width === 1440 && image.height === 1000)).toBe(
+      true,
+    );
     expect(brandCards.some((image) => image.src === "/brand/publishrank_logo_landscape.jpg")).toBe(
       true,
     );

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as ComparisonsRouteImport } from './routes/comparisons'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CookiesRouteImport } from './routes/cookies'
@@ -23,6 +24,7 @@ import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as NewsSitemapDotxmlRouteImport } from './routes/news-sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as PublishrankFeedDotjsonRouteImport } from './routes/publishrank-feed[.]json'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -49,6 +51,11 @@ const AboutRoute = AboutRouteImport.update({
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
   path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChangelogRoute = ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ComparisonsRoute = ComparisonsRouteImport.update({
@@ -104,6 +111,11 @@ const NewsSitemapDotxmlRoute = NewsSitemapDotxmlRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublishrankFeedDotjsonRoute = PublishrankFeedDotjsonRouteImport.update({
+  id: '/publishrank-feed.json',
+  path: '/publishrank-feed.json',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -171,6 +183,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/changelog': typeof ChangelogRoute
   '/comparisons': typeof ComparisonsRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -182,6 +195,7 @@ export interface FileRoutesByFullPath {
   '/news': typeof NewsRouteWithChildren
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
+  '/publishrank-feed.json': typeof PublishrankFeedDotjsonRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -199,6 +213,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/changelog': typeof ChangelogRoute
   '/comparisons': typeof ComparisonsRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -209,6 +224,7 @@ export interface FileRoutesByTo {
   '/features': typeof FeaturesRoute
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
+  '/publishrank-feed.json': typeof PublishrankFeedDotjsonRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -227,6 +243,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/changelog': typeof ChangelogRoute
   '/comparisons': typeof ComparisonsRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
@@ -238,6 +255,7 @@ export interface FileRoutesById {
   '/news': typeof NewsRouteWithChildren
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
+  '/publishrank-feed.json': typeof PublishrankFeedDotjsonRoute
   '/resources': typeof ResourcesRoute
   '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -257,6 +275,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/changelog'
     | '/comparisons'
     | '/contact'
     | '/cookies'
@@ -268,6 +287,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/news-sitemap.xml'
     | '/privacy'
+    | '/publishrank-feed.json'
     | '/resources'
     | '/security'
     | '/sitemap.xml'
@@ -285,6 +305,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/changelog'
     | '/comparisons'
     | '/contact'
     | '/cookies'
@@ -295,6 +316,7 @@ export interface FileRouteTypes {
     | '/features'
     | '/news-sitemap.xml'
     | '/privacy'
+    | '/publishrank-feed.json'
     | '/resources'
     | '/security'
     | '/sitemap.xml'
@@ -312,6 +334,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/changelog'
     | '/comparisons'
     | '/contact'
     | '/cookies'
@@ -323,6 +346,7 @@ export interface FileRouteTypes {
     | '/news'
     | '/news-sitemap.xml'
     | '/privacy'
+    | '/publishrank-feed.json'
     | '/resources'
     | '/security'
     | '/sitemap.xml'
@@ -341,6 +365,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  ChangelogRoute: typeof ChangelogRoute
   ComparisonsRoute: typeof ComparisonsRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
@@ -352,6 +377,7 @@ export interface RootRouteChildren {
   NewsRoute: typeof NewsRouteWithChildren
   NewsSitemapDotxmlRoute: typeof NewsSitemapDotxmlRoute
   PrivacyRoute: typeof PrivacyRoute
+  PublishrankFeedDotjsonRoute: typeof PublishrankFeedDotjsonRoute
   ResourcesRoute: typeof ResourcesRoute
   SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -385,6 +411,13 @@ declare module '@tanstack/react-router' {
       path: '/accessibility'
       fullPath: '/accessibility'
       preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/changelog': {
+      id: '/changelog'
+      path: '/changelog'
+      fullPath: '/changelog'
+      preLoaderRoute: typeof ChangelogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/comparisons': {
@@ -462,6 +495,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publishrank-feed.json': {
+      id: '/publishrank-feed.json'
+      path: '/publishrank-feed.json'
+      fullPath: '/publishrank-feed.json'
+      preLoaderRoute: typeof PublishrankFeedDotjsonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -567,6 +607,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
+  ChangelogRoute: ChangelogRoute,
   ComparisonsRoute: ComparisonsRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
@@ -578,6 +619,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsRoute: NewsRouteWithChildren,
   NewsSitemapDotxmlRoute: NewsSitemapDotxmlRoute,
   PrivacyRoute: PrivacyRoute,
+  PublishrankFeedDotjsonRoute: PublishrankFeedDotjsonRoute,
   ResourcesRoute: ResourcesRoute,
   SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,

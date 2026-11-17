@@ -1,5 +1,7 @@
-// PublishRank feature catalog: carried-forward 2.20.20 entries plus source-backed 2.21.0 additions.
+// PublishRank feature catalog: carried-forward 2.20.20 entries plus source-backed 2.21.0–2.25.0 additions.
 // Each category's items are stored one per line to keep the source easy to edit.
+import { releaseChangeTexts } from "@/lib/releases";
+
 export type FeatureCategory = {
   id: string;
   title: string;
@@ -756,11 +758,33 @@ Integration testing considerations`),
   },
 
   {
+    id: "release-2.25.0",
+    title: "2.25.0 Release — Enterprise hardening",
+    summary:
+      "Theme masking, Access Shield, newsroom, SEO and scale changes in 2.25.0, built from the release list shared with the plugin.",
+    badge: "CURRENT · 2.25.0",
+    items: releaseChangeTexts("2.25.0"),
+  },
+  {
+    id: "release-2.24.0",
+    title: "2.24.0 Release — Commerce and analytics",
+    summary: "WooCommerce SEO, first-party analytics, login analytics and Theme SEO cleanup.",
+    badge: "2.24.0",
+    items: releaseChangeTexts("2.24.0"),
+  },
+  {
+    id: "release-2.23.0",
+    title: "2.23.0 Release — Security and scale",
+    summary: "Access Shield, AI search visibility, Schema Library and large-site engines.",
+    badge: "2.23.0",
+    items: releaseChangeTexts("2.23.0"),
+  },
+  {
     id: "release-2.21.0",
     title: "2.21.0 Release — Editor, commerce and site operations",
     summary:
       "All changes from the supplied 2.21.0 package changelog, arranged in 14 searchable entries.",
-    badge: "CURRENT · 2.21.0",
+    badge: "2.21.0",
     items: [
       "404 Monitor refinements: on-screen recording control, clearer empty/filter states, readable Browser/Mobile/Crawler badges, combined first/last-seen details, referrer name, inline redirect creation, and confirmation before clearing all logs.",
       "Movable SEO editor window: shared SEO fields, live previews and analysis in a floating workspace for the block and Classic Editors; drag with mouse, touch or arrow keys, resize, snap left/right, minimize, remember position, and adapt to a phone bottom sheet.",

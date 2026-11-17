@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -8,6 +9,13 @@ import {
   ChevronDown,
   Code2,
   Download,
+  EyeOff,
+  Fingerprint,
+  Gauge,
+  KeyRound,
+  ListChecks,
+  Lock,
+  UserCog,
   Feather,
   ExternalLink,
   Github,
@@ -94,49 +102,72 @@ const workflowSteps = [
 
 const releaseHighlights = [
   {
-    Icon: PenTool,
-    title: "A movable SEO workspace",
-    text: "Metadata, previews and analysis in one floating editor for Gutenberg and Classic Editor, with touch-friendly mobile behavior.",
-  },
-  {
     Icon: ShieldCheck,
-    title: "Clearer site operations",
-    text: "Refined 404 logging plus redirects you can import, export, bulk manage and trace through chains or loops.",
+    title: "Security you can verify",
+    text: "Access Shield probes your site the way an anonymous visitor would and saves a signed report. Change one value and the signature fails.",
+    wide: true,
   },
   {
-    Icon: BarChart3,
-    title: "One consistent SEO score",
-    text: "The editor, toolbar, post list, score screen, Insights and scheduled audits share the same score.",
+    Icon: EyeOff,
+    title: "Maximum theme masking",
+    text: "Theme names rewritten in HTML, CSS and JavaScript, credits and source maps removed, versions replaced with hashes.",
+    wide: false,
   },
   {
-    Icon: Rss,
-    title: "Feeds and site navigation",
-    text: "Configure RSS attribution and previews, and inspect important pages for indexability and navigation signals.",
+    Icon: Newspaper,
+    title: "Publishing Desk",
+    text: "Duplicate-headline warnings while writing, missed schedules published automatically and Google News diagnostics.",
+    wide: false,
   },
   {
-    Icon: Puzzle,
-    title: "WooCommerce SEO",
-    text: "When WooCommerce is active, product data joins the schema graph instead of being treated as news content.",
+    Icon: ListChecks,
+    title: "15 advanced SEO checks",
+    text: "Snippet readiness, outdated years, weak alt text, unsafe affiliate links and attribution, all in the one article score.",
+    wide: false,
   },
   {
-    Icon: Globe,
-    title: "Language-aware analysis",
-    text: "Analyze English, Arabic and Urdu content, with optional dismissible inclusive-language suggestions.",
+    Icon: UserCog,
+    title: "Feature access rules",
+    text: "Decide which roles and individual users can open each PublishRank feature. Administrators always keep full access.",
+    wide: false,
+  },
+  {
+    Icon: Gauge,
+    title: "Built for very large archives",
+    text: "Sitemap files rebuild one at a time, and small settings load in one query instead of dozens on every page.",
+    wide: true,
   },
 ] as const;
 
+const tickerItems = [
+  [Lock, "Signed security reports"],
+  [EyeOff, "Maximum theme masking"],
+  [Fingerprint, "Fingerprint scanner"],
+  [Newspaper, "Publishing Desk"],
+  [ListChecks, "15 advanced SEO checks"],
+  [UserCog, "Feature access rules"],
+  [KeyRound, "Password & session policy"],
+  [Globe, "XML, News & Image sitemaps"],
+  [Building2, "134 Local SEO business types"],
+  [Puzzle, "WooCommerce SEO"],
+  [Code2, "Schema Library"],
+  [Share2, "Mastodon publishing"],
+  [BarChart3, "First-party analytics"],
+  [Rss, "RSS & JSON feeds"],
+] as const;
+
+const verificationRows = [
+  "Standard login page hidden",
+  "User enumeration blocked",
+  "XML-RPC disabled",
+  "Brute-force lockout triggered",
+  "Security headers present",
+] as const;
+
 function Index() {
-  const strip = [
-    [BarChart3, "41+ WordPress SEO Tools"],
-    [Building2, "134 Local SEO Business Types"],
-    [Newspaper, "Newsroom & Editorial Tools"],
-    [Share2, "Mastodon Publishing"],
-    [Code2, "Business & Article Schema"],
-    [Globe, "XML, News & Image Sitemaps"],
-  ] as const;
   const audiences = [
     [
-      "/media/screens/publishrank-2.12.1/desktop-1440/18-publishrank-local-seo.png",
+      "/media/screens/publishrank-2.25.0/21-publishrank-local-seo.webp",
       Building2,
       "Businesses & Local Organizations",
       "Build a detailed local business profile with service areas, hours, industry-specific fields and schema options across 14 niches.",
@@ -170,26 +201,25 @@ function Index() {
       <MotionEnhancer />
       <SkipLink />
       {/* HERO */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "var(--gradient-hero)" }}
-        data-gsap-reveal
-      >
+      <section className="aurora" data-gsap-reveal>
         <SiteHeader />
 
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-5 pb-14 pt-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)]">
           <div>
             <Link
-              to="/wordpress-org-release"
-              className="mb-5 inline-flex min-h-10 items-center gap-2 rounded-full border border-brand/20 bg-background/70 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-brand transition hover:bg-background"
+              to="/changelog"
+              className="mb-5 inline-flex min-h-10 items-center gap-2 rounded-full border border-brand/20 bg-background/70 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-brand backdrop-blur transition hover:bg-background"
             >
-              <span className="h-2 w-2 rounded-full bg-success" aria-hidden="true" />
-              Current release · v{CURRENT_RELEASE}
+              <span className="relative flex h-2 w-2" aria-hidden="true">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
+              </span>
+              New in v{CURRENT_RELEASE} · See what's new
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
             <h1 className="max-w-2xl text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl">
               One SEO operating layer for every WordPress website.
-              <span className="mt-2 block text-brand">
+              <span className="text-gradient mt-2 block">
                 Built for business and publishing teams.
               </span>
             </h1>
@@ -226,7 +256,7 @@ function Index() {
                 <ExternalLink aria-hidden="true" className="h-4 w-4" />
               </a>
               <Link
-                to="/wordpress-org-release"
+                to="/changelog"
                 className="inline-flex min-h-10 items-center gap-2 hover:text-brand"
               >
                 Read the v{CURRENT_RELEASE} release notes{" "}
@@ -240,124 +270,172 @@ function Index() {
           </div>
 
           <aside
-            className="relative overflow-hidden rounded-[1.75rem] border border-brand/20 bg-card p-6 shadow-[var(--shadow-window)] md:p-8"
-            aria-label={`PublishRank ${CURRENT_RELEASE} release overview`}
+            className="console-card"
+            aria-label="Example of an Access Shield live verification report"
           >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-brand" aria-hidden="true" />
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-brand-soft text-brand">
-                  <Zap className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-[10px] font-extrabold uppercase tracking-[0.16em] text-muted-foreground">
-                    Current release
-                  </span>
-                  <span className="mt-0.5 block text-xl font-extrabold">
-                    PublishRank {CURRENT_RELEASE}
-                  </span>
+            <div className="console-bar">
+              <span className="console-dot" aria-hidden="true" />
+              <span className="console-dot" aria-hidden="true" />
+              <span className="console-dot" aria-hidden="true" />
+              <span className="ml-2 font-semibold">Access Shield · Live verification</span>
+              <span className="ml-auto rounded-full border border-current/20 px-2 py-0.5">
+                v{CURRENT_RELEASE}
+              </span>
+            </div>
+            <div className="p-5 md:p-6">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="console-muted text-[11px] font-bold uppercase tracking-[0.16em]">
+                    Anonymous visitor probes
+                  </p>
+                  <p className="mt-1 text-2xl font-extrabold">Signed evidence report</p>
+                </div>
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-brand text-primary-foreground">
+                  <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                 </span>
               </div>
-              <span className="rounded-full border border-success/30 bg-success/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-success">
-                Available now
-              </span>
-            </div>
-            <h2 className="mt-7 text-2xl font-extrabold leading-tight md:text-3xl">
-              Operational SEO, without splitting your workflow.
-            </h2>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              The latest release connects editor work, site health, feeds and commerce inside
-              WordPress.
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                {
-                  Icon: ShieldCheck,
-                  title: "404 monitoring",
-                  text: "Review logged paths and create redirects.",
-                },
-                {
-                  Icon: PenTool,
-                  title: "Movable SEO editor",
-                  text: "Keep fields, previews and analysis together.",
-                },
-                {
-                  Icon: BarChart3,
-                  title: "Consistent scoring",
-                  text: "Use one score across editing and reporting.",
-                },
-                {
-                  Icon: Puzzle,
-                  title: "Commerce & feeds",
-                  text: "Add WooCommerce SEO and configurable RSS feeds.",
-                },
-              ].map(({ Icon, title, text }) => (
-                <div key={title} className="rounded-xl border bg-background p-4">
-                  <Icon className="h-5 w-5 text-brand" aria-hidden="true" />
-                  <p className="mt-3 text-sm font-bold">{title}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{text}</p>
+              <ul className="mt-5 grid gap-2">
+                {verificationRows.map((row, index) => (
+                  <li
+                    key={row}
+                    className="console-row"
+                    style={{ "--i": index } as CSSProperties}
+                  >
+                    <span className="console-pass" aria-hidden="true">
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                    </span>
+                    <span className="flex-1">{row}</span>
+                    <span className="console-muted text-xs">Pass</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-current/10 p-3">
+                  <p className="console-muted text-xs">Theme fingerprint scan</p>
+                  <p className="mt-1 font-bold">Protected</p>
+                  <div className="console-meter mt-2" aria-hidden="true">
+                    <span style={{ "--value": "100%" } as CSSProperties} />
+                  </div>
                 </div>
-              ))}
-            </div>
-            <div className="mt-5 flex items-center justify-between gap-4 rounded-xl bg-brand-soft p-4">
-              <span className="text-sm font-semibold">Local SEO business profiles</span>
-              <span className="shrink-0 text-right">
-                <strong className="text-xl text-brand">134</strong>
-                <span className="ml-1 text-xs text-muted-foreground">options · 14 niches</span>
-              </span>
+                <div className="rounded-xl border border-current/10 p-3">
+                  <p className="console-muted text-xs">Report signature</p>
+                  <p className="mt-1 flex items-center gap-1.5 font-bold">
+                    <Fingerprint className="h-4 w-4 text-brand" aria-hidden="true" /> Verified
+                  </p>
+                  <p className="console-signature mt-1">sha256 · 9f2c…e41a</p>
+                </div>
+              </div>
+              <p className="console-muted mt-4 text-[11px]">
+                Illustrative example. Run it on your own site from Access Shield → Live
+                verification or with <code>wp publishrank shield verify</code>.
+              </p>
             </div>
           </aside>
         </div>
       </section>
 
       <main id="main-content" className="mx-auto max-w-6xl px-5">
-        {/* Feature strip */}
-        <section className="-mt-6 relative z-10 grid grid-cols-2 rounded-lg border bg-brand-soft shadow-[var(--shadow-card)] md:grid-cols-3 lg:grid-cols-6">
-          {strip.map(([Icon, t]) => (
-            <div
-              key={t}
-              className="flex flex-col items-center gap-2 border-border p-5 text-center text-sm lg:border-r last:border-r-0"
-            >
-              <Icon className="h-7 w-7 text-brand" />
-              {t}
+        {/* Capability ticker */}
+        <section aria-label="PublishRank capabilities" className="ticker relative z-10 -mt-5 py-2">
+          <ul className="ticker-track">
+            {[...tickerItems, ...tickerItems].map(([Icon, label], index) => (
+              <li
+                key={`${label}-${index}`}
+                className="ticker-chip"
+                aria-hidden={index >= tickerItems.length ? true : undefined}
+              >
+                <Icon className="h-4 w-4 text-brand" aria-hidden="true" />
+                {label}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Proof band */}
+        <section
+          aria-labelledby="proof-title"
+          className="proof-band mt-10 px-6 py-10 md:px-10 md:py-12"
+          data-gsap-reveal
+        >
+          <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:items-center">
+            <div>
+              <p className="eyebrow eyebrow--night">Measured, not promised</p>
+              <h2 id="proof-title" className="mt-3 text-3xl font-extrabold leading-tight md:text-4xl">
+                Tested on a 200,000-post WordPress site.
+              </h2>
+              <p className="mt-3 text-sm leading-6 opacity-80">
+                Numbers from the 2.25 test run on WordPress 7.1 and PHP 8.3 (SQLite, no object
+                cache). Your hosting and content will give different timings.
+              </p>
             </div>
-          ))}
+            <dl className="grid gap-x-8 gap-y-8 sm:grid-cols-2" data-gsap-stagger>
+              <div className="proof-stat">
+                <dt className="sr-only">Sitemap URLs verified</dt>
+                <dd>
+                  <span className="proof-value" data-count-to="200015">
+                    200,015
+                  </span>
+                  <p className="proof-label">sitemap URLs, each listed exactly once</p>
+                </dd>
+              </div>
+              <div className="proof-stat">
+                <dt className="sr-only">Sitemap files rebuilt per edit</dt>
+                <dd>
+                  <span className="proof-value">1 of 5</span>
+                  <p className="proof-label">sitemap files rebuilt when a post changes</p>
+                </dd>
+              </div>
+              <div className="proof-stat">
+                <dt className="sr-only">Plugin database queries per page</dt>
+                <dd>
+                  <span className="proof-value">96→6</span>
+                  <p className="proof-label">PublishRank queries per page, at most, after 2.25</p>
+                </dd>
+              </div>
+              <div className="proof-stat">
+                <dt className="sr-only">Themes tested with masking</dt>
+                <dd>
+                  <span className="proof-value" data-count-to="9">
+                    9
+                  </span>
+                  <p className="proof-label">free themes tested with Maximum masking</p>
+                </dd>
+              </div>
+            </dl>
+          </div>
         </section>
 
         <section className="py-12 md:py-16" aria-labelledby="release-highlights-title">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
               <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand">
-                Release {CURRENT_RELEASE} · Verified package changes
+                New in {CURRENT_RELEASE}
               </p>
               <h2
                 id="release-highlights-title"
                 className="mt-2 text-3xl font-extrabold md:text-4xl"
               >
-                Better control across editing, commerce and site operations.
+                Enterprise hardening you can check for yourself.
               </h2>
               <p className="mt-3 leading-relaxed text-muted-foreground">
-                A focused release update for the work teams do inside WordPress—from editing and
-                monitoring to feeds, navigation and product data.
+                Stronger security and theme masking with evidence, newsroom tools that catch
+                problems before readers do, and a lighter footprint on very large sites.
               </p>
             </div>
             <Link
-              to="/wordpress-org-release"
+              to="/changelog"
               className="inline-flex min-h-11 shrink-0 items-center gap-2 font-bold text-brand underline underline-offset-4"
             >
               Read all release notes <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {releaseHighlights.map(({ Icon, title, text }) => (
-              <article
-                key={title}
-                className="rounded-2xl border bg-card p-5 shadow-[var(--shadow-card)]"
-              >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-soft text-brand">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-gsap-stagger>
+            {releaseHighlights.map(({ Icon, title, text, wide }) => (
+              <article key={title} className={`spotlight p-6 ${wide ? "xl:col-span-2" : ""}`}>
+                <span className="icon-tile">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 font-bold">{title}</h3>
+                <h3 className="mt-5 text-lg font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
               </article>
             ))}
@@ -559,7 +637,8 @@ function Index() {
               promise rankings or rich results.
             </p>
             <Link
-              to="/features#local-business-seo"
+              to="/features"
+              hash="local-business-seo"
               className="mt-4 inline-block text-sm font-bold text-brand"
             >
               Explore Local SEO details →

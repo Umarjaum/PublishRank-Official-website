@@ -6,6 +6,7 @@ export type BreadcrumbItem = {
 
 const routeLabels: Record<string, string> = {
   about: "About",
+  changelog: "What's new",
   accessibility: "Accessibility",
   comparisons: "Plugin comparisons",
   contact: "Contact",

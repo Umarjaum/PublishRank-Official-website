@@ -59,11 +59,11 @@ Photos in the "Made for the Way Newsrooms Work" gallery are hotlinked from Unspl
 
 The `public/media/screens/` gallery contains real PublishRank WordPress-admin captures from a local test site with demo content. The same captures are used in the GitHub plugin README and WordPress.org screenshots:
 
-- [Dashboard](public/media/screens/publishrank-2.12.1/desktop-1440/01-publishrank-dashboard.png)
-- [Features](public/media/screens/publishrank-2.12.1/desktop-1440/03-publishrank-features.png)
-- [Schema settings](public/media/screens/publishrank-2.12.1/desktop-1440/08-publishrank-schema-markup.png)
-- [SEO Score](public/media/screens/publishrank-2.12.1/desktop-1440/28-publishrank-seo-score.png)
-- [Newsroom](public/media/screens/publishrank-2.12.1/desktop-1440/34-publishrank-newsroom.png)
+- [Dashboard](public/media/screens/publishrank-2.25.0/01-publishrank-dashboard.webp)
+- [Features](public/media/screens/publishrank-2.25.0/07-publishrank-features.webp)
+- [Schema settings](public/media/screens/publishrank-2.25.0/12-publishrank-schema.webp)
+- [SEO Score](public/media/screens/publishrank-2.25.0/10-publishrank-seo-score.webp)
+- [Newsroom](public/media/screens/publishrank-2.25.0/19-publishrank-newsroom.webp)
 
 The captures are presented as interface evidence and are not generated product mockups.
 

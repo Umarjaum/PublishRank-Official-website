@@ -1,10 +1,10 @@
 import type { ComponentProps } from "react";
-import { DOWNLOAD_URL } from "@/lib/site";
+import { DOWNLOAD_FILE, DOWNLOAD_URL } from "@/lib/site";
 
-/** Direct link to the latest release ZIP on GitHub. Accepts anchor props so it works with `Button asChild`. */
+/** Direct link to the latest release ZIP. Accepts anchor props so it works with `Button asChild`. */
 export function DownloadLink({ children, ...props }: Omit<ComponentProps<"a">, "href" | "download">) {
   return (
-    <a {...props} href={DOWNLOAD_URL} download="PublishRank.zip" rel="noopener" data-download="publishrank-zip">
+    <a {...props} href={DOWNLOAD_URL} download={DOWNLOAD_FILE} rel="noopener" data-download="publishrank-zip">
       {children}
     </a>
   );

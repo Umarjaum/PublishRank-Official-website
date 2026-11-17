@@ -15,28 +15,34 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
-    title: "Movable SEO editor and consistent score",
+    title: "Verifiable Access Shield protection",
     description:
-      "Version 2.21.0 adds one draggable editor workspace for metadata, previews and analysis in the block and Classic Editors, with the same SEO score across editing, lists, Insights and audits.",
-    badge: "2.21.0",
+      "Version 2.25.0 adds live verification that probes the site as an anonymous visitor and saves a signed, tamper-evident report, plus a password policy, session limit and idle sign-out for privileged accounts.",
+    badge: "2.25.0",
   },
   {
-    title: "RSS feeds and Site Navigation SEO",
+    title: "Maximum theme masking and fingerprint scanner",
     description:
-      "Configure feed attribution, previews and the recent-news feed; inspect important pages for publication, indexability, sitemap inclusion, links, canonicals and descriptions.",
-    badge: "2.21.0",
+      "Rewrite theme identifiers in HTML and served CSS/JS, remove credits and source-map references, and check each page with a scanner that reports Protected, Partial or Review.",
+    badge: "2.25.0",
   },
   {
-    title: "WooCommerce product SEO",
+    title: "Publishing Desk and advanced SEO checks",
     description:
-      "When WooCommerce is active, connect Product schema to the PublishRank graph and avoid marking product pages as news articles.",
-    badge: "2.21.0",
+      "Catch duplicate headlines while writing, publish missed schedules automatically, check Google News readiness, and review 15 new SEO and trust checks in the single article score.",
+    badge: "2.25.0",
   },
   {
-    title: "Redirect and language improvements",
+    title: "Feature access rules and logo sync",
     description:
-      "Import/export supported CSV rules, bulk manage redirects, trace chains and loops, use regex captures, and analyze English, Arabic and Urdu content.",
-    badge: "2.21.0",
+      "Choose which roles and users can use each PublishRank feature; the logo now syncs with the WordPress Site Logo and Site Icon alongside title, tagline and description.",
+    badge: "2.25.0",
+  },
+  {
+    title: "WooCommerce SEO, analytics and theme cleanup",
+    description:
+      "Rich Google product data, a product audit and a protected Merchant feed; cookie-free visitor analytics; and removal of duplicate SEO tags printed by themes.",
+    badge: "2.24.0",
   },
   {
     title: "Local SEO — 134 selectable business options",
