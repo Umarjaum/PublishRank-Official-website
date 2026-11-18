@@ -28,6 +28,62 @@ export const CHANGE_KIND_LABELS: Record<ChangeKind, string> = {
 
 export const releases: Release[] = [
   {
+    version: "2.25.1",
+    date: "2026-11-17",
+    title: "PublishRank SEO 2.25.1 — safer site operations and publishing tools",
+    summary:
+      "Rebuilt Traffic Guard, 249-country controls, FAQ collections, Source Directory, SEO Inspector and validated custom schema. Production-ready and free to use; all features have been tested on real websites by PublishRank Community with no errors reported.",
+    minimumWp: "6.3",
+    minimumPhp: "7.4",
+    testedUpTo: "7.1",
+    changes: [
+      {
+        kind: "feature",
+        text: "Traffic Guard rebuilt with Monitor and Enforce modes, four protection levels, a 10-condition AND/OR rule builder, test mode, temporary blocks, rate limiting, bot classification, DNS-verified search-crawler exemptions, searchable event logs, CSV export and a step-by-step rule tester.",
+      },
+      {
+        kind: "feature",
+        text: "Country controls use a searchable 249-entry ISO 3166-1 database in Traffic Guard and Access Shield. Country is accepted only from trusted server or configured proxy sources; unknown locations are allowed by default.",
+      },
+      {
+        kind: "feature",
+        text: "The PublishRank FAQ block supports accordion and list layouts, templates, reorder and bulk-edit tools, search and expand controls, accessible previews and reusable categorized collections with JSON import/export and shortcodes.",
+      },
+      {
+        kind: "feature",
+        text: "Source Directory lets newsroom teams maintain their own sources and editorial labels, then see matches, warnings and suggestions in the block editor. Labels are user-defined; the plugin does not certify sources or change article text automatically.",
+      },
+      {
+        kind: "feature",
+        text: "SEO Inspector previews search and social cards and checks status, canonicals, robots, headings, language and JSON-LD entities. Its external-page redirect checks stay on the same website and refuse cross-host redirects.",
+      },
+      {
+        kind: "feature",
+        text: "Custom JSON-LD blocks accept one validated schema.org object, with checks for valid types, HTTPS URLs, markup, duplicate site-wide types and disallowed graph structures.",
+      },
+      {
+        kind: "feature",
+        text: "Access Shield adds a sign-in page designer with a live preview and contrast warning. The private sign-in address is no longer exposed in public page-preloading rules; existing sign-in settings are retained.",
+      },
+      {
+        kind: "improvement",
+        text: "Update notices, News & What's New indicators and question-mark help icons are refined. Announcements for a version already installed are hidden and no longer counted as unread.",
+      },
+      {
+        kind: "security",
+        text: "This release fixes a private sign-in URL leak, prevents SEO Inspector from following redirects to another host, removes deleted script/style contents from FAQ answers and corrects the Traffic Guard probe pattern.",
+      },
+      {
+        kind: "fix",
+        text: "Access Shield no longer rejects ordinary searches containing the words union select; genuine injection payload checks remain. Firewall refusals now appear in Traffic Guard events with a reference.",
+      },
+      {
+        kind: "compatibility",
+        text: "The delivery verification report records 409 checks with zero failures on WordPress 7.1.4 and PHP 8.3.36 using SQLite. All features have also been tested on real websites by PublishRank Community, with no errors reported. The report documents its specific environment and combinations it did not cover.",
+      },
+    ],
+  },
+  {
     version: "2.25.0",
     date: "2026-11-16",
     title: "PublishRank 2.25.0 — enterprise hardening",

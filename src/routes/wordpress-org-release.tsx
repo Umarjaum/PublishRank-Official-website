@@ -15,28 +15,46 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
-    title: "Verifiable Access Shield protection",
+    title: "Traffic Guard rebuilt",
     description:
-      "Version 2.25.0 adds live verification that probes the site as an anonymous visitor and saves a signed, tamper-evident report, plus a password policy, session limit and idle sign-out for privileged accounts.",
-    badge: "2.25.0",
+      "Use Monitor or Enforce mode, protection levels, testable multi-condition rules, temporary blocks, rate limits, DNS-verified crawler exemptions, event search and a step-by-step rule tester.",
+    badge: "2.25.1",
   },
   {
-    title: "Maximum theme masking and fingerprint scanner",
+    title: "249-country controls",
     description:
-      "Rewrite theme identifiers in HTML and served CSS/JS, remove credits and source-map references, and check each page with a scanner that reports Protected, Partial or Review.",
-    badge: "2.25.0",
+      "Search country names or codes in Traffic Guard and Access Shield. Country values come from trusted server-side sources; unknown locations are allowed by default.",
+    badge: "2.25.1",
   },
   {
-    title: "Publishing Desk and advanced SEO checks",
+    title: "FAQ block and reusable collections",
     description:
-      "Catch duplicate headlines while writing, publish missed schedules automatically, check Google News readiness, and review 15 new SEO and trust checks in the single article score.",
-    badge: "2.25.0",
+      "Create accessible accordion or list FAQs, manage reusable collections, and emit structured data for visible questions without a rich-result promise.",
+    badge: "2.25.1",
   },
   {
-    title: "Feature access rules and logo sync",
+    title: "SEO Inspector and custom schema",
     description:
-      "Choose which roles and users can use each PublishRank feature; the logo now syncs with the WordPress Site Logo and Site Icon alongside title, tagline and description.",
-    badge: "2.25.0",
+      "Preview search and social cards, inspect page signals and validate JSON-LD. Redirect checks refuse cross-host redirects; custom schema is validated before use.",
+    badge: "2.25.1",
+  },
+  {
+    title: "Source Directory for editorial teams",
+    description:
+      "Maintain sources and your own editorial classifications, then see matching links and caution warnings while editing. PublishRank does not certify a source.",
+    badge: "2.25.1",
+  },
+  {
+    title: "Access Shield sign-in designer",
+    description:
+      "Customize the protected sign-in page with a live preview and contrast warning. The release also fixes public leakage of the private sign-in address.",
+    badge: "2.25.1",
+  },
+  {
+    title: "Notifications and help",
+    description:
+      "See update availability, unread announcements and release news, with per-version dismissal and question-mark help icons across PublishRank screens.",
+    badge: "2.25.1",
   },
   {
     title: "WooCommerce SEO, analytics and theme cleanup",
@@ -50,54 +68,19 @@ const launchFeatures: Array<{ title: string; description: string; badge?: string
       "Choose from 134 business options across 14 niches, with type-specific fields and LocalBusiness schema mappings. The options are not 134 independent Schema.org classes.",
   },
   {
-    title: "SEO metadata and social previews",
+    title: "SEO metadata and connected structured data",
     description:
-      "Manage SEO titles, descriptions, canonical URLs, robots directives, Open Graph and X/Twitter metadata.",
+      "Manage titles, descriptions, canonical URLs, robots directives, Open Graph/X metadata, sitemaps and connected JSON-LD for supported content types.",
   },
   {
-    title: "Connected structured data",
+    title: "Redirects and site maintenance",
     description:
-      "Configure connected JSON-LD schema for organizations, people, webpages, articles, breadcrumbs and supported content types.",
+      "Use redirect management, the 404 Monitor and technical SEO checks to review broken paths and maintain site navigation.",
   },
   {
-    title: "XML and News sitemaps",
+    title: "Publishing and newsroom tools",
     description:
-      "Create XML sitemaps for supported content and media, including a Google News sitemap with configurable publishing settings.",
-  },
-  {
-    title: "Publisher and editorial tools",
-    description:
-      "Review editorial SEO, internal links, sitemap diagnostics and publisher workflows designed for newsroom teams.",
-  },
-  {
-    title: "Publisher Toolkit",
-    description:
-      "Use a read-only pre-publication checklist, permission-aware bulk metadata editing, role-based access and optional image alt-text assistance.",
-  },
-  {
-    title: "PublishRank Newsroom",
-    description:
-      "Coordinate story pitches, assignments, workflow stages, calendars, private notes and handoff to WordPress drafts in one editorial workspace.",
-  },
-  {
-    title: "Redirects and archive maintenance",
-    description:
-      "Use redirect management and a local 404 monitor to review broken paths and maintain site navigation.",
-  },
-  {
-    title: "Optional discovery tools",
-    description:
-      "Enable optional IndexNow submissions and configure llms.txt resources when they fit your site's needs.",
-  },
-  {
-    title: "Mastodon profile verification",
-    description:
-      'Copy a generated <link rel="me"> HTML-head snippet, then add the website URL to your Mastodon profile field for reciprocal verification.',
-  },
-  {
-    title: "Private Login",
-    description:
-      "Choose a custom login URL and blocked-visitor redirect from a dedicated PublishRank settings page, separate from WordPress Settings.",
+      "Optional editorial workflows support publishing checks, story coordination and newsroom operations alongside general WordPress SEO.",
   },
 ];
 
@@ -105,8 +88,8 @@ export const Route = createFileRoute("/wordpress-org-release")({
   head: () =>
     pageSeo(
       "/wordpress-org-release",
-      `PublishRank ${CURRENT_RELEASE} WordPress SEO Plugin on WordPress.org`,
-      `Explore PublishRank ${CURRENT_RELEASE}: WordPress SEO for businesses and every website, including Local SEO for 134 selectable business options across 14 niches.`,
+      `PublishRank SEO ${CURRENT_RELEASE} — WordPress SEO Plugin`,
+      `PublishRank SEO ${CURRENT_RELEASE} is a production-ready, free WordPress SEO plugin for businesses, stores, creators, publishers and websites of every kind. All features have been tested on real websites by PublishRank Community, with no errors reported.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -118,10 +101,11 @@ export const Route = createFileRoute("/wordpress-org-release")({
           {
             "@type": "SoftwareApplication",
             "@id": `${SITE_URL}/wordpress-org-release#software`,
-            name: "PublishRank",
+            name: "PublishRank SEO for WordPress",
+            alternateName: "PublishRank SEO",
             url: `${SITE_URL}/wordpress-org-release`,
             description:
-              "A free, open-source WordPress SEO plugin for every website, with sitewide metadata, schema, sitemaps, Local SEO for 134 business options and specialist editorial tools.",
+              "A production-ready, free and open-source WordPress SEO plugin for businesses, stores, creators, publishers and websites of every kind. All features have been tested on real websites by PublishRank Community, with no errors reported.",
             applicationCategory: "SEO",
             operatingSystem: "WordPress",
             isAccessibleForFree: true,
@@ -153,16 +137,19 @@ function WordPressOrgRelease() {
               Install PublishRank from WordPress.org
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              PublishRank is a free, open-source SEO toolkit for businesses and WordPress websites
-              of every kind—not just bloggers and news publishers. It combines sitewide SEO tools
-              and Local SEO for local businesses with specialist newsroom and editorial workflows.
-              Find the official listing and install it directly from your WordPress dashboard.
+              PublishRank SEO for WordPress is a production-ready, free and open-source plugin for
+              businesses, stores, service providers, creators, publishers and sites of every kind.
+              It combines technical SEO, Local SEO, WooCommerce SEO and security with optional
+              newsroom workflows. Find the official listing and install it directly from your
+              WordPress dashboard. All features have been tested on real websites by the PublishRank
+              Community, with no errors reported.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
-              New in {CURRENT_RELEASE}: movable editor workspace, consistent SEO scoring, 404
-              monitoring refinements, RSS and Site Navigation SEO, WooCommerce integration, redirect
-              upgrades, and language-aware analysis. Local SEO's 134 business options across 14
-              niches remain available in this release.
+              New in {CURRENT_RELEASE}: rebuilt Traffic Guard, 249-country controls, an FAQ block
+              and reusable collections, SEO Inspector, custom schema validation, a Source Directory
+              and Access Shield sign-in designer. PublishRank is free to use and production-ready;
+              the delivery report separately records 409 passing checks in its documented test
+              environment.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">

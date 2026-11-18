@@ -30,6 +30,7 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as VideoRouteImport } from './routes/video'
 import { Route as WebsiteCreationRouteImport } from './routes/website-creation'
 import { Route as WordpressOrgReleaseRouteImport } from './routes/wordpress-org-release'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
@@ -143,6 +144,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VideoRoute = VideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WebsiteCreationRoute = WebsiteCreationRouteImport.update({
   id: '/website-creation',
   path: '/website-creation',
@@ -201,6 +207,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/video': typeof VideoRoute
   '/website-creation': typeof WebsiteCreationRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
@@ -230,6 +237,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/video': typeof VideoRoute
   '/website-creation': typeof WebsiteCreationRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
@@ -261,6 +269,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
+  '/video': typeof VideoRoute
   '/website-creation': typeof WebsiteCreationRoute
   '/wordpress-org-release': typeof WordpressOrgReleaseRoute
   '/api/contact': typeof ApiContactRoute
@@ -293,6 +302,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/video'
     | '/website-creation'
     | '/wordpress-org-release'
     | '/api/contact'
@@ -322,6 +332,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/video'
     | '/website-creation'
     | '/wordpress-org-release'
     | '/api/contact'
@@ -352,6 +363,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/support'
     | '/terms'
+    | '/video'
     | '/website-creation'
     | '/wordpress-org-release'
     | '/api/contact'
@@ -383,6 +395,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
+  VideoRoute: typeof VideoRoute
   WebsiteCreationRoute: typeof WebsiteCreationRoute
   WordpressOrgReleaseRoute: typeof WordpressOrgReleaseRoute
   ApiContactRoute: typeof ApiContactRoute
@@ -539,6 +552,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/video': {
+      id: '/video'
+      path: '/video'
+      fullPath: '/video'
+      preLoaderRoute: typeof VideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/website-creation': {
       id: '/website-creation'
       path: '/website-creation'
@@ -625,6 +645,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
+  VideoRoute: VideoRoute,
   WebsiteCreationRoute: WebsiteCreationRoute,
   WordpressOrgReleaseRoute: WordpressOrgReleaseRoute,
   ApiContactRoute: ApiContactRoute,

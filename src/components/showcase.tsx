@@ -99,8 +99,8 @@ export function BrandCardShowcase() {
         PublishRank highlights
       </h2>
       <SectionTitle
-        title="Rank Every Story Higher"
-        intro="Enterprise-grade SEO for publishers, in one lightweight WordPress plugin."
+        title="PublishRank SEO for WordPress"
+        intro="Technical SEO for businesses and websites of every kind, with specialist publishing tools when you need them."
       />
       <div className="mt-8">
         <AutoCarousel

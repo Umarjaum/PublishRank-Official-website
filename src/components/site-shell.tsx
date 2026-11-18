@@ -37,6 +37,7 @@ const navigationGroups = [
         "Explore features",
         "Local SEO for 134 business options, plus sitewide SEO and newsroom tools.",
       ],
+      ["/video", "Product video", "Watch the 15-second PublishRank introduction."],
       [
         "/comparisons",
         "Compare plugins",
@@ -81,6 +82,7 @@ const footerGroups = [
     links: [
       ["/website-creation", "Website creation"],
       ["/features", "Features"],
+      ["/video", "Product video"],
       ["/comparisons", "Compare plugins"],
       ["/wordpress-org-release", "WordPress.org release"],
       ["/changelog", "What's new"],

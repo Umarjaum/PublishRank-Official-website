@@ -54,10 +54,11 @@ import { faqSchema, softwareSchema } from "@/lib/showcase-content";
 
 export const Route = createFileRoute("/")({
   head: () =>
-    pageSeo("/", "WordPress SEO for Every Website and Business", HOME_SEO_DESCRIPTION, {
+    pageSeo("/", "PublishRank SEO for WordPress | Free SEO Plugin", HOME_SEO_DESCRIPTION, {
+      rawTitle: true,
       extraSchema: [softwareSchema, faqSchema],
       keywords:
-        "WordPress SEO for businesses, local SEO, 134 business types, LocalBusiness schema, publisher SEO, site metadata, sitemaps, Mastodon publishing",
+        "PublishRank SEO, WordPress SEO plugin, business SEO, Local SEO, WooCommerce SEO, structured data, sitemaps, site security",
     }),
   component: Index,
 });
@@ -103,48 +104,51 @@ const workflowSteps = [
 const releaseHighlights = [
   {
     Icon: ShieldCheck,
-    title: "Security you can verify",
-    text: "Access Shield probes your site the way an anonymous visitor would and saves a signed report. Change one value and the signature fails.",
+    title: "Traffic Guard, tuned to your site",
+    text: "Start in Monitor mode, build testable IP, country and request rules, then choose when to enforce. Search crawlers verified by DNS are exempt.",
     wide: true,
   },
   {
-    Icon: EyeOff,
-    title: "Maximum theme masking",
-    text: "Theme names rewritten in HTML, CSS and JavaScript, credits and source maps removed, versions replaced with hashes.",
-    wide: false,
-  },
-  {
-    Icon: Newspaper,
-    title: "Publishing Desk",
-    text: "Duplicate-headline warnings while writing, missed schedules published automatically and Google News diagnostics.",
+    Icon: Globe,
+    title: "249-country controls",
+    text: "Use the searchable ISO country picker in Traffic Guard and Access Shield. Location data comes from trusted server-side sources, not the browser.",
     wide: false,
   },
   {
     Icon: ListChecks,
-    title: "15 advanced SEO checks",
-    text: "Snippet readiness, outdated years, weak alt text, unsafe affiliate links and attribution, all in the one article score.",
+    title: "FAQ block and collections",
+    text: "Build accessible accordions or lists, reuse categorized collections and control the FAQ structured data emitted for visible questions.",
     wide: false,
   },
   {
-    Icon: UserCog,
-    title: "Feature access rules",
-    text: "Decide which roles and individual users can open each PublishRank feature. Administrators always keep full access.",
+    Icon: Search,
+    title: "SEO Inspector and schema checks",
+    text: "Preview search and social cards, inspect page signals and validate JSON-LD. Redirect checks stay on your own site.",
     wide: false,
   },
   {
-    Icon: Gauge,
-    title: "Built for very large archives",
-    text: "Sitemap files rebuild one at a time, and small settings load in one query instead of dozens on every page.",
+    Icon: Newspaper,
+    title: "Source Directory for editorial teams",
+    text: "Keep your own source list and labels, then see matches and caution flags while editing. Labels are yours; sources are not certified by the plugin.",
+    wide: false,
+  },
+  {
+    Icon: Lock,
+    title: "Safer, customizable sign-in",
+    text: "Style the Access Shield sign-in screen with a live preview. A security fix also stops the private sign-in address appearing in public preload rules.",
     wide: true,
   },
 ] as const;
 
 const tickerItems = [
-  [Lock, "Signed security reports"],
+  [ShieldCheck, "Traffic Guard · monitor or enforce"],
+  [Globe, "249-country controls"],
+  [ListChecks, "FAQ block & reusable collections"],
+  [Search, "SEO Inspector & schema validation"],
+  [Newspaper, "Source Directory"],
+  [Lock, "Access Shield sign-in designer"],
   [EyeOff, "Maximum theme masking"],
   [Fingerprint, "Fingerprint scanner"],
-  [Newspaper, "Publishing Desk"],
-  [ListChecks, "15 advanced SEO checks"],
   [UserCog, "Feature access rules"],
   [KeyRound, "Password & session policy"],
   [Globe, "XML, News & Image sitemaps"],
@@ -183,9 +187,9 @@ function Index() {
     [
       editorial.url,
       PenTool,
-      "Bloggers & Independent Publishers",
-      "Optimize your content and grow your audience.",
-      "Bloggers",
+      "Creators & Publishers",
+      "Improve discoverability for articles, resources, and content libraries.",
+      "Creators",
     ],
     [
       dev.url,
@@ -206,6 +210,9 @@ function Index() {
 
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 px-5 pb-14 pt-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)]">
           <div>
+            <p className="mb-2 text-sm font-extrabold tracking-wide text-brand">
+              PublishRank SEO for WordPress
+            </p>
             <Link
               to="/changelog"
               className="mb-5 inline-flex min-h-10 items-center gap-2 rounded-full border border-brand/20 bg-background/70 px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-brand backdrop-blur transition hover:bg-background"
@@ -232,7 +239,7 @@ function Index() {
               <DownloadLink className="flex min-h-12 items-center gap-3 rounded-full bg-brand px-6 py-3 text-primary-foreground shadow-[var(--shadow-card)] transition hover:bg-brand-deep">
                 <Download className="h-5 w-5" />
                 <span className="leading-tight">
-                  <span className="block font-bold">Download PublishRank</span>
+                  <span className="block font-bold">Download PublishRank SEO</span>
                   <span className="text-xs opacity-85">
                     Free & open source · v{CURRENT_RELEASE}
                   </span>
@@ -260,6 +267,13 @@ function Index() {
                 className="inline-flex min-h-10 items-center gap-2 hover:text-brand"
               >
                 Read the v{CURRENT_RELEASE} release notes{" "}
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/video"
+                className="inline-flex min-h-10 items-center gap-2 hover:text-brand"
+              >
+                Watch the 15-second introduction{" "}
                 <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </Link>
             </div>
@@ -355,16 +369,18 @@ function Index() {
         >
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:items-center">
             <div>
-              <p className="eyebrow eyebrow--night">Measured, not promised</p>
+              <p className="eyebrow eyebrow--night">Production-ready · free to use</p>
               <h2
                 id="proof-title"
                 className="mt-3 text-3xl font-extrabold leading-tight md:text-4xl"
               >
-                Tested on a 200,000-post WordPress site.
+                All features tested on real websites.
               </h2>
               <p className="mt-3 text-sm leading-6 opacity-80">
-                Numbers from the 2.25 test run on WordPress 7.1 and PHP 8.3 (SQLite, no object
-                cache). Your hosting and content will give different timings.
+                The PublishRank Community has tested all features on real websites, with no errors
+                reported. The delivery report separately records 409 passing checks on WordPress
+                7.1.4, PHP 8.3.36 and SQLite. The large-archive figures below are from the earlier
+                2.25.0 performance run.
               </p>
             </div>
             <dl className="grid gap-x-8 gap-y-8 sm:grid-cols-2" data-gsap-stagger>
@@ -414,11 +430,12 @@ function Index() {
                 id="release-highlights-title"
                 className="mt-2 text-3xl font-extrabold md:text-4xl"
               >
-                Enterprise hardening you can check for yourself.
+                Search, site protection and editorial tools in one WordPress plugin.
               </h2>
               <p className="mt-3 leading-relaxed text-muted-foreground">
-                Stronger security and theme masking with evidence, newsroom tools that catch
-                problems before readers do, and a lighter footprint on very large sites.
+                Review security events, make page-level SEO checks, build reusable FAQs and maintain
+                editorial sources. PublishRank is production-ready and community-tested on real
+                websites; the release reports document the exact technical test matrices.
               </p>
             </div>
             <Link

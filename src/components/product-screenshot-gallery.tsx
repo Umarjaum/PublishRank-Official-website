@@ -13,7 +13,7 @@ export function ProductScreenshotGallery() {
           <ImageIcon className="mt-1 h-6 w-6 shrink-0 text-brand" aria-hidden="true" />
           <div>
             <p className="text-xs font-extrabold uppercase tracking-wide text-brand">
-              Screenshots · PublishRank 2.25.0 capture set
+              Screenshots · earlier 2.25.0 interface captures
             </p>
             <h2 id="product-screenshots-title" className="mt-2 text-3xl font-extrabold">
               Explore the actual WordPress admin screens

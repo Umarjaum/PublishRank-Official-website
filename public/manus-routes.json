@@ -1,24 +1,88 @@
 {
   "routes": [
-    { "path": "/", "title": "PublishRank home" },
-    { "path": "/features", "title": "Features" },
-    { "path": "/download", "title": "Download" },
-    { "path": "/documentation", "title": "Documentation" },
-    { "path": "/comparisons", "title": "Comparisons" },
-    { "path": "/resources", "title": "Resources" },
-    { "path": "/support", "title": "Support" },
-    { "path": "/about", "title": "About" },
-    { "path": "/enterprise", "title": "Enterprise" },
-    { "path": "/website-creation", "title": "Website creation" },
-    { "path": "/news", "title": "Newsroom" },
-    { "path": "/news/$slug", "title": "News article" },
-    { "path": "/contact", "title": "Contact" },
-    { "path": "/privacy", "title": "Privacy" },
-    { "path": "/terms", "title": "Terms" },
-    { "path": "/cookies", "title": "Cookies" },
-    { "path": "/disclaimer", "title": "Disclaimer" },
-    { "path": "/security", "title": "Security" },
-    { "path": "/accessibility", "title": "Accessibility" },
-    { "path": "/sitemap.xml", "title": "XML sitemap" }
+    {
+      "path": "/",
+      "title": "PublishRank home"
+    },
+    {
+      "path": "/features",
+      "title": "Features"
+    },
+    {
+      "path": "/download",
+      "title": "Download"
+    },
+    {
+      "path": "/documentation",
+      "title": "Documentation"
+    },
+    {
+      "path": "/comparisons",
+      "title": "Comparisons"
+    },
+    {
+      "path": "/resources",
+      "title": "Resources"
+    },
+    {
+      "path": "/support",
+      "title": "Support"
+    },
+    {
+      "path": "/about",
+      "title": "About"
+    },
+    {
+      "path": "/enterprise",
+      "title": "Enterprise"
+    },
+    {
+      "path": "/website-creation",
+      "title": "Website creation"
+    },
+    {
+      "path": "/news",
+      "title": "Newsroom"
+    },
+    {
+      "path": "/news/$slug",
+      "title": "News article"
+    },
+    {
+      "path": "/contact",
+      "title": "Contact"
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy"
+    },
+    {
+      "path": "/terms",
+      "title": "Terms"
+    },
+    {
+      "path": "/cookies",
+      "title": "Cookies"
+    },
+    {
+      "path": "/disclaimer",
+      "title": "Disclaimer"
+    },
+    {
+      "path": "/security",
+      "title": "Security"
+    },
+    {
+      "path": "/accessibility",
+      "title": "Accessibility"
+    },
+    {
+      "path": "/video",
+      "title": "PublishRank SEO product video"
+    },
+    {
+      "path": "/sitemap.xml",
+      "title": "XML sitemap"
+    }
   ]
 }

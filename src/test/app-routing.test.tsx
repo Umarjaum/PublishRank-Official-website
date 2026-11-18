@@ -68,6 +68,11 @@ describe("App routing", () => {
     ).toContain("$slug");
   });
 
+  it("matches the dedicated product video watch page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/video").at(-1)?.routeId).toBe("/video");
+  });
+
   it("lists every public page in the sitemap", () => {
     expect(publicPaths).toEqual(
       expect.arrayContaining([
@@ -82,6 +87,7 @@ describe("App routing", () => {
         "/website-creation",
         "/news",
         "/download",
+        "/video",
         "/wordpress-org-release",
         "/privacy",
         "/terms",

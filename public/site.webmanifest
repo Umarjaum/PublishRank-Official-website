@@ -1,7 +1,7 @@
 {
-  "name": "PublishRank",
-  "short_name": "PublishRank",
-  "description": "Enterprise SEO for Publishers — free, open-source WordPress SEO plugin.",
+  "name": "PublishRank SEO for WordPress",
+  "short_name": "PublishRank SEO",
+  "description": "Free, open-source WordPress SEO plugin for businesses, stores, creators, publishers and websites of every kind.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

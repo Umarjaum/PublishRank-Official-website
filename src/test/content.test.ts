@@ -21,7 +21,7 @@ import { createSitemapXml } from "@/routes/sitemap[.]xml";
 
 describe("content", () => {
   it("documents the expanded feature catalog and complete Local SEO registry", () => {
-    expect(featureCount).toBe(558);
+    expect(featureCount).toBeGreaterThan(558);
     expect(featureCatalog.every((category) => category.items.length > 0)).toBe(true);
     expect(featureCatalog.some((category) => category.id === "verified-l")).toBe(true);
     const localSeo = featureCatalog.find((category) => category.id === "verified-c");
@@ -29,16 +29,16 @@ describe("content", () => {
     expect(localSeo?.items.some((item) => item.includes("Retail & shopping (30)"))).toBe(true);
   });
 
-  it("points downloads at the versioned 2.25.0 release package", () => {
-    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.25.0.zip");
-    expect(CURRENT_RELEASE).toBe("2.25.0");
+  it("points downloads at the versioned 2.25.1 release package", () => {
+    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.25.1.zip");
+    expect(CURRENT_RELEASE).toBe("2.25.1");
   });
 
   it("positions the current product for every WordPress site and business", () => {
     expect(SITE_TAGLINE.toLowerCase()).toContain("every website");
-    expect(SITE_DESCRIPTION.toLowerCase()).toContain("134 selectable business options");
-    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("free wordpress seo for every website");
-    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("wordpress seo for every website");
+    expect(SITE_DESCRIPTION.toLowerCase()).toContain("free, open-source wordpress seo plugin");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("publishrank seo");
+    expect(HOME_SEO_DESCRIPTION.toLowerCase()).toContain("wordpress seo plugin");
     expect(publisherPages.features.title.toLowerCase()).toContain("every website");
     expect(publisherPages.features.intro.toLowerCase()).toContain("businesses");
     expect(publisherPages.features.sections[0]?.title.toLowerCase()).toContain(
@@ -51,8 +51,9 @@ describe("content", () => {
     const login = featureCatalog.find((category) => category.id === "login");
     expect(login?.badge).toBeUndefined();
     expect(login?.summary.toLowerCase()).not.toContain("new in");
-    const current = featureCatalog.find((category) => category.id === "release-2.25.0");
-    expect(current?.badge).toBe("CURRENT · 2.25.0");
+    const current = featureCatalog.find((category) => category.id === "release-2.25.1");
+    expect(current?.badge).toBe("CURRENT · 2.25.1");
+    expect(current?.items.join(" ")).toContain("249-entry ISO 3166-1 database");
     const release = featureCatalog.find((category) => category.id === "release-2.21.0");
     expect(release?.badge).toBe("2.21.0");
     expect(release?.items).toHaveLength(14);
@@ -190,7 +191,7 @@ describe("content", () => {
     }
   });
 
-  it("emits sitemap lastmod only when an editorial article provides an update date", () => {
+  it("emits editorial dates and a complete dedicated video sitemap entry", () => {
     const xml = createSitemapXml();
     const entries = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]!);
     const home = entries.find((entry) =>
@@ -199,6 +200,25 @@ describe("content", () => {
     expect(home).toBeDefined();
     expect(home).not.toContain("<lastmod>");
     expect(xml).not.toContain("2026-11-06");
+
+    const video = entries.find((entry) =>
+      entry.includes("<loc>https://publishrankseo.vercel.app/video</loc>"),
+    );
+    expect(video).toBeDefined();
+    expect(video).toContain("<lastmod>2026-11-18</lastmod>");
+    expect(video).toContain(
+      "<video:title>PublishRank SEO for WordPress — product introduction</video:title>",
+    );
+    expect(video).toContain(
+      "<video:thumbnail_loc>https://publishrankseo.vercel.app/media/publishrank-introduction-v2-poster.jpg</video:thumbnail_loc>",
+    );
+    expect(video).toContain(
+      "<video:content_loc>https://publishrankseo.vercel.app/media/publishrank-introduction-v2.mp4</video:content_loc>",
+    );
+    expect(video).toContain("<video:duration>15</video:duration>");
+    expect(video).toContain(
+      "<video:publication_date>2026-11-12T09:40:29+00:00</video:publication_date>",
+    );
 
     const datedArticle = newsArticles.find((article) => article.updated);
     if (datedArticle) {

@@ -21,13 +21,13 @@ export const announcements: {
   path: string;
 }[] = [
   {
-    id: "release-2-25-0",
-    title: "PublishRank 2.25.0 is available",
+    id: "release-2-25-1",
+    title: "PublishRank SEO 2.25.1 is available",
     summary:
-      "Signed Access Shield verification, Maximum theme masking with a fingerprint scanner, the Publishing Desk and 15 new SEO checks.",
+      "Rebuilt Traffic Guard, 249-country controls, FAQ collections, Source Directory, SEO Inspector and custom schema, plus security fixes. Production-ready and free to use; all features have been tested on real websites by PublishRank Community with no errors reported.",
     level: "important",
     published_at: "2026-11-16T00:00:00Z",
-    path: `/changelog#${releaseAnchor("2.25.0")}`,
+    path: `/changelog#${releaseAnchor("2.25.1")}`,
   },
 ];
 
@@ -163,6 +163,7 @@ export function buildFeed(): PublishRankFeed {
     })),
     links: [
       { id: "documentation", title: "Documentation", url: `${SITE_URL}/documentation` },
+      { id: "video", title: "Product video", url: `${SITE_URL}/video` },
       { id: "changelog", title: "Full release history", url: `${SITE_URL}/changelog` },
       { id: "download", title: "Download", url: `${SITE_URL}/download` },
       { id: "support", title: "Support", url: `${SITE_URL}/support` },
