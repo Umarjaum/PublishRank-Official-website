@@ -15,52 +15,40 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
-    title: "Traffic Guard rebuilt",
+    title: "Schema Studio for 246 Schema.org types",
     description:
-      "Use Monitor or Enforce mode, protection levels, testable multi-condition rules, temporary blocks, rate limits, DNS-verified crawler exemptions, event search and a step-by-step rule tester.",
-    badge: "2.25.1",
+      "Create reusable structured-data templates with conditions and dynamic WordPress fields, preview JSON-LD live, and assign templates to content or individual items. Built-in templates stay off until enabled.",
+    badge: "2.26.0",
   },
   {
-    title: "249-country controls",
+    title: "Schema diagnostics",
     description:
-      "Search country names or codes in Traffic Guard and Access Shield. Country values come from trusted server-side sources; unknown locations are allowed by default.",
-    badge: "2.25.1",
+      "Check types, properties, values, URLs, nesting and entity references. Schema.org validity is reported separately from Google's documented rich-result requirements.",
+    badge: "2.26.0",
   },
   {
-    title: "FAQ block and reusable collections",
+    title: "Local SEO for up to 50 locations",
     description:
-      "Create accessible accordion or list FAQs, manage reusable collections, and emit structured data for visible questions without a rich-result promise.",
-    badge: "2.25.1",
+      "Give each branch its own page, address, contact details, hours and LocalBusiness entity connected to the parent organization.",
+    badge: "2.26.0",
   },
   {
-    title: "SEO Inspector and custom schema",
+    title: "Live previews across the product",
     description:
-      "Preview search and social cards, inspect page signals and validate JSON-LD. Redirect checks refuse cross-host redirects; custom schema is validated before use.",
-    badge: "2.25.1",
+      "See WooCommerce Product and ProductGroup output, real breadcrumb parents, and desktop/mobile sign-in layouts while editing.",
+    badge: "2.26.0",
   },
   {
-    title: "Source Directory for editorial teams",
+    title: "Multilingual content and accessible screens",
     description:
-      "Maintain sources and your own editorial classifications, then see matching links and caution warnings while editing. PublishRank does not certify a source.",
-    badge: "2.25.1",
+      "Unicode-aware word counts and article-language detection improve structured data and Markdown/AI output for Arabic, Urdu and other non-Latin content; accessibility labels and heading checks were improved.",
+    badge: "2.26.0",
   },
   {
-    title: "Access Shield sign-in designer",
+    title: "Verified test coverage with clear limits",
     description:
-      "Customize the protected sign-in page with a live preview and contrast warning. The release also fixes public leakage of the private sign-in address.",
-    badge: "2.25.1",
-  },
-  {
-    title: "Notifications and help",
-    description:
-      "See update availability, unread announcements and release news, with per-version dismissal and question-mark help icons across PublishRank screens.",
-    badge: "2.25.1",
-  },
-  {
-    title: "WooCommerce SEO, analytics and theme cleanup",
-    description:
-      "Rich Google product data, a product audit and a protected Merchant feed; cookie-free visitor analytics; and removal of duplicate SEO tags printed by themes.",
-    badge: "2.24.0",
+      "The supplied report set covers 40 representative URLs, all 134 Local SEO business types, the 246-type schema catalog and 50 admin screens on local WordPress 7.1.5 / PHP 8.4 / SQLite sites. Multisite, MySQL/MariaDB and other PHP versions were not tested.",
+    badge: "2.26.0",
   },
   {
     title: "Local SEO — 134 selectable business options",
@@ -145,11 +133,9 @@ function WordPressOrgRelease() {
               Community, with no errors reported.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
-              New in {CURRENT_RELEASE}: rebuilt Traffic Guard, 249-country controls, an FAQ block
-              and reusable collections, SEO Inspector, custom schema validation, a Source Directory
-              and Access Shield sign-in designer. PublishRank is free to use and production-ready;
-              the delivery report separately records 409 passing checks in its documented test
-              environment.
+              New in {CURRENT_RELEASE}: Schema Studio, structured-data diagnostics, multiple Local
+              SEO locations, improved live previews, multilingual content handling and a clearer
+              setup flow. The release reports describe the test environment and what was not tested.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">

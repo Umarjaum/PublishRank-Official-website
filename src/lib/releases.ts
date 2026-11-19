@@ -28,6 +28,46 @@ export const CHANGE_KIND_LABELS: Record<ChangeKind, string> = {
 
 export const releases: Release[] = [
   {
+    version: "2.26.0",
+    date: "2026-11-19",
+    title: "PublishRank SEO 2.26.0 — Schema Studio and deeper local SEO",
+    summary:
+      "Build reusable structured-data templates with Schema Studio, validate schema against the current vocabulary, and manage up to 50 Local SEO locations. The release also improves previews, onboarding, accessibility and language handling.",
+    minimumWp: "6.3",
+    minimumPhp: "7.4",
+    testedUpTo: "7.1",
+    changes: [
+      {
+        kind: "feature",
+        text: "Schema Studio provides templates for 246 catalogued Schema.org types, with conditions, dynamic WordPress and business fields, reusable assignments, import/export, revision restore and a live JSON-LD preview. Built-in templates are off by default, so existing output does not change unless enabled.",
+      },
+      {
+        kind: "feature",
+        text: "Schema diagnostics check pages or pasted JSON-LD for syntax, unknown types and properties, value types, URLs, dates, nesting, duplicates and disconnected references. Schema.org validity is reported separately from Google's rich-result requirements.",
+      },
+      {
+        kind: "feature",
+        text: "Local SEO supports up to 50 locations, each with its own page, business details, opening hours and LocalBusiness entity connected to the parent organization.",
+      },
+      {
+        kind: "improvement",
+        text: "Live previews now show WooCommerce Product and ProductGroup output, the real breadcrumb parent pages, and desktop/mobile sign-in layouts. The dashboard trend line represents publishing activity from the previous 14 days.",
+      },
+      {
+        kind: "fix",
+        text: "Unicode-aware word counts and article-language detection improve structured data and Markdown/AI output for Arabic, Urdu and other non-Latin content. Heading checks now detect skipped, empty and repeated headings.",
+      },
+      {
+        kind: "fix",
+        text: "The first-install setup wizard now saves a private sign-in address and explains the 10-minute confirmation window. Fixes also cover sitemap exclusions, WooCommerce structured data, schema diagnostics and PHP 8.4 notices.",
+      },
+      {
+        kind: "compatibility",
+        text: "The supplied 2.26.0 reports document local tests on WordPress 7.1.5, PHP 8.4 and SQLite; the Local SEO registry report records 134 of 134 business types passing. Multisite, MySQL/MariaDB and other PHP versions are listed as not tested.",
+      },
+    ],
+  },
+  {
     version: "2.25.1",
     date: "2026-11-17",
     title: "PublishRank SEO 2.25.1 — safer site operations and publishing tools",

@@ -16,162 +16,157 @@ export type ProductScreenshotGroup = {
   screenshots: ProductScreenshot[];
 };
 
-export const SCREENSHOT_VERSION = "2.25.0";
+export const SCREENSHOT_VERSION = "2.26.0";
 
-/** Fresh 2.25.0 captures from the real WordPress test site (1440×1000, demo content). */
+/** Real 2.26.0 interface captures from the local WordPress test site (1280×900, demo data). */
 const current = (filename: string, title: string, text?: string): ProductScreenshot => ({
-  src: `/media/screens/publishrank-${SCREENSHOT_VERSION}/${filename}.webp`,
+  src: `/media/screens/publishrank-${SCREENSHOT_VERSION}/${filename}.jpg`,
   title,
   text:
     text ?? `Actual ${title} screen from the PublishRank ${SCREENSHOT_VERSION} WordPress admin.`,
-  alt: `PublishRank ${title} screen in the WordPress admin, captured on a local test site with demo content.`,
-  width: 1440,
-  height: 1000,
+  alt: `PublishRank ${title} screen captured on a local WordPress test site with demo content.`,
+  width: 1280,
+  height: 900,
   version: SCREENSHOT_VERSION,
-});
-
-/** The setup wizard was not recaptured for 2.25.0; these come from the 2.12.1 capture set. */
-const wizard = (filename: string, title: string): ProductScreenshot => ({
-  src: `/media/screens/publishrank-2.12.1/setup-wizard-desktop/${filename}`,
-  title,
-  text: `${title} — captured on PublishRank 2.12.1.`,
-  alt: `PublishRank ${title} in the WordPress admin (2.12.1 capture), local test site with demo content.`,
-  width: 1440,
-  height: 1000,
-  version: "2.12.1",
 });
 
 export const productScreenshotGroups: ProductScreenshotGroup[] = [
   {
-    id: "new-in-2-25",
-    title: "New in 2.25",
+    id: "new-in-2-26",
+    title: "New in 2.26.0",
     description:
-      "Theme masking, Access Shield verification, the Publishing Desk, feature access rules and the in-plugin News screen.",
+      "Schema Studio, detailed diagnostics, Local SEO locations, the refreshed dashboard and onboarding.",
     screenshots: [
       current(
-        "03-publishrank-theme-masking",
-        "Theme masking",
-        "Fingerprint scan, masking status and the server rule for direct folder probes.",
+        "publishrank-schema-studio",
+        "Schema Studio",
+        "Build and preview reusable structured-data templates.",
       ),
       current(
-        "04-publishrank-access-shield",
-        "Access Shield",
-        "Private login address, 2FA, CAPTCHA, breach-checked passwords and signed live verification.",
+        "publishrank-seo-inspector",
+        "SEO Inspector",
+        "Review page signals and structured data.",
       ),
       current(
-        "05-publishrank-publishing-desk",
-        "Publishing Desk",
-        "News diagnostics, duplicate-headline checks, missed-schedule fixing and publishing velocity.",
+        "publishrank-local-seo",
+        "Local SEO",
+        "Manage business profiles and multiple locations.",
       ),
       current(
-        "06-publishrank-roles",
-        "Roles & permissions",
-        "Choose which roles and individual users can use each PublishRank feature.",
+        "publishrank-seo-dashboard",
+        "SEO dashboard",
+        "Review publishing activity and site status.",
       ),
       current(
-        "02-publishrank-whats-new",
-        "News & What's New",
-        "Release notes and announcements from the official site, cached with an offline fallback.",
+        "publishrank-onboarding",
+        "Setup wizard",
+        "Configure a site with the updated onboarding flow.",
+      ),
+      current(
+        "publishrank-seo-diagnostics",
+        "Schema diagnostics",
+        "Inspect structured-data errors and warnings.",
       ),
     ],
   },
   {
-    id: "dashboard-setup",
-    title: "Dashboard, features & setup",
-    description: "The dashboard, feature switches, general settings and the first-run setup flow.",
+    id: "dashboard-access",
+    title: "Dashboard, access & publishing",
+    description:
+      "Feature controls, security, publishing workflows, documentation and verification.",
     screenshots: [
-      current("01-publishrank-dashboard", "Dashboard"),
-      current("07-publishrank-features", "Features"),
-      current("22-publishrank-settings", "General settings"),
-      wizard("01-publishrank-setup-wizard-step-1-welcome.png", "Setup wizard: welcome"),
-      wizard(
-        "02-publishrank-setup-wizard-step-2-publisher-identity.png",
-        "Setup wizard: publisher identity",
-      ),
-      wizard(
-        "04-publishrank-setup-wizard-step-5-search-appearance.png",
-        "Setup wizard: search appearance",
-      ),
-      wizard("06-publishrank-setup-wizard-step-8-review.png", "Setup wizard: review"),
-      wizard(
-        "08-publishrank-setup-wizard-setup-complete-celebration.png",
-        "Setup wizard: setup complete",
-      ),
+      current("publishrank-access-shield", "Access Shield"),
+      current("publishrank-modules", "Feature modules"),
+      current("publishrank-roles", "Roles and permissions"),
+      current("publishrank-publisher-toolkit", "Publisher Toolkit"),
+      current("publishrank-publishing-desk", "Publishing Desk"),
+      current("publishrank-documentation", "Documentation and help"),
+      current("publishrank-verification", "Site verification"),
     ],
   },
   {
     id: "search-discovery",
     title: "Search & discovery",
-    description:
-      "Sitemaps, structured data, search integrations, crawler controls and AI discovery.",
+    description: "Sitemaps, schema, search integrations, feeds and crawler-facing controls.",
     screenshots: [
-      current(
-        "11-publishrank-sitemap-health",
-        "Sitemap hub",
-        "Sharded sitemaps — this test site serves 200,030 URLs in 50,000-URL files.",
-      ),
-      current("12-publishrank-schema", "Schema markup"),
-      current("25-publishrank-search-console", "Google Search Console"),
-      current("26-publishrank-indexnow", "IndexNow"),
-      current("28-publishrank-robots", "Robots.txt"),
-      current("29-publishrank-breadcrumbs", "Breadcrumbs"),
-      current("14-publishrank-site-navigation", "Site navigation"),
-      current("15-publishrank-feeds", "RSS feeds"),
-      current("13-publishrank-ai-visibility", "AI visibility"),
-      current("27-publishrank-llms-txt", "AI and llms.txt"),
+      current("publishrank-sitemap-health", "Sitemap hub"),
+      current("publishrank-schema", "Schema markup"),
+      current("publishrank-search-console", "Google Search Console"),
+      current("publishrank-google-preferred-sources", "Google Preferred Sources"),
+      current("publishrank-site-navigation", "Site navigation"),
+      current("publishrank-breadcrumbs", "Breadcrumbs"),
+      current("publishrank-feeds", "RSS and JSON feeds"),
+      current("publishrank-indexnow", "IndexNow"),
+      current("publishrank-baidu", "Baidu"),
+      current("publishrank-llms-txt", "llms.txt"),
     ],
   },
   {
     id: "content-commerce",
-    title: "Content, local & commerce",
-    description: "On-page scoring, local business profiles, WooCommerce SEO and social publishing.",
+    title: "Content, commerce & social",
+    description:
+      "On-page checks, author expertise, image tools, WooCommerce and publishing channels.",
     screenshots: [
-      current("10-publishrank-seo-score", "SEO score"),
-      current("21-publishrank-local-seo", "Local SEO"),
-      current("09-publishrank-woocommerce", "WooCommerce SEO"),
-      current("30-publishrank-mastodon", "Mastodon"),
+      current("publishrank-seo-score", "SEO score"),
+      current("publishrank-author-expertise", "Author expertise"),
+      current("publishrank-seo-internal-links", "Internal links"),
+      current("publishrank-link-intelligence", "Link intelligence"),
+      current("publishrank-woocommerce", "WooCommerce SEO"),
+      current("publishrank-image-optimizer", "Image optimizer"),
+      current("publishrank-crawl-optimization", "Crawl optimization"),
+      current("publishrank-ai-visibility", "AI visibility"),
+      current("publishrank-mastodon", "Mastodon"),
     ],
   },
   {
     id: "measure-maintain",
-    title: "Measure & maintain",
-    description:
-      "Analytics, insights, redirects, 404s, traffic protection, diagnostics and change history.",
+    title: "Measure, protect & maintain",
+    description: "Analytics, diagnostics, traffic controls, redirects and configuration history.",
     screenshots: [
-      current("08-publishrank-analytics", "Analytics"),
-      current("23-publishrank-insights", "Insights"),
-      current("16-publishrank-redirects", "Redirects"),
-      current("17-publishrank-404-monitor", "404 monitor"),
-      current("18-publishrank-traffic-guard", "Traffic Guard"),
-      current("24-publishrank-diagnostics", "Diagnostics"),
-      current("31-publishrank-config-history", "Configuration history"),
+      current("publishrank-analytics", "Analytics"),
+      current("publishrank-insights", "Insights"),
+      current("publishrank-seo-404", "404 monitor"),
+      current("publishrank-seo-config-history", "Configuration history"),
+      current("publishrank-seo-portability", "SEO portability"),
+      current("publishrank-seo-redirects", "Redirects"),
+      current("publishrank-seo-robots", "Robots.txt"),
+      current("publishrank-theme-seo", "Theme SEO"),
+      current("publishrank-traffic-guard", "Traffic Guard"),
     ],
   },
   {
     id: "newsroom",
     title: "Newsroom",
-    description: "The editorial workspace and daily planning board.",
+    description: "The editorial workspace, planning board, calendar, activity and team settings.",
     screenshots: [
-      current("19-publishrank-newsroom", "Newsroom workspace"),
-      current("20-publishrank-newsroom-board", "Newsroom planning board"),
+      current("uj-newsroom", "Newsroom workspace"),
+      current("uj-newsroom-board", "Newsroom planning board"),
+      current("uj-newsroom-calendar", "Newsroom calendar"),
+      current("uj-newsroom-activity", "Newsroom activity"),
+      current("uj-newsroom-notifications", "Newsroom notifications"),
+      current("uj-newsroom-roles", "Newsroom roles"),
+      current("uj-newsroom-settings", "Newsroom settings"),
     ],
   },
   {
-    id: "help-support",
-    title: "Help & support",
-    description: "The in-dashboard help and documentation area.",
-    screenshots: [current("32-publishrank-documentation", "Help and documentation")],
+    id: "help-updates",
+    title: "Help & updates",
+    description: "Release announcements and the overall PublishRank interface.",
+    screenshots: [
+      current("publishrank-whats-new", "What’s new"),
+      current("publishrank", "PublishRank overview"),
+    ],
   },
 ];
 
 export const allProductScreenshots = productScreenshotGroups.flatMap((group) => group.screenshots);
 
 const featuredFilenames = [
-  "01-publishrank-dashboard.webp",
-  "03-publishrank-theme-masking.webp",
-  "04-publishrank-access-shield.webp",
-  "06-publishrank-roles.webp",
-  "05-publishrank-publishing-desk.webp",
+  "publishrank-seo-dashboard.jpg",
+  "publishrank-schema-studio.jpg",
+  "publishrank-local-seo.jpg",
+  "publishrank-traffic-guard.jpg",
+  "publishrank-analytics.jpg",
 ];
 
 export const featuredProductScreenshots = featuredFilenames.map((filename) => {

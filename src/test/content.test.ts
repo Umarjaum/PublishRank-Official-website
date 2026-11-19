@@ -29,9 +29,9 @@ describe("content", () => {
     expect(localSeo?.items.some((item) => item.includes("Retail & shopping (30)"))).toBe(true);
   });
 
-  it("points downloads at the versioned 2.25.1 release package", () => {
-    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.25.1.zip");
-    expect(CURRENT_RELEASE).toBe("2.25.1");
+  it("points downloads at the versioned 2.26.0 release package", () => {
+    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.26.0.zip");
+    expect(CURRENT_RELEASE).toBe("2.26.0");
   });
 
   it("positions the current product for every WordPress site and business", () => {
@@ -51,9 +51,9 @@ describe("content", () => {
     const login = featureCatalog.find((category) => category.id === "login");
     expect(login?.badge).toBeUndefined();
     expect(login?.summary.toLowerCase()).not.toContain("new in");
-    const current = featureCatalog.find((category) => category.id === "release-2.25.1");
-    expect(current?.badge).toBe("CURRENT · 2.25.1");
-    expect(current?.items.join(" ")).toContain("249-entry ISO 3166-1 database");
+    const current = featureCatalog.find((category) => category.id === "release-2.26.0");
+    expect(current?.badge).toBe("CURRENT · 2.26.0");
+    expect(current?.items.join(" ")).toContain("246 catalogued Schema.org types");
     const release = featureCatalog.find((category) => category.id === "release-2.21.0");
     expect(release?.badge).toBe("2.21.0");
     expect(release?.items).toHaveLength(14);
@@ -230,26 +230,24 @@ describe("content", () => {
     expect([...screenshots, ...brandCards].every((image) => image.alt.trim().length > 0)).toBe(
       true,
     );
-    expect(screenshots.some((image) => image.src.endsWith("/01-publishrank-dashboard.webp"))).toBe(
+    expect(screenshots.some((image) => image.src.endsWith("/publishrank-seo-dashboard.jpg"))).toBe(
       true,
     );
     expect(productScreenshotGroups).toHaveLength(7);
-    expect(allProductScreenshots).toHaveLength(37);
-    expect(new Set(allProductScreenshots.map((image) => image.src)).size).toBe(37);
-    // Every screenshot file exists, and only the setup wizard still uses the older capture set.
+    expect(allProductScreenshots).toHaveLength(50);
+    expect(new Set(allProductScreenshots.map((image) => image.src)).size).toBe(50);
+    // All supplied desktop screenshots are current 2.26.0 captures.
     expect(
       allProductScreenshots.every((image) => existsSync(join(process.cwd(), "public", image.src))),
     ).toBe(true);
     expect(
-      allProductScreenshots.every((image) =>
-        image.src.includes("/setup-wizard-desktop/")
-          ? image.version === "2.12.1"
-          : image.src.startsWith("/media/screens/publishrank-2.25.0/") &&
-            image.version === "2.25.0",
+      allProductScreenshots.every(
+        (image) =>
+          image.src.startsWith("/media/screens/publishrank-2.26.0/") && image.version === "2.26.0",
       ),
     ).toBe(true);
     expect(
-      allProductScreenshots.every((image) => image.width === 1440 && image.height === 1000),
+      allProductScreenshots.every((image) => image.width === 1280 && image.height === 900),
     ).toBe(true);
     expect(brandCards.some((image) => image.src === "/brand/publishrank_logo_landscape.jpg")).toBe(
       true,

@@ -103,39 +103,39 @@ const workflowSteps = [
 
 const releaseHighlights = [
   {
-    Icon: ShieldCheck,
-    title: "Traffic Guard, tuned to your site",
-    text: "Start in Monitor mode, build testable IP, country and request rules, then choose when to enforce. Search crawlers verified by DNS are exempt.",
+    Icon: Code2,
+    title: "Schema Studio for 246 types",
+    text: "Build reusable Schema.org templates with conditions, dynamic fields, revision restore and a live JSON-LD preview. Templates stay off until you enable them.",
     wide: true,
   },
   {
-    Icon: Globe,
-    title: "249-country controls",
-    text: "Use the searchable ISO country picker in Traffic Guard and Access Shield. Location data comes from trusted server-side sources, not the browser.",
-    wide: false,
-  },
-  {
-    Icon: ListChecks,
-    title: "FAQ block and collections",
-    text: "Build accessible accordions or lists, reuse categorized collections and control the FAQ structured data emitted for visible questions.",
+    Icon: Building2,
+    title: "Local SEO for up to 50 locations",
+    text: "Give each branch its own business details, page and LocalBusiness entity connected to the parent organization.",
     wide: false,
   },
   {
     Icon: Search,
-    title: "SEO Inspector and schema checks",
-    text: "Preview search and social cards, inspect page signals and validate JSON-LD. Redirect checks stay on your own site.",
+    title: "Schema diagnostics",
+    text: "Check types, properties, values, URLs, nesting and entity references—and distinguish Schema.org validity from Google rich-result requirements.",
     wide: false,
   },
   {
-    Icon: Newspaper,
-    title: "Source Directory for editorial teams",
-    text: "Keep your own source list and labels, then see matches and caution flags while editing. Labels are yours; sources are not certified by the plugin.",
+    Icon: BarChart3,
+    title: "Publishing activity that reflects real data",
+    text: "The dashboard trend line now shows articles published over the previous 14 days instead of a decorative chart.",
+    wide: false,
+  },
+  {
+    Icon: Globe,
+    title: "More accurate multilingual content signals",
+    text: "Unicode-aware word counts and detected article language improve structured-data and Markdown/AI output for Arabic, Urdu and other non-Latin content.",
     wide: false,
   },
   {
     Icon: Lock,
-    title: "Safer, customizable sign-in",
-    text: "Style the Access Shield sign-in screen with a live preview. A security fix also stops the private sign-in address appearing in public preload rules.",
+    title: "Safer first-run sign-in setup",
+    text: "The setup wizard now saves a new private login address and explains its 10-minute confirmation window, reducing the risk of a confusing first install.",
     wide: true,
   },
 ] as const;
@@ -171,7 +171,7 @@ const verificationRows = [
 function Index() {
   const audiences = [
     [
-      "/media/screens/publishrank-2.25.0/21-publishrank-local-seo.webp",
+      "/media/screens/publishrank-2.26.0/publishrank-local-seo.jpg",
       Building2,
       "Businesses & Local Organizations",
       "Build a detailed local business profile with service areas, hours, industry-specific fields and schema options across 14 niches.",
@@ -377,43 +377,45 @@ function Index() {
                 All features tested on real websites.
               </h2>
               <p className="mt-3 text-sm leading-6 opacity-80">
-                The PublishRank Community has tested all features on real websites, with no errors
-                reported. The delivery report separately records 409 passing checks on WordPress
-                7.1.4, PHP 8.3.36 and SQLite. The large-archive figures below are from the earlier
-                2.25.0 performance run.
+                The 2.26.0 report set covers 40 representative URLs, all 134 Local SEO business
+                types, the 246-type Schema Studio catalog and 50 admin screens on local WordPress
+                7.1.5 / PHP 8.4 / SQLite test sites. The reports identify untested environments and
+                paths; screenshot traffic figures are simulated.
               </p>
             </div>
             <dl className="grid gap-x-8 gap-y-8 sm:grid-cols-2" data-gsap-stagger>
               <div className="proof-stat">
                 <dt className="sr-only">Sitemap URLs verified</dt>
                 <dd>
-                  <span className="proof-value" data-count-to="200015">
-                    200,015
+                  <span className="proof-value" data-count-to="40">
+                    40
                   </span>
-                  <p className="proof-label">sitemap URLs, each listed exactly once</p>
+                  <p className="proof-label">representative URLs in the content-type matrix</p>
                 </dd>
               </div>
               <div className="proof-stat">
                 <dt className="sr-only">Sitemap files rebuilt per edit</dt>
                 <dd>
-                  <span className="proof-value">1 of 5</span>
-                  <p className="proof-label">sitemap files rebuilt when a post changes</p>
+                  <span className="proof-value">134 / 134</span>
+                  <p className="proof-label">
+                    Local SEO business types passed in the registry report
+                  </p>
                 </dd>
               </div>
               <div className="proof-stat">
                 <dt className="sr-only">Plugin database queries per page</dt>
                 <dd>
-                  <span className="proof-value">96→6</span>
-                  <p className="proof-label">PublishRank queries per page, at most, after 2.25</p>
+                  <span className="proof-value">246</span>
+                  <p className="proof-label">Schema.org types catalogued in Schema Studio</p>
                 </dd>
               </div>
               <div className="proof-stat">
                 <dt className="sr-only">Themes tested with masking</dt>
                 <dd>
-                  <span className="proof-value" data-count-to="9">
-                    9
+                  <span className="proof-value" data-count-to="50">
+                    50
                   </span>
-                  <p className="proof-label">free themes tested with Maximum masking</p>
+                  <p className="proof-label">admin screens in the 2.26.0 interface test set</p>
                 </dd>
               </div>
             </dl>

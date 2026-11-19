@@ -21,13 +21,13 @@ export const announcements: {
   path: string;
 }[] = [
   {
-    id: "release-2-25-1",
-    title: "PublishRank SEO 2.25.1 is available",
+    id: "release-2-26-0",
+    title: "PublishRank SEO 2.26.0 is available",
     summary:
-      "Rebuilt Traffic Guard, 249-country controls, FAQ collections, Source Directory, SEO Inspector and custom schema, plus security fixes. Production-ready and free to use; all features have been tested on real websites by PublishRank Community with no errors reported.",
+      "Schema Studio for 246 Schema.org types, diagnostics, Local SEO for up to 50 locations and improved multilingual content handling. The supplied reports document the WordPress 7.1.5 / PHP 8.4 / SQLite test environment.",
     level: "important",
-    published_at: "2026-11-16T00:00:00Z",
-    path: `/changelog#${releaseAnchor("2.25.1")}`,
+    published_at: "2026-11-19T00:00:00Z",
+    path: `/changelog#${releaseAnchor("2.26.0")}`,
   },
 ];
 

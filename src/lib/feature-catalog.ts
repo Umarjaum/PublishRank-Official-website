@@ -1,4 +1,4 @@
-// PublishRank feature catalog: carried-forward entries plus source-backed 2.21.0–2.25.1 additions.
+// PublishRank feature catalog: carried-forward entries plus source-backed 2.21.0–2.26.0 additions.
 // Each category's items are stored one per line to keep the source easy to edit.
 import { releaseChangeTexts } from "@/lib/releases";
 
@@ -758,11 +758,19 @@ Integration testing considerations`),
   },
 
   {
+    id: "release-2.26.0",
+    title: "2.26.0 Release — Schema Studio and deeper local SEO",
+    summary:
+      "Source-backed 2.26.0 feature list, with test environments and documented limits kept explicit.",
+    badge: "CURRENT · 2.26.0",
+    items: releaseChangeTexts("2.26.0"),
+  },
+  {
     id: "release-2.25.1",
     title: "2.25.1 Release — Traffic Guard, editorial tools and security fixes",
     summary:
       "Source-backed 2.25.1 feature list, with boundaries and test status documented in the delivered release reports.",
-    badge: "CURRENT · 2.25.1",
+    badge: "2.25.1",
     items: releaseChangeTexts("2.25.1"),
   },
   {
@@ -770,7 +778,7 @@ Integration testing considerations`),
     title: "2.25.0 Release — Enterprise hardening",
     summary:
       "Theme masking, Access Shield, newsroom, SEO and scale changes in 2.25.0, built from the release list shared with the plugin.",
-    badge: "CURRENT · 2.25.0",
+    badge: "2.25.0",
     items: releaseChangeTexts("2.25.0"),
   },
   {
