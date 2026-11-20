@@ -4,7 +4,7 @@
 ## Key pages
 - [Home](https://publishrankseo.vercel.app/): PublishRank SEO for WordPress, for websites of every kind
 - [Features](https://publishrankseo.vercel.app/features): Product features and Local SEO business options
-- [Product video](https://publishrankseo.vercel.app/video): 15-second text-led introduction and current product context
+- [What's new in 2.26.0](https://publishrankseo.vercel.app/video): 90-second release video, with the short product introduction below it
 - [Enterprise](https://publishrankseo.vercel.app/enterprise): Enterprise operating model and rollout guidance
 - [Documentation](https://publishrankseo.vercel.app/documentation): Setup, configuration and error reference
 - [Newsroom](https://publishrankseo.vercel.app/news): WordPress SEO and publishing guides

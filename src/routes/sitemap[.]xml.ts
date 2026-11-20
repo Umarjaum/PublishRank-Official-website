@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE_URL } from "@/lib/site";
 import { newsArticles, newsBySlug } from "@/lib/news-content";
-import { PRODUCT_VIDEO } from "@/lib/promo-video";
+import { PRODUCT_VIDEO, RELEASE_VIDEO_226 } from "@/lib/promo-video";
 
 // Every public page of the site, in editorial priority order.
 export const publicPaths = [
@@ -33,8 +33,7 @@ export const publicPaths = [
 const escapeXml = (value: string) =>
   value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 
-function productVideoXml(): string {
-  const video = PRODUCT_VIDEO;
+function videoXml(video: typeof PRODUCT_VIDEO | typeof RELEASE_VIDEO_226): string {
   return [
     "    <video:video>",
     `      <video:thumbnail_loc>${escapeXml(`${SITE_URL}${video.thumbnailPath}`)}</video:thumbnail_loc>`,
@@ -54,12 +53,15 @@ export function createSitemapXml(): string {
       const location = `${SITE_URL}${path === "/" ? "/" : path}`;
       const lastmod =
         path === PRODUCT_VIDEO.path
-          ? "<lastmod>2026-11-18</lastmod>"
+          ? "<lastmod>2026-11-20</lastmod>"
           : article?.updated
             ? `<lastmod>${article.updated}</lastmod>`
             : "";
-      const video = path === PRODUCT_VIDEO.path ? `\n${productVideoXml()}\n  ` : "";
-      return `  <url><loc>${escapeXml(location)}</loc>${lastmod}${video}</url>`;
+      const videos =
+        path === PRODUCT_VIDEO.path
+          ? `\n${videoXml(RELEASE_VIDEO_226)}\n${videoXml(PRODUCT_VIDEO)}\n  `
+          : "";
+      return `  <url><loc>${escapeXml(location)}</loc>${lastmod}${videos}</url>`;
     })
     .join("\n");
 

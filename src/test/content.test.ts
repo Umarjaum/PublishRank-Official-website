@@ -219,7 +219,18 @@ describe("content", () => {
       entry.includes("<loc>https://publishrankseo.vercel.app/video</loc>"),
     );
     expect(video).toBeDefined();
-    expect(video).toContain("<lastmod>2026-11-18</lastmod>");
+    expect(video).toContain("<lastmod>2026-11-20</lastmod>");
+    expect(video).toContain("<video:title>What's new in PublishRank SEO 2.26.0</video:title>");
+    expect(video).toContain(
+      "<video:thumbnail_loc>https://publishrankseo.vercel.app/media/publishrank-2.26.0-whats-new-poster.jpg</video:thumbnail_loc>",
+    );
+    expect(video).toContain(
+      "<video:content_loc>https://publishrankseo.vercel.app/media/publishrank-2.26.0-whats-new.mp4</video:content_loc>",
+    );
+    expect(video).toContain("<video:duration>90</video:duration>");
+    expect(video).toContain(
+      "<video:publication_date>2026-11-20T04:16:00+00:00</video:publication_date>",
+    );
     expect(video).toContain(
       "<video:title>PublishRank SEO for WordPress — product introduction</video:title>",
     );
