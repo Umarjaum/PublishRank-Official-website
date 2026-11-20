@@ -48,6 +48,7 @@ const navigationGroups = [
         "Official WordPress.org release",
         "See the official listing, features and installation options.",
       ],
+      ["/install", "Install guide", "Follow the WordPress installation screenshots step by step."],
       ["/changelog", "What's new", "Release notes for every version, newest first."],
       ["/download", "Download PublishRank", "Get the latest free, open-source release."],
     ],
@@ -93,6 +94,7 @@ const footerGroups = [
     title: "Learn",
     links: [
       ["/documentation", "Documentation"],
+      ["/install", "Installation guide"],
       ["/resources", "Publisher resources"],
       ["/news", "Newsroom articles"],
       ["/support", "Support"],

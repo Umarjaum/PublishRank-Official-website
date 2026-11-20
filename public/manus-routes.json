@@ -13,6 +13,10 @@
       "title": "Download"
     },
     {
+      "path": "/install",
+      "title": "PublishRank installation guide"
+    },
+    {
       "path": "/documentation",
       "title": "Documentation"
     },

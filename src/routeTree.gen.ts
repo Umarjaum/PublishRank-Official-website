@@ -21,6 +21,7 @@ import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as EnterpriseRouteImport } from './routes/enterprise'
 import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as InstallRouteImport } from './routes/install'
 import { Route as NewsRouteImport } from './routes/news'
 import { Route as NewsSitemapDotxmlRouteImport } from './routes/news-sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -97,6 +98,11 @@ const EnterpriseRoute = EnterpriseRouteImport.update({
 const FeaturesRoute = FeaturesRouteImport.update({
   id: '/features',
   path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstallRoute = InstallRouteImport.update({
+  id: '/install',
+  path: '/install',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsRoute = NewsRouteImport.update({
@@ -198,6 +204,7 @@ export interface FileRoutesByFullPath {
   '/download': typeof DownloadRoute
   '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
+  '/install': typeof InstallRoute
   '/news': typeof NewsRouteWithChildren
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
@@ -229,6 +236,7 @@ export interface FileRoutesByTo {
   '/download': typeof DownloadRoute
   '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
+  '/install': typeof InstallRoute
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
   '/publishrank-feed.json': typeof PublishrankFeedDotjsonRoute
@@ -260,6 +268,7 @@ export interface FileRoutesById {
   '/download': typeof DownloadRoute
   '/enterprise': typeof EnterpriseRoute
   '/features': typeof FeaturesRoute
+  '/install': typeof InstallRoute
   '/news': typeof NewsRouteWithChildren
   '/news-sitemap.xml': typeof NewsSitemapDotxmlRoute
   '/privacy': typeof PrivacyRoute
@@ -293,6 +302,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/enterprise'
     | '/features'
+    | '/install'
     | '/news'
     | '/news-sitemap.xml'
     | '/privacy'
@@ -324,6 +334,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/enterprise'
     | '/features'
+    | '/install'
     | '/news-sitemap.xml'
     | '/privacy'
     | '/publishrank-feed.json'
@@ -354,6 +365,7 @@ export interface FileRouteTypes {
     | '/download'
     | '/enterprise'
     | '/features'
+    | '/install'
     | '/news'
     | '/news-sitemap.xml'
     | '/privacy'
@@ -386,6 +398,7 @@ export interface RootRouteChildren {
   DownloadRoute: typeof DownloadRoute
   EnterpriseRoute: typeof EnterpriseRoute
   FeaturesRoute: typeof FeaturesRoute
+  InstallRoute: typeof InstallRoute
   NewsRoute: typeof NewsRouteWithChildren
   NewsSitemapDotxmlRoute: typeof NewsSitemapDotxmlRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -487,6 +500,13 @@ declare module '@tanstack/react-router' {
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/install': {
+      id: '/install'
+      path: '/install'
+      fullPath: '/install'
+      preLoaderRoute: typeof InstallRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/news': {
@@ -636,6 +656,7 @@ const rootRouteChildren: RootRouteChildren = {
   DownloadRoute: DownloadRoute,
   EnterpriseRoute: EnterpriseRoute,
   FeaturesRoute: FeaturesRoute,
+  InstallRoute: InstallRoute,
   NewsRoute: NewsRouteWithChildren,
   NewsSitemapDotxmlRoute: NewsSitemapDotxmlRoute,
   PrivacyRoute: PrivacyRoute,

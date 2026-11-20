@@ -5,6 +5,7 @@ import {
   SITE_DESCRIPTION,
   SITE_URL,
   UMARJAUM_URL,
+  DOWNLOAD_FILE,
 } from "@/lib/site";
 import { featuredProductScreenshots } from "@/lib/product-screenshots";
 
@@ -91,7 +92,7 @@ export const faqs = [
   },
   {
     q: "How do I install it?",
-    a: "Download PublishRank.zip, then in WordPress go to Plugins → Add New → Upload Plugin, choose the ZIP, install and activate. Run the Setup Wizard to confirm your site identity and business profile where relevant. Test on a staging copy first.",
+    a: `Download ${DOWNLOAD_FILE}, then in WordPress go to Plugins → Add New → Upload Plugin, choose the ZIP, install and activate. Follow the illustrated guide at ${SITE_URL}/install, then run the Setup Wizard. Test on a staging copy first.`,
   },
   {
     q: "Can I use it alongside Yoast SEO or Rank Math?",
@@ -107,7 +108,7 @@ export const faqs = [
   },
   {
     q: "What does the download contain?",
-    a: "The WordPress plugin package, PublishRank.zip, from the latest GitHub release. If a download does not start, open the releases page and choose the asset manually.",
+    a: `The WordPress plugin package for the current release, ${DOWNLOAD_FILE}. If a download does not start, open the GitHub releases page and choose the current asset manually.`,
   },
   {
     q: "Does the plugin send my site data anywhere?",

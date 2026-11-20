@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { contactSchema } from "@/lib/contact-schema";
 import { featureCatalog, featureCount } from "@/lib/feature-catalog";
 import { editorialArticleSchema, newsArticles } from "@/lib/news-content";
+import { installationSteps } from "@/lib/installation-guide";
 import { pageSeo } from "@/lib/page-seo";
 import { publisherPages } from "@/lib/publisher-content";
 import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
@@ -32,6 +33,19 @@ describe("content", () => {
   it("points downloads at the versioned 2.26.0 release package", () => {
     expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.26.0.zip");
     expect(CURRENT_RELEASE).toBe("2.26.0");
+  });
+
+  it("includes a supplied screenshot for every installation guide step", () => {
+    expect(installationSteps).toHaveLength(14);
+    expect(installationSteps[0]?.number).toBe(2);
+    expect(installationSteps.at(-1)?.number).toBe(15);
+    for (const step of installationSteps) {
+      expect(
+        existsSync(
+          join(process.cwd(), "public", "media", "installation", CURRENT_RELEASE, step.image),
+        ),
+      ).toBe(true);
+    }
   });
 
   it("positions the current product for every WordPress site and business", () => {

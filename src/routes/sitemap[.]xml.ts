@@ -8,6 +8,7 @@ export const publicPaths = [
   "/",
   "/features",
   "/download",
+  "/install",
   PRODUCT_VIDEO.path,
   "/wordpress-org-release",
   "/changelog",

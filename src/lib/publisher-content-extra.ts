@@ -1,4 +1,5 @@
 import type { ContentSection, PublisherPage } from "./publisher-content";
+import { CURRENT_RELEASE, DOWNLOAD_FILE, SITE_URL } from "./site";
 
 const UPDATED = "1 November 2026";
 
@@ -6,7 +7,7 @@ export const extraDocumentation: ContentSection[] = [
   {
     title: "06 / Download and install the plugin",
     paragraphs: [
-      "Download PublishRank.zip from the latest GitHub release using any Download button on this site. In WordPress, open Plugins → Add New → Upload Plugin, choose the ZIP, select Install Now and then Activate. Do not unzip the file first.",
+      `Download ${DOWNLOAD_FILE} for PublishRank ${CURRENT_RELEASE} from this site. In WordPress, open Plugins → Add New → Upload Plugin, choose the ZIP, select Install Now and then Activate. Do not unzip the file first. Follow the illustrated walkthrough at ${SITE_URL}/install.`,
       "After activation, open PublishRank → Dashboard and run the Setup Wizard. Confirm your publication name, description, title separator and logo before enabling optional tools. Install on a staging copy before touching a live publication.",
     ],
     bullets: [
@@ -115,7 +116,7 @@ export const extraDocumentation: ContentSection[] = [
       "Sitemap returns 404 — enable pretty permalinks, open Settings → Permalinks, press Save to refresh rewrite rules, and clear caches.",
       "Duplicate titles, canonicals or schema — another SEO plugin or the theme is printing the same tags; choose one owner for each output.",
       "Preferred Sources button is missing — confirm automatic placement or the shortcode is on, that an ad blocker is not stopping Google’s script, and that the page type is selected.",
-      "Download does not start — open the GitHub releases page and choose PublishRank.zip from the latest release manually.",
+      `Download does not start — open the GitHub releases page and choose the current ${DOWNLOAD_FILE} asset manually.`,
     ],
   },
   {
@@ -249,14 +250,14 @@ export const overrides: Pick<
       {
         title: "Installation or activation failed",
         paragraphs: [
-          "Upload PublishRank.zip without unzipping it. If WordPress reports a fatal error, check your PHP version, deactivate other SEO plugins and review the debug log. If the upload exceeds your host’s limit, install over SFTP.",
+          `Upload ${DOWNLOAD_FILE} without unzipping it. If WordPress reports a fatal error, check your PHP version, deactivate other SEO plugins and review the debug log. If the upload exceeds your host’s limit, install over SFTP.`,
           "The documentation’s error reference lists the most common messages and fixes.",
         ],
       },
       {
         title: "The download does not start",
         paragraphs: [
-          "The Download button points to PublishRank.zip on the latest GitHub release. If your browser, network or a content blocker interrupts it, open the GitHub releases page and choose the file manually.",
+          `The Download button serves the current ${DOWNLOAD_FILE} package. If your browser, network or a content blocker interrupts it, open the GitHub releases page and choose the current asset manually.`,
           "Make sure the file you installed came from the project’s GitHub release.",
         ],
       },
@@ -412,7 +413,7 @@ export const overrides: Pick<
       {
         title: "Plugin download and licensing",
         paragraphs: [
-          "The Download button links to PublishRank.zip on the project’s GitHub release. The plugin is distributed as open source; the license that accompanies the release governs your use of the plugin. These terms do not replace or change that license.",
+          "The Download button links to the current plugin ZIP. The plugin is distributed as open source; the license that accompanies the release governs your use of the plugin. These terms do not replace or change that license.",
           "Back up your site and test on staging before installing any release.",
         ],
       },

@@ -10,6 +10,7 @@
 - [Newsroom](https://publishrankseo.vercel.app/news): WordPress SEO and publishing guides
 - [Comparisons](https://publishrankseo.vercel.app/comparisons): WordPress SEO plugin workflows
 - [Download](https://publishrankseo.vercel.app/download): Latest release and install guide
+- [Installation guide](https://publishrankseo.vercel.app/install): Screenshot-guided WordPress installation and first setup
 - [Official WordPress.org release](https://publishrankseo.vercel.app/wordpress-org-release): Directory listing, current features and installation options
 - [Changelog](https://publishrankseo.vercel.app/changelog): Version history and release reports
 - [Contact](https://publishrankseo.vercel.app/contact): Questions, bug reports and partnerships

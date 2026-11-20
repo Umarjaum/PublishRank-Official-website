@@ -16,6 +16,7 @@ const routeLabels: Record<string, string> = {
   download: "Download",
   enterprise: "Enterprise publishing",
   features: "Features",
+  install: "Installation guide",
   news: "Newsroom",
   privacy: "Privacy",
   resources: "Resources",

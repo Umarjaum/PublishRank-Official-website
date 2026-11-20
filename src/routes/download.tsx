@@ -30,8 +30,7 @@ export const Route = createFileRoute("/download")({
       `Download PublishRank ${CURRENT_RELEASE}: WordPress SEO for every site, with Local SEO for 134 selectable business options across 14 niches.`,
       {
         extraSchema: [softwareSchema],
-        keywords:
-          "download PublishRank, WordPress.org plugin, WordPress SEO plugin download, news SEO plugin, PublishRank.zip",
+        keywords: `download PublishRank, WordPress.org plugin, WordPress SEO plugin download, news SEO plugin, ${DOWNLOAD_FILE}`,
       },
     ),
   component: DownloadPage,
@@ -44,11 +43,11 @@ const steps = [
   ],
   [
     "Download the ZIP",
-    "Select Download PublishRank. The file PublishRank.zip comes from the latest GitHub release. Do not unzip it.",
+    `Select Download PublishRank. This site serves ${DOWNLOAD_FILE}. Do not unzip it.`,
   ],
   [
     "Upload in WordPress",
-    "Go to Plugins → Add New → Upload Plugin, choose PublishRank.zip and select Install Now.",
+    `Go to Plugins → Add New → Upload Plugin, choose ${DOWNLOAD_FILE} and select Install Now.`,
   ],
   [
     "Activate and run the Setup Wizard",
@@ -85,10 +84,9 @@ function DownloadPage() {
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Free, open-source WordPress SEO for businesses and websites of every kind. Version{" "}
-              {CURRENT_RELEASE} adds a movable SEO editor, consistent scoring, refined 404
-              monitoring, RSS and Site Navigation SEO, WooCommerce controls, redirect improvements,
-              and English, Arabic and Urdu analysis. Local SEO includes 134 business options across
-              14 niches.
+              {CURRENT_RELEASE} adds reusable Schema Studio templates, deeper schema diagnostics,
+              Local SEO for up to 50 locations, and a refreshed first-run setup wizard. The release
+              also improves previews, accessibility and language handling.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink
@@ -151,6 +149,13 @@ function DownloadPage() {
       <div className="site-width grid gap-10 py-12 lg:grid-cols-[1.4fr_1fr]">
         <div>
           <h2 className="text-2xl font-extrabold">Install in six steps</h2>
+          <p className="mt-2 text-sm leading-7 text-muted-foreground">
+            Want to see each screen?{" "}
+            <Link to="/install" className="font-bold text-brand underline-offset-4 hover:underline">
+              Follow the illustrated installation guide
+            </Link>
+            .
+          </p>
           <ol className="mt-6 grid gap-4">
             {steps.map(([t, d], i) => (
               <li
@@ -184,12 +189,12 @@ function DownloadPage() {
                 "More than 40 WordPress SEO tools for business, site and publishing workflows",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
                 "Administrator-only Mastodon token reveal and resilient post confirmation",
-                `New in ${CURRENT_RELEASE}: movable SEO editor, consistent scoring, 404 monitoring refinements, RSS and Site Navigation SEO, WooCommerce controls, redirect updates, and English, Arabic and Urdu analysis`,
-                "Editor controls styled in PublishRank colors; a clearer Sitemap Hub with copy/open sitemap address and sitemap file list",
-                "Private Login moved to its own screen with settings migrated, the old link forwarded, and an emergency disable constant",
-                "News and XML sitemaps, structured data and the Schema Aggregator endpoint",
-                "Optional llms.txt discovery; broader AI features rolling out soon",
-                "Private Login custom sign-in URL and blocked-visitor handling on its own PublishRank settings page",
+                `New in ${CURRENT_RELEASE}: Schema Studio templates for 246 catalogued Schema.org types, with reusable assignments and live JSON-LD preview`,
+                "Schema diagnostics for syntax, vocabulary, value types, URLs, dates, nesting and connected references",
+                "Local SEO for up to 50 business locations, each with its own profile and page",
+                "A refreshed first-install setup wizard, improved previews and better Arabic, Urdu and non-Latin text handling",
+                "News and XML sitemaps, connected structured data, metadata and social previews",
+                "SEO Inspector, redirects, 404 monitoring, WooCommerce SEO and optional publishing workflows",
                 "Free core edition, open source",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3">
@@ -238,7 +243,7 @@ function DownloadPage() {
                 >
                   releases page
                 </a>{" "}
-                and pick PublishRank.zip.
+                and choose {DOWNLOAD_FILE}.
               </li>
               <li>Try another browser or disable content blockers for github.com.</li>
               <li>

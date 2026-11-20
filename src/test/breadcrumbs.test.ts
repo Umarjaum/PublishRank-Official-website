@@ -14,6 +14,14 @@ describe("visible breadcrumb links", () => {
     },
   );
 
+  it("uses the friendly label for the installation guide", () => {
+    expect(buildBreadcrumbs("/install").at(-1)).toMatchObject({
+      label: "Installation guide",
+      href: "/install",
+      current: true,
+    });
+  });
+
   it("builds a parent path for a newsroom article", () => {
     expect(buildBreadcrumbs("/news/seo-for-publishers")).toEqual([
       { label: "Home", href: "/", current: false },

@@ -17,6 +17,7 @@ describe("App routing", () => {
     "/support",
     "/about",
     "/enterprise",
+    "/install",
     "/website-creation",
     "/news",
     "/privacy",
@@ -78,6 +79,7 @@ describe("App routing", () => {
       expect.arrayContaining([
         "/",
         "/features",
+        "/install",
         "/documentation",
         "/comparisons",
         "/resources",
