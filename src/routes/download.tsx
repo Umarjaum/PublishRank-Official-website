@@ -87,7 +87,9 @@ function DownloadPage() {
               {CURRENT_RELEASE} brings a tidier dashboard and a movable Gutenberg SEO editor with
               live Google and social previews. It also strengthens Media Link Manager, 404 diagnosis
               and bulk editing, refines Schema Studio and improves video sitemap discovery. The
-              release report describes sandbox testing and its limits.
+              release report documents its sandbox test scope. Separately, the maintainer reports
+              feature checks passing on the latest WordPress and PHP versions tested across multiple
+              business categories and news sites.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink
@@ -225,9 +227,10 @@ function DownloadPage() {
           <div className="rounded-lg border p-6">
             <h2 className="text-xl font-extrabold">Before you install</h2>
             <p className="mt-3 text-sm leading-7 text-muted-foreground">
-              Check the supported WordPress and PHP requirements shown on the release page,
-              deactivate other SEO plugins that print titles, schema or sitemaps, and test rendered
-              output on staging.
+              The reported tests provide useful confidence, while every WordPress site has its own
+              hosting, theme and plugin mix. Check the supported WordPress and PHP requirements,
+              make a backup and use staging where possible. If another SEO plugin prints titles,
+              schema or sitemaps, review for duplicate output.
             </p>
           </div>
           <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-6">

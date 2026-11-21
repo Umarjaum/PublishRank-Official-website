@@ -24,7 +24,7 @@ export const announcements: {
     id: "release-2-26-1",
     title: "PublishRank SEO 2.26.1 is available",
     summary:
-      "A tidier dashboard, a movable Gutenberg SEO editor with live previews, safer media migration, Schema Studio refinements, stronger 404 and bulk-edit workflows, and better video sitemap discovery. The report documents WordPress 7.1.5 / PHP 8.3 / SQLite sandbox testing and its limits.",
+      "A tidier dashboard, a movable Gutenberg SEO editor with live previews, safer media migration, Schema Studio refinements, stronger 404 and bulk-edit workflows, and better video sitemap discovery. The report documents its sandbox scope; the maintainer separately reports feature checks passing on current WordPress/PHP versions across business and news sites.",
     level: "important",
     published_at: "2026-11-21T00:00:00Z",
     path: `/changelog#${releaseAnchor("2.26.1")}`,

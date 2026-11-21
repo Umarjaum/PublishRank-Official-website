@@ -89,7 +89,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
     pageSeo(
       "/wordpress-org-release",
       `PublishRank SEO ${CURRENT_RELEASE} — WordPress SEO Plugin`,
-      `PublishRank SEO ${CURRENT_RELEASE} is a free, open-source WordPress SEO plugin. Its release report documents WordPress 7.1.5, PHP 8.3 and SQLite testing on a sandbox and lists test limits.`,
+      `Free, open-source WordPress SEO for businesses and publishers. The maintainer reports feature checks passing on the latest WordPress and PHP versions tested across business and news sites.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -105,7 +105,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
             alternateName: "PublishRank SEO",
             url: `${SITE_URL}/wordpress-org-release`,
             description:
-              "A free and open-source WordPress SEO plugin. The supplied 2.26.1 report documents sandbox testing on WordPress 7.1.5, PHP 8.3 and SQLite and states what was not tested.",
+              "Free, open-source WordPress SEO for businesses, publishers and websites. The maintainer reports feature checks passing on the latest WordPress and PHP versions tested across multiple business categories and news sites. Compatibility can vary by site setup.",
             applicationCategory: "SEO",
             operatingSystem: "WordPress",
             isAccessibleForFree: true,
@@ -141,14 +141,16 @@ function WordPressOrgRelease() {
               service providers, creators, publishers and sites of every kind. It combines technical
               SEO, Local SEO, WooCommerce SEO and security with optional newsroom workflows. Find
               the official listing and install it directly from your WordPress dashboard. The 2.26.1
-              report records sandbox testing on WordPress 7.1.5, PHP 8.3 and SQLite; it is not
-              production-host testing.
+              report documents its specific sandbox test scope. Separately, the maintainer reports
+              testing the latest available WordPress and PHP versions across multiple business
+              categories and news sites, with feature checks working as expected. Hosting, themes
+              and other plugins can still affect compatibility.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
               New in {CURRENT_RELEASE}: a unified Gutenberg SEO sidebar, Media Link Manager,
               enhanced 404 diagnosis, a more reviewable Bulk SEO Editor, improved video sitemap
-              discovery, and Schema Studio refinements. Compatibility claims follow the report's
-              stated test coverage.
+              discovery, and Schema Studio refinements. See the release report for its findings and
+              limits; no WordPress plugin can guarantee identical behavior on every site setup.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">

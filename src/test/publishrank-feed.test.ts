@@ -19,7 +19,8 @@ describe("PublishRank JSON feed", () => {
     expect(feed.releases[0]?.version).toBe("2.26.1");
     expect(feed.releases[0]?.date).toBe("2026-11-21");
     expect(feed.announcements[0]?.summary).toContain("Schema Studio");
-    expect(feed.announcements[0]?.summary).toContain("WordPress 7.1.5");
+    expect(feed.announcements[0]?.summary).toContain("sandbox scope");
+    expect(feed.announcements[0]?.summary).toContain("business and news sites");
     expect(feed.links.find((link) => link.id === "release-report")?.url).toBe(
       "https://publishrankseo.vercel.app/reports/publishrank-2.26.1-release-report.md",
     );
