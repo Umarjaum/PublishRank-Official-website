@@ -13,13 +13,16 @@ const compare = (a: string, b: string) => {
 };
 
 describe("PublishRank JSON feed", () => {
-  it("publishes 2.26.0 as the latest version", () => {
+  it("publishes 2.26.1 as the latest version", () => {
     const feed = buildFeed();
-    expect(feed.latest_version).toBe("2.26.0");
-    expect(feed.releases[0]?.version).toBe("2.26.0");
-    expect(feed.releases[0]?.date).toBe("2026-11-19");
+    expect(feed.latest_version).toBe("2.26.1");
+    expect(feed.releases[0]?.version).toBe("2.26.1");
+    expect(feed.releases[0]?.date).toBe("2026-11-21");
     expect(feed.announcements[0]?.summary).toContain("Schema Studio");
     expect(feed.announcements[0]?.summary).toContain("WordPress 7.1.5");
+    expect(feed.links.find((link) => link.id === "release-report")?.url).toBe(
+      "https://publishrankseo.vercel.app/reports/publishrank-2.26.1-release-report.md",
+    );
     expect(feed.links.find((link) => link.id === "video")?.url).toBe(
       "https://publishrankseo.vercel.app/video",
     );
@@ -45,9 +48,9 @@ describe("PublishRank JSON feed", () => {
     for (const url of urls) expect(url.startsWith("https://publishrankseo.vercel.app/")).toBe(true);
   });
 
-  it("links the release announcement to the 2.26.0 release notes", () => {
+  it("links the release announcement to the 2.26.1 release notes", () => {
     const feed = buildFeed();
-    expect(feed.announcements[0]?.url).toBe("https://publishrankseo.vercel.app/changelog#v2-26-0");
+    expect(feed.announcements[0]?.url).toBe("https://publishrankseo.vercel.app/changelog#v2-26-1");
   });
 
   it("rejects a link to another website", () => {

@@ -15,39 +15,51 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
-    title: "Schema Studio for 246 Schema.org types",
+    title: "Unified Gutenberg SEO sidebar",
     description:
-      "Create reusable structured-data templates with conditions and dynamic WordPress fields, preview JSON-LD live, and assign templates to content or individual items. Built-in templates stay off until enabled.",
-    badge: "2.26.0",
+      "Keep SEO, Social, Schema, Advanced and Insights tools in one discoverable panel with toolbar and Options-menu entries, saved preferences and no duplicate boxes below Gutenberg.",
+    badge: "2.26.1",
   },
   {
-    title: "Schema diagnostics",
+    title: "Media Link Manager",
     description:
-      "Check types, properties, values, URLs, nesting and entity references. Schema.org validity is reported separately from Google's documented rich-result requirements.",
-    badge: "2.26.0",
+      "Plan and preview media URL changes, check collisions, apply and verify migrations, create redirects for moved local files and roll back. Ambiguous references are reported, not guessed.",
+    badge: "2.26.1",
   },
   {
-    title: "Local SEO for up to 50 locations",
+    title: "Advanced 404 Monitor",
     description:
-      "Give each branch its own page, address, contact details, hours and LocalBusiness entity connected to the parent organization.",
-    badge: "2.26.0",
+      "Distinguish own-site broken links from external referrals, show likely causes and source posts, and suggest redirects only for high-confidence fixes.",
+    badge: "2.26.1",
   },
   {
-    title: "Live previews across the product",
+    title: "Reviewable Bulk SEO Editor",
     description:
-      "See WooCommerce Product and ProductGroup output, real breadcrumb parents, and desktop/mobile sign-in layouts while editing.",
-    badge: "2.26.0",
+      "Filter, review, validate and save SEO edits with conflict protection, change history, undo and safeguarded CSV import/export.",
+    badge: "2.26.1",
   },
   {
-    title: "Multilingual content and accessible screens",
+    title: "Video sitemap discovery",
     description:
-      "Unicode-aware word counts and article-language detection improve structured data and Markdown/AI output for Arabic, Urdu and other non-Latin content; accessibility labels and heading checks were improved.",
-    badge: "2.26.0",
+      "Find YouTube and Vimeo in Embed blocks or pasted links, use known thumbnails and skip entries without a thumbnail rather than inventing one.",
+    badge: "2.26.1",
   },
   {
-    title: "Verified test coverage with clear limits",
+    title: "Schema Studio refinements",
     description:
-      "The supplied report set covers 40 representative URLs, all 134 Local SEO business types, the 246-type schema catalog and 50 admin screens on local WordPress 7.1.5 / PHP 8.4 / SQLite sites. Multisite, MySQL/MariaDB and other PHP versions were not tested.",
+      "Searchable type categories, Basic and Advanced modes, guided property examples and validation that separates Schema.org validity from Google requirements and recommendations.",
+    badge: "2.26.1",
+  },
+  {
+    title: "Responsive and accessibility refinements",
+    description:
+      "Consolidated responsive breakpoints, visible focus, target sizing, reduced-motion and forced-colours handling. Automated touch-target and contrast checks were spot checks, not a full WCAG audit.",
+    badge: "2.26.1",
+  },
+  {
+    title: "Schema Studio and Local SEO",
+    description:
+      "Earlier 2.26.0 features include reusable Schema.org templates and Local SEO for up to 50 locations. The report for that release is separate from 2.26.1 test coverage.",
     badge: "2.26.0",
   },
   {
@@ -77,7 +89,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
     pageSeo(
       "/wordpress-org-release",
       `PublishRank SEO ${CURRENT_RELEASE} — WordPress SEO Plugin`,
-      `PublishRank SEO ${CURRENT_RELEASE} is a production-ready, free WordPress SEO plugin for businesses, stores, creators, publishers and websites of every kind. All features have been tested on real websites by PublishRank Community, with no errors reported.`,
+      `PublishRank SEO ${CURRENT_RELEASE} is a free, open-source WordPress SEO plugin. Its release report documents WordPress 7.1.5, PHP 8.3 and SQLite testing on a sandbox and lists test limits.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -93,7 +105,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
             alternateName: "PublishRank SEO",
             url: `${SITE_URL}/wordpress-org-release`,
             description:
-              "A production-ready, free and open-source WordPress SEO plugin for businesses, stores, creators, publishers and websites of every kind. All features have been tested on real websites by PublishRank Community, with no errors reported.",
+              "A free and open-source WordPress SEO plugin. The supplied 2.26.1 report documents sandbox testing on WordPress 7.1.5, PHP 8.3 and SQLite and states what was not tested.",
             applicationCategory: "SEO",
             operatingSystem: "WordPress",
             isAccessibleForFree: true,
@@ -125,17 +137,18 @@ function WordPressOrgRelease() {
               Install PublishRank from WordPress.org
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-              PublishRank SEO for WordPress is a production-ready, free and open-source plugin for
-              businesses, stores, service providers, creators, publishers and sites of every kind.
-              It combines technical SEO, Local SEO, WooCommerce SEO and security with optional
-              newsroom workflows. Find the official listing and install it directly from your
-              WordPress dashboard. All features have been tested on real websites by the PublishRank
-              Community, with no errors reported.
+              PublishRank SEO for WordPress is a free and open-source plugin for businesses, stores,
+              service providers, creators, publishers and sites of every kind. It combines technical
+              SEO, Local SEO, WooCommerce SEO and security with optional newsroom workflows. Find
+              the official listing and install it directly from your WordPress dashboard. The 2.26.1
+              report records sandbox testing on WordPress 7.1.5, PHP 8.3 and SQLite; it is not
+              production-host testing.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
-              New in {CURRENT_RELEASE}: Schema Studio, structured-data diagnostics, multiple Local
-              SEO locations, improved live previews, multilingual content handling and a clearer
-              setup flow. The release reports describe the test environment and what was not tested.
+              New in {CURRENT_RELEASE}: a unified Gutenberg SEO sidebar, Media Link Manager,
+              enhanced 404 diagnosis, a more reviewable Bulk SEO Editor, improved video sitemap
+              discovery, and Schema Studio refinements. Compatibility claims follow the report's
+              stated test coverage.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-full">
@@ -154,6 +167,12 @@ function WordPressOrgRelease() {
                 </Link>
               </Button>
             </div>
+            <a
+              href="/reports/publishrank-2.26.1-release-report.md"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
+            >
+              Read the full 2.26.1 verification report <ExternalLink aria-hidden="true" />
+            </a>
             <ul aria-label="PublishRank topics" className="mt-7 flex flex-wrap gap-2">
               {WORDPRESS_RELEASE_TAGS.map((tag) => (
                 <li

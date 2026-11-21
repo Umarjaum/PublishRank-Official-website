@@ -28,6 +28,62 @@ export const CHANGE_KIND_LABELS: Record<ChangeKind, string> = {
 
 export const releases: Release[] = [
   {
+    version: "2.26.1",
+    date: "2026-11-21",
+    title: "PublishRank SEO 2.26.1 — editor workflow and safer site maintenance",
+    summary:
+      "The v4 release improves the dashboard and Gutenberg editor, adds movable live previews, and strengthens media migrations, 404 diagnosis, bulk SEO review, Schema Studio and video sitemap discovery. The report records sandbox testing and explicitly lists limits.",
+    minimumWp: "6.3",
+    minimumPhp: "7.4",
+    testedUpTo: "7.1",
+    changes: [
+      {
+        kind: "improvement",
+        text: "The dashboard is more compact and readable: feature switches stay one row tall, site metrics and the score ring are clearer, configuration and sitemap panels sit together on wide screens, and technical-health rows stack on phones.",
+      },
+      {
+        kind: "feature",
+        text: "The Gutenberg editor now has one persistent PublishRank SEO sidebar with SEO, Social, Schema, Advanced and Insights tabs, discoverable controls, saved preferences, and no duplicate boxes below the editor. The editor can also be popped out, moved, minimised, resized and docked; on phones it opens as a bottom sheet.",
+      },
+      {
+        kind: "improvement",
+        text: "Google desktop/mobile and Facebook/LinkedIn/X previews update live from unsaved edits using the page output code. Title and description length bars indicate whether text is short, in range, too long or missing.",
+      },
+      {
+        kind: "feature",
+        text: "Media Link Manager can find media and references, plan and preview URL changes, check collisions and MIME types, apply and verify migrations, add redirects for moved local files, and roll back. Ambiguous or unsupported references are reported, not guessed; attachment GUIDs are not rewritten.",
+      },
+      {
+        kind: "improvement",
+        text: "Media health scans find missing and duplicate files and content that links to absent uploads; optional media-host/CDN rewriting covers attachment URLs, srcset and content images.",
+      },
+      {
+        kind: "improvement",
+        text: "The 404 Monitor records referring host and path without an IP, distinguishes own-site broken links from external referrals, links to the source post, diagnoses likely causes, and offers one-click redirects only for high-confidence fixes. Missing uploads return a true 404.",
+      },
+      {
+        kind: "improvement",
+        text: "Schema Studio adds searchable categories, Basic and Advanced modes, guided property examples, required markers, and validation that separates Schema.org validity from Google requirements and recommendations.",
+      },
+      {
+        kind: "improvement",
+        text: "Bulk SEO Editor adds inline title, description, robots, canonical and focus-keyword editing with filters, review-before-save, conflict protection, change history and undo, and safeguarded CSV import/export. A bulk noindex setting bug is fixed.",
+      },
+      {
+        kind: "improvement",
+        text: "Video sitemap discovery recognizes YouTube and Vimeo in Embed blocks and pasted links, uses YouTube thumbnails, skips videos without thumbnails, and does not guess third-party publication dates.",
+      },
+      {
+        kind: "improvement",
+        text: "Responsive and accessibility refinements consolidate breakpoints and improve visible focus, touch-target sizing, reduced-motion and forced-colours handling. The report describes automated spot checks, not a full WCAG audit.",
+      },
+      {
+        kind: "compatibility",
+        text: "The supplied report records WordPress 7.1.5, PHP 8.3 and SQLite testing on a sandbox, including clean install, schema 7→8 upgrade, editor workflows and responsive checks. This is not production-host testing; PHP 7.4 received only a static syntax scan, and WooCommerce, builders, multilingual plugins, real phones and Safari/Firefox were not tested.",
+      },
+    ],
+  },
+  {
     version: "2.26.0",
     date: "2026-11-19",
     title: "PublishRank SEO 2.26.0 — Schema Studio and deeper local SEO",

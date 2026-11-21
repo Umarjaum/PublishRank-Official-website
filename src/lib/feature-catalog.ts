@@ -1,4 +1,4 @@
-// PublishRank feature catalog: carried-forward entries plus source-backed 2.21.0–2.26.0 additions.
+// PublishRank feature catalog: carried-forward entries plus source-backed 2.21.0–2.26.1 additions.
 // Each category's items are stored one per line to keep the source easy to edit.
 import { releaseChangeTexts } from "@/lib/releases";
 
@@ -758,11 +758,19 @@ Integration testing considerations`),
   },
 
   {
+    id: "release-2.26.1",
+    title: "2.26.1 Release — unified editor, safer migrations and maintenance",
+    summary:
+      "Source-backed 2.26.1 feature list, with sandbox testing scope and documented limitations kept explicit.",
+    badge: "CURRENT · 2.26.1",
+    items: releaseChangeTexts("2.26.1"),
+  },
+  {
     id: "release-2.26.0",
     title: "2.26.0 Release — Schema Studio and deeper local SEO",
     summary:
       "Source-backed 2.26.0 feature list, with test environments and documented limits kept explicit.",
-    badge: "CURRENT · 2.26.0",
+    badge: "2.26.0",
     items: releaseChangeTexts("2.26.0"),
   },
   {

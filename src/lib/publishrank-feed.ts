@@ -21,13 +21,13 @@ export const announcements: {
   path: string;
 }[] = [
   {
-    id: "release-2-26-0",
-    title: "PublishRank SEO 2.26.0 is available",
+    id: "release-2-26-1",
+    title: "PublishRank SEO 2.26.1 is available",
     summary:
-      "Schema Studio for 246 Schema.org types, diagnostics, Local SEO for up to 50 locations and improved multilingual content handling. The supplied reports document the WordPress 7.1.5 / PHP 8.4 / SQLite test environment.",
+      "A tidier dashboard, a movable Gutenberg SEO editor with live previews, safer media migration, Schema Studio refinements, stronger 404 and bulk-edit workflows, and better video sitemap discovery. The report documents WordPress 7.1.5 / PHP 8.3 / SQLite sandbox testing and its limits.",
     level: "important",
-    published_at: "2026-11-19T00:00:00Z",
-    path: `/changelog#${releaseAnchor("2.26.0")}`,
+    published_at: "2026-11-21T00:00:00Z",
+    path: `/changelog#${releaseAnchor("2.26.1")}`,
   },
 ];
 
@@ -163,6 +163,11 @@ export function buildFeed(): PublishRankFeed {
     })),
     links: [
       { id: "documentation", title: "Documentation", url: `${SITE_URL}/documentation` },
+      {
+        id: "release-report",
+        title: "2.26.1 verification report",
+        url: `${SITE_URL}/reports/publishrank-2.26.1-release-report.md`,
+      },
       { id: "video", title: "Product video", url: `${SITE_URL}/video` },
       { id: "changelog", title: "Full release history", url: `${SITE_URL}/changelog` },
       { id: "download", title: "Download", url: `${SITE_URL}/download` },

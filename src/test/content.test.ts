@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { contactSchema } from "@/lib/contact-schema";
 import { featureCatalog, featureCount } from "@/lib/feature-catalog";
 import { editorialArticleSchema, newsArticles } from "@/lib/news-content";
-import { installationSteps } from "@/lib/installation-guide";
+import { INSTALLATION_SCREENSHOT_VERSION, installationSteps } from "@/lib/installation-guide";
 import { pageSeo } from "@/lib/page-seo";
 import { publisherPages } from "@/lib/publisher-content";
 import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
@@ -30,9 +30,9 @@ describe("content", () => {
     expect(localSeo?.items.some((item) => item.includes("Retail & shopping (30)"))).toBe(true);
   });
 
-  it("points downloads at the versioned 2.26.0 release package", () => {
-    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.26.0.zip");
-    expect(CURRENT_RELEASE).toBe("2.26.0");
+  it("points downloads at the versioned 2.26.1 release package", () => {
+    expect(DOWNLOAD_URL).toBe("/downloads/PublishRank-2.26.1.zip");
+    expect(CURRENT_RELEASE).toBe("2.26.1");
   });
 
   it("includes a supplied screenshot for every installation guide step", () => {
@@ -42,7 +42,14 @@ describe("content", () => {
     for (const step of installationSteps) {
       expect(
         existsSync(
-          join(process.cwd(), "public", "media", "installation", CURRENT_RELEASE, step.image),
+          join(
+            process.cwd(),
+            "public",
+            "media",
+            "installation",
+            INSTALLATION_SCREENSHOT_VERSION,
+            step.image,
+          ),
         ),
       ).toBe(true);
     }
@@ -65,9 +72,12 @@ describe("content", () => {
     const login = featureCatalog.find((category) => category.id === "login");
     expect(login?.badge).toBeUndefined();
     expect(login?.summary.toLowerCase()).not.toContain("new in");
-    const current = featureCatalog.find((category) => category.id === "release-2.26.0");
-    expect(current?.badge).toBe("CURRENT · 2.26.0");
-    expect(current?.items.join(" ")).toContain("246 catalogued Schema.org types");
+    const current = featureCatalog.find((category) => category.id === "release-2.26.1");
+    expect(current?.badge).toBe("CURRENT · 2.26.1");
+    expect(current?.items.join(" ")).toContain("persistent PublishRank SEO sidebar");
+    const previous = featureCatalog.find((category) => category.id === "release-2.26.0");
+    expect(previous?.badge).toBe("2.26.0");
+    expect(previous?.items.join(" ")).toContain("246 catalogued Schema.org types");
     const release = featureCatalog.find((category) => category.id === "release-2.21.0");
     expect(release?.badge).toBe("2.21.0");
     expect(release?.items).toHaveLength(14);

@@ -1,3 +1,5 @@
+import { DOWNLOAD_FILE } from "@/lib/site";
+
 export type InstallationStep = {
   number: number;
   id: string;
@@ -7,7 +9,8 @@ export type InstallationStep = {
   alt: string;
 };
 
-/** Real WordPress admin screenshots from the supplied PublishRank 2.26.0 documentation. */
+/** Historical WordPress admin screenshots from the supplied PublishRank 2.26.0 documentation. */
+export const INSTALLATION_SCREENSHOT_VERSION = "2.26.0";
 export const installationSteps: InstallationStep[] = [
   {
     number: 2,
@@ -49,10 +52,9 @@ export const installationSteps: InstallationStep[] = [
     number: 6,
     id: "choose-zip",
     title: "Select the downloaded ZIP file",
-    description:
-      "Choose the ZIP you downloaded. From this website the filename is PublishRank-2.26.0.zip. Leave it compressed—do not unzip it before uploading.",
+    description: `Choose the current ZIP, ${DOWNLOAD_FILE}. Leave it compressed—do not unzip it before uploading.`,
     image: "step-06-choose-zip.jpg",
-    alt: "WordPress upload form with the PublishRank 2.26.0 ZIP selected.",
+    alt: "Historical WordPress upload form with an example PublishRank ZIP selected.",
   },
   {
     number: 7,

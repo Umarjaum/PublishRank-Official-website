@@ -13,6 +13,10 @@
       "title": "Download"
     },
     {
+      "path": "/changelog",
+      "title": "PublishRank 2.26.1 release notes"
+    },
+    {
       "path": "/install",
       "title": "PublishRank installation guide"
     },
@@ -82,7 +86,7 @@
     },
     {
       "path": "/video",
-      "title": "What's new in PublishRank SEO 2.26.0 video"
+      "title": "PublishRank SEO release video (2.26.0 interface)"
     },
     {
       "path": "/sitemap.xml",

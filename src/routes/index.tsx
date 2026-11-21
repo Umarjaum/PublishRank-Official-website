@@ -104,38 +104,44 @@ const workflowSteps = [
 const releaseHighlights = [
   {
     Icon: Code2,
-    title: "Schema Studio for 246 types",
-    text: "Build reusable Schema.org templates with conditions, dynamic fields, revision restore and a live JSON-LD preview. Templates stay off until you enable them.",
+    title: "One persistent Gutenberg SEO sidebar",
+    text: "SEO, Social, Schema, Advanced and Insights tabs bring editing together with discoverable controls, saved preferences and no duplicate boxes below the editor. Pop it out as a movable window, or dock it back; Google and social previews update live as you edit.",
     wide: true,
   },
   {
-    Icon: Building2,
-    title: "Local SEO for up to 50 locations",
-    text: "Give each branch its own business details, page and LocalBusiness entity connected to the parent organization.",
+    Icon: ShieldCheck,
+    title: "Safer media URL migrations",
+    text: "Media Link Manager plans, previews, applies and verifies changes; it checks collisions, supports rollback and reports ambiguous references instead of guessing.",
     wide: false,
   },
   {
     Icon: Search,
-    title: "Schema diagnostics",
-    text: "Check types, properties, values, URLs, nesting and entity references—and distinguish Schema.org validity from Google rich-result requirements.",
+    title: "More useful 404 diagnosis",
+    text: "Separate own-site broken links from external referrals, see likely causes and create redirects only for high-confidence fixes.",
     wide: false,
   },
   {
-    Icon: BarChart3,
-    title: "Publishing activity that reflects real data",
-    text: "The dashboard trend line now shows articles published over the previous 14 days instead of a decorative chart.",
+    Icon: ListChecks,
+    title: "A reviewable Bulk SEO Editor",
+    text: "Filter and review edits before saving, prevent conflicts, track and undo changes, and use CSV safeguards for spreadsheet formulas.",
+    wide: false,
+  },
+  {
+    Icon: Newspaper,
+    title: "Improved video sitemap discovery",
+    text: "Find YouTube and Vimeo in Embed blocks and pasted links, use known thumbnails and skip entries without them rather than inventing values.",
+    wide: false,
+  },
+  {
+    Icon: Code2,
+    title: "Clearer Schema Studio guidance",
+    text: "Searchable type categories, guided properties and distinct Schema.org, Google requirement and recommendation checks improve the editing workflow.",
     wide: false,
   },
   {
     Icon: Globe,
-    title: "More accurate multilingual content signals",
-    text: "Unicode-aware word counts and detected article language improve structured-data and Markdown/AI output for Arabic, Urdu and other non-Latin content.",
-    wide: false,
-  },
-  {
-    Icon: Lock,
-    title: "Safer first-run sign-in setup",
-    text: "The setup wizard now saves a new private login address and explains its 10-minute confirmation window, reducing the risk of a confusing first install.",
+    title: "Responsive and accessibility refinements",
+    text: "Updated breakpoints, visible focus, target sizing, reduced-motion and forced-colours support. Automated checks were spot checks, not a full WCAG audit.",
     wide: true,
   },
 ] as const;
@@ -369,53 +375,51 @@ function Index() {
         >
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:items-center">
             <div>
-              <p className="eyebrow eyebrow--night">Production-ready · free to use</p>
+              <p className="eyebrow eyebrow--night">
+                2.26.1 sandbox verification · free and open source
+              </p>
               <h2
                 id="proof-title"
                 className="mt-3 text-3xl font-extrabold leading-tight md:text-4xl"
               >
-                All features tested on real websites.
+                Verified workflows, with test limits stated.
               </h2>
               <p className="mt-3 text-sm leading-6 opacity-80">
-                The 2.26.0 report set covers 40 representative URLs, all 134 Local SEO business
-                types, the 246-type Schema Studio catalog and 50 admin screens on local WordPress
-                7.1.5 / PHP 8.4 / SQLite test sites. The reports identify untested environments and
-                paths; screenshot traffic figures are simulated.
+                The supplied report records WordPress 7.1.5, PHP 8.3 and SQLite testing on a sandbox
+                site, including clean install, database schema 7→8, editor workflows and responsive
+                checks. It is not production-host testing; it also lists blocked, partial and
+                untested integrations and environments.
               </p>
             </div>
             <dl className="grid gap-x-8 gap-y-8 sm:grid-cols-2" data-gsap-stagger>
               <div className="proof-stat">
-                <dt className="sr-only">Sitemap URLs verified</dt>
+                <dt className="sr-only">Admin screens opened on a clean install</dt>
                 <dd>
-                  <span className="proof-value" data-count-to="40">
-                    40
+                  <span className="proof-value" data-count-to="10">
+                    10
                   </span>
-                  <p className="proof-label">representative URLs in the content-type matrix</p>
+                  <p className="proof-label">admin screens opened on the clean install</p>
                 </dd>
               </div>
               <div className="proof-stat">
-                <dt className="sr-only">Sitemap files rebuilt per edit</dt>
+                <dt className="sr-only">Viewport widths checked for responsive overflow</dt>
                 <dd>
-                  <span className="proof-value">134 / 134</span>
-                  <p className="proof-label">
-                    Local SEO business types passed in the registry report
-                  </p>
+                  <span className="proof-value">13</span>
+                  <p className="proof-label">viewport widths checked for responsive overflow</p>
                 </dd>
               </div>
               <div className="proof-stat">
-                <dt className="sr-only">Plugin database queries per page</dt>
+                <dt className="sr-only">Database schema migration exercised</dt>
                 <dd>
-                  <span className="proof-value">246</span>
-                  <p className="proof-label">Schema.org types catalogued in Schema Studio</p>
+                  <span className="proof-value">7 → 8</span>
+                  <p className="proof-label">database schema upgrade exercised in the sandbox</p>
                 </dd>
               </div>
               <div className="proof-stat">
-                <dt className="sr-only">Themes tested with masking</dt>
+                <dt className="sr-only">PHP files syntax-checked on PHP 8.3</dt>
                 <dd>
-                  <span className="proof-value" data-count-to="50">
-                    50
-                  </span>
-                  <p className="proof-label">admin screens in the 2.26.0 interface test set</p>
+                  <span className="proof-value">259+</span>
+                  <p className="proof-label">PHP files syntax-checked on PHP 8.3</p>
                 </dd>
               </div>
             </dl>
@@ -436,8 +440,8 @@ function Index() {
               </h2>
               <p className="mt-3 leading-relaxed text-muted-foreground">
                 Review security events, make page-level SEO checks, build reusable FAQs and maintain
-                editorial sources. PublishRank is production-ready and community-tested on real
-                websites; the release reports document the exact technical test matrices.
+                editorial sources. The 2.26.1 report describes sandbox testing and its limits; it
+                does not claim production-host testing or universal compatibility.
               </p>
             </div>
             <Link

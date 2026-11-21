@@ -84,9 +84,10 @@ function DownloadPage() {
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Free, open-source WordPress SEO for businesses and websites of every kind. Version{" "}
-              {CURRENT_RELEASE} adds reusable Schema Studio templates, deeper schema diagnostics,
-              Local SEO for up to 50 locations, and a refreshed first-run setup wizard. The release
-              also improves previews, accessibility and language handling.
+              {CURRENT_RELEASE} brings a tidier dashboard and a movable Gutenberg SEO editor with
+              live Google and social previews. It also strengthens Media Link Manager, 404 diagnosis
+              and bulk editing, refines Schema Studio and improves video sitemap discovery. The
+              release report describes sandbox testing and its limits.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink
@@ -189,10 +190,12 @@ function DownloadPage() {
                 "More than 40 WordPress SEO tools for business, site and publishing workflows",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
                 "Administrator-only Mastodon token reveal and resilient post confirmation",
-                `New in ${CURRENT_RELEASE}: Schema Studio templates for 246 catalogued Schema.org types, with reusable assignments and live JSON-LD preview`,
-                "Schema diagnostics for syntax, vocabulary, value types, URLs, dates, nesting and connected references",
-                "Local SEO for up to 50 business locations, each with its own profile and page",
-                "A refreshed first-install setup wizard, improved previews and better Arabic, Urdu and non-Latin text handling",
+                `New in ${CURRENT_RELEASE}: a movable Gutenberg SEO editor with live Google and social previews`,
+                "Media Link Manager with dry-run URL migration, collision checks, verification, redirects and rollback",
+                "404 diagnosis and source-page discovery with redirects for high-confidence fixes",
+                "Bulk SEO editing with review-before-save, conflict checks, undo history and safeguarded CSV",
+                "Schema Studio refinements and YouTube/Vimeo video sitemap discovery",
+                "Responsive and accessibility refinements; the supplied automated checks were spot checks, not a full WCAG audit",
                 "News and XML sitemaps, connected structured data, metadata and social previews",
                 "SEO Inspector, redirects, 404 monitoring, WooCommerce SEO and optional publishing workflows",
                 "Free core edition, open source",

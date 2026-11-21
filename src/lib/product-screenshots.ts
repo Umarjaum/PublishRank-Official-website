@@ -33,7 +33,7 @@ const current = (filename: string, title: string, text?: string): ProductScreens
 export const productScreenshotGroups: ProductScreenshotGroup[] = [
   {
     id: "new-in-2-26",
-    title: "New in 2.26.0",
+    title: "Historical captures · 2.26.0",
     description:
       "Schema Studio, detailed diagnostics, Local SEO locations, the refreshed dashboard and onboarding.",
     screenshots: [

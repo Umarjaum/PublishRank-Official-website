@@ -5,11 +5,11 @@ export const SITE_URL = "https://publishrankseo.vercel.app";
 export const SITE_NAME = "PublishRank SEO for WordPress";
 export const UMARJAUM_URL = "https://umarjaum.vercel.app";
 export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
-export const SITE_TAGLINE = "Production-Ready WordPress SEO Plugin for Every Website";
+export const SITE_TAGLINE = "Open-Source WordPress SEO for Every Website";
 export const SITE_DESCRIPTION =
-  "PublishRank SEO for WordPress is a free, open-source WordPress SEO plugin for businesses, online stores, service providers, creators, publishers and websites of every kind. It is production-ready. All features have been tested on real websites by the PublishRank Community, with no errors reported.";
+  "PublishRank SEO for WordPress is a free, open-source WordPress SEO plugin for businesses, online stores, service providers, creators, publishers and websites of every kind. The supplied 2.26.1 release report documents sandbox testing on WordPress 7.1.5, PHP 8.3 and SQLite, with explicit limits and untested environments.";
 export const HOME_SEO_DESCRIPTION =
-  "PublishRank SEO for WordPress: free WordPress SEO plugin for businesses and stores. Production-ready; all features tested on real websites with no errors reported.";
+  "PublishRank SEO is a free, open-source WordPress SEO plugin for businesses, stores, creators and publishers. The 2.26.1 report documents sandbox testing and its limits.";
 /** Latest plugin version, read from the release list (src/lib/releases.ts). */
 export const CURRENT_RELEASE = latestRelease.version;
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
