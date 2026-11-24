@@ -21,13 +21,13 @@ export const announcements: {
   path: string;
 }[] = [
   {
-    id: "release-2-26-1",
-    title: "PublishRank SEO 2.26.1 is available",
+    id: "release-2-26-2",
+    title: "PublishRank SEO 2.26.2 is available",
     summary:
-      "A tidier dashboard, a movable Gutenberg SEO editor with live previews, safer media migration, Schema Studio refinements, stronger 404 and bulk-edit workflows, and better video sitemap discovery. The report documents its sandbox scope; the maintainer separately reports feature checks passing on current WordPress/PHP versions across business and news sites.",
+      "Safer editor saves, Edit SEO permissions, a unified Classic Editor dock, media controls and licence metadata, more search/social previews, and a new REST API. The included report documents WordPress 7.1.5, PHP 8.3 and SQLite checks, plus explicit untested environments and areas.",
     level: "important",
-    published_at: "2026-11-21T00:00:00Z",
-    path: `/changelog#${releaseAnchor("2.26.1")}`,
+    published_at: "2026-11-24T00:00:00Z",
+    path: `/changelog#${releaseAnchor("2.26.2")}`,
   },
 ];
 
@@ -165,8 +165,8 @@ export function buildFeed(): PublishRankFeed {
       { id: "documentation", title: "Documentation", url: `${SITE_URL}/documentation` },
       {
         id: "release-report",
-        title: "2.26.1 verification report",
-        url: `${SITE_URL}/reports/publishrank-2.26.1-release-report.md`,
+        title: "2.26.2 validation report",
+        url: `${SITE_URL}/reports/publishrank-2.26.2-release-report.md`,
       },
       { id: "video", title: "Product video", url: `${SITE_URL}/video` },
       { id: "changelog", title: "Full release history", url: `${SITE_URL}/changelog` },

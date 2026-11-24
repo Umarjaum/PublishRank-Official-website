@@ -26,8 +26,7 @@ export const Route = createFileRoute("/install")({
       "How to Install PublishRank on WordPress",
       `Install PublishRank ${CURRENT_RELEASE} with a screenshot-guided walkthrough for WordPress.org or a direct ZIP upload, then configure and verify your site.`,
       {
-        keywords:
-          "install PublishRank, WordPress plugin installation, upload WordPress plugin ZIP, PublishRank setup wizard, PublishRank 2.26.1",
+        keywords: `install PublishRank, WordPress plugin installation, upload WordPress plugin ZIP, PublishRank setup wizard, PublishRank ${CURRENT_RELEASE}`,
       },
     ),
   component: InstallPage,

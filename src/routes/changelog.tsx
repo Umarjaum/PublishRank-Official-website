@@ -165,6 +165,15 @@ function ChangelogPage() {
                     </p>
                   </header>
                   <p className="mt-3 leading-7 text-muted-foreground">{release.summary}</p>
+                  {release.version === "2.26.2" && (
+                    <a
+                      href="/reports/publishrank-2.26.2-release-report.md"
+                      className="mt-4 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
+                    >
+                      <Download className="h-4 w-4" aria-hidden="true" />
+                      Read the complete 2.26.2 validation report
+                    </a>
+                  )}
                   {release.version === "2.26.1" && (
                     <a
                       href="/reports/publishrank-2.26.1-release-report.md"

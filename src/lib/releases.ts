@@ -28,6 +28,74 @@ export const CHANGE_KIND_LABELS: Record<ChangeKind, string> = {
 
 export const releases: Release[] = [
   {
+    version: "2.26.2",
+    date: "2026-11-24",
+    title: "PublishRank SEO 2.26.2 — safer editor saves, media controls and REST API",
+    summary:
+      "Unifies Classic and block-editor workflows, protects SEO edits and REST editorial data, adds media-management and licence fields, expands previews, and introduces the REST API. The included report documents a WordPress 7.1.5, PHP 8.3 and SQLite test environment, with explicit untested areas.",
+    minimumWp: "6.3",
+    minimumPhp: "7.4",
+    testedUpTo: "7.1",
+    changes: [
+      {
+        kind: "security",
+        text: "SEO changes now require the Edit SEO permission alongside the ability to edit the post. Existing post editors retain the permission after upgrade; administrators can change role access in PublishRank → Roles.",
+      },
+      {
+        kind: "fix",
+        text: "The block-editor bridge now runs PublishRank's own field savers once instead of replaying every save_post handler; the report records a test counter confirming the third-party handler ran once.",
+      },
+      {
+        kind: "feature",
+        text: "Classic Editor brings seven SEO areas into one movable, resizable dock with Fields, Preview, Analysis, Schema, Multilingual and Media tabs; users without Edit SEO see read-only values.",
+      },
+      {
+        kind: "feature",
+        text: "A Media tab lists images used by an item and supports in-place Media Library metadata edits, external social-image checks, social-image selection and a safe dry run for file-URL replacement.",
+      },
+      {
+        kind: "feature",
+        text: "Image licence fields cover credit, creator, copyright, licence URL and acquisition page, and can populate ImageObject metadata; upload IPTC credit and copyright are used when fields are empty.",
+      },
+      {
+        kind: "improvement",
+        text: "Editor previews add Bing search results and separate LinkedIn and WhatsApp cards alongside Google, Facebook and X; previews use real image dimensions and are labelled simulations.",
+      },
+      {
+        kind: "improvement",
+        text: "The block-editor sidebar has a visible SEO toolbar button with live score, a resizable sidebar and floating window, crimson accents, and a read-only notice for users without Edit SEO.",
+      },
+      {
+        kind: "feature",
+        text: "The publishrank/v1 REST API adds post SEO GET/PATCH, analysis, rendered head data for headless sites, schema and sitemap endpoints. Endpoint details and permissions are documented in the release REST-API.md.",
+      },
+      {
+        kind: "security",
+        text: "Focus keywords and keyphrases are no longer returned publicly through the REST API; editorial fields are returned only to users who can edit the post unless the compatibility filter is used.",
+      },
+      {
+        kind: "improvement",
+        text: "Analytics collection adds a configurable per-visitor rate limit and rejects paths longer than the accepted limit.",
+      },
+      {
+        kind: "fix",
+        text: "The invalid Schema.org type SatireNewsArticle is replaced by SatiricalArticle; posts with the older saved value are mapped automatically.",
+      },
+      {
+        kind: "improvement",
+        text: "Schema Studio shows when each Google requirement was last reviewed; the supplied report notes that its review dates were not re-verified against live Google documentation for this release.",
+      },
+      {
+        kind: "improvement",
+        text: "The package removes stale duplicate src/assets copies so assets/ remains the single shipped source for those files.",
+      },
+      {
+        kind: "compatibility",
+        text: "The supplied report records WordPress 7.1.5, PHP 8.3 and SQLite checks, PHP lint on 266 files with zero errors, and PHPCompatibility 9.3 with one PHP 7.4 finding fixed. WordPress 6.3/PHP 7.4 runtime, MySQL/MariaDB, multisite, WooCommerce, multilingual plugins, mobile editor, RTL, full accessibility and performance checks were not performed.",
+      },
+    ],
+  },
+  {
     version: "2.26.1",
     date: "2026-11-21",
     title: "PublishRank SEO 2.26.1 — editor workflow and safer site maintenance",

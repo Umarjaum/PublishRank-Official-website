@@ -103,45 +103,45 @@ const workflowSteps = [
 
 const releaseHighlights = [
   {
-    Icon: Code2,
-    title: "One persistent Gutenberg SEO sidebar",
-    text: "SEO, Social, Schema, Advanced and Insights tabs bring editing together with discoverable controls, saved preferences and no duplicate boxes below the editor. Pop it out as a movable window, or dock it back; Google and social previews update live as you edit.",
+    Icon: ShieldCheck,
+    title: "Safer SEO permissions and editor saves",
+    text: "SEO edits require the Edit SEO permission alongside post-edit access. The block-editor bridge runs PublishRank's own field savers once instead of replaying every save_post handler.",
     wide: true,
   },
   {
-    Icon: ShieldCheck,
-    title: "Safer media URL migrations",
-    text: "Media Link Manager plans, previews, applies and verifies changes; it checks collisions, supports rollback and reports ambiguous references instead of guessing.",
-    wide: false,
-  },
-  {
-    Icon: Search,
-    title: "More useful 404 diagnosis",
-    text: "Separate own-site broken links from external referrals, see likely causes and create redirects only for high-confidence fixes.",
-    wide: false,
-  },
-  {
-    Icon: ListChecks,
-    title: "A reviewable Bulk SEO Editor",
-    text: "Filter and review edits before saving, prevent conflicts, track and undo changes, and use CSV safeguards for spreadsheet formulas.",
+    Icon: Code2,
+    title: "One Classic Editor dock",
+    text: "Fields, Preview, Analysis, Schema, Multilingual and Media tabs share one movable, resizable dock. Values are read-only for users without Edit SEO permission.",
     wide: false,
   },
   {
     Icon: Newspaper,
-    title: "Improved video sitemap discovery",
-    text: "Find YouTube and Vimeo in Embed blocks and pasted links, use known thumbnails and skip entries without them rather than inventing values.",
+    title: "Media controls and image licence fields",
+    text: "Review images used by a post, edit media details with conflict protection, and add credit, creator, copyright, licence and acquisition-page metadata to ImageObject output.",
+    wide: false,
+  },
+  {
+    Icon: Search,
+    title: "Google, Bing and social preview simulations",
+    text: "Search previews include Google and Bing; separate Facebook, LinkedIn, WhatsApp and X cards show image dimensions and are labelled simulations.",
     wide: false,
   },
   {
     Icon: Code2,
-    title: "Clearer Schema Studio guidance",
-    text: "Searchable type categories, guided properties and distinct Schema.org, Google requirement and recommendation checks improve the editing workflow.",
+    title: "New publishrank/v1 REST API",
+    text: "Post SEO GET/PATCH, analysis, rendered head data, schema and sitemap endpoints extend documented integration options for WordPress and headless sites.",
     wide: false,
   },
   {
-    Icon: Globe,
-    title: "Responsive and accessibility refinements",
-    text: "Updated breakpoints, visible focus, target sizing, reduced-motion and forced-colours support. Automated checks were spot checks, not a full WCAG audit.",
+    Icon: Lock,
+    title: "REST privacy and analytics safeguards",
+    text: "Editorial focus keywords and keyphrases are not public in REST by default; analytics collection has a configurable rate limit and rejects over-long paths.",
+    wide: false,
+  },
+  {
+    Icon: ListChecks,
+    title: "Schema type correction and review dates",
+    text: "SatireNewsArticle maps to SatiricalArticle, including old saved values. Schema Studio displays review dates, which the supplied report says were not re-verified against live Google documentation this release.",
     wide: true,
   },
 ] as const;
@@ -376,7 +376,7 @@ function Index() {
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:items-center">
             <div>
               <p className="eyebrow eyebrow--night">
-                2.26.1 sandbox verification · free and open source
+                2.26.2 validation report · free and open source
               </p>
               <h2
                 id="proof-title"
@@ -385,41 +385,38 @@ function Index() {
                 Verified workflows, with test limits stated.
               </h2>
               <p className="mt-3 text-sm leading-6 opacity-80">
-                The supplied report records WordPress 7.1.5, PHP 8.3 and SQLite testing on a sandbox
-                site, including clean install, database schema 7→8, editor workflows and responsive
-                checks. It is not production-host testing; it also lists blocked, partial and
-                untested integrations and environments.
+                The included report records WordPress 7.1.5, PHP 8.3 and SQLite checks on a sandbox
+                site, including editor, media, REST, analytics and schema workflows. It is not
+                production-host testing and lists environments and checks that were not performed.
               </p>
             </div>
             <dl className="grid gap-x-8 gap-y-8 sm:grid-cols-2" data-gsap-stagger>
               <div className="proof-stat">
-                <dt className="sr-only">Admin screens opened on a clean install</dt>
+                <dt className="sr-only">PHP files linted with zero reported errors</dt>
                 <dd>
-                  <span className="proof-value" data-count-to="10">
-                    10
-                  </span>
-                  <p className="proof-label">admin screens opened on the clean install</p>
+                  <span className="proof-value">266</span>
+                  <p className="proof-label">PHP files linted in the report with zero errors</p>
                 </dd>
               </div>
               <div className="proof-stat">
-                <dt className="sr-only">Viewport widths checked for responsive overflow</dt>
+                <dt className="sr-only">Generated fixture pages checked for schema output</dt>
                 <dd>
-                  <span className="proof-value">13</span>
-                  <p className="proof-label">viewport widths checked for responsive overflow</p>
+                  <span className="proof-value">52</span>
+                  <p className="proof-label">generated fixture pages checked for schema output</p>
                 </dd>
               </div>
               <div className="proof-stat">
-                <dt className="sr-only">Database schema migration exercised</dt>
+                <dt className="sr-only">Distinct schema types covered by fixture checks</dt>
                 <dd>
-                  <span className="proof-value">7 → 8</span>
-                  <p className="proof-label">database schema upgrade exercised in the sandbox</p>
+                  <span className="proof-value">67</span>
+                  <p className="proof-label">distinct schema types covered by fixture checks</p>
                 </dd>
               </div>
               <div className="proof-stat">
-                <dt className="sr-only">PHP files syntax-checked on PHP 8.3</dt>
+                <dt className="sr-only">PHP lint errors reported on those files</dt>
                 <dd>
-                  <span className="proof-value">259+</span>
-                  <p className="proof-label">PHP files syntax-checked on PHP 8.3</p>
+                  <span className="proof-value">0</span>
+                  <p className="proof-label">PHP lint errors reported on those 266 files</p>
                 </dd>
               </div>
             </dl>
@@ -439,9 +436,9 @@ function Index() {
                 Search, site protection and editorial tools in one WordPress plugin.
               </h2>
               <p className="mt-3 leading-relaxed text-muted-foreground">
-                Review security events, make page-level SEO checks, build reusable FAQs and maintain
-                editorial sources. The 2.26.1 report describes sandbox testing and its limits; it
-                does not claim production-host testing or universal compatibility.
+                Review the 2.26.2 editor, media, preview and REST API updates. The included report
+                describes sandbox testing and its limits; it does not claim production-host testing
+                or universal compatibility.
               </p>
             </div>
             <Link

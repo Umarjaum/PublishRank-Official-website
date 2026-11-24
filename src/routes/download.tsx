@@ -84,12 +84,11 @@ function DownloadPage() {
             <h1 className="mt-3 text-4xl font-extrabold md:text-5xl">Download PublishRank</h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Free, open-source WordPress SEO for businesses and websites of every kind. Version{" "}
-              {CURRENT_RELEASE} brings a tidier dashboard and a movable Gutenberg SEO editor with
-              live Google and social previews. It also strengthens Media Link Manager, 404 diagnosis
-              and bulk editing, refines Schema Studio and improves video sitemap discovery. The
-              release report documents its sandbox test scope. Separately, the maintainer reports
-              feature checks passing on the latest WordPress and PHP versions tested across multiple
-              business categories and news sites.
+              {CURRENT_RELEASE} adds a unified Classic Editor dock, Media tab and image licence
+              metadata, expands search and social previews, and introduces the publishrank/v1 REST
+              API. It also tightens SEO-edit permissions, privacy and analytics limits. The included
+              validation report records checks on WordPress 7.1.5, PHP 8.3 and SQLite and lists the
+              environments and checks that were not performed.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <DownloadLink
@@ -128,6 +127,13 @@ function DownloadPage() {
                 All releases on GitHub
               </a>
             </div>
+            <a
+              href="/reports/publishrank-2.26.2-release-report.md"
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
+            >
+              Read the 2.26.2 validation report{" "}
+              <ExternalLink aria-hidden="true" className="h-4 w-4" />
+            </a>
             <div aria-live="polite" className="mt-4 min-h-6 text-sm">
               {started && (
                 <p role="status" className="flex items-start gap-2">
@@ -192,12 +198,14 @@ function DownloadPage() {
                 "More than 40 WordPress SEO tools for business, site and publishing workflows",
                 "Mastodon sharing, profile verification and a copyable rel=me HTML-head snippet",
                 "Administrator-only Mastodon token reveal and resilient post confirmation",
-                `New in ${CURRENT_RELEASE}: a movable Gutenberg SEO editor with live Google and social previews`,
-                "Media Link Manager with dry-run URL migration, collision checks, verification, redirects and rollback",
-                "404 diagnosis and source-page discovery with redirects for high-confidence fixes",
-                "Bulk SEO editing with review-before-save, conflict checks, undo history and safeguarded CSV",
-                "Schema Studio refinements and YouTube/Vimeo video sitemap discovery",
-                "Responsive and accessibility refinements; the supplied automated checks were spot checks, not a full WCAG audit",
+                `New in ${CURRENT_RELEASE}: a unified Classic Editor dock and safer block-editor save bridge`,
+                "Edit SEO permission checks and more private REST editorial data",
+                "Media tab with in-place metadata, conflict checks, social image controls and safe URL dry runs",
+                "Image licence metadata for credits, creators, copyright, licence and acquisition pages",
+                "Google and Bing search previews plus Facebook, LinkedIn, WhatsApp and X social simulations",
+                "publishrank/v1 REST endpoints for SEO, analysis, head output, schema and sitemaps",
+                "Analytics collection rate limiting and long-path rejection",
+                "Validation report documents the test environment and explicitly lists checks not performed",
                 "News and XML sitemaps, connected structured data, metadata and social previews",
                 "SEO Inspector, redirects, 404 monitoring, WooCommerce SEO and optional publishing workflows",
                 "Free core edition, open source",

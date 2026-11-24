@@ -15,51 +15,51 @@ import {
 
 const launchFeatures: Array<{ title: string; description: string; badge?: string }> = [
   {
-    title: "Unified Gutenberg SEO sidebar",
+    title: "Edit SEO permission and safer editor saves",
     description:
-      "Keep SEO, Social, Schema, Advanced and Insights tools in one discoverable panel with toolbar and Options-menu entries, saved preferences and no duplicate boxes below Gutenberg.",
-    badge: "2.26.1",
+      "SEO edits require the Edit SEO permission alongside post-edit access. The block-editor bridge now runs PublishRank's own field savers once instead of replaying every save_post handler.",
+    badge: "2.26.2",
   },
   {
-    title: "Media Link Manager",
+    title: "One Classic Editor SEO dock",
     description:
-      "Plan and preview media URL changes, check collisions, apply and verify migrations, create redirects for moved local files and roll back. Ambiguous references are reported, not guessed.",
-    badge: "2.26.1",
+      "Fields, Preview, Analysis, Schema, Multilingual and Media tabs live in one movable and resizable dock; users without Edit SEO see read-only values.",
+    badge: "2.26.2",
   },
   {
-    title: "Advanced 404 Monitor",
+    title: "Media details and image licence metadata",
     description:
-      "Distinguish own-site broken links from external referrals, show likely causes and source posts, and suggest redirects only for high-confidence fixes.",
-    badge: "2.26.1",
+      "Review images used by a post, edit Media Library fields with stale-change protection, and add credit, creator, copyright, licence and acquisition-page data to ImageObject output.",
+    badge: "2.26.2",
   },
   {
-    title: "Reviewable Bulk SEO Editor",
+    title: "Search and social preview simulations",
     description:
-      "Filter, review, validate and save SEO edits with conflict protection, change history, undo and safeguarded CSV import/export.",
-    badge: "2.26.1",
+      "Preview Google and Bing desktop/mobile search results plus separate Facebook, LinkedIn, WhatsApp and X cards. Cards show actual image sizing and are labelled simulations.",
+    badge: "2.26.2",
   },
   {
-    title: "Video sitemap discovery",
+    title: "publishrank/v1 REST API",
     description:
-      "Find YouTube and Vimeo in Embed blocks or pasted links, use known thumbnails and skip entries without a thumbnail rather than inventing one.",
-    badge: "2.26.1",
+      "GET/PATCH post SEO, analysis, rendered head output for headless sites, schema and sitemap endpoints. Editorial focus keywords and keyphrases are not returned publicly by default.",
+    badge: "2.26.2",
   },
   {
-    title: "Schema Studio refinements",
+    title: "Analytics and schema corrections",
     description:
-      "Searchable type categories, Basic and Advanced modes, guided property examples and validation that separates Schema.org validity from Google requirements and recommendations.",
-    badge: "2.26.1",
+      "Analytics collection has a configurable rate limit and rejects over-long paths. The invalid SatireNewsArticle type is replaced with SatiricalArticle, including for older saved values.",
+    badge: "2.26.2",
   },
   {
-    title: "Responsive and accessibility refinements",
+    title: "Earlier 2.26.1 improvements",
     description:
-      "Consolidated responsive breakpoints, visible focus, target sizing, reduced-motion and forced-colours handling. Automated touch-target and contrast checks were spot checks, not a full WCAG audit.",
+      "The previous release added the unified Gutenberg sidebar, Media Link Manager, 404 diagnosis, bulk-edit review safeguards and video sitemap discovery. See its historical changelog entry for those changes.",
     badge: "2.26.1",
   },
   {
     title: "Schema Studio and Local SEO",
     description:
-      "Earlier 2.26.0 features include reusable Schema.org templates and Local SEO for up to 50 locations. The report for that release is separate from 2.26.1 test coverage.",
+      "Earlier 2.26.0 features include reusable Schema.org templates and Local SEO for up to 50 locations. That release has its own report and test scope.",
     badge: "2.26.0",
   },
   {
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
     pageSeo(
       "/wordpress-org-release",
       `PublishRank SEO ${CURRENT_RELEASE} — WordPress SEO Plugin`,
-      `Free, open-source WordPress SEO for businesses and publishers. The maintainer reports feature checks passing on the latest WordPress and PHP versions tested across business and news sites.`,
+      `Free, open-source WordPress SEO for businesses and publishers. Review the ${CURRENT_RELEASE} validation report for its test environment, findings and untested areas.`,
       {
         rawTitle: true,
         keywords: WORDPRESS_RELEASE_TAGS.join(", "),
@@ -105,7 +105,7 @@ export const Route = createFileRoute("/wordpress-org-release")({
             alternateName: "PublishRank SEO",
             url: `${SITE_URL}/wordpress-org-release`,
             description:
-              "Free, open-source WordPress SEO for businesses, publishers and websites. The maintainer reports feature checks passing on the latest WordPress and PHP versions tested across multiple business categories and news sites. Compatibility can vary by site setup.",
+              "Free, open-source WordPress SEO for businesses, publishers and websites. The current release report documents its test environment, results and untested areas; compatibility can vary by site setup.",
             applicationCategory: "SEO",
             operatingSystem: "WordPress",
             isAccessibleForFree: true,
@@ -140,16 +140,15 @@ function WordPressOrgRelease() {
               PublishRank SEO for WordPress is a free and open-source plugin for businesses, stores,
               service providers, creators, publishers and sites of every kind. It combines technical
               SEO, Local SEO, WooCommerce SEO and security with optional newsroom workflows. Find
-              the official listing and install it directly from your WordPress dashboard. The 2.26.1
-              report documents its specific sandbox test scope. Separately, the maintainer reports
-              testing the latest available WordPress and PHP versions across multiple business
-              categories and news sites, with feature checks working as expected. Hosting, themes
-              and other plugins can still affect compatibility.
+              the official listing and install it directly from your WordPress dashboard. The 2.26.2
+              report records WordPress 7.1.5, PHP 8.3 and SQLite checks, and explicitly lists
+              untested runtimes, integrations and accessibility areas. Hosting, themes and other
+              plugins can still affect compatibility.
             </p>
             <p className="mt-3 max-w-3xl text-sm font-semibold text-brand">
-              New in {CURRENT_RELEASE}: a unified Gutenberg SEO sidebar, Media Link Manager,
-              enhanced 404 diagnosis, a more reviewable Bulk SEO Editor, improved video sitemap
-              discovery, and Schema Studio refinements. See the release report for its findings and
+              New in {CURRENT_RELEASE}: safer SEO permissions and editor saves, a unified Classic
+              Editor dock, image management and licence metadata, Bing and social preview
+              simulations, and the publishrank/v1 REST API. See the report for its findings and
               limits; no WordPress plugin can guarantee identical behavior on every site setup.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -170,10 +169,10 @@ function WordPressOrgRelease() {
               </Button>
             </div>
             <a
-              href="/reports/publishrank-2.26.1-release-report.md"
+              href="/reports/publishrank-2.26.2-release-report.md"
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
             >
-              Read the full 2.26.1 verification report <ExternalLink aria-hidden="true" />
+              Read the full 2.26.2 validation report <ExternalLink aria-hidden="true" />
             </a>
             <ul aria-label="PublishRank topics" className="mt-7 flex flex-wrap gap-2">
               {WORDPRESS_RELEASE_TAGS.map((tag) => (

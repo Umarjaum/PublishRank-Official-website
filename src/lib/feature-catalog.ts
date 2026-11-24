@@ -1,4 +1,4 @@
-// PublishRank feature catalog: carried-forward entries plus source-backed 2.21.0–2.26.1 additions.
+// PublishRank feature catalog: carried-forward entries plus source-backed 2.21.0–2.26.2 additions.
 // Each category's items are stored one per line to keep the source easy to edit.
 import { releaseChangeTexts } from "@/lib/releases";
 
@@ -758,11 +758,19 @@ Integration testing considerations`),
   },
 
   {
+    id: "release-2.26.2",
+    title: "2.26.2 Release — safer editor saves, media controls and REST API",
+    summary:
+      "Source-backed 2.26.2 release details, with the included validation report's scope and limits kept explicit.",
+    badge: "CURRENT · 2.26.2",
+    items: releaseChangeTexts("2.26.2"),
+  },
+  {
     id: "release-2.26.1",
     title: "2.26.1 Release — unified editor, safer migrations and maintenance",
     summary:
       "Source-backed 2.26.1 feature list, with sandbox testing scope and documented limitations kept explicit.",
-    badge: "CURRENT · 2.26.1",
+    badge: "2.26.1",
     items: releaseChangeTexts("2.26.1"),
   },
   {

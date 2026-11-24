@@ -7,9 +7,9 @@ export const UMARJAUM_URL = "https://umarjaum.vercel.app";
 export const UMARJAUM_EMAIL = "UmarJaum@gmail.com";
 export const SITE_TAGLINE = "Open-Source WordPress SEO for Every Website";
 export const SITE_DESCRIPTION =
-  "PublishRank is a free, open-source WordPress SEO plugin for businesses, stores, service providers, creators and publishers. The maintainer reports feature checks passing on the latest WordPress and PHP versions tested across multiple business categories and news sites. Hosting, theme and plugin combinations can still affect compatibility.";
+  "PublishRank is a free, open-source WordPress SEO plugin for businesses, stores, service providers, creators and publishers. Release-specific test results and limitations are documented in the report for each version. Hosting, theme and plugin combinations can still affect compatibility.";
 export const HOME_SEO_DESCRIPTION =
-  "PublishRank SEO is a free, open-source WordPress SEO plugin. Maintainer tests passed on latest WordPress/PHP versions across business types and news sites.";
+  "PublishRank SEO 2.26.2 is a free, open-source WordPress SEO plugin. Review the included validation report for the test environment, results and limits.";
 /** Latest plugin version, read from the release list (src/lib/releases.ts). */
 export const CURRENT_RELEASE = latestRelease.version;
 export const REPO_URL = "https://github.com/Umarjaum/PublishRank";
