@@ -4,7 +4,11 @@ import { describe, expect, it } from "vitest";
 import { contactSchema } from "@/lib/contact-schema";
 import { featureCatalog, featureCount } from "@/lib/feature-catalog";
 import { editorialArticleSchema, newsArticles } from "@/lib/news-content";
-import { INSTALLATION_SCREENSHOT_VERSION, installationSteps } from "@/lib/installation-guide";
+import {
+  INSTALLATION_SCREENSHOT_BASE_PATH,
+  INSTALLATION_SCREENSHOT_VERSION,
+  installationSteps,
+} from "@/lib/installation-guide";
 import { pageSeo } from "@/lib/page-seo";
 import { publisherPages } from "@/lib/publisher-content";
 import { publisherPageProfiles } from "@/lib/publisher-page-profiles";
@@ -36,6 +40,9 @@ describe("content", () => {
   });
 
   it("includes a supplied screenshot for every installation guide step", () => {
+    expect(INSTALLATION_SCREENSHOT_BASE_PATH).toBe(
+      `/media/installation/${INSTALLATION_SCREENSHOT_VERSION}`,
+    );
     expect(installationSteps).toHaveLength(14);
     expect(installationSteps[0]?.number).toBe(2);
     expect(installationSteps.at(-1)?.number).toBe(15);

@@ -11,6 +11,7 @@ export type InstallationStep = {
 
 /** Historical WordPress admin screenshots from the supplied PublishRank 2.26.0 documentation. */
 export const INSTALLATION_SCREENSHOT_VERSION = "2.26.0";
+export const INSTALLATION_SCREENSHOT_BASE_PATH = `/media/installation/${INSTALLATION_SCREENSHOT_VERSION}`;
 export const installationSteps: InstallationStep[] = [
   {
     number: 2,

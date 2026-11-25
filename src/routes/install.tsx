@@ -10,7 +10,11 @@ import {
 } from "lucide-react";
 import { DownloadLink } from "@/components/download-link";
 import { PageFrame } from "@/components/site-shell";
-import { installationSteps } from "@/lib/installation-guide";
+import {
+  INSTALLATION_SCREENSHOT_BASE_PATH,
+  INSTALLATION_SCREENSHOT_VERSION,
+  installationSteps,
+} from "@/lib/installation-guide";
 import { pageSeo } from "@/lib/page-seo";
 import {
   CURRENT_RELEASE,
@@ -32,7 +36,6 @@ export const Route = createFileRoute("/install")({
   component: InstallPage,
 });
 
-const screenshotsUrl = `/media/installation/${CURRENT_RELEASE}`;
 const orgStep = installationSteps.find((step) => step.number === 2)!;
 const uploadSteps = installationSteps.filter((step) => step.number >= 3 && step.number <= 8);
 const setupSteps = installationSteps.filter((step) => step.number >= 9);
@@ -57,7 +60,7 @@ function StepCard({ step }: { step: (typeof installationSteps)[number] }) {
       </div>
       <figure className="border-t bg-muted/30 p-3 sm:p-5">
         <img
-          src={`${screenshotsUrl}/${step.image}`}
+          src={`${INSTALLATION_SCREENSHOT_BASE_PATH}/${step.image}`}
           alt={step.alt}
           width={1920}
           height={1624}
@@ -283,9 +286,10 @@ function InstallPage() {
         </section>
 
         <p className="mt-8 text-xs leading-6 text-muted-foreground">
-          Screenshot note: these images show a local WordPress test site running WordPress 7.1.5 and
-          PublishRank {CURRENT_RELEASE}, with sample publication content. Your dashboard and menu
-          can look different depending on your WordPress version, theme, role and installed plugins.
+          Screenshot note: these historical installation screenshots are from PublishRank
+          {` ${INSTALLATION_SCREENSHOT_VERSION}`} and show sample publication content. Your
+          dashboard and menu can look different depending on your WordPress version, theme, role and
+          installed plugins.
         </p>
       </div>
     </PageFrame>
